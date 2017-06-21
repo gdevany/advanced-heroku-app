@@ -42,7 +42,7 @@ _mongoose2.default.connect("mongodb://jwoo:jwoo@ds151451.mlab.com:51451/aca-test
 var app = (0, _express2.default)();
 app.use(_express2.default.static("public"));
 
-app.get("/", function (req, res, next) {
+app.get("*", function (req, res, next) {
   res.sendFile("public/index.html");
 });
 app.use(_bodyParser2.default.json());

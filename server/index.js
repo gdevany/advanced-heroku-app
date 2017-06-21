@@ -16,7 +16,7 @@ mongoose.connect("mongodb://jwoo:jwoo@ds151451.mlab.com:51451/aca-test");
 const app = express();
 app.use(express.static("public"));
 
-app.get("/", (req, res, next) => {
+app.get("*", (req, res, next) => {
   res.sendFile("public/index.html");
 });
 app.use(bodyParser.json());
