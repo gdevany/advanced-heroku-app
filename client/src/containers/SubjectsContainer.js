@@ -4,7 +4,7 @@ import {connect} from 'react-redux';
 
 
 function mapStateToProps(state) {
-  console.log('state');
+  console.log(state);
   return {
     category: state.category
   }

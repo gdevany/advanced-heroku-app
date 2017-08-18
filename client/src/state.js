@@ -5,7 +5,7 @@ export default {
       "type": [
         {
           "fastFood": "Fast Food",
-          "sitDown": "Sit Down"
+          "sitDown": "Sit Down",
           "regional": "Regional",
           "fineDine": "Fine Dining"
         }

@@ -3,13 +3,16 @@ import React from 'react';
 
 function Subjects(props) {
   console.log(props);
-  // var temp = props.category[0].subject;
+
+  const subDivs = props.category.map( (c) => {
+    return <button key={c.subject} className="catButton">{c.subject}</button>
+  })
+
+
   return (
     <div className="container">
       <div className="row">
-        <button className="button">
-        fgdhghdg
-        </button>
+          {subDivs}
       </div>
     </div>
   )

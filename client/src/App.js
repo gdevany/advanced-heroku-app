@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import Subjects from './components/Subjects';
+import Subjects from './containers/SubjectsContainer';
 
 
 
