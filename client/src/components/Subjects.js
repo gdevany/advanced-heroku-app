@@ -25,7 +25,7 @@ function Subjects(props) {
         onClick={ (e) => {e.preventDefault(); props.set(c.subject)}}
         >{c.subject}</button>
     })
-  } else subDivs = <div className="catButton">{props.subjectChosen}</div>
+  } else subDivs = <div className="chosenCat">{props.subjectChosen}</div>
 
 
   return (
