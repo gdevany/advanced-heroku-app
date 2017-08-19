@@ -10,7 +10,7 @@ function category(state = [], action){
   return state;
 }
 
-function subjectChosen(state="", action){
+function subjectChosen(state={}, action){
   if(action.type === "SET_SUBJECT"){
     return action.value;
   }
