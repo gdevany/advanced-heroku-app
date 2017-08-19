@@ -4,7 +4,14 @@ import {combineReducers} from 'redux';
 
 
 function category(state = [], action){
-  if(action.type === "SET_CATEGORY"){
+  if(action.type === "SHOW_CATEGORY"){
+    return action.value;
+  }
+  return state;
+}
+
+function subjectChosen(state="", action){
+  if(action.type === "SET_SUBJECT"){
     return action.value;
   }
   return state;
@@ -13,6 +20,6 @@ function category(state = [], action){
 
 
 const rootReducer = combineReducers({
-  category
+  category, subjectChosen
 });
 export default rootReducer;

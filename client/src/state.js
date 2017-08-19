@@ -1,38 +1,25 @@
 export default {
+  subjectChosen: "Eat Now",
   category: [
     {
       "subject": "Eat Now",
-      "type": [
-        {
-          "fastFood": "Fast Food",
-          "sitDown": "Sit Down",
-          "regional": "Regional",
-          "fineDine": "Fine Dining"
-        }
-      ]
+      "types": [
+        "Fast Food",
+        "Sit Down",
+        "Regional",
+        "Fine Dining"]
     },
-
     {
       "subject": "Merchandise",
-      "type": [
-        {
-          "clothing": "Clothing",
-          "auto": "Auto",
-          "grocery": "Grocery"
-        }
-      ]
+      "types": ["Clothing",
+      "Auto",
+      "Grocery"]
     },
-
     {
       "subject": "Home Goods",
-      "type": [
-        {
-          "retailer": "Retailer",
-          "itemSpec": "Item Specific",
-          "etc": "Etc"
-        }
-      ]
+      "types": ["Retailer",
+      "Item Specific",
+      "Etc"]
     },
   ]
-
 }

@@ -1,13 +1,21 @@
 import Subjects from '../components/Subjects';
 import {connect} from 'react-redux';
-
+import {setSubjectChosen} from '../actions';
 
 
 function mapStateToProps(state) {
-  console.log(state);
   return {
-    category: state.category
+    category: state.category,
+    subjectChosen: state.subjectChosen
   }
 }
 
-export default connect(mapStateToProps)(Subjects);
+function mapDispatchToProps(dispatch) {
+  return {
+    set: function(subj) {
+      dispatch(setSubjectChosen(subj));
+    }
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Subjects);
