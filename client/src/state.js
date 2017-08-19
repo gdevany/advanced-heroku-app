@@ -1,5 +1,5 @@
 export default {
-  subjectChosen: "Eat Now",
+  subjectChosen: "",
   category: [
     {
       "subject": "Eat Now",
