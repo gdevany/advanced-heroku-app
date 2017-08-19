@@ -5,7 +5,10 @@ function Subjects(props) {
   console.log(props);
 
   console.log(props.subjectChosen);
+
   var subDivs = "";
+  // show the subjects (subject when it's selected)
+
   if (props.subjectChosen === "") {
     subDivs = props.category.map( (c) => {
       return <button

@@ -4,3 +4,10 @@ export function setSubjectChosen(subj) {
     value: subj
   }
 }
+
+export function setSearchCoupons(txt) {
+  return {
+    type: "SEARCH_COUPONS",
+    value: txt
+  }
+}

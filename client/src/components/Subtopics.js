@@ -3,24 +3,34 @@ import React from 'react';
 
 function Subtopics(props) {
   console.log(props);
-  var subDivs = "";
   console.log(props.subjectChosen);
-  console.log(props.category);
+  console.log(props.searchCoupons);
 
-if (props.subjectChosen !== "") {
-  subDivs = props.category.types.map( (t) => {
-      return <button key={t} className="catButton">{t}</button>
-    });
-  } else subDivs = <div></div>;
+  var subDivs = "";
+// if subject has been chosen, show the subtopics (subtopic when it's selected)
+  if (props.subjectChosen !== "") {
+    if (props.searchCoupons !== "") {
+      subDivs = <div className="chosenCat">{props.searchCoupons}</div>;
+    } else {
+    subDivs = props.subjectChosen.types.map( (t) => {
+        return <button
+        key={t}
+        className="catButton"
+        onClick={ (e) => {e.preventDefault(); props.set(t)}}
+        >{t}</button>
+      });
+    }
+  } else {
+    subDivs = <div></div>
+  }
 
-
-  return (
-    <div className="container">
-      <div className="row">
-          {subDivs}
+    return (
+      <div className="container">
+        <div className="row">
+            {subDivs}
+        </div>
       </div>
-    </div>
-  )
-}
+    )
+  }
 
 export default Subtopics;

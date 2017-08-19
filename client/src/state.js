@@ -1,5 +1,6 @@
 export default {
   subjectChosen: "",
+  searchCoupons: "",
   category: [
     {
       "subject": "Eat Now",
@@ -21,5 +22,22 @@ export default {
       "Item Specific",
       "Etc"]
     },
+  ],
+  coupons: [
+    {
+      id: 0,
+      bizName: "",
+      bizLogo: "",
+      heading: "",
+      couponDesc: "",
+      restrictions: "",
+      bizAddress: [
+        {
+          streetAndNum: "",
+          city: "",
+          zip: 0
+        }
+      ]
+    }
   ]
 }

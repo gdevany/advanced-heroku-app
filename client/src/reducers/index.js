@@ -17,9 +17,23 @@ function subjectChosen(state={}, action){
   return state;
 }
 
+function coupons(state=[], action) {
+  if (action.type === "SHOW_COUPON"){
+    return action.value;
+  }
+  return state;
+}
+
+function searchCoupons(state="", action) {
+  if (action.type === "SEARCH_COUPONS") {
+    return action.value;
+  }
+  return state;
+}
+
 
 
 const rootReducer = combineReducers({
-  category, subjectChosen
+  category, subjectChosen,coupons,searchCoupons
 });
 export default rootReducer;
