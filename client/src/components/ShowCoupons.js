@@ -20,14 +20,14 @@ function ShowCoupons(props) {
 
 function couponFormat(coupon) {
   return (<div>
-    <div>{coupon.bizName}</div><br />
+    <h2>{coupon.bizName}</h2>
     <div>{coupon.bizLogo}</div>
-    <div>{coupon.heading}</div><br />
-    <div>{coupon.couponDesc}</div><br />
-    <div>{coupon.restrictions}</div>
     <div>{coupon.bizAddress.streetAndNum}</div>
     <div>{coupon.bizAddress.city}</div>
     <div>{coupon.bizAddress.zip}</div>
+    <div>{coupon.heading}</div>
+    <div>{coupon.couponDesc}</div>
+    <div>{coupon.restrictions}</div>
     </div>
   )
 }
