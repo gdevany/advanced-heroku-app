@@ -68,6 +68,36 @@ export default {
           city: "Austin",
           zip: 78701
         }
+    },
+    {
+      id: 4,
+      bizName: "Chuys",
+      bizLogo: "",
+      heading: "Buy 1 taco, Get One Free",
+      couponDesc: "Buy 1 taco and receive 1 taco free!",
+      restrictions: "One coupon per day",
+      searchWords: ["Sit Down"],
+      bizAddress:
+        {
+          streetAndNum: "1234 Main St",
+          city: "Austin",
+          zip: 78701
+        }
+    },
+    {
+      id: 5,
+      bizName: "Home Slice",
+      bizLogo: "",
+      heading: "Buy 1 slice of pizza, Get One Free",
+      couponDesc: "Buy 1 slice of pizza and receive 1 slice of pizza free!",
+      restrictions: "One coupon per day",
+      searchWords: ["Regional"],
+      bizAddress:
+        {
+          streetAndNum: "1234 Main St",
+          city: "Austin",
+          zip: 78701
+        }
     }
   ]
 }
