@@ -1,11 +1,11 @@
 .App {
-
   margin-top: 20vh;
 }
 
 .row {
   display: flex;
   justify-content: center;
+  max-width: 100%;
 }
 
 .catButton {
@@ -42,7 +42,7 @@
 
 .coupon {
   border: dotted black 2px;
-  display: flex;
+  /*display: flex;*/
   justify-content: center;
   align-items: center;
   background-color: red;
@@ -52,7 +52,7 @@
   /*margin-right: 5vw;*/
   /*margin-left: 5vw;*/
   color: black;
-  /*font-size: 1.5em;*/
+  font-size: 0.7em;
   width: 90%;
   max-width: 90%;
   /*height: 10vh;*/
