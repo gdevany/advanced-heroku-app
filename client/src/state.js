@@ -31,6 +31,7 @@ export default {
       heading: "",
       couponDesc: "",
       restrictions: "",
+      searchWords: ["Fast Food"],
       bizAddress: [
         {
           streetAndNum: "",
