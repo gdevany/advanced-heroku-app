@@ -26,19 +26,18 @@ export default {
   coupons: [
     {
       id: 0,
-      bizName: "",
+      bizName: "Mcdonalds",
       bizLogo: "",
-      heading: "",
-      couponDesc: "",
-      restrictions: "",
+      heading: "Buy 1 BigMac, Get One Free",
+      couponDesc: "Buy 1 Bigmac and receive 1 BigMac free!",
+      restrictions: "One coupon per day",
       searchWords: ["Fast Food"],
-      bizAddress: [
+      bizAddress:
         {
-          streetAndNum: "",
-          city: "",
-          zip: 0
+          streetAndNum: "1234 Main St",
+          city: "Austin",
+          zip: 78701
         }
-      ]
     }
   ]
 }

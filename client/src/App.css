@@ -39,3 +39,20 @@
   height: 10vh;
   box-shadow: 7px 2px 20px white;
 }
+
+.coupon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  border-radius: 10%;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  margin-right: 5vw;
+  margin-left: 5vw;
+  color: black;
+  font-size: 1.5em;
+  width: 30vh;
+  /*height: 10vh;*/
+  box-shadow: 7px 2px 20px white;
+}

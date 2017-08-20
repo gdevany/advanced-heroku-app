@@ -14,16 +14,29 @@ function ShowCoupons(props) {
 
   if (props.searchCoupons !== "") {
     couponDiv = filterCoupons.map((coupon) => {
-      return <div className="chosenCat">ffff</div>
+      return <div key={coupon.id} className="coupon">{couponFormat(coupon)}</div>
     })
   } else couponDiv = <div></div>
 
+function couponFormat(coupon) {
+  return (<div>
+    <div>{coupon.bizName}</div><br />
+    <div>{coupon.bizLogo}</div>
+    <div>{coupon.heading}</div><br />
+    <div>{coupon.couponDesc}</div><br />
+    <div>{coupon.restrictions}</div>
+    <div>{coupon.bizAddress.streetAndNum}</div>
+    <div>{coupon.bizAddress.city}</div>
+    <div>{coupon.bizAddress.zip}</div>
+    </div>
+  )
+}
 
-    return (
-      <div>
-        {couponDiv}
-      </div>
-    )
-  }
+  return (
+    <div>
+      {couponDiv}
+    </div>
+  )
+}
 
 export default ShowCoupons;
