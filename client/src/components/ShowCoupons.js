@@ -24,8 +24,8 @@ function ShowCoupons(props) {
             <div className="tightAddress">
               {coupon.bizAddress.streetAndNum}
               {coupon.bizAddress.city}
-              {coupon.bizAddress.zip}
             </div>
+            <div className="bigText">{coupon.bizAddress.zip}</div>
             <div>{coupon.bizLogo}</div>
           </div>
 

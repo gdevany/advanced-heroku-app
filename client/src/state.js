@@ -12,21 +12,31 @@ export default {
     },
     {
       "subject": "Merchandise",
-      "types": ["Clothing",
-      "Auto",
-      "Grocery"]
+      "types": [
+        "Clothing",
+        "Auto",
+        "Grocery"]
     },
     {
       "subject": "Home Goods",
-      "types": ["Retailer",
-      "Item Specific",
-      "Etc"]
+      "types": [
+        "Retailer",
+        "Item Specific",
+        "Etc"]
     },
     {
       "subject": "Hotels",
-      "types": ["Cheap",
-      "Fancy",
-      "Other"]
+      "types": [
+        "Cheap",
+        "Fancy",
+        "Other"]
+    },
+    {
+      "subject": "Sports",
+      "types": [
+        "Golf",
+        "Bowling",
+        "Other"]
     },
   ],
   coupons: [
