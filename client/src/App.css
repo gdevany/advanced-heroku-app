@@ -9,6 +9,23 @@
   flex-wrap: wrap;
 }
 
+.couponRowBizName {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.couponRowInfo {
+  display: flex;
+  flex-wrap: wrap;
+
+  align-items: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
 img {
   width: 100%;
   max-width: 300px;
@@ -18,8 +35,17 @@ img {
   margin-bottom: -80px;
 }
 
-h5 {
-  line-height: 0.1
+.bigText {
+  font-size: 1.5em;
+}
+
+.biggerText {
+  font-size: 2.4em;
+}
+
+.tightLines {
+  line-height: 0.1;
+  margin-bottom: 5px;
 }
 
 .catButton {
@@ -64,7 +90,8 @@ h5 {
   margin-bottom: 20px;
   color: black;
   font-size: 0.7em;
-  width: 90%;
-  max-width: 90%;
+  width: 88%;
+  max-width: 88%;
+  padding: 10px;
   /*height: 10vh;*/
 }
