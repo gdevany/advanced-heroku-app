@@ -1,4 +1,5 @@
 import React from 'react';
+import bogoLogo from '../../img/bogoLogo.png';
 
 
 function Subjects(props) {
@@ -25,7 +26,10 @@ function Subjects(props) {
   return (
     <div className="container">
       <div className="row">
-          {subDivs}
+        <img src={bogoLogo} />
+      </div>
+      <div className="row">
+        {subDivs}
       </div>
     </div>
   )

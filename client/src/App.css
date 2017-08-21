@@ -1,5 +1,5 @@
 .App {
-  margin-top: 20vh;
+  /*margin-top: 5vh;*/
   margin-right: 50px;
 }
 
@@ -31,7 +31,6 @@ h5 {
   margin: 10px 5vw;
   color: black;
   font-size: 1.3em;
-  height: 5vh;
   padding: 5px;
   border: 1px solid #5f3e29;
   box-shadow: 7px 2px 20px white;
