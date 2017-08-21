@@ -22,6 +22,12 @@ export default {
       "Item Specific",
       "Etc"]
     },
+    {
+      "subject": "Hotels",
+      "types": ["Cheap",
+      "Fancy",
+      "Other"]
+    },
   ],
   coupons: [
     {

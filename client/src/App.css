@@ -1,47 +1,36 @@
 .App {
   margin-top: 20vh;
+  margin-right: 50px;
 }
 
 .row {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 h5 {
   line-height: 0.1
 }
+
 .catButton {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   /*background-color: #ffcd38;*/
   background-color: #E6AC27;
-
   border-radius: 10px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-right: 5vw;
-  margin-left: 5vw;
+  margin: 10px 5vw;
   color: black;
-  width: 50vh;
+  padding: 5px;
+  border: 1px solid #5f3e29;
   box-shadow: 7px 2px 20px white;
 }
 
 .chosenCat {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   /*background-color: #caca62;*/
   background-color: #80BCA3;
-
   border-radius: 10px;
-  margin-top: 5px;
-  margin-bottom: 20px;
-  margin-right: 5vw;
-  margin-left: 5vw;
+  margin: 10px 5vw;
   color: black;
   font-size: 1.3em;
-  /*width: 30vh;*/
   height: 5vh;
   padding: 5px;
   border: 1px solid #5f3e29;
@@ -50,14 +39,11 @@ h5 {
 
 .coupon {
   border: dotted #5f3e29 2px;
-  /*display: flex;*/
   justify-content: center;
   align-items: center;
   /*background-color: #ffcd38;*/
   /*background-color: #ffe950;*/
   background-color: #F6F7BD;
-
-
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 20px;

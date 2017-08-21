@@ -12,25 +12,6 @@ function ShowCoupons(props) {
 
   var couponDiv = "";
 
-//   if (props.searchCoupons !== "") {
-//     couponDiv = filterCoupons.map((coupon) => {
-//       return <div key={coupon.id}>{couponFormat(coupon)}</div>
-//     })
-//   } else couponDiv = <div></div>
-//
-// function couponFormat(coupon) {
-//   return (<div className="coupon">
-//     <h2>{coupon.bizName}</h2>
-//     <div>{coupon.bizLogo}</div>
-//     <div>{coupon.bizAddress.streetAndNum}</div>
-//     <div>{coupon.bizAddress.city}</div>
-//     <div>{coupon.bizAddress.zip}</div>
-//     <div>{coupon.heading}</div>
-//     <div>{coupon.couponDesc}</div>
-//     <div>{coupon.restrictions}</div>
-//     </div>
-//   )
-
   if (props.searchCoupons !== "") {
     couponDiv = filterCoupons.map((coupon) => {
       return (

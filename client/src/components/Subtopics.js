@@ -12,12 +12,14 @@ function Subtopics(props) {
     if (props.searchCoupons !== "") {
       subDivs = <div className="catButton">{props.searchCoupons}</div>;
     } else {
-    subDivs = props.subjectChosen.types.map( (t) => {
-        return <button
-        key={t}
-        className="catButton"
-        onClick={ (e) => {e.preventDefault(); props.set(t)}}
-        >{t}</button>
+      subDivs = props.subjectChosen.types.map( (t) => {
+        return (
+          <button
+            key={t}
+            className="catButton"
+            onClick={ (e) => {e.preventDefault(); props.set(t)}}
+          >{t}</button>
+        )
       });
     }
   } else {
@@ -32,5 +34,11 @@ function Subtopics(props) {
       </div>
     )
   }
+
+  // <div className="row">
+  //   <button
+  //     className="backButton"
+  //     onClick={ (e) => {e.preventDefault(); props.}}
+  // </div>
 
 export default Subtopics;
