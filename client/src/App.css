@@ -37,8 +37,10 @@ h5 {
 }
 
 .backButton {
-  color: black;
+  color: #F6F7BD;
   border-radius: 50%;
+  background-color: #BF4D28;
+  font-size: 0.5em;
 }
 
 .coupon {
