@@ -5,14 +5,18 @@
 .row {
   display: flex;
   justify-content: center;
-  max-width: 100%;
 }
 
+h5 {
+  line-height: 0.1
+}
 .catButton {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: yellow;
+  /*background-color: #ffcd38;*/
+  background-color: #E6AC27;
+
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 10px;
@@ -27,34 +31,39 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: pink;
+  /*background-color: #caca62;*/
+  background-color: #80BCA3;
+
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 20px;
   margin-right: 5vw;
   margin-left: 5vw;
   color: black;
-  font-size: 1.5em;
-  width: 30vh;
-  height: 10vh;
+  font-size: 1.3em;
+  /*width: 30vh;*/
+  height: 5vh;
+  padding: 5px;
+  border: 1px solid #5f3e29;
   box-shadow: 7px 2px 20px white;
 }
 
 .coupon {
-  border: dotted black 2px;
+  border: dotted #5f3e29 2px;
   /*display: flex;*/
   justify-content: center;
   align-items: center;
-  background-color: red;
+  /*background-color: #ffcd38;*/
+  /*background-color: #ffe950;*/
+  background-color: #F6F7BD;
+
+
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 20px;
-  /*margin-right: 5vw;*/
-  /*margin-left: 5vw;*/
   color: black;
   font-size: 0.7em;
   width: 90%;
   max-width: 90%;
   /*height: 10vh;*/
-  box-shadow: 7px 2px 20px white;
 }

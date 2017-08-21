@@ -10,7 +10,7 @@ function Subtopics(props) {
 // if subject has been chosen, show the subtopics (subtopic when it's selected)
   if (props.subjectChosen !== "") {
     if (props.searchCoupons !== "") {
-      subDivs = <div className="chosenCat">{props.searchCoupons}</div>;
+      subDivs = <div className="catButton">{props.searchCoupons}</div>;
     } else {
     subDivs = props.subjectChosen.types.map( (t) => {
         return <button
