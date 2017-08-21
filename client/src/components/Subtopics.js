@@ -7,38 +7,57 @@ function Subtopics(props) {
   console.log(props.searchCoupons);
 
   var subDivs = "";
-// if subject has been chosen, show the subtopics (subtopic when it's selected)
-  if (props.subjectChosen !== "") {
-    if (props.searchCoupons !== "") {
-      subDivs = <div className="catButton">{props.searchCoupons}</div>;
-    } else {
+  var backer = "";
+
+// if subject IS NOT chosen, show blank
+  if (props.subjectChosen === "") {
+    subDivs = <div></div>
+  } else {
+
+    // if subject IS chosen, but subtopic IS NOT chosen, show subtopics
+    // and set SUBTOPIC chosen (searchCoupons) to onClicked subtopic
+    if (props.searchCoupons === "") {
       subDivs = props.subjectChosen.types.map( (t) => {
         return (
           <button
             key={t}
             className="catButton"
-            onClick={ (e) => {e.preventDefault(); props.set(t)}}
+            onClick={ (e) => {e.preventDefault(); props.setSearchCoupons(t)}}
           >{t}</button>
         )
       });
+      // and set backButton to change SUBJECT Chosen to blank
+      backer = (
+        <button
+          className="backButton"
+          onClick={ (e) => {e.preventDefault(); props.setSubjectChosen("")}}
+        >back</button>
+      );
+
+    } else {
+
+      // if subject IS chosen, and subtopic IS chosen (searchCoupons), show coupons
+      subDivs = <div className="catButton">{props.searchCoupons}</div>;
+      // and set backButton to change SUBTOPIC chosen (searchCoupons) to blank
+      backer = (
+        <button
+          className="backButton"
+          onClick={ (e) => {e.preventDefault(); props.setSearchCoupons("")}}
+        >back</button>
+      );
     }
-  } else {
-    subDivs = <div></div>
   }
 
-    return (
-      <div className="container">
-        <div className="row">
-            {subDivs}
-        </div>
+  return (
+    <div className="container">
+      <div className="row">
+          {subDivs}
       </div>
-    )
+      <div className="row">
+        {backer}
+      </div>
+    </div>
+  )
   }
-
-  // <div className="row">
-  //   <button
-  //     className="backButton"
-  //     onClick={ (e) => {e.preventDefault(); props.}}
-  // </div>
 
 export default Subtopics;

@@ -4,6 +4,7 @@ import React from 'react';
 function ShowCoupons(props) {
   console.log(props);
 
+  // filter coupons against subtopic chosen (searchCoupons)
   var filterCoupons = props.coupons.filter((c) => {
       if(c.searchWords.indexOf(props.searchCoupons) > -1) {
         return true;
@@ -12,6 +13,7 @@ function ShowCoupons(props) {
 
   var couponDiv = "";
 
+  // if subtopic chosen (searchCoupons), map them (filtered)
   if (props.searchCoupons !== "") {
     couponDiv = filterCoupons.map((coupon) => {
       return (

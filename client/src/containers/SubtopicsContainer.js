@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Subtopics from '../components/Subtopics';
-import {setSearchCoupons} from '../actions';
+import {setSearchCoupons, setSubjectChosen} from '../actions';
 
 
 function mapStateToProps(state) {
@@ -12,10 +12,14 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    set: function(subtopic) {
+    setSearchCoupons: function(subtopic) {
       dispatch(setSearchCoupons(subtopic));
+    },
+    setSubjectChosen: function(subj) {
+      dispatch(setSubjectChosen(subj));
     }
   }
 }
+
 
 export default connect(mapStateToProps,mapDispatchToProps)(Subtopics);

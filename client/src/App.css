@@ -37,6 +37,11 @@ h5 {
   box-shadow: 7px 2px 20px white;
 }
 
+.backButton {
+  color: black;
+  border-radius: 50%;
+}
+
 .coupon {
   border: dotted #5f3e29 2px;
   justify-content: center;

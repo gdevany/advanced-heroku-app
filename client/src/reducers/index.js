@@ -1,8 +1,6 @@
 import {combineReducers} from 'redux';
 
 
-
-
 function category(state = [], action){
   if(action.type === "SHOW_CATEGORY"){
     return action.value;

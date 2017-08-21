@@ -7,8 +7,8 @@ function Subjects(props) {
   console.log(props.subjectChosen);
 
   var subDivs = "";
-  // show the subjects (subject when it's selected)
 
+  // show the subjects and set subjectChosen when onClicked
   if (props.subjectChosen === "") {
     subDivs = props.category.map( (c) => {
       return <button
@@ -17,8 +17,10 @@ function Subjects(props) {
         onClick={ (e) => {e.preventDefault(); props.set(c)}}
         >{c.subject}</button>
     })
-  } else subDivs = <div className="chosenCat">{props.subjectChosen.subject}</div>
-
+  } else {
+    // show just subjectChosen when chosen
+    subDivs = <div className="chosenCat">{props.subjectChosen.subject}</div>
+  }
 
   return (
     <div className="container">
