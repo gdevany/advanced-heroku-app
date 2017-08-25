@@ -25,10 +25,10 @@ function Subjects(props) {
 
   return (
     <div className="container">
-      <div className="row">
-        <img src={bogoLogo} />
+      <div className="rowCenter">
+        <img className="logo" src={bogoLogo} />
       </div>
-      <div className="row">
+      <div className="rowCenter">
         {subDivs}
       </div>
     </div>

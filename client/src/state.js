@@ -1,6 +1,6 @@
 export default {
-  subjectChosen: "",
-  searchCoupons: "",
+  subjectChosen: "Eat Now",
+  searchCoupons: "Fast Food",
   category: [
     {
       "subject": "Eat Now",
@@ -43,7 +43,7 @@ export default {
     {
       id: 1,
       bizName: "Mcdonalds",
-      bizLogo: "",
+      bizLogo: "https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg",
       heading: "BigMac",
       couponDesc: "Buy 1 Bigmac and receive 1 BigMac free!",
       restrictions: "One coupon per day",

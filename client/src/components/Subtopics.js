@@ -50,10 +50,10 @@ function Subtopics(props) {
 
   return (
     <div className="container">
-      <div className="row">
+      <div className="rowCenter">
           {subDivs}
       </div>
-      <div className="row">
+      <div className="rowCenter">
         {backer}
       </div>
     </div>

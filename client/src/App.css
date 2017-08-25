@@ -3,13 +3,13 @@
   margin-right: 50px;
 }
 
-.row {
+.rowCenter {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.couponRowBizName {
+.couponBizName {
   display: flex;
   align-items: flex-start;
   flex-wrap: wrap;
@@ -17,24 +17,31 @@
   margin-bottom: 20px;
 }
 
-.couponRowInfo {
+.couponInfo {
   display: flex;
   flex-wrap: wrap;
-
   align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
 }
 
-img {
-  width: 100%;
-  max-width: 300px;
-  height: 300px;
-  background-size: 100% 100%;
-  margin-right: -30px;
-  margin-bottom: -80px;
+.bizLogo {
+  width: 50%;
+  max-width: 10em;
+  height: auto;
+  /*background-size: 100% 100%;*/
+  /*margin-right: -30px;
+  margin-bottom: -80px;*/
 }
 
+.outline {
+  border-top: 1px solid white;
+  border-right: 3px solid black;
+  border-left: 1px solid white;
+  border-bottom: 1px solid black;
+  box-shadow: 7px 2px 20px white;
+  padding: 10px;
+}
 .bigText {
   font-size: 1.5em;
 }
@@ -80,8 +87,8 @@ img {
 
 .coupon {
   border: dotted #5f3e29 2px;
-  justify-content: center;
-  align-items: center;
+  /*justify-content: center;*/
+  /*align-items: center;*/
   /*background-color: #ffcd38;*/
   /*background-color: #ffe950;*/
   background-color: #F6F7BD;
@@ -90,8 +97,8 @@ img {
   margin-bottom: 20px;
   color: black;
   font-size: 0.7em;
-  width: 88%;
-  max-width: 88%;
+  /*width: 88%;*/
+  /*max-width: 88%;*/
   padding: 10px;
   /*height: 10vh;*/
 }
