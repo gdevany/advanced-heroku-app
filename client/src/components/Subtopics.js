@@ -37,7 +37,8 @@ function Subtopics(props) {
     } else {
 
       // if subject IS chosen, and subtopic IS chosen (searchCoupons), show coupons
-      subDivs = <div className="catButton">{props.searchCoupons}</div>;
+      subDivs =
+        <div className="catButton text-center">{props.searchCoupons}</div>
       // and set backButton to change SUBTOPIC chosen (searchCoupons) to blank
       backer = (
         <button
@@ -49,11 +50,11 @@ function Subtopics(props) {
   }
 
   return (
-    <div className="container">
-      <div className="rowCenter">
+    <div className="text-center">
+      <div className="">
           {subDivs}
       </div>
-      <div className="rowCenter">
+      <div className="text-center">
         {backer}
       </div>
     </div>

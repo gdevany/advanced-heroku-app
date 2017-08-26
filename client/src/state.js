@@ -1,6 +1,6 @@
 export default {
-  subjectChosen: "Eat Now",
-  searchCoupons: "Fast Food",
+  subjectChosen: "",
+  searchCoupons: "",
   category: [
     {
       "subject": "Eat Now",

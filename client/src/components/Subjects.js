@@ -28,7 +28,7 @@ function Subjects(props) {
       <div className="rowCenter">
         <img className="logo" src={bogoLogo} />
       </div>
-      <div className="rowCenter">
+      <div className="text-center">
         {subDivs}
       </div>
     </div>

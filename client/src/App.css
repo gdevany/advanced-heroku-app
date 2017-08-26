@@ -3,51 +3,31 @@
   margin-right: 50px;
 }
 
+.container {
+  width: 100%;
+}
+
 .rowCenter {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
 }
 
-.couponBizName {
-  display: flex;
-  align-items: flex-start;
-  flex-wrap: wrap;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.couponInfo {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  flex-wrap: wrap;
-  flex-direction: column;
-}
-
-.bizLogo {
-  width: 50%;
-  max-width: 10em;
-  height: auto;
-  /*background-size: 100% 100%;*/
-  /*margin-right: -30px;
-  margin-bottom: -80px;*/
-}
-
 .outline {
   border-top: 1px solid white;
-  border-right: 3px solid black;
+  border-right: 2px solid black;
   border-left: 1px solid white;
   border-bottom: 1px solid black;
   box-shadow: 7px 2px 20px white;
   padding: 10px;
 }
+
 .bigText {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .biggerText {
-  font-size: 2.4em;
+  font-size: 1.8em;
 }
 
 .tightLines {
@@ -56,6 +36,7 @@
 }
 
 .catButton {
+  max-width: 100px;
   /*background-color: #ffcd38;*/
   background-color: #E6AC27;
   border-radius: 10px;
@@ -67,6 +48,7 @@
 }
 
 .chosenCat {
+  max-width: 100px;
   /*background-color: #caca62;*/
   background-color: #80BCA3;
   border-radius: 10px;
@@ -85,20 +67,25 @@
   font-size: 0.5em;
 }
 
+.bizLogo {
+  width: 6em;
+  max-width: 10em;
+  height: auto;
+  background-color: white;
+}
+
 .coupon {
   border: dotted #5f3e29 2px;
-  /*justify-content: center;*/
-  /*align-items: center;*/
   /*background-color: #ffcd38;*/
   /*background-color: #ffe950;*/
   background-color: #F6F7BD;
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 20px;
+  margin-left: 10px;
   color: black;
   font-size: 0.7em;
-  /*width: 88%;*/
+  width: 90%;
   /*max-width: 88%;*/
-  padding: 10px;
-  /*height: 10vh;*/
+  padding: 1.5em 0em;
 }
