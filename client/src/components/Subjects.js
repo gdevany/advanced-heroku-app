@@ -23,11 +23,21 @@ function Subjects(props) {
     subDivs = <button className="chosenCat buttonGen">{props.subjectChosen.subject}</button>
   }
 
+  // return (
+  //   <div className="container">
+  //     <div className="text-center">
+  //       <img className="logo" src={bogoLogo} />
+  //     </div>
+  //     <div className="text-center">
+  //       {subDivs}
+  //     </div>
+  //   </div>
+  // )
+
   return (
     <div className="container">
-      <div className="text-center">
-        <img className="logo" src={bogoLogo} />
-      </div>
+      <div className="text-center headingLogo">BOGO</div>
+      <div className="text-center headingLogoMini">by zip</div>
       <div className="text-center">
         {subDivs}
       </div>

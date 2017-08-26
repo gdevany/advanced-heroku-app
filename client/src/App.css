@@ -7,6 +7,21 @@
   width: 100%;
 }
 
+.headingLogo {
+  margin-top: 50px;
+  line-height: 0.5em;
+  font-family: 'Monoton';
+  font-size: 4em;
+  color: white;
+}
+
+.headingLogoMini {
+  font-family: 'Chicle', cursive;
+  font-size: 2em;
+  color: #BF4D28;
+  margin-bottom: 50px;
+}
+
 .outline {
   border-top: 1px solid white;
   border-right: 2px solid black;

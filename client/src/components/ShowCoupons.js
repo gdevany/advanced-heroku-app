@@ -28,7 +28,7 @@ function ShowCoupons(props) {
                   {coupon.bizAddress.streetAndNum}<br />
                   {coupon.bizAddress.city}<br />
                   <strong>{coupon.bizAddress.zip}</strong><br />
-                  {coupon.bizPhone}
+                  <small>{coupon.bizPhone}</small>
                 </address>
               </div>
               <div className="col-xs-4 text-center">
