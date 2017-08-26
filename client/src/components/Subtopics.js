@@ -21,7 +21,7 @@ function Subtopics(props) {
         return (
           <button
             key={t}
-            className="catButton"
+            className="catButton buttonGen"
             onClick={ (e) => {e.preventDefault(); props.setSearchCoupons(t)}}
           >{t}</button>
         )
@@ -38,7 +38,7 @@ function Subtopics(props) {
 
       // if subject IS chosen, and subtopic IS chosen (searchCoupons), show coupons
       subDivs =
-        <button className="catButton text-center">{props.searchCoupons}</button>
+        <button className="catButton buttonGen text-center">{props.searchCoupons}</button>
       // and set backButton to change SUBTOPIC chosen (searchCoupons) to blank
       backer = (
         <button

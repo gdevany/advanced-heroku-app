@@ -29,9 +29,8 @@
   margin-bottom: 5px;
 }
 
-.catButton {
-  max-width: 100px;
-  /*background-color: #ffcd38;*/
+.buttonGen {
+  max-width: 150px;
   background-color: #E6AC27;
   border-radius: 10px;
   margin: 10px 5vw;
@@ -41,17 +40,13 @@
   box-shadow: 7px 2px 20px white;
 }
 
+.catButton {
+  background-color: #E6AC27;
+  /*background-color: #ffcd38;*/
+}
+
 .chosenCat {
-  max-width: 100px;
-  /*background-color: #caca62;*/
   background-color: #80BCA3;
-  border-radius: 10px;
-  margin: 10px 5vw;
-  color: black;
-  font-size: 1.3em;
-  padding: 5px;
-  border: 1px solid #5f3e29;
-  box-shadow: 7px 2px 20px white;
 }
 
 .backButton {
@@ -64,7 +59,7 @@
 
 .bizLogo {
   width: 6em;
-  max-width: 10em;
+  max-width: 6em;
   height: auto;
   background-color: white;
 }

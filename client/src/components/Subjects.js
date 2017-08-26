@@ -14,13 +14,13 @@ function Subjects(props) {
     subDivs = props.category.map( (c) => {
       return <button
         key={c.subject}
-        className="catButton"
+        className="catButton buttonGen"
         onClick={ (e) => {e.preventDefault(); props.set(c)}}
         >{c.subject}</button>
     })
   } else {
     // show just subjectChosen when chosen
-    subDivs = <button className="chosenCat">{props.subjectChosen.subject}</button>
+    subDivs = <button className="chosenCat buttonGen">{props.subjectChosen.subject}</button>
   }
 
   return (
