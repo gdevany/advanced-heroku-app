@@ -20,12 +20,12 @@ function Subjects(props) {
     })
   } else {
     // show just subjectChosen when chosen
-    subDivs = <div className="chosenCat">{props.subjectChosen.subject}</div>
+    subDivs = <button className="chosenCat">{props.subjectChosen.subject}</button>
   }
 
   return (
     <div className="container">
-      <div className="rowCenter">
+      <div className="text-center">
         <img className="logo" src={bogoLogo} />
       </div>
       <div className="text-center">

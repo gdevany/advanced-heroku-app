@@ -21,14 +21,14 @@ function ShowCoupons(props) {
 
         <div key={coupon.id} className="coupon">
           <div className="container">
-            <div className="row">
+            <div className="row no-gutter">
               <div className="col-xs-4 text-left">
                 <address>
                   <strong>{coupon.bizName}</strong><br />
                   {coupon.bizAddress.streetAndNum}<br />
                   {coupon.bizAddress.city}<br />
                   <strong>{coupon.bizAddress.zip}</strong><br />
-                  <abbr title="Phone">P:</abbr> (123) 456-7890
+                  {coupon.bizPhone}
                 </address>
               </div>
               <div className="col-xs-4 text-center">

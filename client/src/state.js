@@ -53,7 +53,8 @@ export default {
           streetAndNum: "1234 Main St",
           city: "Austin",
           zip: 78701
-        }
+        },
+      bizPhone: "(123) 456-7890"
     },
     {
       id: 2,
