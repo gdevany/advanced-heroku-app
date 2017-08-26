@@ -7,8 +7,18 @@
   width: 100%;
 }
 
+address {
+  margin-top: 20px;
+}
+
+.offer {
+  font-size: 1.5em;
+  background-color: orange;
+  /*margin-left: 10px;*/
+}
+
 .headingLogo {
-  margin-top: 50px;
+  margin-top: 70px;
   line-height: 0.5em;
   font-family: 'Monoton';
   font-size: 4em;
@@ -28,7 +38,7 @@
   border-left: 1px solid white;
   border-bottom: 1px solid black;
   box-shadow: 7px 2px 20px white;
-  padding: 10px;
+  padding: 5px;
 }
 
 .bigText {
@@ -52,7 +62,7 @@
   color: black;
   padding: 5px;
   border: 1px solid #5f3e29;
-  box-shadow: 7px 2px 20px white;
+  box-shadow: 3px 5px 20px white;
 }
 
 .catButton {
@@ -87,10 +97,10 @@
   border-radius: 10px;
   margin-top: 5px;
   margin-bottom: 20px;
-  margin-left: 10px;
+  /*margin-left: 10px;*/
   color: black;
   font-size: 0.7em;
-  width: 95%;
+  width: 100%;
   /*max-width: 88%;*/
   padding: 1.5em 0em;
 }

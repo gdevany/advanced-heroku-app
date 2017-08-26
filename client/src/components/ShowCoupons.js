@@ -18,21 +18,12 @@ function ShowCoupons(props) {
     couponDiv = filterCoupons.map((coupon) => {
       return (
 
-
+        <div className="col-md-6 col-lg-4">
         <div key={coupon.id} className="coupon">
           <div className="container">
-            <div className="row no-gutter">
-              <div className="col-xs-4 text-left">
-                <address>
-                  <strong>{coupon.bizName}</strong><br />
-                  {coupon.bizAddress.streetAndNum}<br />
-                  {coupon.bizAddress.city}<br />
-                  <strong>{coupon.bizAddress.zip}</strong><br />
-                  <small>{coupon.bizPhone}</small>
-                </address>
-              </div>
-              <div className="col-xs-4 text-center">
-                <div className="tightLines">Buy One</div>
+            <div className="row">
+              <div className="col-xs-7 col-xs-offset-1 text-center offer">
+                <div className="">Buy One</div>
                 <div className="biggerText">{coupon.heading}</div>
                 <div className="">Get One</div>
                 <div className="bigText">Free</div>
@@ -44,11 +35,23 @@ function ShowCoupons(props) {
                 </img>
               </div>
             </div>
+            <div className="row">
+              <div className="col-xs-12 text-center">
+                <address>
+                  <strong>{coupon.bizName}</strong><br />
+                  {coupon.bizAddress.streetAndNum}{" "}
+                  {coupon.bizAddress.city}{" "}
+                  <strong>{coupon.bizAddress.zip}</strong><br />
+                  <small>{coupon.bizPhone}</small>
+                </address>
+              </div>
+            </div>
             <div className="row text-center">
               <div>{coupon.couponDesc}</div>
               <div>{coupon.restrictions}</div>
             </div>
           </div>
+        </div>
         </div>
       )
     })

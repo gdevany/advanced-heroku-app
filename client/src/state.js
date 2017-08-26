@@ -117,7 +117,8 @@ export default {
           streetAndNum: "1234 Main St",
           city: "Austin",
           zip: 78701
-        }
+        },
+      bizPhone: "512-555-6789"
     }
   ]
 }
