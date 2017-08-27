@@ -16,23 +16,12 @@ function Subjects(props) {
         key={c.subject}
         className="catButton buttonGen"
         onClick={ (e) => {e.preventDefault(); props.set(c)}}
-        >{c.subject}</button>
+        ><strong>{c.subject}</strong></button>
     })
   } else {
     // show just subjectChosen when chosen
     subDivs = <button className="chosenCat buttonGen">{props.subjectChosen.subject}</button>
   }
-
-  // return (
-  //   <div className="container">
-  //     <div className="text-center">
-  //       <img className="logo" src={bogoLogo} />
-  //     </div>
-  //     <div className="text-center">
-  //       {subDivs}
-  //     </div>
-  //   </div>
-  // )
 
   return (
     <div className="container">

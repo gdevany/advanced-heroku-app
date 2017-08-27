@@ -23,7 +23,7 @@ function Subtopics(props) {
             key={t}
             className="catButton buttonGen"
             onClick={ (e) => {e.preventDefault(); props.setSearchCoupons(t)}}
-          >{t}</button>
+          ><strong>{t}</strong></button>
         )
       });
       // and set backButton to change SUBJECT Chosen to blank

@@ -3,10 +3,12 @@ body {
   padding: 0;
   /*font-family: 'Chicle', cursive;*/
   font-family: 'Risque';
-  
+
   font-size: 1.6em;
   background-color: #5f3e29;
-  border: solid #BF4D28 5px;
+  border-top: solid #BF4D28 5px;
+  border-right: solid #BF4D28 5px;
+  border-left: solid #BF4D28 5px;
   min-height: 800px;
   background-image: url("../img/seventies6.png");
 
