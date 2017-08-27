@@ -11,6 +11,10 @@ import ShowCoupons from './containers/ShowCouponsContainer';
 function App() {
   return (
     <div className="App">
+    <div className="container text-center">
+      <div className="headingLogo">BOGO</div>
+      <div className="headingLogoMini">by zip</div>
+    </div>
       <Subjects />
       <Subtopics />
       <ShowCoupons />

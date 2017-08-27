@@ -24,12 +24,8 @@ function Subjects(props) {
   }
 
   return (
-    <div className="container">
-      <div className="text-center headingLogo">BOGO</div>
-      <div className="text-center headingLogoMini">by zip</div>
-      <div className="text-center">
-        {subDivs}
-      </div>
+    <div className="container text-center">
+      <div className="">{subDivs}</div>
     </div>
   )
 }

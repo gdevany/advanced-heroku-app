@@ -24,7 +24,7 @@ address {
   line-height: 0.5em;
   font-family: 'Monoton';
   font-size: 4em;
-  color: white;
+  color: #cccb98;
 }
 
 .headingLogoMini {
@@ -71,15 +71,17 @@ address {
 }
 
 .chosenCat {
-  background-color: #80BCA3;
+  /*background-color: #7b8859*/
+  background-color: #b5c26c;
 }
 
 .backButton {
   color: #F6F7BD;
   border-radius: 50%;
   background-color: #BF4D28;
-  font-size: 0.5em;
-  margin: 5px;
+  font-size: 0.8em;
+  margin: 25px;
+  padding: 5px;
 }
 
 .bizLogo {

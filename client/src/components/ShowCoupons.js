@@ -12,12 +12,11 @@ function ShowCoupons(props) {
     });
 
   var couponDiv = "";
-  // if subtopic chosen (searchCoupons), map them (filtered)
 
+  // if subtopic chosen (searchCoupons), map them (filtered)
   if (props.searchCoupons !== "") {
     couponDiv = filterCoupons.map((coupon) => {
       return (
-
         <div className="col-md-6 col-lg-4">
         <div key={coupon.id} className="coupon">
           <div className="container">
@@ -55,8 +54,8 @@ function ShowCoupons(props) {
               </div>
             </div>
             <div className="row text-center">
-              <div>{coupon.couponDesc}</div>
-              <div>{coupon.restrictions}</div>
+              <div>{"* "}{coupon.couponDesc}{" *"}</div>
+              <div>{"* "}{coupon.restrictions}</div>
             </div>
           </div>
         </div>
