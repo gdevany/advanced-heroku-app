@@ -28,11 +28,19 @@ function ShowCoupons(props) {
                 <div className="">Get One</div>
                 <div className="bigText">Free</div>
               </div>
-              <div className="col-xs-4">
-                <img
-                  className="bizLogo outline pull-right"
-                  src={coupon.bizLogo}>
-                </img>
+              <div className="col-xs-4 verticle">
+                <div>
+                  <img
+                    className="bizLogo outline pull-right"
+                    src={coupon.bizLogo}>
+                  </img>
+                </div><br />
+                <div>
+                  <img
+                    className="bizLogo outline pull-right"
+                    src={coupon.bizQR}>
+                  </img>
+                </div>
               </div>
             </div>
             <div className="row">
