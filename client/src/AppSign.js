@@ -1,23 +1,23 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./App.css";
+import "./AppSign.css";
 import SignUpSignIn from "./SignUpSignIn";
 import TopNavbar from "./TopNavbar";
 import Secret from "./Secret";
 
-class App_signin extends Component {
+class AppSign extends Component {
   constructor() {
     super();
     this.state = {
       signUpSignInError: "",
       authenticated: localStorage.getItem("token") || false
     };
-    this.handleSignIn = this.handleSignIn.bind(this);
-    this.handleSignOut = this.handleSignOut.bind(this);
-    this.handleSignUp = this.handleSignUp.bind(this);
+    // this.handleSignIn = this.handleSignIn.bind(this);
+    // this.handleSignOut = this.handleSignOut.bind(this);
+    // this.handleSignUp = this.handleSignUp.bind(this);
   }
 
-  handleSignUp(credentials) {
+  handleSignUp = (credentials) => {
     const { username, password, confirmPassword } = credentials;
     if (!username.trim() || !password.trim() ) {
       this.setState({
@@ -52,7 +52,7 @@ class App_signin extends Component {
     }
   }
 
-  handleSignIn(credentials) {
+  handleSignIn = (credentials) => {
     const { username, password } = credentials;
     if (!username.trim() || !password.trim() ) {
       this.setState({
@@ -82,14 +82,14 @@ class App_signin extends Component {
     }
   }
 
-  handleSignOut() {
+  handleSignOut = () => {
     localStorage.removeItem("token");
     this.setState({
       authenticated: false
     });
   }
 
-  renderSignUpSignIn() {
+  renderSignUpSignIn = () => {
     return (
       <SignUpSignIn
         error={this.state.signUpSignInError}
@@ -121,7 +121,7 @@ class App_signin extends Component {
 
     return (
       <BrowserRouter>
-        <div className="App">
+        <div className="AppSign">
           <TopNavbar
             showNavItems={this.state.authenticated}
             onSignOut={this.handleSignOut} />
@@ -132,4 +132,4 @@ class App_signin extends Component {
   }
 }
 
-export default App_signin;
+export default AppSign;

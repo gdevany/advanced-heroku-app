@@ -5,7 +5,6 @@ import SignUp from "./SignUp";
 import SignIn from "./SignIn";
 
 class SignUpSignIn extends Component {
-
   renderError() {
     return (
       <Alert bsStyle="danger">

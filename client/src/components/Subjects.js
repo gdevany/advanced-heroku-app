@@ -1,12 +1,8 @@
 import React from 'react';
-import bogoLogo from '../../img/bogoLogo.png';
+// import bogoLogo from '../../img/bogoLogo.png';
 
 
 function Subjects(props) {
-  console.log(props);
-
-  console.log(props.subjectChosen);
-
   var subDivs = "";
 
   // show the subjects and set subjectChosen when onClicked

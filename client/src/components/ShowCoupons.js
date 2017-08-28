@@ -2,8 +2,6 @@ import React from 'react';
 
 
 function ShowCoupons(props) {
-  console.log(props);
-
   // filter coupons against subtopic chosen (searchCoupons)
   var filterCoupons = props.coupons.filter((c) => {
       if(c.searchWords.indexOf(props.searchCoupons) > -1) {
@@ -17,8 +15,8 @@ function ShowCoupons(props) {
   if (props.searchCoupons !== "") {
     couponDiv = filterCoupons.map((coupon) => {
       return (
-        <div className="col-md-6 col-lg-4">
-        <div key={coupon.id} className="coupon">
+        <div key={coupon.id} className="col-md-6 col-lg-4">
+        <div className="coupon">
           <div className="container">
             <div className="row">
               <div className="col-xs-7 col-xs-offset-1 text-center offer">
@@ -31,13 +29,15 @@ function ShowCoupons(props) {
                 <div>
                   <img
                     className="bizLogo outline pull-right"
-                    src={coupon.bizLogo}>
+                    src={coupon.bizLogo}
+                    alt="">
                   </img>
                 </div><br />
                 <div>
                   <img
                     className="bizLogo outline pull-right"
-                    src={coupon.bizQR}>
+                    src={coupon.bizQR}
+                    alt="">
                   </img>
                 </div>
               </div>

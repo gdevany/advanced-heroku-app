@@ -2,10 +2,6 @@ import React from 'react';
 
 
 function Subtopics(props) {
-  console.log(props);
-  console.log(props.subjectChosen);
-  console.log(props.searchCoupons);
-
   var subDivs = "";
   var backer = "";
 

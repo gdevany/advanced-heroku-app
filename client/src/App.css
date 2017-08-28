@@ -1,6 +1,6 @@
 .App {
-  margin-top: 70px;
-  margin-right: 11%;
+  /*margin-top: 20px;*/
+  margin-right: 12%;
 }
 
 .container {
@@ -15,6 +15,7 @@ address {
 .offer {
   font-size: 1.5em;
   background-color: #E6AC27;
+  color: black;
   padding: 10px;
   border-radius: 10px;
   box-shadow:inset -5px -6px 7px 0px #4f501b;
@@ -25,6 +26,7 @@ address {
   font-family: 'Monoton';
   font-size: 4em;
   color: #cccb98;
+  margin-top: 40px;
 }
 
 .headingLogoMini {

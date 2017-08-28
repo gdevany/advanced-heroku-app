@@ -42,6 +42,7 @@ export default {
   coupons: [
     {
       id: 1,
+      username: "xx@yahoo.com",
       bizName: "Mcdonalds",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg",
@@ -59,6 +60,7 @@ export default {
     },
     {
       id: 2,
+      username: "xx@yahoo.com",
       bizName: "Burger King",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "https://upload.wikimedia.org/wikipedia/commons/5/55/BurgerKingLogoDileo.png",
@@ -76,6 +78,7 @@ export default {
     },
     {
       id: 3,
+      username: "xx@yahoo.com",
       bizName: "Chick-Fil-A",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "https://upload.wikimedia.org/wikipedia/en/0/02/Chick-fil-A_Logo.svg",
@@ -93,6 +96,7 @@ export default {
     },
     {
       id: 4,
+      username: "xx@yahoo.com",
       bizName: "Chuys",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "https://upload.wikimedia.org/wikipedia/en/2/2d/Chuy%27s.png",
@@ -111,6 +115,7 @@ export default {
     {
       id: 5,
       bizName: "Home Slice",
+      username: "xx@yahoo.com",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "http://www.homeslicepizza.com/images/logo.gif",
       heading: "slice of pizza",
@@ -127,6 +132,7 @@ export default {
     },
     {
       id: 6,
+      username: "xx@yahoo.com",
       bizName: "Mcdonalds",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg",
@@ -144,6 +150,7 @@ export default {
     },
     {
       id: 7,
+      username: "xx@yahoo.com",
       bizName: "Burger King",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "https://upload.wikimedia.org/wikipedia/commons/5/55/BurgerKingLogoDileo.png",
@@ -161,6 +168,7 @@ export default {
     },
     {
       id: 8,
+      username: "xx@yahoo.com",
       bizName: "Chick-Fil-A",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "https://upload.wikimedia.org/wikipedia/en/0/02/Chick-fil-A_Logo.svg",
@@ -178,6 +186,7 @@ export default {
     },
     {
       id: 9,
+      username: "xx@yahoo.com",
       bizName: "Chuys",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "https://upload.wikimedia.org/wikipedia/en/2/2d/Chuy%27s.png",
@@ -195,6 +204,7 @@ export default {
     },
     {
       id: 10,
+      username: "xx@yahoo.com",
       bizName: "Home Slice",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "http://www.homeslicepizza.com/images/logo.gif",

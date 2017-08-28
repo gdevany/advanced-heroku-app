@@ -4,6 +4,8 @@ import { Navbar, Nav, NavItem } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const TopNavbar = (props) => {
+  console.log(props);
+
   let navItems = "";
   if (props.showNavItems) {
     navItems = (
@@ -15,11 +17,14 @@ const TopNavbar = (props) => {
               );
 
   }
+  
   return (
     <Navbar inverse collapseOnSelect>
       <Navbar.Collapse>
         <Nav pullRight>
           <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
+          <NavItem onClick={props.onSignUpSignIn}>Sign In</NavItem>
+
         </Nav>
         {navItems}
       </Navbar.Collapse>
