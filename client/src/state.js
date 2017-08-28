@@ -1,4 +1,6 @@
 export default {
+  users: [],
+  loggedIn: {},
   subjectChosen: "",
   searchCoupons: "",
   category: [

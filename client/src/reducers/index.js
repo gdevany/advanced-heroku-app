@@ -29,9 +29,16 @@ function searchCoupons(state="", action) {
   return state;
 }
 
+function users(state=[], action) {
+  if(action.type === "USERS_LOADED") {
+    return action.value;
+  }
+  return state;
+}
+
 
 
 const rootReducer = combineReducers({
-  category, subjectChosen,coupons,searchCoupons
+  category, subjectChosen,coupons,searchCoupons,users
 });
 export default rootReducer;

@@ -10,11 +10,9 @@ class AppSign extends Component {
     super();
     this.state = {
       signUpSignInError: "",
-      authenticated: localStorage.getItem("token") || false
+      authenticated: localStorage.getItem("token") || false,
+      clickedSignIn: false
     };
-    // this.handleSignIn = this.handleSignIn.bind(this);
-    // this.handleSignOut = this.handleSignOut.bind(this);
-    // this.handleSignUp = this.handleSignUp.bind(this);
   }
 
   handleSignUp = (credentials) => {
@@ -85,7 +83,8 @@ class AppSign extends Component {
   handleSignOut = () => {
     localStorage.removeItem("token");
     this.setState({
-      authenticated: false
+      authenticated: false,
+      clickedSignIn: false
     });
   }
 
@@ -99,8 +98,15 @@ class AppSign extends Component {
     );
   }
 
+  signInClicked = () => {
+    this.setState({
+      clickedSignIn: true
+    });
+  }
+
   renderApp() {
     return (
+      // If signed in, show the User Welcome
       <div>
         <Switch>
           <Route exact path="/" render={() => <h1>I am protected!</h1>} />
@@ -115,7 +121,7 @@ class AppSign extends Component {
     let whatToShow = "";
     if (this.state.authenticated) {
       whatToShow = this.renderApp();
-    } else {
+    } else if (this.state.clickedSignIn) {
       whatToShow = this.renderSignUpSignIn();
     }
 
@@ -124,7 +130,8 @@ class AppSign extends Component {
         <div className="AppSign">
           <TopNavbar
             showNavItems={this.state.authenticated}
-            onSignOut={this.handleSignOut} />
+            onSignOut={this.handleSignOut}
+            signInClicked={this.signInClicked} />
           {whatToShow}
         </div>
       </BrowserRouter>
