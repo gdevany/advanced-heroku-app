@@ -14,35 +14,9 @@ const TopNavbar = (props) => {
   console.log(props);
 
   let navItems = "";
-  // if (props.showNavItems) {
-  //   navItems = (
-  //             <div>
-  //               <Nav pullRight>
-  //                 <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
-  //               </Nav>
-  //               <Nav pullRight>
-  //                 <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
-  //               </Nav>
-  //             </div>
-  //             );
-  // } else {
-  //   navItems = (
-  //     <div>
-  //       <Nav pullRight>
-  //         <NavItem onClick={props.signInClicked}>Sign In</NavItem>
-  //       </Nav>
-  //     </div>
-  //   )
-  // }
-  //
-  // return (
-  //   <Navbar inverse collapseOnSelect>
-  //     <Navbar.Collapse>
-  //       {navItems}
-  //     </Navbar.Collapse>
-  //   </Navbar>
 
   if (props.showNavItems) {
+    // If signed in (authenticated), show Welcome (now: Secret)
     navItems = (
                 <Nav pullRight>
                   <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
@@ -50,6 +24,7 @@ const TopNavbar = (props) => {
                 </Nav>
               );
   } else {
+    // If NOT signed in (authenticated), show Sign In
     navItems = (
         <Nav pullRight>
           <NavItem onClick={props.signInClicked}>Sign In</NavItem>

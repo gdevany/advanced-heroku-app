@@ -106,7 +106,7 @@ class AppSign extends Component {
 
   renderApp() {
     return (
-      // If signed in, show the User Welcome
+      // If signed in, show the User Welcome (now: secret)
       <div>
         <Switch>
           <Route exact path="/" render={() => <h1>I am protected!</h1>} />
@@ -119,8 +119,10 @@ class AppSign extends Component {
 
   render() {
     let whatToShow = "";
+    // If signed in, show the User Welcome (now: secret)
     if (this.state.authenticated) {
       whatToShow = this.renderApp();
+      // If NOT signed in, show the SignUpSignIn IF clickedSignIn
     } else if (this.state.clickedSignIn) {
       whatToShow = this.renderSignUpSignIn();
     }
