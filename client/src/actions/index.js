@@ -14,21 +14,42 @@ export function setSearchCoupons(txt) {
 
 export function loadUsers() {
   return function(dispatch) {
-  dispatch({
-    type: "LOAD_USERS"
-  });
-  fetch('./users')
-  .then((response) => {
-    return response.json();
-  }).then((users) => {
-    dispatch(usersLoaded(users))
-  })
-}
+    dispatch({
+      type: "LOAD_USERS"
+    });
+    fetch('./users')
+    .then((response) => {
+      return response.json();
+    }).then((users) => {
+      dispatch(usersLoaded(users))
+    })
+  }
 }
 
 export function usersLoaded(users) {
   return {
     type: "USERS_LOADED",
     value: users
+  }
+}
+
+export function loadUser() {
+  return function(dispatch) {
+    dispatch({
+      type: "LOAD_USER"
+    });
+    fetch('./user')
+    .then((response) => {
+      return response.json();
+    }).then((user) => {
+      dispatch(userLoaded(user))
+    })
+  }
+}
+
+export function userLoaded(user) {
+  return {
+    type: "USER_LOGGED_IN",
+    value: user
   }
 }
