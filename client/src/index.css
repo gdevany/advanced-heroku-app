@@ -3,15 +3,32 @@ body {
   padding: 0;
   /*font-family: 'Chicle', cursive;*/
   font-family: 'Risque';
-
   font-size: 1.6em;
-  background-color: #5f3e29;
-  border-top: solid #BF4D28 5px;
-  border-right: solid #BF4D28 5px;
-  border-left: solid #BF4D28 5px;
+  /*background-color: #5f3e29;*/
+  background-color: rgba(94, 65, 47, 0.81);
+  /*border-top: solid #5f3e29 15px;*/
+  /*border-right: solid #BF4D28 5px;*/
+  border-left: solid #3f362a 15px;
   min-height: 800px;
-  background-image: url("../img/seventies6.png");
+  background-image: url("../img/Color1970s.png");
+  background-size: 12% 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+}
 
-  background-size: 100% 100%;
+.navbar-inverse, navbar {
+  background-color: #3f362a;
+  border: none;
+}
 
+.navbar-inverse .navbar-nav>li>a {
+    color: #fef596;
+}
+
+a {
+  color: #78C0A8;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+    background-color: #fef596;
 }

@@ -1,6 +1,6 @@
 .App {
   /*margin-top: 20px;*/
-  margin-right: 12%;
+  margin-right: 13%;
 }
 
 .container {
@@ -18,22 +18,58 @@ address {
   color: black;
   padding: 10px;
   border-radius: 10px;
-  box-shadow:inset -5px -6px 7px 0px #4f501b;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+
+  /*box-shadow:inset -5px -6px 7px 0px #4f501b;*/
+  box-shadow:inset -5px -5px 3px 0px #4f501b;
+  background: linear-gradient(to bottom right, #F6F7BD 2%, #E6AC27 7%);
+
 }
 
 .headingLogo {
   line-height: 0.5em;
   font-family: 'Monoton';
   font-size: 4em;
-  color: #cccb98;
+  color: #fef596;
   margin-top: 40px;
+  letter-spacing: 0.1em;
+  text-shadow: -1px 0 black, 0 1px black,
+      4px 0 black, 0 -1px black;
 }
+
+/*colors {
+  green: #6a863b;
+  green: #637c1b;
+  green: #bcee68;
+  yellow: #ffe950;
+  yellowCouponFadeLight: #F6F7BD;
+  yellowCouponFadeDark: #ffcd38;
+  ---------
+  aqua: #78C0A8;
+  orange: #F07818;
+  gold: #F0A830;
+  brown: #5E412F;
+  tan: #FCEBB6;
+  ---------
+  stripes:
+  tan: #fef596;
+  yellow: #fbde03;
+  orange: #fa9d04;
+  red: #e7450d;
+  brown: #3f362a;
+
+
+}*/
 
 .headingLogoMini {
   font-family: 'Chicle', cursive;
   font-size: 2em;
   color: #BF4D28;
   margin-bottom: 50px;
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black,
+      3px 0 black, 0 -1px black;
 }
 
 .outline {
@@ -62,19 +98,20 @@ address {
   color: black;
   padding: 10px;
   border: 1px solid #5f3e29;
-  box-shadow: 3px 5px 20px white;
-  box-shadow:inset -3px -3px 7px 0px #F6F7BD;
+  box-shadow: inset 3px 5px 20px white;
+  /*box-shadow:inset -3px -3px 7px 0px #F6F7BD;*/
 
 }
 
 .catButton {
-  background-color: #E6AC27;
+  background-color: #fa9d04;
+  /*background-color: #E6AC27;*/
   /*background-color: #ffcd38;*/
 }
 
 .chosenCat {
   /*background-color: #7b8859*/
-  background-color: #b5c26c;
+  background-color: #78C0A8;
 }
 
 .backButton {
@@ -104,7 +141,11 @@ strong {
 }
 
 .coupon {
-  border: dotted #5f3e29 2px;
+  border-top: dotted #5f3e29 2px;
+  border-right: dotted #5f3e29 3px;
+  border-bottom: dotted #5f3e29 3px;
+  border-left: dotted #5f3e29 2px;
+
   /*background-color: #ffcd38;*/
   /*background-color: #ffe950;*/
   background-color: #F6F7BD;
@@ -116,12 +157,12 @@ strong {
   width: 100%;
   padding: 1.5em 0em;
   /*box-shadow:inset 0px -3px 7px 0px #E6AC27;*/
-  box-shadow:inset 0px -3px 7px 0px black;
-
+  /*box-shadow:inset 0px -3px 7px 0px black;*/
+  box-shadow: inset -4px -4px 14px 1px black;
   background:linear-gradient(to bottom, #F6F7BD 60%, #ffcd38 100%);
 
 }
-
+/*
 .myButton {
 	box-shadow:inset 0px -3px 7px 0px #29bbff;
 	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
@@ -151,4 +192,4 @@ strong {
 .myButton:active {
 	position:relative;
 	top:1px;
-}
+}*/
