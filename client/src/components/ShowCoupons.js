@@ -37,7 +37,7 @@ function ShowCoupons(props) {
                 </div><br />
                 <div>
                   <img
-                    className="bizLogo outline pull-right"
+                    className="bizLogo pull-right"
                     src={coupon.bizQR}
                     alt="">
                   </img>
@@ -49,7 +49,7 @@ function ShowCoupons(props) {
                 <address>
                   <strong>{coupon.bizName}</strong><br />
                   {coupon.bizAddress.streetAndNum}{" "}
-                  {coupon.bizAddress.city}{" "}
+                  {coupon.bizAddress.city}{" "}<br />
                   <strong>{coupon.bizAddress.zip}</strong><br />
                   <small>{coupon.bizPhone}</small>
                 </address>
@@ -68,7 +68,7 @@ function ShowCoupons(props) {
   } else couponDiv = <div></div>
 
   return (
-    <div className="">
+    <div className="couponMargin">
       {couponDiv}
     </div>
   )

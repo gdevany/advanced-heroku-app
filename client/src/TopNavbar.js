@@ -4,9 +4,9 @@ import {
   Navbar,
   Nav,
   NavItem,
-  NavbarCollapse,
-  NavbarToggle,
-  NavDropdown
+  // NavbarCollapse,
+  // NavbarToggle,
+  // NavDropdown
  } from "react-bootstrap";
 import { Link } from "react-router-dom";
 

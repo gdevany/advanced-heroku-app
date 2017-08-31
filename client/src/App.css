@@ -13,7 +13,7 @@ address {
 }
 
 .offer {
-  font-size: 1.5em;
+  font-size: 1.3em;
   background-color: #E6AC27;
   color: black;
   padding: 10px;
@@ -24,7 +24,6 @@ address {
   /*box-shadow:inset -5px -6px 7px 0px #4f501b;*/
   box-shadow:inset -5px -5px 3px 0px #4f501b;
   background: linear-gradient(to bottom right, #F6F7BD 2%, #E6AC27 7%);
-
 }
 
 .headingLogo {
@@ -42,6 +41,7 @@ address {
   green: #6a863b;
   green: #637c1b;
   green: #bcee68;
+  green: #7b8859;
   yellow: #ffe950;
   yellowCouponFadeLight: #F6F7BD;
   yellowCouponFadeDark: #ffcd38;
@@ -72,11 +72,6 @@ address {
       3px 0 black, 0 -1px black;
 }
 
-.outline {
-  box-shadow:inset -2px -4px 7px 0px #4f501b;
-  padding: 10px;
-}
-
 .bigText {
   font-size: 1.2em;
 }
@@ -93,24 +88,20 @@ address {
 .buttonGen {
   max-width: 170px;
   background-color: #E6AC27;
-  border-radius: 10px;
+  border-radius: 4px;
   margin: 10px 3vw;
   color: black;
   padding: 10px;
   border: 1px solid #5f3e29;
-  box-shadow: inset 3px 5px 20px white;
-  /*box-shadow:inset -3px -3px 7px 0px #F6F7BD;*/
-
+  box-shadow: inset 1px 1px 4px 0px white;
+ /*box-shadow:inset -3px -3px 7px 0px #F6F7BD;*/
 }
 
 .catButton {
   background-color: #fa9d04;
-  /*background-color: #E6AC27;*/
-  /*background-color: #ffcd38;*/
 }
 
 .chosenCat {
-  /*background-color: #7b8859*/
   background-color: #78C0A8;
 }
 
@@ -129,6 +120,8 @@ address {
   height: auto;
   background-color: white;
   border-radius: 10px;
+  box-shadow:inset -2px -4px 7px 0px #4f501b;
+  padding: 10px;
 }
 
 .verticle {
@@ -145,9 +138,6 @@ strong {
   border-right: dotted #5f3e29 3px;
   border-bottom: dotted #5f3e29 3px;
   border-left: dotted #5f3e29 2px;
-
-  /*background-color: #ffcd38;*/
-  /*background-color: #ffe950;*/
   background-color: #F6F7BD;
   border-radius: 10px;
   margin-top: 5px;
@@ -160,36 +150,8 @@ strong {
   /*box-shadow:inset 0px -3px 7px 0px black;*/
   box-shadow: inset -4px -4px 14px 1px black;
   background:linear-gradient(to bottom, #F6F7BD 60%, #ffcd38 100%);
+}
 
+.couponMargin {
+  margin-right: -5px;
 }
-/*
-.myButton {
-	box-shadow:inset 0px -3px 7px 0px #29bbff;
-	background:linear-gradient(to bottom, #2dabf9 5%, #0688fa 100%);
-	background-color:#2dabf9;
-	-moz-border-radius:3px;
-	-webkit-border-radius:3px;
-	border-radius:3px;
-	border:1px solid #0b0e07;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:15px;
-	padding:9px 23px;
-	text-decoration:none;
-	text-shadow:0px 1px 0px #263666;
-}
-.myButton:hover {
-	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #0688fa), color-stop(1, #2dabf9));
-	background:-moz-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
-	background:-webkit-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
-	background:-o-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
-	background:-ms-linear-gradient(top, #0688fa 5%, #2dabf9 100%);
-	background:linear-gradient(to bottom, #0688fa 5%, #2dabf9 100%);
-	background-color:#0688fa;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}*/
