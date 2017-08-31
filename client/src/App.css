@@ -20,8 +20,6 @@ address {
   border-radius: 10px;
   border-top: 1px solid black;
   border-left: 1px solid black;
-
-  /*box-shadow:inset -5px -6px 7px 0px #4f501b;*/
   box-shadow:inset -5px -5px 3px 0px #4f501b;
   background: linear-gradient(to bottom right, #F6F7BD 2%, #E6AC27 7%);
 }
@@ -37,35 +35,10 @@ address {
       4px 0 black, 0 -1px black;
 }
 
-/*colors {
-  green: #6a863b;
-  green: #637c1b;
-  green: #bcee68;
-  green: #7b8859;
-  yellow: #ffe950;
-  yellowCouponFadeLight: #F6F7BD;
-  yellowCouponFadeDark: #ffcd38;
-  ---------
-  aqua: #78C0A8;
-  orange: #F07818;
-  gold: #F0A830;
-  brown: #5E412F;
-  tan: #FCEBB6;
-  ---------
-  stripes:
-  tan: #fef596;
-  yellow: #fbde03;
-  orange: #fa9d04;
-  red: #e7450d;
-  brown: #3f362a;
-
-
-}*/
-
 .headingLogoMini {
   font-family: 'Chicle', cursive;
   font-size: 2em;
-  color: #BF4D28;
+  color: #7b8859;
   margin-bottom: 50px;
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black,
@@ -155,3 +128,28 @@ strong {
 .couponMargin {
   margin-right: -5px;
 }
+
+/*colors {
+  green: #6a863b;
+  green: #637c1b;
+  green: #bcee68;
+  green: #7b8859;
+  yellow: #ffe950;
+  yellowCouponFadeLight: #F6F7BD;
+  yellowCouponFadeDark: #ffcd38;
+  ---------
+  aqua: #78C0A8;
+  orange: #F07818;
+  gold: #F0A830;
+  brown: #5E412F;
+  tan: #FCEBB6;
+  ---------
+  stripes:
+  tan: #fef596;
+  yellow: #fbde03;
+  orange: #fa9d04;
+  red: #e7450d;
+  brown: #3f362a;
+
+
+}*/
