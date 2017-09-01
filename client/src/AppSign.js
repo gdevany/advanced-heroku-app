@@ -94,15 +94,22 @@ class AppSign extends Component {
         error={this.state.signUpSignInError}
         onSignUp={this.handleSignUp}
         onSignIn={this.handleSignIn}
+        backClicked={this.signInClicked}
       />
     );
   }
 
+  // signInClicked = () => {
+  //   this.setState({
+  //     clickedSignIn: true
+  //   });
+  // }
+
   signInClicked = () => {
-    this.setState({
-      clickedSignIn: true
-    });
-  }
+   this.setState(prevState => ({
+     clickedSignIn: !prevState.clickedSignIn
+   }));
+ }
 
   renderApp() {
     return (

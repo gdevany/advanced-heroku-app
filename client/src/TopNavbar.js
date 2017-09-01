@@ -27,7 +27,7 @@ const TopNavbar = (props) => {
     // If NOT signed in (authenticated), show Sign In
     navItems = (
         <Nav pullRight>
-          <NavItem onClick={props.signInClicked}>Sign In</NavItem>
+          <NavItem onClick={props.signInClicked}>Sign Up / Sign In</NavItem>
         </Nav>
     )
   }
