@@ -4,6 +4,7 @@ import React from 'react';
 
 function Subjects(props) {
   var subDivs = "";
+  console.log(props);
 
   // show the subjects and set subjectChosen when onClicked
   if (props.subjectChosen === "") {
@@ -21,6 +22,7 @@ function Subjects(props) {
 
   return (
     <div className="container text-center">
+      <div>{props.loggedIn}</div>
       <div className="">{subDivs}</div>
     </div>
   )

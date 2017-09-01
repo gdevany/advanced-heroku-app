@@ -1,12 +1,23 @@
 import User from "../models/UserModel";
 import bcrypt from "bcrypt-nodejs";
 import jwt from "jwt-simple";
+import {loadUser} from '../../client/src/actions';
 
 export function signIn(req, res) {
-  
+
   console.log("logged in now");
   res.json({ token: tokenForUser(req.user)});
+  loadUser(req.user.username);
 }
+
+export function mapDispatchToProps(dispatch) {
+  return {
+    loadUser(user) {
+      dispatch(loadUser(user));
+    }
+  }
+}
+
 export function signUp(req, res, next) {
   const { username, password } = req.body;
   let u = username;
@@ -48,7 +59,8 @@ function saveUser(username,password,res,next) {
   });
 }
 function tokenForUser(user) {
+  console.log(user);
+
   const timestamp = new Date().getTime();
   return jwt.encode({ userId: user.id, iat: timestamp }, process.env.SECRET);
 }
-

@@ -1,13 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {
-  Navbar,
-  Nav,
-  NavItem,
-  // NavbarCollapse,
-  // NavbarToggle,
-  // NavDropdown
- } from "react-bootstrap";
+import {Navbar,Nav,NavItem,} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const TopNavbar = (props) => {

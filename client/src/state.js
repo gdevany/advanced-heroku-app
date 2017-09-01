@@ -1,11 +1,12 @@
 export default {
   subjectChosen: "",
   searchCoupons: "",
+  loggedIn: "",
+
   //---vvvvv----- below this -----vvvvv-----   move to server
   // Remember to change mapStateToProps to server, not state.
-  // 
-  users: [],
-  loggedIn: {},
+  //
+  users: [], //done
   category: [
     {
       "subject": "Eat Now",

@@ -33,23 +33,32 @@ export function usersLoaded(users) {
   }
 }
 
-export function loadUser() {
-  return function(dispatch) {
-    dispatch({
-      type: "LOAD_USER"
-    });
-    fetch('./user')
-    .then((response) => {
-      return response.json();
-    }).then((user) => {
-      dispatch(userLoaded(user))
-    })
-  }
-}
-
-export function userLoaded(user) {
+export function loadUser(user) {
+  console.log(user);
   return {
     type: "USER_LOGGED_IN",
     value: user
   }
 }
+
+
+// export function loadUser(user) {
+//   return function(dispatch) {
+//     dispatch({
+//       type: "LOAD_USER"
+//     });
+//     fetch('./user')
+//     .then((response) => {
+//       return response.json();
+//     }).then((user) => {
+//       dispatch(userLoaded(user))
+//     })
+//   }
+// }
+//
+// export function userLoaded(user) {
+//   return {
+//     type: "USER_LOGGED_IN",
+//     value: user
+//   }
+// }

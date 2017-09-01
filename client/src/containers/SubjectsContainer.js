@@ -6,7 +6,8 @@ import {setSubjectChosen} from '../actions';
 function mapStateToProps(state) {
   return {
     category: state.category,
-    subjectChosen: state.subjectChosen
+    subjectChosen: state.subjectChosen,
+    loggedIn: state.loggedIn
   }
 }
 

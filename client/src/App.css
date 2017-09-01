@@ -25,11 +25,11 @@ address {
 }
 
 .headingLogo {
-  line-height: 0.5em;
+  line-height: 0.2em;
   font-family: 'Monoton';
   font-size: 4em;
   color: #fef596;
-  margin-top: 40px;
+  margin-top: 50px;
   letter-spacing: 0.1em;
   text-shadow: -1px 0 black, 0 1px black,
       4px 0 black, 0 -1px black;
@@ -38,7 +38,9 @@ address {
 .headingLogoMini {
   font-family: 'Chicle', cursive;
   font-size: 2em;
-  color: #7b8859;
+  /*color: #7b8859;*/
+  color: #78C0A8;
+
   margin-bottom: 50px;
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black,

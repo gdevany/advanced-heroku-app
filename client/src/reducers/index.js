@@ -35,8 +35,9 @@ function users(state=[], action) {
   }
   return state;
 }
- function loggedIn(state={}, action) {
+ function loggedIn(state="", action) {
    if(action.type === "USER_LOGGED_IN") {
+     console.log('here-loaded loggedIn');
      return action.value;
    }
    return state;
