@@ -34,7 +34,7 @@ export function usersLoaded(users) {
 }
 
 export function loadUser(user) {
-  console.log(user);
+  console.log("here- loadUser() in actions");
   return {
     type: "USER_LOGGED_IN",
     value: user

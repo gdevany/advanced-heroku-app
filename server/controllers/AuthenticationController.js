@@ -1,19 +1,20 @@
 import User from "../models/UserModel";
 import bcrypt from "bcrypt-nodejs";
 import jwt from "jwt-simple";
+import state from '../../client/src/state';
 import {loadUser} from '../../client/src/actions';
 
 export function signIn(req, res) {
-
   console.log("logged in now");
+  // console.log(state);
   res.json({ token: tokenForUser(req.user)});
-  loadUser(req.user.username);
+  loadUser(req.user);
 }
 
-export function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch) {
   return {
-    loadUser(user) {
-      dispatch(loadUser(user));
+    loadUser() {
+      dispatch(loadUser())
     }
   }
 }
@@ -24,7 +25,7 @@ export function signUp(req, res, next) {
   // If no username or password was supplied return an error
   if (!username || !password) {
     return res.status(422)
-      .json({ error: "You must provide an username and password" });
+      .json({ error: "You must provide a username and password" });
   }
   console.log("Look for a user with the username");
   User.findOne({ username:u}).exec()
@@ -59,8 +60,6 @@ function saveUser(username,password,res,next) {
   });
 }
 function tokenForUser(user) {
-  console.log(user);
-
   const timestamp = new Date().getTime();
   return jwt.encode({ userId: user.id, iat: timestamp }, process.env.SECRET);
 }
