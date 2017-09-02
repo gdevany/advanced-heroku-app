@@ -1,8 +1,11 @@
 import User from "../models/UserModel";
 import bcrypt from "bcrypt-nodejs";
 import jwt from "jwt-simple";
-import state from '../../client/src/state';
+// import state from '../../client/src/state';
 import {loadUser} from '../../client/src/actions';
+import React from 'react';
+import {connect} from 'react-redux';
+
 
 export function signIn(req, res) {
   console.log("logged in now");
@@ -13,11 +16,12 @@ export function signIn(req, res) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadUser() {
-      dispatch(loadUser())
+    loadUser(user) {
+      dispatch(loadUser(user))
     }
   }
 }
+export default connect(null, mapDispatchToProps);
 
 export function signUp(req, res, next) {
   const { username, password } = req.body;

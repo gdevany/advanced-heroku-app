@@ -35,12 +35,13 @@ function users(state=[], action) {
   }
   return state;
 }
- function loggedIn(state="", action) {
-   if(action.type === "USER_LOGGED_IN") {
-     console.log(`here-loaded loggedIn. Action: ${action.value}`);
-     return action.value;
-   }
-   return state;
+
+function loggedIn(state="", action) {
+  if(action.type === "USER_LOGGED_IN") {
+    console.log(`here-loaded loggedIn. Action: ${action.value}`);
+    return action.value;
+  }
+  return state;
  }
 
 
