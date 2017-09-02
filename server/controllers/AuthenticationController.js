@@ -8,7 +8,7 @@ export function signIn(req, res) {
   console.log("logged in now");
   // console.log(state);
   res.json({ token: tokenForUser(req.user)});
-  loadUser(req.user);
+  loadUser(req.user.username);
 }
 
 function mapDispatchToProps(dispatch) {
