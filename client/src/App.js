@@ -6,9 +6,6 @@ import Subtopics from './containers/SubtopicsContainer';
 import ShowCoupons from './containers/ShowCouponsContainer';
 
 
-
-
-
 function App() {
   return (
     <div className="App">

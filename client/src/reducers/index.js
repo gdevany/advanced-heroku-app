@@ -9,7 +9,7 @@ function category(state = [], action){
 }
 
 function subjectChosen(state={}, action){
-  if(action.type === "SET_SUBJECT"){
+  if(action.type === "SET_SUBJECT_CHOSEN"){
     return action.value;
   }
   return state;
@@ -29,8 +29,8 @@ function searchCoupons(state="", action) {
   return state;
 }
 
-function users(state=[], action) {
-  if(action.type === "USERS_LOADED") {
+function usersCoupons(state=[], action) {
+  if(action.type === "USERS_COUPONS_LOADED") {
     return action.value;
   }
   return state;
@@ -46,6 +46,6 @@ function loggedIn(state="", action) {
 
 
 const rootReducer = combineReducers({
-  category, subjectChosen,coupons,searchCoupons,users,loggedIn
+  category, subjectChosen,coupons,searchCoupons,usersCoupons,loggedIn
 });
 export default rootReducer;

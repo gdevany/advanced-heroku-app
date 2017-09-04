@@ -1,6 +1,6 @@
 export function setSubjectChosen(subj) {
   return {
-    type: "SET_SUBJECT",
+    type: "SET_SUBJECT_CHOSEN",
     value: subj
   }
 }
@@ -12,26 +12,26 @@ export function setSearchCoupons(txt) {
   }
 }
 
-// export function loadUsers() {
-//   return function(dispatch) {
-//     dispatch({
-//       type: "LOAD_USERS"
-//     });
-//     fetch('./users')
-//     .then((response) => {
-//       return response.json();
-//     }).then((users) => {
-//       dispatch(usersLoaded(users))
-//     })
-//   }
-// }
-//
-// export function usersLoaded(users) {
-//   return {
-//     type: "USERS_LOADED",
-//     value: users
-//   }
-// }
+export function loadUsersCoupons() {
+  return function(dispatch) {
+    dispatch({
+      type: "LOAD_USERS_COUPONS"
+    });
+    fetch('./usersCoupons')
+    .then((response) => {
+      return response.json();
+    }).then((coupons) => {
+      dispatch(UsersCouponsLoaded(coupons))
+    })
+  }
+}
+
+export function UsersCouponsLoaded(coupons) {
+  return {
+    type: "USERS_COUPONS_LOADED",
+    value: coupons
+  }
+}
 
 export function loadUser(user) {
   console.log(`here- loadUser() in actions. user: ${user}`);
@@ -41,6 +41,16 @@ export function loadUser(user) {
   }
 }
 
+export function createCoupon(c) {
+  console.log(c);
+  return function (dispatch) {
+    fetch("/coupons", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(c)
+    }).then(() => dispatch(loadUsersCoupons()));
+  };
+}
 
 // export function loadUser(user) {
 //   return function(dispatch) {
