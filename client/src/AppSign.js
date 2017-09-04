@@ -76,6 +76,8 @@ class AppSign extends Component {
           signUpSignInError: "",
           authenticated: token
         });
+        // this.props.loadUser("data.token");
+        // console.log(this.state.authenticated);
       });
     }
   }
@@ -99,22 +101,19 @@ class AppSign extends Component {
     );
   }
 
-  // signInClicked = () => {
-  //   this.setState({
-  //     clickedSignIn: true
-  //   });
-  // }
-
   signInClicked = () => {
    this.setState(prevState => ({
      clickedSignIn: !prevState.clickedSignIn
    }));
- }
+  }
 
   renderApp() {
+    let currentUserInfo = this.state.authenticated;
+
     return (
       // If signed in, show the User Welcome (now: secret)
       <div>
+        {currentUserInfo}
         <Switch>
           <Route exact path="/" render={() => <h1>I am protected!</h1>} />
           <Route exact path="/secret" component={Secret} />

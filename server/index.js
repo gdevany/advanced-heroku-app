@@ -21,6 +21,11 @@ app.use(express.static("public"));
 app.get("*", (req, res, next) => {
   res.sendFile("public/index.html");
 });
+
+// app.get('*', function (req, res) {
+//   res.sendFile("index.html", { root: path.join(__dirname, 'public') })
+// })
+
 app.use(bodyParser.json());
 app.use(authenticationRoutes);
 

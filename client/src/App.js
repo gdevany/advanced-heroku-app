@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import AppSign from './AppSign';
+import AppSign from './containers/AppSignContainer';
 import Subjects from './containers/SubjectsContainer';
 import Subtopics from './containers/SubtopicsContainer';
 import ShowCoupons from './containers/ShowCouponsContainer';
