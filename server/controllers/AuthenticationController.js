@@ -8,7 +8,7 @@ import React from 'react';
 export function signIn(req, res) {
   console.log("logged in now");
   // console.log(state);
-  res.json({ token: tokenForUser(req.user)});
+  res.json({ token: tokenForUser(req.user), username: req.user.username});
 }
 
 export function signUp(req, res, next) {

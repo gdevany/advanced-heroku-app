@@ -5,8 +5,8 @@ import {loadUser} from '../actions';
 
 function mapDispatchToProps(dispatch) {
   return {
-    loadUser() {
-      dispatch(loadUser())
+    loadUser(user) {
+      dispatch(loadUser(user))
     }
   }
 }

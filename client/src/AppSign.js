@@ -11,7 +11,8 @@ class AppSign extends Component {
     this.state = {
       signUpSignInError: "",
       authenticated: localStorage.getItem("token") || false,
-      clickedSignIn: false
+      clickedSignIn: false,
+      username: ""
     };
   }
 
@@ -70,14 +71,14 @@ class AppSign extends Component {
           return res.json();
         }
       }).then((data) => {
+        console.log(`data from signIn: ${data.username}`);
         const { token } = data;
         localStorage.setItem("token", token);
         this.setState({
           signUpSignInError: "",
-          authenticated: token
+          authenticated: token,
+          username: data.username
         });
-        // this.props.loadUser("data.token");
-        // console.log(this.state.authenticated);
       });
     }
   }
@@ -86,8 +87,10 @@ class AppSign extends Component {
     localStorage.removeItem("token");
     this.setState({
       authenticated: false,
-      clickedSignIn: false
+      clickedSignIn: false,
+      username: ""
     });
+    this.props.loadUser("");
   }
 
   renderSignUpSignIn = () => {
@@ -108,12 +111,11 @@ class AppSign extends Component {
   }
 
   renderApp() {
-    let currentUserInfo = this.state.authenticated;
+    this.props.loadUser(this.state.username);
 
     return (
       // If signed in, show the User Welcome (now: secret)
       <div>
-        {currentUserInfo}
         <Switch>
           <Route exact path="/" render={() => <h1>I am protected!</h1>} />
           <Route exact path="/secret" component={Secret} />
