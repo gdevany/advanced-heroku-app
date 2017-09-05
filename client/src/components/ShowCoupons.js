@@ -4,13 +4,6 @@ import React from 'react';
 
 
 function ShowCoupons(props) {
-  // filter coupons against subtopic chosen (searchCoupons)
-
-  // var filterCoupons = props.coupons.filter((c) => {
-  //     if(c.searchWords.indexOf(props.searchCoupons) > -1) {
-  //       return true;
-  //     } else return false;
-  //   });
 
   var filterCoupons = "";
   //if loggedIn, filter coupons against username
