@@ -2,47 +2,58 @@ import React from 'react';
 import CreateCoupons from './CreateCoupons';
 
 
-function Subjects(props) {
-  var subDivs = "";
-  console.log(props);
+class Subjects extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      creation: false,
+    }
+  };
 
-  // IF User is NOT loggedIn, show the subjects
-  // show the subjects and set subjectChosen when onClicked
-  if (props.subjectChosen === "" && props.loggedIn === "") {
-    subDivs = props.category.map( (c) => {
-      return <button
-        key={c.subject}
-        className="catButton buttonGen"
-        onClick={ (e) => {e.preventDefault(); props.set(c)}}
-        ><strong>{c.subject}</strong></button>
-    })
-  } else if (props.subjectChosen !== "" && props.loggedIn === "") {
-    // show just subjectChosen when chosen
-    subDivs = <button className="chosenCat buttonGen">{props.subjectChosen.subject}</button>
-  } else {
-    //If user loggedIn, show welcome and options
-    subDivs = <div>
-      <strong>Hi {props.loggedIn}</strong><br />
-      <button className="chosenCat buttonGen"
-        onClick={ (e) => {e.preventDefault(); } }
-        >View My Coupons
-      </button>
-      <button className="chosenCat buttonGen"
-        onClick={ (e) => {e.preventDefault(); {goToCreateCoupon}} }
-        >Create New Coupon
-      </button>
-    </div>
+  loadCreateCoupon = () => {
+    console.log(`loadCreateCoupon: here`);
+    this.setState({creation: true})
   }
 
-  const goToCreateCoupon = () => {
-    return (<CreateCoupons />)
-  }
+  render() {
+    var subDivs = "";
+    console.log(this.props);
 
-  return (
-    <div className="container text-center">
-      <div className="">{subDivs}</div>
-    </div>
-  )
+    // IF User is NOT loggedIn, show the subjects
+    // show the subjects and set subjectChosen when onClicked
+    if (this.props.subjectChosen === "" && this.props.loggedIn === "") {
+      subDivs = this.props.category.map( (c) => {
+        return <button
+          key={c.subject}
+          className="catButton buttonGen"
+          onClick={ (e) => {e.preventDefault(); this.props.set(c)}}
+          ><strong>{c.subject}</strong></button>
+      })
+    } else if (this.props.subjectChosen !== "" && this.props.loggedIn === "") {
+      // show just subjectChosen when chosen
+      subDivs = <button className="chosenCat buttonGen">{this.props.subjectChosen.subject}</button>
+    } else {
+      //If user loggedIn, show welcome and options
+      subDivs = <div>
+        <strong>Hi {this.props.loggedIn}</strong><br />
+        <button className="chosenCat buttonGen"
+          onClick={ (e) => {e.preventDefault(); this.loadCreateCoupon()} }
+          >View My Coupons
+        </button>
+        <button className="chosenCat buttonGen"
+          onClick={ (e) => {e.preventDefault(); this.loadCreateCoupon()} }
+          >Create New Coupon
+        </button>
+      </div>
+    }
+
+    return (
+      <div className="container text-center">
+        <div className="">{subDivs}</div>
+        <div><CreateCoupons show={this.state.creation} /></div>
+      </div>
+    )
+  }
 }
 
 export default Subjects;
