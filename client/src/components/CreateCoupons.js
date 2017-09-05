@@ -40,94 +40,94 @@ class CreateCoupons extends React.Component {
               }
             }}>
               <div>
-                Business Name: <input onChange={(e) => {
+                Business Name: <br /><input onChange={(e) => {
                   const coupon = {bizName: e.target.value};
                   this.setState({
                     coupon: Object.assign(this.state.coupon,coupon)
                   });
-                }} />
+                }} /><br />
               </div>
               <div>
-                Business QR Link: <input onChange={(e) => {
+                Business QR Link: <br /><input onChange={(e) => {
                   const coupon = {bizQR: e.target.value};
                   this.setState({
                     coupon: Object.assign(this.state.coupon,coupon)
                   });
-                }} />
+                }} /><br />
               </div>
               <div>
-                Business Logo Link: <input onChange={(e) => {
+                Business Logo Link: <br /><input onChange={(e) => {
                   const coupon = {bizLogo: e.target.value};
                   this.setState({
                     coupon: Object.assign(this.state.coupon,coupon)
                   });
-                }} />
+                }} /><br />
               </div>
               <div>
-                Buy One: <input onChange={(e) => {
+                Buy One: <br /><input onChange={(e) => {
                   const coupon = {heading: e.target.value};
                   this.setState({
                     coupon: Object.assign(this.state.coupon,coupon)
                   });
-                }} /> Get One Free
+                }} /><br /><small>Get One Free</small>
               </div>
               <div>
-                Coupon Description: <input onChange={(e) => {
+                Coupon Description: <br /><input onChange={(e) => {
                   const coupon = {couponDesc: e.target.value};
                   this.setState({
                     coupon: Object.assign(this.state.coupon,coupon)
                   });
-                }} />
+                }} /><br />
               </div>
               <div>
-                Restrictions: <input onChange={(e) => {
+                Restrictions: <br /><input onChange={(e) => {
                   const coupon = {restrictions: e.target.value};
                   this.setState({
                     coupon: Object.assign(this.state.coupon,coupon)
                   });
-                }} />
+                }} /><br />
               </div>
               <div>
-                Search Words: <input onChange={(e) => {
+                Search Words: <br /><input onChange={(e) => {
                   const coupon = {searchWords: e.target.value};
                   this.setState({
                     coupon: Object.assign(this.state.coupon,coupon)
                   });
-                }} />
+                }} /><br /><br />
               </div>
-              <div>Business Address:
+              <div>Business Address:<br />
                 <div>
-                  Number and Street Name:<input onChange={(e) => {
+                  Number and Street Name:<br /><input onChange={(e) => {
                     const coupon = {streetAndNum: e.target.value};
                     this.setState({
                       coupon: Object.assign(this.state.coupon,coupon)
                     });
-                  }} />
+                  }} /><br />
                 </div>
                 <div>
-                  City:<input onChange={(e) => {
+                  City:<br /><input onChange={(e) => {
                     const coupon = {city: e.target.value};
                     this.setState({
                       coupon: Object.assign(this.state.coupon,coupon)
                     });
-                  }} />
+                  }} /><br />
                 </div>
                 <div>
-                  Zipcode:<input onChange={(e) => {
+                  Zipcode:<br /><input onChange={(e) => {
                     const coupon = {zip: e.target.value};
                     this.setState({
                       coupon: Object.assign(this.state.coupon,coupon)
                     });
-                  }} />
+                  }} /><br />
                 </div>
               </div>
               <div>
-                Phone#: <input onChange={(e) => {
+                Phone#: <br /><input onChange={(e) => {
                   const coupon = {phone: e.target.value};
                   this.setState({
                     coupon: Object.assign(this.state.coupon,coupon)
                   });
-                }} />
+                }} /><br />
               </div>
               <button>Create</button>
             </form>
