@@ -1,3 +1,5 @@
+// TODO line 37ish- onClick to deleteCoupon()
+
 import React from 'react';
 
 
@@ -9,7 +11,10 @@ function ShowCoupons(props) {
   //       return true;
   //     } else return false;
   //   });
+
   var filterCoupons = "";
+  //if loggedIn, filter coupons against username
+  //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
   if (props.loggedIn === "") {
     filterCoupons = props.coupons.filter((c) => {
       if(c.searchWords.indexOf(props.searchCoupons) > -1) {
@@ -24,9 +29,23 @@ function ShowCoupons(props) {
     });
   }
 
-  var couponDiv = "";
+  //if loggedIn, show delete button. if NOT logged in, show nothing
+  const deleteButton = (coupon) => {
+    if (props.loggedIn === "") {
+      return <div></div>
+    } else {
+      return <button
+        className="bizLogo"
+        onClick={ (e) => {e.preventDefault(); props.deleteCoupon(coupon.id)}}
+        >DELETE COUPON
+      </button>
+    }
+  }
 
-  // if subtopic chosen (searchCoupons), map them (filtered)
+
+  var couponDiv = "";
+  // if loggenIn, filter on username and show
+  // if NOT logged in && if subtopic chosen (searchCoupons), map them (filtered)
   if (props.searchCoupons !== "" || props.loggedIn !== "") {
     couponDiv = filterCoupons.map((coupon) => {
       return (
@@ -43,7 +62,7 @@ function ShowCoupons(props) {
               <div className="col-xs-4 verticle">
                 <div>
                   <img
-                    className="bizLogo outline pull-right"
+                    className="bizLogo pull-right"
                     src={coupon.bizLogo}
                     alt="">
                   </img>
@@ -54,6 +73,9 @@ function ShowCoupons(props) {
                     src={coupon.bizQR}
                     alt="">
                   </img>
+                </div><br />
+                <div>
+                  {deleteButton(coupon)}
                 </div>
               </div>
             </div>

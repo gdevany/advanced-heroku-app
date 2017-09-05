@@ -52,6 +52,16 @@ export function createCoupon(c) {
   };
 }
 
+export function deleteCoupon(dc) {
+  return function (dispatch) {
+    fetch(`/coupons/:${dc}`, {
+      method: "DELETE",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(dc)
+    }).then(() => dispatch(loadUsersCoupons()));
+  };
+}
+
 // export function loadUser(user) {
 //   return function(dispatch) {
 //     dispatch({
