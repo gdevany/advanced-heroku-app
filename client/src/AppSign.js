@@ -111,7 +111,7 @@ class AppSign extends Component {
   }
 
   renderApp() {
-    this.props.loadUser(this.state.username);
+    // this.props.loadUser(this.state.username);
 
     return (
       // If signed in, show the User Welcome (now: secret)
@@ -129,6 +129,7 @@ class AppSign extends Component {
     let whatToShow = "";
     // If signed in, show the User Welcome (now: secret)
     if (this.state.authenticated) {
+      this.props.loadUser(this.state.username);
       whatToShow = this.renderApp();
       // If NOT signed in, show the SignUpSignIn IF clickedSignIn
     } else if (this.state.clickedSignIn) {

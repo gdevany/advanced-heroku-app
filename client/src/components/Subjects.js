@@ -6,13 +6,14 @@ class Subjects extends React.Component {
   constructor() {
     super();
     this.state = {
-      creation: false,
+      showCreateCoupon: false,
     }
   };
 
   loadCreateCoupon = () => {
-    console.log(`loadCreateCoupon: here`);
-    this.setState({creation: true})
+    this.setState(prevState => ({
+      showCreateCoupon: !prevState.showCreateCoupon
+    }));
   }
 
   render() {
@@ -50,7 +51,9 @@ class Subjects extends React.Component {
     return (
       <div className="container text-center">
         <div className="">{subDivs}</div>
-        <div><CreateCoupons show={this.state.creation} /></div>
+        <div><CreateCoupons
+              toggleShow={this.loadCreateCoupon}
+              showCreateCoupon={this.state.showCreateCoupon}/></div>
       </div>
     )
   }

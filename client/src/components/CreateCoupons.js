@@ -1,3 +1,5 @@
+//TODO - createCoupon, show success
+
 import React from "react";
 
 class CreateCoupons extends React.Component {
@@ -25,8 +27,8 @@ class CreateCoupons extends React.Component {
     };
   }
   render() {
-    console.log(`this.props.show: ${this.props.show}`)
-    if (this.props.show === false) {
+    console.log(`showCreateCoupon: ${this.props.showCreateCoupon}`);
+    if (this.props.showCreateCoupon === false) {
       return (<div></div>);
     } else {
       return (
@@ -37,7 +39,8 @@ class CreateCoupons extends React.Component {
               e.preventDefault();
               if (this.props.createCoupon) {
                 this.props.createCoupon(this.state.coupon);
-              }
+              };
+              this.props.toggleShow();
             }}>
               <div>
                 Business Name: <br /><input onChange={(e) => {
