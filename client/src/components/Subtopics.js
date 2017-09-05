@@ -15,11 +15,15 @@ function Subtopics(props) {
     if (props.searchCoupons === "") {
       subDivs = props.subjectChosen.types.map( (t,i) => {
         return (
-          <button
-            key={i}
-            className="catButton buttonGen"
-            onClick={ (e) => {e.preventDefault(); props.setSearchCoupons(t)}}
-          ><strong>{t}</strong></button>
+          <div>
+            <div>Choose a subtopic</div>
+            <button
+              key={i}
+              className="catButton buttonGen"
+              onClick={ (e) => {e.preventDefault(); props.setSearchCoupons(t)}}>
+              <strong>{t}</strong>
+            </button>
+          </div>
         )
       });
       // and set backButton to change SUBJECT Chosen to blank

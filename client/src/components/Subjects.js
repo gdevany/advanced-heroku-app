@@ -24,11 +24,16 @@ class Subjects extends React.Component {
     // show the subjects and set subjectChosen when onClicked
     if (this.props.subjectChosen === "" && this.props.loggedIn === "") {
       subDivs = this.props.category.map( (c) => {
-        return <button
-          key={c.subject}
-          className="catButton buttonGen"
-          onClick={ (e) => {e.preventDefault(); this.props.set(c)}}
-          ><strong>{c.subject}</strong></button>
+        return (
+          <div>
+            <div>Choose a subject</div>
+            <button
+            key={c.subject}
+            className="catButton buttonGen"
+            onClick={ (e) => {e.preventDefault(); this.props.set(c)}}>
+            <strong>{c.subject}</strong>
+            </button>
+          </div>)
       })
     } else if (this.props.subjectChosen !== "" && this.props.loggedIn === "") {
       // show just subjectChosen when chosen
@@ -37,7 +42,7 @@ class Subjects extends React.Component {
       //If user loggedIn, show welcome and options
       subDivs = <div>
         <strong>Hi {this.props.loggedIn}</strong><br />
-        
+
         <button className="chosenCat buttonGen"
           onClick={ (e) => {e.preventDefault(); this.loadCreateCoupon()} }
           >Create New Coupon
