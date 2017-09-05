@@ -28,10 +28,14 @@ function Subjects(props) {
         >View My Coupons
       </button>
       <button className="chosenCat buttonGen"
-        onClick={ (e) => {e.preventDefault(); <CreateCoupons />} }
+        onClick={ (e) => {e.preventDefault(); {goToCreateCoupon}} }
         >Create New Coupon
       </button>
     </div>
+  }
+
+  const goToCreateCoupon = () => {
+    return (<CreateCoupons />)
   }
 
   return (
