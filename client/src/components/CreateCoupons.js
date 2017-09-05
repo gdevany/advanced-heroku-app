@@ -7,7 +7,6 @@ class CreateCoupons extends React.Component {
     super();
     this.state = {
       coupon: {
-          id: 0,
           username: "",
           bizName: "",
           bizQR: "",
@@ -27,13 +26,18 @@ class CreateCoupons extends React.Component {
     };
   }
   render() {
-    console.log(`showCreateCoupon: ${this.props.showCreateCoupon}`);
+    //if 'Create New Coupon' NOT clicked, show nothing
     if (this.props.showCreateCoupon === false) {
       return (<div></div>);
+    //if 'Create New Coupon' clicked, show form
     } else {
       return (
         <div>
           <div>
+            <button
+              className="backButton"
+              onClick={this.props.toggleShow}>back
+            </button>
             <h1>Create New Coupon</h1>
             <form onSubmit={(e) => {
               e.preventDefault();
@@ -130,9 +134,13 @@ class CreateCoupons extends React.Component {
                   this.setState({
                     coupon: Object.assign(this.state.coupon,coupon)
                   });
-                }} /><br />
+                }} /><br /><br />
               </div>
-              <button>Create</button>
+              <button className="chosenCat bigText">Create</button>
+              <button
+                className="backButton"
+                onClick={this.props.toggleShow}>back
+              </button>
             </form>
           </div>
         </div>

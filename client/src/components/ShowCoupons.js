@@ -28,7 +28,7 @@ function ShowCoupons(props) {
       return <div></div>
     } else {
       return <button
-        className="bizLogo"
+        className="bizLogo buttonDelete"
         onClick={ (e) => {e.preventDefault(); props.deleteCoupon(coupon.id)}}
         >DELETE COUPON
       </button>

@@ -37,10 +37,7 @@ class Subjects extends React.Component {
       //If user loggedIn, show welcome and options
       subDivs = <div>
         <strong>Hi {this.props.loggedIn}</strong><br />
-        <button className="chosenCat buttonGen"
-          onClick={ (e) => {e.preventDefault(); this.loadCreateCoupon()} }
-          >View My Coupons
-        </button>
+        
         <button className="chosenCat buttonGen"
           onClick={ (e) => {e.preventDefault(); this.loadCreateCoupon()} }
           >Create New Coupon

@@ -99,6 +99,11 @@ address {
   padding: 10px;
 }
 
+.buttonDelete {
+  background-color: red;
+  color: white;
+}
+
 .verticle {
   display: flex;
   flex-direction: column;
