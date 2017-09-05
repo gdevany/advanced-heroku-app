@@ -1,10 +1,12 @@
 import React from 'react';
+import CreateCoupons from './CreateCoupons';
 
 
 function Subjects(props) {
   var subDivs = "";
   console.log(props);
 
+  // IF User is NOT loggedIn, show the subjects
   // show the subjects and set subjectChosen when onClicked
   if (props.subjectChosen === "" && props.loggedIn === "") {
     subDivs = props.category.map( (c) => {
@@ -14,11 +16,18 @@ function Subjects(props) {
         onClick={ (e) => {e.preventDefault(); props.set(c)}}
         ><strong>{c.subject}</strong></button>
     })
-  } else if (props.loggedIn === "") {
+  } else if (props.subjectChosen !== "" && props.loggedIn === "") {
     // show just subjectChosen when chosen
     subDivs = <button className="chosenCat buttonGen">{props.subjectChosen.subject}</button>
   } else {
-    subDivs = <button className="chosenCat buttonGen">Hi {props.loggedIn}</button>
+    //If user loggedIn, show welcome and options
+    subDivs = <div>
+      <strong>Hi {props.loggedIn}</strong>
+      <button className="chosenCat buttonGen"
+        onClick={ (e) => {e.preventDefault(); <CreateCoupons />} }
+        >Create New Coupon
+      </button>
+    </div>
   }
 
   return (
