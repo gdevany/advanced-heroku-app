@@ -48,7 +48,7 @@ export default {
   coupons: [
     {
       id: 1,
-      username: "xx@yahoo.com",
+      username: "a@yahoo.com",
       bizName: "Mcdonalds",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg",
@@ -66,7 +66,7 @@ export default {
     },
     {
       id: 2,
-      username: "xx@yahoo.com",
+      username: "a@yahoo.com",
       bizName: "Burger King",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
       bizLogo: "https://upload.wikimedia.org/wikipedia/commons/5/55/BurgerKingLogoDileo.png",

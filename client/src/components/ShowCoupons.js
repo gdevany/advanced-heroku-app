@@ -3,16 +3,31 @@ import React from 'react';
 
 function ShowCoupons(props) {
   // filter coupons against subtopic chosen (searchCoupons)
-  var filterCoupons = props.coupons.filter((c) => {
+
+  // var filterCoupons = props.coupons.filter((c) => {
+  //     if(c.searchWords.indexOf(props.searchCoupons) > -1) {
+  //       return true;
+  //     } else return false;
+  //   });
+  var filterCoupons = "";
+  if (props.loggedIn === "") {
+    filterCoupons = props.coupons.filter((c) => {
       if(c.searchWords.indexOf(props.searchCoupons) > -1) {
         return true;
       } else return false;
     });
+  } else {
+    filterCoupons = props.coupons.filter((c) => {
+      if(c.username.indexOf(props.loggedIn) > -1) {
+        return true;
+      } else return false;
+    });
+  }
 
   var couponDiv = "";
 
   // if subtopic chosen (searchCoupons), map them (filtered)
-  if (props.searchCoupons !== "") {
+  if (props.searchCoupons !== "" || props.loggedIn !== "") {
     couponDiv = filterCoupons.map((coupon) => {
       return (
         <div key={coupon.id} className="col-md-6 col-lg-4">

@@ -22,7 +22,11 @@ function Subjects(props) {
   } else {
     //If user loggedIn, show welcome and options
     subDivs = <div>
-      <strong>Hi {props.loggedIn}</strong>
+      <strong>Hi {props.loggedIn}</strong><br />
+      <button className="chosenCat buttonGen"
+        onClick={ (e) => {e.preventDefault(); } }
+        >View My Coupons
+      </button>
       <button className="chosenCat buttonGen"
         onClick={ (e) => {e.preventDefault(); <CreateCoupons />} }
         >Create New Coupon
@@ -32,7 +36,6 @@ function Subjects(props) {
 
   return (
     <div className="container text-center">
-      <div>{props.loggedIn}</div>
       <div className="">{subDivs}</div>
     </div>
   )

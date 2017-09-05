@@ -5,7 +5,8 @@ import ShowCoupons from '../components/ShowCoupons';
 function mapStateToProps(state) {
   return {
     coupons: state.coupons,
-    searchCoupons: state.searchCoupons
+    searchCoupons: state.searchCoupons,
+    loggedIn: state.loggedIn
   }
 }
 

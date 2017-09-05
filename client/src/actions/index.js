@@ -17,7 +17,7 @@ export function loadUsersCoupons() {
     dispatch({
       type: "LOAD_USERS_COUPONS"
     });
-    fetch('./usersCoupons')
+    fetch('./coupons/:username')
     .then((response) => {
       return response.json();
     }).then((coupons) => {
