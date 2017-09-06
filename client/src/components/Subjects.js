@@ -29,11 +29,10 @@ class Subjects extends React.Component {
     // show the subjects and set subjectChosen when onClicked
     if (this.props.subjectChosen === "" && this.props.loggedIn === "") {
       header = <div>Choose a subject</div>;
-      subDivs = this.props.category.map( (c) => {
+      subDivs = this.props.category.map( (c,i) => {
         return (
-          <div>
+          <div key={i}>
             <button
-            key={c.subject}
             className="catButton buttonGen"
             onClick={ (e) => {e.preventDefault(); this.props.set(c)}}>
             <strong>{c.subject}</strong>

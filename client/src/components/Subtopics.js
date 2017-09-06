@@ -25,9 +25,8 @@ function Subtopics(props) {
       header = <div>Choose a subtopic</div>;
       subDivs = props.subjectChosen.types.map( (t,i) => {
         return (
-          <div>
+          <div key={i}>
             <button
-              key={i}
               className="catButton buttonGen"
               onClick={ (e) => {e.preventDefault(); props.setSearchCoupons(t)}}>
               <strong>{t}</strong>
