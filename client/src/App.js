@@ -5,6 +5,12 @@ import Subjects from './containers/SubjectsContainer';
 import Subtopics from './containers/SubtopicsContainer';
 import ShowCoupons from './containers/ShowCouponsContainer';
 
+// compoonentWillMount() {
+//   loadSubjects();
+//   loadSubtopics();
+//
+// }
+
 
 function App() {
   return (

@@ -14,7 +14,9 @@ class CreateCoupons extends React.Component {
           heading: "",
           couponDesc: "",
           restrictions: "",
-          searchWords: [],
+          subject: "Eat Now",
+          subtopics: "",
+          searchWords: "",
           bizAddress:
             {
               streetAndNum: "",
@@ -25,7 +27,28 @@ class CreateCoupons extends React.Component {
         }
     };
   }
+
   render() {
+    // Dropdown list of Subjects
+    var showSubjectList = "";
+    // map subjects to show in dropdown
+    showSubjectList = this.props.category.map((c,i) => {
+      return <option key={i} value={c.subject}>{c.subject}</option>
+    })
+
+    // Dropdown list of Subtopics
+    var showSubtopics = "generic";
+    // map category to find matching subject
+    showSubtopics = this.props.category.map((c,i) => {
+      var st = "";
+      if(c.subject === this.state.coupon.subject) {
+        // map types to show in dropdown
+        st = c.types.map((t,i) => {
+          return <option key={i} value={t}>{t}</option>
+        })
+      } return st;
+    })
+
     //if 'Create New Coupon' NOT clicked, show nothing
     if (this.props.showCreateCoupon === false) {
       return (<div></div>);
@@ -94,14 +117,6 @@ class CreateCoupons extends React.Component {
                   });
                 }} /><br />
               </div>
-              <div>
-                Search Words: <br /><input onChange={(e) => {
-                  const coupon = {searchWords: e.target.value};
-                  this.setState({
-                    coupon: Object.assign(this.state.coupon,coupon)
-                  });
-                }} /><br /><br />
-              </div>
               <div>Business Address:<br />
                 <div>
                   Number and Street Name:<br /><input onChange={(e) => {
@@ -135,6 +150,28 @@ class CreateCoupons extends React.Component {
                     coupon: Object.assign(this.state.coupon,coupon)
                   });
                 }} /><br /><br />
+              </div>
+              <div>
+                Subject: <br />
+                <select onChange={(e) => {
+                  const coupon = {subject: e.target.value};
+                  this.setState({
+                    coupon: Object.assign(this.state.coupon,coupon)
+                  });
+                }}>{showSubjectList}
+                </select>
+                <br /><br />
+              </div>
+              <div>
+                Subtopic: <br />
+                <select onChange={(e) => {
+                  const coupon = {searchWords: e.target.value};
+                  this.setState({
+                    coupon: Object.assign(this.state.coupon,coupon)
+                  });
+                }}>{showSubtopics}
+                </select>
+                <br /><br />
               </div>
               <button
                 className="backButton"

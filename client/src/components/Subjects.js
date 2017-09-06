@@ -1,5 +1,5 @@
 import React from 'react';
-import CreateCoupons from './CreateCoupons';
+import CreateCoupons from '../containers/CreateCouponsContainer';
 
 
 class Subjects extends React.Component {

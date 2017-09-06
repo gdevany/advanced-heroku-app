@@ -44,6 +44,12 @@ export default {
         "Bowling",
         "Other"]
     },
+    {
+      "subject": "Other",
+      "types": [
+        "Other"
+      ]
+    }
   ],
   coupons: [
     {
