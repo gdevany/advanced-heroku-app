@@ -136,11 +136,11 @@ class CreateCoupons extends React.Component {
                   });
                 }} /><br /><br />
               </div>
-              <button className="chosenCat bigText">Create</button>
               <button
                 className="backButton"
                 onClick={this.props.toggleShow}>back
               </button>
+              <button className="chosenCat bigText">Create</button>
             </form>
           </div>
         </div>

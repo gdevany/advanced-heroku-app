@@ -117,7 +117,12 @@ class AppSign extends Component {
       // If signed in, show the User Welcome (now: secret)
       <div>
         <Switch>
-          <Route exact path="/" render={() => <h1>I am protected!</h1>} />
+          <Route exact path="/" render={() =>
+            <div>
+              <div>Hi</div>
+              <h3>{this.state.username}</h3>
+            </div>
+          } />
           <Route exact path="/secret" component={Secret} />
           <Route render={() => <h1>NOT FOUND!</h1>} />
         </Switch>

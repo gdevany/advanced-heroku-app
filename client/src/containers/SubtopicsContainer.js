@@ -6,7 +6,8 @@ import {setSearchCoupons, setSubjectChosen} from '../actions';
 function mapStateToProps(state) {
  return {
    subjectChosen: state.subjectChosen,
-   searchCoupons: state.searchCoupons
+   searchCoupons: state.searchCoupons,
+   loggedIn: state.loggedIn
  }
 }
 

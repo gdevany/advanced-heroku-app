@@ -2,21 +2,30 @@ import React from 'react';
 
 
 function Subtopics(props) {
+
+  var header = "";
+  //header- if subject NOT chosen, show nothing
+  // header- if subjectChosen, but subtopic NOT chosen, show 'Choose a subtopic'
+
   var subDivs = "";
   var backer = "";
 
 // if subject IS NOT chosen, show blank
-  if (props.subjectChosen === "") {
-    subDivs = <div></div>
+  if (props.subjectChosen === "" || props.loggedIn !== "") {
+    if (props.subjectChosen === "" && props.loggedIn === ""){
+      header = <div></div>
+    } else {
+      header = <div>Your Coupons:</div>;
+      subDivs = <div></div>
+    }
   } else {
-
     // if subject IS chosen, but subtopic IS NOT chosen, show subtopics
     // and set SUBTOPIC chosen (searchCoupons) to onClicked subtopic
     if (props.searchCoupons === "") {
+      header = <div>Choose a subtopic</div>;
       subDivs = props.subjectChosen.types.map( (t,i) => {
         return (
           <div>
-            <div>Choose a subtopic</div>
             <button
               key={i}
               className="catButton buttonGen"
@@ -52,7 +61,10 @@ function Subtopics(props) {
   return (
     <div className="container text-center">
       <div className="">
-          {subDivs}
+        {header}
+      </div>
+      <div className="">
+        {subDivs}
       </div>
       <div className="text-center">
         {backer}

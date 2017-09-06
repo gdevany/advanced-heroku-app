@@ -17,16 +17,21 @@ class Subjects extends React.Component {
   }
 
   render() {
+
+    var header = "";
+    //header- if loggedIn, show Welcome
+    //header- if NOT loggedIn, and NOT subjectChosen, show 'Choose Subject'
+    //header- if NOT loggedIn, and subjectChosen, show nothing
+
     var subDivs = "";
     console.log(this.props);
-
     // IF User is NOT loggedIn, show the subjects
     // show the subjects and set subjectChosen when onClicked
     if (this.props.subjectChosen === "" && this.props.loggedIn === "") {
+      header = <div>Choose a subject</div>;
       subDivs = this.props.category.map( (c) => {
         return (
           <div>
-            <div>Choose a subject</div>
             <button
             key={c.subject}
             className="catButton buttonGen"
@@ -37,12 +42,12 @@ class Subjects extends React.Component {
       })
     } else if (this.props.subjectChosen !== "" && this.props.loggedIn === "") {
       // show just subjectChosen when chosen
+      header = <div></div>;
       subDivs = <button className="chosenCat buttonGen">{this.props.subjectChosen.subject}</button>
     } else {
       //If user loggedIn, show welcome and options
+      header = <div></div>;
       subDivs = <div>
-        <strong>Hi {this.props.loggedIn}</strong><br />
-
         <button className="chosenCat buttonGen"
           onClick={ (e) => {e.preventDefault(); this.loadCreateCoupon()} }
           >Create New Coupon
@@ -50,8 +55,11 @@ class Subjects extends React.Component {
       </div>
     }
 
+
+
     return (
       <div className="container text-center">
+        <div>{header}</div>
         <div className="">{subDivs}</div>
         <div><CreateCoupons
               toggleShow={this.loadCreateCoupon}
