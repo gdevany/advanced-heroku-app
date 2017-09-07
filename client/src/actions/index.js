@@ -12,12 +12,12 @@ export function setSearchCoupons(txt) {
   }
 }
 
-export function loadUsersCoupons() {
+export function loadUsersCoupons(username) {
   return function(dispatch) {
     dispatch({
       type: "LOAD_USERS_COUPONS"
     });
-    fetch('./coupons/:username')
+    fetch(`./coupons/:${username}`)
     .then((response) => {
       return response.json();
     }).then((coupons) => {
@@ -34,7 +34,6 @@ export function UsersCouponsLoaded(coupons) {
 }
 
 export function loadUser(user) {
-  console.log(`here- loadUser() in actions. user: ${user}`);
   return {
     type: "USER_LOGGED_IN",
     value: user
@@ -42,7 +41,6 @@ export function loadUser(user) {
 }
 
 export function createCoupon(c) {
-  console.log(c);
   return function (dispatch) {
     fetch("/coupons", {
       method: "POST",
