@@ -1,6 +1,10 @@
 import mongoose, { Schema } from "mongoose";
 
 const couponSchema = new Schema({
+  userId: {
+    type: Schema.Types.ObjectId,
+    required: true
+  },
   id: {
     type: String,
     required: false

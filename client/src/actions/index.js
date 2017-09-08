@@ -43,7 +43,7 @@ export function loadUser(user) {
 export function createCoupon(c) {
   console.log('in createcoupon');
   return function (dispatch) {
-    fetch("/coupons", {
+    fetch("api/coupons", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(c)

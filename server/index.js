@@ -8,7 +8,7 @@ import passport from "passport";
 import authenticationRoutes from "./routes/AuthenticationRoutes";
 import listRoutes from "./routes/ListRoutes";
 import articleRoutes from "./routes/blog/ArticleRoutes";
-// import couponRoutes from "./routes/CouponRoutes";
+import couponRoutes from "./routes/CouponRoutes";
 
 mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
@@ -35,7 +35,7 @@ const authStrategy = passport.authenticate("authStrategy", { session: false });
 app.use(authStrategy);
 app.use(listRoutes);
 app.use(articleRoutes);
-// app.use(couponRoutes);
+app.use(couponRoutes);
 
 app.use(function (err, req, res, next) {
   console.error(err.stack);
