@@ -15,7 +15,8 @@ export function show(req, res) {
   })
 }
 
-export function create(req, res) {
+export function create(req, res, next) {
+  console.log('in create (coupon)');
   const coupon = new CouponModel({ ...req.body, userId: req.user._id});
   console.log('saving coupon');
   coupon
@@ -24,4 +25,5 @@ export function create(req, res) {
       console.log('coupon saved');
       res.json(c);
   })
+  .catch(err => next(err));
 }
