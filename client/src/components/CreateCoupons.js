@@ -7,7 +7,7 @@ class CreateCoupons extends React.Component {
     super();
     this.state = {
       coupons: {
-          username: "",
+          username: "dgdfg",
           bizName: "",
           bizQR: "",
           bizLogo: "",
@@ -17,24 +17,33 @@ class CreateCoupons extends React.Component {
           subject: "Eat Now",
           subtopics: "",
           searchWords: "",
-          bizAddress:
-            {
-              streetAndNum: "",
-              city: "",
-              zip: ""
-            },
+          streetAndNum: "",
+          city: "",
+          zip: "",
           bizPhone: ""
         }
     };
   }
 
-  componentDidMount() {
-    this.setState({
-      coupons: Object.assign(this.state.coupons,{username: this.props.loggedIn})
-    })
-  }
+  // componentDidMount() {
+  //   this.setState({
+  //     coupons: Object.assign(this.state.coupons,{username: this.props.loggedIn})
+  //   });
+  // }
+  //
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.loggedIn !== this.state.coupons.username) {
+  //     this.setState({
+  //       coupons: Object.assign(this.state.coupons,{username: this.props.loggedIn})
+  //     });
+  //   }
+  // }
 
   render() {
+    console.log(this.props.loggedIn);
+    console.log(this.state.coupons.username);
+
+
     // Dropdown list of Subjects
     var showSubjectList = "";
     // map subjects to show in dropdown
@@ -78,7 +87,7 @@ class CreateCoupons extends React.Component {
             }}>
               <div>
                 Business Name: <br /><input onChange={(e) => {
-                  const coupon = {bizName: e.target.value};
+                  const coupon = {bizName: e.target.value, username: this.props.loggedIn};
                   this.setState({
                     coupons: Object.assign(this.state.coupons,coupon)
                   });

@@ -41,20 +41,18 @@ const couponSchema = new Schema({
     type: String,
     required: false
   },
-  bizAddress: [{
-    streetAndNum:{
-      type: String,
-      required: false
-    },
-    city:{
-      type: String,
-      required: false
-    },
-    zip:{
-      type: String,
-      required: false
-    },
-  }],
+  streetAndNum: {
+    type: String,
+    required: false
+  },
+  city: {
+    type: String,
+    required: false
+  },
+  zip: {
+    type: String,
+    required: false
+  },
   bizPhone: {
     type: String,
     required: false
