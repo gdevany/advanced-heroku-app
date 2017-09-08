@@ -41,12 +41,14 @@ export function loadUser(user) {
 }
 
 export function createCoupon(c) {
+  console.log('in createcoupon');
   return function (dispatch) {
     fetch("/coupons", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(c)
-    }).then(() => dispatch(loadUsersCoupons()));
+    })
+    // .then(() => dispatch(loadUsersCoupons()));
   };
 }
 

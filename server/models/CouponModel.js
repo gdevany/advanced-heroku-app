@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 const couponSchema = new Schema({
   id: {
     type: String,
-    required: true
+    required: false
   },
   username: {
     type: String,
@@ -15,45 +15,45 @@ const couponSchema = new Schema({
   },
   bizQR: {
     type: String,
-    required: true
+    required: false
   },
   bizLogo: {
     type: String,
-    required: true
+    required: false
   },
   heading: {
     type: String,
-    required: true
+    required: false
   },
   couponDesc: {
     type: String,
-    required: true
+    required: false
   },
   restrictions: {
     type: String,
-    required: true
+    required: false
   },
   searchWords: {
     type: String,
-    required: true
+    required: false
   },
   bizAddress: [{
     streetAndNum:{
       type: String,
-      required: true
+      required: false
     },
     city:{
       type: String,
-      required: true
+      required: false
     },
     zip:{
       type: String,
-      required: true
+      required: false
     },
   }],
   bizPhone: {
     type: String,
-    required: true
+    required: false
   },
 
 

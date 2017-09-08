@@ -38,7 +38,6 @@ function usersCoupons(state=[], action) {
 
 function loggedIn(state="", action) {
   if(action.type === "USER_LOGGED_IN") {
-    console.log(`here-loaded loggedIn. Action: ${action.value}`);
     return action.value;
   }
   return state;

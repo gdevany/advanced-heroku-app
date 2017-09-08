@@ -4,7 +4,6 @@ import {Navbar,Nav,NavItem,} from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const TopNavbar = (props) => {
-  console.log(props);
 
   let navItems = "";
 

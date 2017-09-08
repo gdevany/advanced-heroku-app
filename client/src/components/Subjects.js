@@ -24,7 +24,6 @@ class Subjects extends React.Component {
     //header- if NOT loggedIn, and subjectChosen, show nothing
 
     var subDivs = "";
-    console.log(this.props);
     // IF User is NOT loggedIn, show the subjects
     // show the subjects and set subjectChosen when onClicked
     if (this.props.subjectChosen === "" && this.props.loggedIn === "") {
