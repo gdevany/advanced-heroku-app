@@ -25,20 +25,6 @@ class CreateCoupons extends React.Component {
     };
   }
 
-  // componentDidMount() {
-  //   this.setState({
-  //     coupons: Object.assign(this.state.coupons,{username: this.props.loggedIn})
-  //   });
-  // }
-  //
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.loggedIn !== this.state.coupons.username) {
-  //     this.setState({
-  //       coupons: Object.assign(this.state.coupons,{username: this.props.loggedIn})
-  //     });
-  //   }
-  // }
-
   render() {
     console.log(this.props.loggedIn);
     console.log(this.state.coupons.username);
