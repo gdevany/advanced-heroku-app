@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import CreateCoupons from '../components/CreateCoupons';
-import {createCoupon} from '../actions';
+import {createCoupon, loadUsersCoupons} from '../actions';
 // import {deleteCoupon} from '../actions';
 
 
@@ -15,6 +15,9 @@ function mapDispatchToProps(dispatch) {
   return {
     createCoupon: (c) => {
       dispatch(createCoupon(c))
+    },
+    loadUsersCoupons: (username) => {
+      dispatch(loadUsersCoupons(username))
     }
   }
 }

@@ -16,10 +16,14 @@ export function loadUsersCoupons(username) {
   console.log(`loaduserscoupons username: ${username}`);
   return function(dispatch) {
     dispatch({
-      type: "LOAD_USERS_COUPONS"
+      type: "LOAD_USERS_COUPONS",
+      method: "GET"
     });
-    fetch(`api/coupons/:${username}`)
+    // fetch("/api/coupons/" + username)
+    fetch("/coupons")
+
     .then((response) => {
+      console.log(response);
       return response.json();
     }).then((coupons) => {
       console.log('loaduserscoupons complete');
@@ -51,7 +55,7 @@ export function createCoupon(c) {
       body: JSON.stringify(c)
     })
     // .then(() => console.log(c.username))
-    .then(() => dispatch(loadUsersCoupons(c.username)));
+    // .then(() => dispatch(loadUsersCoupons(c.username)));
   };
 }
 

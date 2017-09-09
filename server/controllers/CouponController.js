@@ -1,8 +1,8 @@
 import CouponModel from "../models/CouponModel";
 
 
-export function list(req, res, next) {
-  console.log('here');
+export function list(req, res) {
+  console.log('in list');
   CouponModel.find({userId:req.user._id}).exec()
   .then(coupons => {
     return res.json(coupons)
@@ -10,9 +10,9 @@ export function list(req, res, next) {
   .catch(err => next(err));
 }
 
-export function show(req, res, next) {
+export function show(req, res) {
   console.log('in show');
-  CouponModel.find({username: req.params.coupons.username, userId:req.user._id}).exec()
+  CouponModel.find({username:req.params.username, userId:req.user._id}).exec()
   .then(coupons => {
     return res.json(coupons)
   })
