@@ -15,9 +15,10 @@ export function setSearchCoupons(txt) {
 export function loadUsersCoupons(username) {
   console.log(`loaduserscoupons username: ${username}`);
   return function(dispatch) {
-    fetch("/api/coupons/:username", {
-      method: "GET"
-    })
+    dispatch({
+      type: "LOAD_USERS_COUPONS"
+    });
+    fetch(`api/coupons/:${username}`)
     .then((response) => {
       return response.json();
     }).then((coupons) => {
@@ -42,8 +43,9 @@ export function loadUser(user) {
 }
 
 export function createCoupon(c) {
+  console.log('in createcoupon');
   return function (dispatch) {
-    fetch("/api/coupons", {
+    fetch("api/coupons", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(c)
