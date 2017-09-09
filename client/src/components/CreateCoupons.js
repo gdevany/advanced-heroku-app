@@ -7,7 +7,7 @@ class CreateCoupons extends React.Component {
     super();
     this.state = {
       coupons: {
-          username: "dgdfg",
+          username: "",
           bizName: "",
           bizQR: "",
           bizLogo: "",
@@ -26,10 +26,6 @@ class CreateCoupons extends React.Component {
   }
 
   render() {
-    console.log(this.props.loggedIn);
-    console.log(this.state.coupons.username);
-
-
     // Dropdown list of Subjects
     var showSubjectList = "";
     // map subjects to show in dropdown

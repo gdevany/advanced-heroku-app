@@ -7,7 +7,8 @@ function mapStateToProps(state) {
   return {
     coupons: state.coupons,
     searchCoupons: state.searchCoupons,
-    loggedIn: state.loggedIn
+    loggedIn: state.loggedIn,
+    usersCoupons: state.usersCoupons
   }
 }
 

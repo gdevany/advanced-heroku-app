@@ -4,7 +4,7 @@ import React from 'react';
 
 
 function ShowCoupons(props) {
-
+console.log(props.usersCoupons);
   var filterCoupons = "";
   //if loggedIn, filter coupons against username
   //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)

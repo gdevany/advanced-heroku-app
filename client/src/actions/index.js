@@ -13,14 +13,15 @@ export function setSearchCoupons(txt) {
 }
 
 export function loadUsersCoupons(username) {
+  console.log(`loaduserscoupons username: ${username}`);
   return function(dispatch) {
-    dispatch({
-      type: "LOAD_USERS_COUPONS"
-    });
-    fetch(`./coupons/:${username}`)
+    fetch("/api/coupons/:username", {
+      method: "GET"
+    })
     .then((response) => {
       return response.json();
     }).then((coupons) => {
+      console.log('loaduserscoupons complete');
       dispatch(UsersCouponsLoaded(coupons))
     })
   }
@@ -41,14 +42,14 @@ export function loadUser(user) {
 }
 
 export function createCoupon(c) {
-  console.log('in createcoupon');
   return function (dispatch) {
-    fetch("api/coupons", {
+    fetch("/api/coupons", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(c)
     })
-    // .then(() => dispatch(loadUsersCoupons()));
+    // .then(() => console.log(c.username))
+    .then(() => dispatch(loadUsersCoupons(c.username)));
   };
 }
 

@@ -1,29 +1,25 @@
 import CouponModel from "../models/CouponModel";
 
 
-export function list(req, res) {
-  CouponModel.find({}).exec()
+export function list(req, res, next) {
+  console.log('here');
+  CouponModel.find({userId:req.user._id}).exec()
   .then(coupons => {
     return res.json(coupons)
   })
+  .catch(err => next(err));
 }
 
-export function show(req, res) {
-  CouponModel.find({username: req.params.coupons.username}).exec()
+export function show(req, res, next) {
+  console.log('in show');
+  CouponModel.find({username: req.params.coupons.username, userId:req.user._id}).exec()
   .then(coupons => {
     return res.json(coupons)
   })
 }
 
 export function create(req, res, next) {
-  console.log('in create (coupon)');
-  console.log(`req bizName: ${req.body.bizName}`);
-  console.log(`req username: ${req.body.username}`)
-  const coupon = new CouponModel({
-    bizName: req.body.bizName,
-    username: req.body.username,
-    userId: req.user._id
-  });
+  const coupon = new CouponModel({...req.body, userId:req.user._id});
   console.log('saving coupon');
   coupon
     .save()
