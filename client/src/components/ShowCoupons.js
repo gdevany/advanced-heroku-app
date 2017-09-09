@@ -1,4 +1,5 @@
 // TODO line 37ish- onClick to deleteCoupon()
+// TODO line 19ish- create loadFilteredCoupons()
 
 import React from 'react';
 
@@ -6,22 +7,24 @@ import React from 'react';
 function ShowCoupons(props) {
 
 console.log(props.usersCoupons);
-  // var filterCoupons = "";
-  // //if loggedIn, filter coupons against username
-  // //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
-  // if (props.loggedIn === "") {
-  //   filterCoupons = props.coupons.filter((c) => {
-  //     if(c.searchWords.indexOf(props.searchCoupons) > -1) {
-  //       return true;
-  //     } else return false;
-  //   });
-  // } else {
-  //   filterCoupons = props.coupons.filter((c) => {
-  //     if(c.username.indexOf(props.loggedIn) > -1) {
-  //       return true;
-  //     } else return false;
-  //   });
-  // }
+  var filterCoupons = "";
+  //if loggedIn, filter coupons against username
+  //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
+  if (props.loggedIn === "") {
+    // filterCoupons = props.coupons.filter((c) => {
+    //   if(c.searchWords.indexOf(props.searchCoupons) > -1) {
+    //     return true;
+    //   } else return false;
+    // });
+    // filterCoupons = props.loadFilteredCoupons()   <---------TODO
+  } else {
+    // filterCoupons = props.coupons.filter((c) => {
+    //   if(c.username.indexOf(props.loggedIn) > -1) {
+    //     return true;
+    //   } else return false;
+    // });
+    filterCoupons = props.usersCoupons;
+  }
 
   //if loggedIn, show delete button. if NOT logged in, show nothing
   const deleteButton = (coupon) => {
