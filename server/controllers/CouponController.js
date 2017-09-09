@@ -14,6 +14,7 @@ export function show(req, res) {
   console.log('in show');
   CouponModel.find({username:req.params.username, userId:req.user._id}).exec()
   .then(coupons => {
+    console.log(coupons);
     return res.json(coupons)
   })
 }
