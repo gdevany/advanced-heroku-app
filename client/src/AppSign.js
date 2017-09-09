@@ -80,6 +80,8 @@ class AppSign extends Component {
           username: data.username
         });
         this.props.loadUser(this.state.username);
+        this.props.loadUsersCoupons(this.state.username);
+
       });
     }
   }

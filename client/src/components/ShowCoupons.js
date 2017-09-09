@@ -4,23 +4,24 @@ import React from 'react';
 
 
 function ShowCoupons(props) {
+
 console.log(props.usersCoupons);
-  var filterCoupons = "";
-  //if loggedIn, filter coupons against username
-  //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
-  if (props.loggedIn === "") {
-    filterCoupons = props.coupons.filter((c) => {
-      if(c.searchWords.indexOf(props.searchCoupons) > -1) {
-        return true;
-      } else return false;
-    });
-  } else {
-    filterCoupons = props.coupons.filter((c) => {
-      if(c.username.indexOf(props.loggedIn) > -1) {
-        return true;
-      } else return false;
-    });
-  }
+  // var filterCoupons = "";
+  // //if loggedIn, filter coupons against username
+  // //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
+  // if (props.loggedIn === "") {
+  //   filterCoupons = props.coupons.filter((c) => {
+  //     if(c.searchWords.indexOf(props.searchCoupons) > -1) {
+  //       return true;
+  //     } else return false;
+  //   });
+  // } else {
+  //   filterCoupons = props.coupons.filter((c) => {
+  //     if(c.username.indexOf(props.loggedIn) > -1) {
+  //       return true;
+  //     } else return false;
+  //   });
+  // }
 
   //if loggedIn, show delete button. if NOT logged in, show nothing
   const deleteButton = (coupon) => {
@@ -40,9 +41,10 @@ console.log(props.usersCoupons);
   // if loggenIn, filter on username and show
   // if NOT logged in && if subtopic chosen (searchCoupons), map them (filtered)
   if (props.searchCoupons !== "" || props.loggedIn !== "") {
-    couponDiv = filterCoupons.map((coupon) => {
+
+    couponDiv = props.usersCoupons.map((coupon) => {
       return (
-        <div key={coupon.id} className="col-md-6 col-lg-4">
+        <div key={coupon._id} className="col-md-6 col-lg-4">
         <div className="coupon">
           <div className="container">
             <div className="row">
@@ -76,9 +78,9 @@ console.log(props.usersCoupons);
               <div className="col-xs-12 text-center">
                 <address>
                   <strong>{coupon.bizName}</strong><br />
-                  {coupon.bizAddress.streetAndNum}{" "}
-                  {coupon.bizAddress.city}{" "}<br />
-                  <strong>{coupon.bizAddress.zip}</strong><br />
+                  {coupon.streetAndNum}{" "}
+                  {coupon.city}{" "}<br />
+                  <strong>{coupon.zip}</strong><br />
                   <small>{coupon.bizPhone}</small>
                 </address>
               </div>
@@ -86,7 +88,7 @@ console.log(props.usersCoupons);
             <div className="row text-center">
               <div>{"* "}{coupon.couponDesc}{" *"}</div>
               <div>{"* "}{coupon.restrictions}</div>
-              <div>Coupon ID:{" "}{coupon.id}</div>
+              <div>Coupon ID:{" "}{coupon._id}</div>
             </div>
           </div>
         </div>
