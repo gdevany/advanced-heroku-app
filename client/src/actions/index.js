@@ -19,9 +19,8 @@ export function loadUsersCoupons(username) {
       type: "LOAD_USERS_COUPONS",
       method: "GET"
     });
-    // fetch("/api/coupons/" + username)
-    fetch("/coupons")
-
+    fetch("/api/coupons/" + username)
+    // fetch("/api/coupons")
     .then((response) => {
       console.log(response);
       return response.json();
