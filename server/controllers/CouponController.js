@@ -12,9 +12,9 @@ export function list(req, res) {
 
 export function show(req, res) {
   console.log('in show');
-  CouponModel.find({username:req.params.username, userId:req.user._id}).exec()
+  CouponModel.find({username:req.params.username}).exec()
   .then(coupons => {
-    console.log(coupons);
+    console.log(req.user._id);
     return res.json(coupons)
   })
 }
@@ -29,4 +29,8 @@ export function create(req, res, next) {
       res.json(c);
     })
     .catch(err => next(err));
+}
+
+export function remove(req, res, next) {
+  CouponModel.remove({_id:req.params.id}, true);
 }

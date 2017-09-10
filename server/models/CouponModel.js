@@ -3,7 +3,7 @@ import mongoose, { Schema } from "mongoose";
 const couponSchema = new Schema({
   userId: {
     type: Schema.Types.ObjectId,
-    required: true
+    required: false
   },
   id: {
     type: String,

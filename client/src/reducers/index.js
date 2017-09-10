@@ -29,6 +29,13 @@ function searchCoupons(state="", action) {
   return state;
 }
 
+function filteredCoupons(state=[], action) {
+  if(action.type === "FILTERED_COUPONS_LOADED") {
+    return action.value;
+  }
+  return state;
+}
+
 function usersCoupons(state=[], action) {
   if(action.type === "USERS_COUPONS_LOADED") {
     return action.value;
@@ -45,6 +52,6 @@ function loggedIn(state="", action) {
 
 
 const rootReducer = combineReducers({
-  category, subjectChosen,coupons,searchCoupons,usersCoupons,loggedIn
+  category, subjectChosen,coupons,searchCoupons,usersCoupons,loggedIn,filteredCoupons
 });
 export default rootReducer;

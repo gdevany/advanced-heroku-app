@@ -2,7 +2,8 @@ export default {
   subjectChosen: "",
   searchCoupons: "",
   loggedIn: "",
-  usersCoupons: [], //done
+  usersCoupons: [],
+  filteredCoupons: [],
 
   //---vvvvv----- below this -----vvvvv-----   move to server
   // Remember to change mapStateToProps to server, not state.

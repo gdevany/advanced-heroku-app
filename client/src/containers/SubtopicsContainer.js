@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Subtopics from '../components/Subtopics';
-import {setSearchCoupons, setSubjectChosen} from '../actions';
+import {setSearchCoupons, setSubjectChosen, loadFilteredCoupons} from '../actions';
 
 
 function mapStateToProps(state) {
@@ -18,6 +18,9 @@ function mapDispatchToProps(dispatch) {
     },
     setSubjectChosen: function(subj) {
       dispatch(setSubjectChosen(subj));
+    },
+    loadFilteredCoupons: function(filter) {
+      dispatch(loadFilteredCoupons(filter));
     }
   }
 }

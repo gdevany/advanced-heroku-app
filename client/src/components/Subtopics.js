@@ -28,7 +28,11 @@ function Subtopics(props) {
           <div key={i}>
             <button
               className="catButton buttonGen"
-              onClick={ (e) => {e.preventDefault(); props.setSearchCoupons(t)}}>
+              onClick={ (e) => {
+                e.preventDefault();
+                props.setSearchCoupons(t);
+                props.loadFilteredCoupons(t);
+              } }>
               <strong>{t}</strong>
             </button>
           </div>
