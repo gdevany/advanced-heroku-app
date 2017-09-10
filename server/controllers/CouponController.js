@@ -19,7 +19,7 @@ export function show(req, res) {
 }
 
 export function create(req, res, next) {
-  const coupon = new CouponModel({...req.body, userId:req.user._id});
+  const coupon = new CouponModel({...req.body});
   console.log('saving coupon');
   coupon
     .save()
@@ -31,5 +31,8 @@ export function create(req, res, next) {
 }
 
 export function remove(req, res) {
-  CouponModel.remove({_id:req.params.id}, true);
+  CouponModel.findByIdAndRemove(req.params.id)
+  .then(res => {
+    return res.json();
+  })
 }

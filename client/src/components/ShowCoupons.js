@@ -10,13 +10,13 @@ console.log(props.usersCoupons);
   var filterCoupons = "";
   //if loggedIn, filter coupons against username
   //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
-  if (props.loggedIn === "") {
+  if (props.loggedIn === "" && props.searchCoupons !== "") {
     // filterCoupons = props.coupons.filter((c) => {
     //   if(c.searchWords.indexOf(props.searchCoupons) > -1) {
     //     return true;
     //   } else return false;
     // });
-    // filterCoupons = props.loadFilteredCoupons()   <---------TODO
+    filterCoupons = props.loadFilteredCoupons(props.searchCoupons);
   } else {
     // filterCoupons = props.coupons.filter((c) => {
     //   if(c.username.indexOf(props.loggedIn) > -1) {
@@ -35,6 +35,7 @@ console.log(props.usersCoupons);
         className="bizLogo buttonDelete"
         onClick={ (e) => {
           e.preventDefault();
+          console.log(`coupon _id: ${coupon._id}`);
           props.deleteCoupon(coupon._id);
           props.loadUsersCoupons(props.loggedIn);
         }}

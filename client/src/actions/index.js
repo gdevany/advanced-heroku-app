@@ -89,6 +89,9 @@ export function deleteCoupon(id) {
       method: "DELETE",
       headers: {"Content-Type": "application/json"},
     })
+    // .then(response => {
+    //   return response.json()
+    // })
     // .then(() => dispatch(loadUsersCoupons()));
   };
 }

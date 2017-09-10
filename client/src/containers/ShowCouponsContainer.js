@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import ShowCoupons from '../components/ShowCoupons';
-import {deleteCoupon,loadUsersCoupons} from '../actions';
+import {deleteCoupon,loadFilteredCoupons,loadUsersCoupons} from '../actions';
 
 
 function mapStateToProps(state) {
@@ -16,6 +16,9 @@ function mapDispatchToProps(dispatch) {
   return {
     deleteCoupon(id) {
       dispatch(deleteCoupon(id))
+    },
+    loadFilteredCoupons(username) {
+      dispatch(loadFilteredCoupons(username))
     },
     loadUsersCoupons(username) {
       dispatch(loadUsersCoupons(username))
