@@ -6,7 +6,7 @@ const couponSchema = new Schema({
     required: false
   },
   id: {
-    type: String,
+    type: Number,
     required: false
   },
   username: {

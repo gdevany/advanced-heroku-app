@@ -11,10 +11,9 @@ export function list(req, res) {
 }
 
 export function show(req, res) {
-  console.log('in show');
+  console.log('in show (/api/coupons/:username)');
   CouponModel.find({username:req.params.username}).exec()
   .then(coupons => {
-    console.log(req.user._id);
     return res.json(coupons)
   })
 }
@@ -31,6 +30,6 @@ export function create(req, res, next) {
     .catch(err => next(err));
 }
 
-export function remove(req, res, next) {
+export function remove(req, res) {
   CouponModel.remove({_id:req.params.id}, true);
 }
