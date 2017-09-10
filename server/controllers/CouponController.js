@@ -12,10 +12,22 @@ export function list(req, res) {
 
 export function show(req, res) {
   console.log('in show (/api/coupons/:username)');
-  CouponModel.find({username:req.params.username}).exec()
-  .then(coupons => {
-    return res.json(coupons)
-  })
+  if (req.params.username.includes("@")){
+    CouponModel.find({username: req.params.username}).exec()
+    .then(coupons => {
+      return res.json(coupons)
+    })
+  } else {
+    CouponModel.find({searchWords: req.params.username}).exec()
+    .then(coupons => {
+      return res.json(coupons)
+    })
+  }
+
+  // CouponModel.find({filterItOn}).exec()
+  // .then(coupons => {
+  //   return res.json(coupons)
+  // })
 }
 
 export function create(req, res, next) {

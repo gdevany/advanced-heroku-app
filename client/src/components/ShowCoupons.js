@@ -38,9 +38,7 @@ console.log(props.usersCoupons);
           console.log(`coupon _id: ${coupon._id}`);
           props.deleteCoupon(coupon._id);
           props.loadUsersCoupons(props.loggedIn);
-        }}
-        >DELETE COUPON
-      </button>
+        }}>DELETE COUPON</button>
     }
   }
 
