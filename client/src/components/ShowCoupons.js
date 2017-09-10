@@ -33,7 +33,11 @@ console.log(props.usersCoupons);
     } else {
       return <button
         className="bizLogo buttonDelete"
-        onClick={ (e) => {e.preventDefault(); props.deleteCoupon(coupon._id)}}
+        onClick={ (e) => {
+          e.preventDefault();
+          props.deleteCoupon(coupon._id);
+          props.loadUsersCoupons(props.loggedIn);
+        }}
         >DELETE COUPON
       </button>
     }
