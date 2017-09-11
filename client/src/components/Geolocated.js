@@ -4,24 +4,6 @@ import {geo2zip} from 'geo2zip';
 
 class Demo extends React.Component {
 
-    // showZip = (lat, lon) => {
-    //   const { geo2zip } = require('geo2zip')
-    //
-    //   const here = {
-    //     latitude: lat,
-    //     longitude: lon
-    //   }
-    //
-    //   const showIt = geo2zip(here).then(zip => {
-    //     console.log(zip);
-    //     return zip;
-    //   });
-    //
-    //
-    //   return showIt;
-    //
-    // }
-
     showZip = (lat, lon) => {
       const { geo2zip } = require('geo2zip')
 
@@ -42,9 +24,6 @@ class Demo extends React.Component {
       return showIt;
     }
     render() {
-
-// console.log(this.props.coords);
-// console.log(this.props.coords.longitude);
 
     // return !this.props.isGeolocationAvailable
     //   ? <div>Your browser does not support Geolocation</div>
