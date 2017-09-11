@@ -13,11 +13,13 @@ export function list(req, res) {
 export function show(req, res) {
   console.log('in show (/api/coupons/:username)');
   if (req.params.username.includes("@")){
+    console.log(`username: ${req.params.username}`);
     CouponModel.find({username: req.params.username}).exec()
     .then(coupons => {
       return res.json(coupons)
     })
   } else {
+    console.log(`username: ${req.params.username}`);
     CouponModel.find({searchWords: req.params.username}).exec()
     .then(coupons => {
       return res.json(coupons)

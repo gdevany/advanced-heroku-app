@@ -1,28 +1,14 @@
-// TODO line 37ish- onClick to deleteCoupon()
-// TODO line 19ish- create loadFilteredCoupons()
-
 import React from 'react';
 
 
 function ShowCoupons(props) {
 
-console.log(props.usersCoupons);
   var filterCoupons = "";
   //if loggedIn, filter coupons against username
   //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
   if (props.loggedIn === "" && props.searchCoupons !== "") {
-    // filterCoupons = props.coupons.filter((c) => {
-    //   if(c.searchWords.indexOf(props.searchCoupons) > -1) {
-    //     return true;
-    //   } else return false;
-    // });
-    filterCoupons = props.loadFilteredCoupons(props.searchCoupons);
+    filterCoupons = props.filteredCoupons;
   } else {
-    // filterCoupons = props.coupons.filter((c) => {
-    //   if(c.username.indexOf(props.loggedIn) > -1) {
-    //     return true;
-    //   } else return false;
-    // });
     filterCoupons = props.usersCoupons;
   }
 
@@ -42,13 +28,12 @@ console.log(props.usersCoupons);
     }
   }
 
-
   var couponDiv = "";
   // if loggenIn, filter on username and show
   // if NOT logged in && if subtopic chosen (searchCoupons), map them (filtered)
   if (props.searchCoupons !== "" || props.loggedIn !== "") {
 
-    couponDiv = props.usersCoupons.map((coupon) => {
+    couponDiv = filterCoupons.map((coupon) => {
       return (
         <div key={coupon._id} className="col-md-6 col-lg-4">
         <div className="coupon">

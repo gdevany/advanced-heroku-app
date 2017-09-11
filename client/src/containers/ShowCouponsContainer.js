@@ -8,7 +8,8 @@ function mapStateToProps(state) {
     coupons: state.coupons,
     searchCoupons: state.searchCoupons,
     loggedIn: state.loggedIn,
-    usersCoupons: state.usersCoupons
+    usersCoupons: state.usersCoupons,
+    filteredCoupons: state.filteredCoupons
   }
 }
 
@@ -17,8 +18,8 @@ function mapDispatchToProps(dispatch) {
     deleteCoupon(id) {
       dispatch(deleteCoupon(id))
     },
-    loadFilteredCoupons(username) {
-      dispatch(loadFilteredCoupons(username))
+    loadFilteredCoupons(subtopic) {
+      dispatch(loadFilteredCoupons(subtopic))
     },
     loadUsersCoupons(username) {
       dispatch(loadUsersCoupons(username))

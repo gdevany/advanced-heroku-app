@@ -20,7 +20,7 @@ export function loadFilteredCoupons(filter) {
     });
     fetch("/api/coupons/" + filter)
     .then((response) => {
-      console.log(response);
+      console.log(`loadFilteredCoupons response: ${response}`);
       return response.json();
     }).then((coupons) => {
       console.log('loadFiltercoupons complete');
@@ -37,16 +37,14 @@ export function FilteredCouponsLoaded(coupons) {
 }
 
 export function loadUsersCoupons(username) {
-  console.log(`loaduserscoupons username: ${username}`);
   return function(dispatch) {
     dispatch({
       type: "LOAD_USERS_COUPONS",
       method: "GET"
     });
     fetch("/api/coupons/" + username)
-    // fetch("/api/coupons")
     .then((response) => {
-      console.log(response);
+      console.log(`loadUsersCoupons response: ${response}`);
       return response.json();
     }).then((coupons) => {
       console.log('loaduserscoupons complete');
