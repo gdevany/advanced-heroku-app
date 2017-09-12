@@ -29,16 +29,14 @@ class ZipcodeSetter extends React.Component {
       : !this.props.isGeolocationEnabled
         ? <div>Geolocation is not enabled</div>
         : this.props.coords
-          ? <div>
+          ? <div className="margin30Bottom">
               <div>
-                <div>
-                {this.setTheZip(this.props.coords.latitude,this.props.coords.longitude)}
-                Your current zipcode
-                </div>
-                <div>
-                  {this.props.zip}
-                </div>
+              {this.setTheZip(this.props.coords.latitude,this.props.coords.longitude)}
+              Your current zipcode
               </div>
+              <span className="zipBox bigText">
+                {this.props.zip}
+              </span>
             </div>
           : <div>Getting the location data&hellip; </div>;
   }

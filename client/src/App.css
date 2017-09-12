@@ -41,7 +41,7 @@ address {
   /*color: #7b8859;*/
   color: #78C0A8;
 
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black,
       3px 0 black, 0 -1px black;
@@ -71,6 +71,15 @@ address {
 .disclaimer {
   margin: 30px 10px;
 
+}
+
+.zipBox {
+  background-color: #FCEBB6;
+  color: inherit;
+  border-width:3px;
+  border-style:groove;
+  padding: 1px 4px;
+  margin-bottom: 30px;
 }
 
 .buttonGen {
@@ -124,6 +133,10 @@ address {
 
 strong {
   font-size: 1.5em;
+}
+
+.margin30Bottom {
+  margin-bottom: 30px;
 }
 
 .coupon {

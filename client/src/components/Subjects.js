@@ -46,7 +46,7 @@ class Subjects extends React.Component {
       //If user loggedIn, show welcome and options
       header = <div></div>;
       subDivs = <div>
-        <button className="chosenCat buttonGen"
+        <button className="chosenCat buttonGen margin30Bottom"
           onClick={ (e) => {e.preventDefault(); this.loadCreateCoupon()} }
           >Create New Coupon
         </button>
