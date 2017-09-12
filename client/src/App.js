@@ -5,6 +5,7 @@ import Subjects from './containers/SubjectsContainer';
 import Subtopics from './containers/SubtopicsContainer';
 import ShowCoupons from './containers/ShowCouponsContainer';
 import ZipcodeSetter from './containers/GeolocatedContainer';
+import Disclaimer from './components/Disclaimer';
 
 // compoonentWillMount() {
 //   loadSubjects();
@@ -25,6 +26,7 @@ function App() {
       <Subjects />
       <Subtopics />
       <ShowCoupons />
+      <Disclaimer />
     </div>
   )
 }

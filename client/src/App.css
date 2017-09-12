@@ -55,9 +55,22 @@ address {
   font-size: 1.8em;
 }
 
+.smallerText {
+  font-size: 0.8em;
+}
+
+.smallText {
+  font-size: 0.6em;
+}
+
 .tightLines {
   line-height: 0.1;
   margin-bottom: 5px;
+}
+
+.disclaimer {
+  margin: 30px 10px;
+
 }
 
 .buttonGen {
