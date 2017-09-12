@@ -13,8 +13,8 @@ import couponRoutes from "./routes/CouponRoutes";
 mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
 // mongoose.connect("mongodb://jwoo:jwoo@ds151451.mlab.com:51451/aca-test");
-mongoose.connect("mongodb://localhost/bogobyzip");
-
+// mongoose.connect("mongodb://localhost/bogobyzip");
+mongoose.connect("mongodb://gdevany:gdevany@ds133964.mlab.com:33964/bogobyzip");
 
 const app = express();
 app.use(express.static("public"));

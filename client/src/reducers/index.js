@@ -8,6 +8,13 @@ function category(state = [], action){
   return state;
 }
 
+function zip(state = 0, action){
+  if(action.type === "SET_ZIP"){
+    return action.value;
+  }
+  return state;
+}
+
 function subjectChosen(state={}, action){
   if(action.type === "SET_SUBJECT_CHOSEN"){
     return action.value;
@@ -52,6 +59,7 @@ function loggedIn(state="", action) {
 
 
 const rootReducer = combineReducers({
-  category, subjectChosen,coupons,searchCoupons,usersCoupons,loggedIn,filteredCoupons
+  category, subjectChosen,coupons,searchCoupons,usersCoupons,loggedIn,
+  filteredCoupons,zip
 });
 export default rootReducer;

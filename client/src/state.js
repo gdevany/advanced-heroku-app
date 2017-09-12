@@ -4,6 +4,7 @@ export default {
   loggedIn: "",
   usersCoupons: [],
   filteredCoupons: [],
+  zip: 0,
 
   //---vvvvv----- below this -----vvvvv-----   move to server
   // Remember to change mapStateToProps to server, not state.

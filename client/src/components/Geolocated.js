@@ -1,43 +1,28 @@
 import React from 'react';
 import {geolocated} from 'react-geolocated';
-import {geo2zip} from 'geo2zip';
+const { geo2zip } = require('geo2zip')
 
-class Demo extends React.Component {
 
-    showZip = (lat, lon) => {
-      const { geo2zip } = require('geo2zip')
+class ZipcodeSetter extends React.Component {
 
+    setTheZip = (lat, lon) => {
       const here = {
         latitude: lat,
         longitude: lon
       }
 
-      const showIt = geo2zip(here)
+      geo2zip(here)
         .then(zip => {
           console.log(zip);
           const zipIt = JSON.stringify(zip);
           console.log(`stringified zip: ${zipIt}`);
-          return zipIt;
+          this.props.setZip(zip);
         })
-      console.log(`zipped: ${showIt}`);
 
-      return showIt;
+      console.log(this.props.zip);
     }
-    render() {
 
-    // return !this.props.isGeolocationAvailable
-    //   ? <div>Your browser does not support Geolocation</div>
-    //   : !this.props.isGeolocationEnabled
-    //     ? <div>Geolocation is not enabled</div>
-    //     : this.props.coords
-    //       ? <table>
-    //         <tbody>
-    //           <tr><td>latitude</td><td>{this.props.coords.latitude}</td></tr>
-    //           <tr><td>longitude</td><td>{this.props.coords.longitude}</td></tr>
-    //           {this.showZip(this.props.coords.latitude,this.props.coords.longitude)};
-    //         </tbody>
-    //       </table>
-    //       : <div>Getting the location data&hellip; </div>;
+    render() {
 
     return !this.props.isGeolocationAvailable
       ? <div>Your browser does not support Geolocation</div>
@@ -46,18 +31,25 @@ class Demo extends React.Component {
         : this.props.coords
           ? <div>
               <div>
-                <div>latitude{this.props.coords.latitude}</div>
-                <div>longitude{this.props.coords.longitude}</div>
-                <div>{this.showZip(this.props.coords.latitude,this.props.coords.longitude)}</div>
+                <div>
+                {this.setTheZip(this.props.coords.latitude,this.props.coords.longitude)}
+                Your current zipcode
+                </div>
+                <div>
+                  {this.props.zip}
+                </div>
               </div>
             </div>
           : <div>Getting the location data&hellip; </div>;
   }
 }
-
+// <div><small>latitude{this.props.coords.latitude}</small></div>
+// <div className="tightLines">
+//   <small>longitude{this.props.coords.longitude}</small>
+// </div>
 export default geolocated({
   positionOptions: {
     enableHighAccuracy: false,
   },
   userDecisionTimeout: 5000,
-})(Demo);
+})(ZipcodeSetter);

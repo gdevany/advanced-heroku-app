@@ -12,6 +12,13 @@ export function setSearchCoupons(txt) {
   }
 }
 
+export function setZip(zip) {
+  return {
+    type: "SET_ZIP",
+    value: zip
+  }
+}
+
 export function loadFilteredCoupons(filter) {
   return function(dispatch) {
     dispatch({

@@ -4,7 +4,7 @@ import AppSign from './containers/AppSignContainer';
 import Subjects from './containers/SubjectsContainer';
 import Subtopics from './containers/SubtopicsContainer';
 import ShowCoupons from './containers/ShowCouponsContainer';
-import Demo from './components/Geolocated';
+import ZipcodeSetter from './containers/GeolocatedContainer';
 
 // compoonentWillMount() {
 //   loadSubjects();
@@ -21,7 +21,7 @@ function App() {
         <div className="headingLogo">BOGO</div>
         <div className="headingLogoMini">by zip</div>
       </div>
-      <Demo />
+      <ZipcodeSetter />
       <Subjects />
       <Subtopics />
       <ShowCoupons />
