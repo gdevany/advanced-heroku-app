@@ -127,7 +127,7 @@ export default {
       bizPhone: "512-987-6543"
     },
     {
-      id: 15,
+      id: 5,
       bizName: "Home Slice",
       username: "xx@yahoo.com",
       bizQR: "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",

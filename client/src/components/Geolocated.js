@@ -13,9 +13,7 @@ class ZipcodeSetter extends React.Component {
 
       geo2zip(here)
         .then(zip => {
-          console.log(zip);
           const zipIt = JSON.stringify(zip);
-          console.log(`stringified zip: ${zipIt}`);
           this.props.setZip(zip);
         })
 

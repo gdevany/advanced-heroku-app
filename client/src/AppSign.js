@@ -114,8 +114,6 @@ class AppSign extends Component {
   }
 
   renderApp() {
-    // this.props.loadUser(this.state.username);
-
     return (
       // If signed in, show the User Welcome (now: secret)
       <div>
@@ -123,7 +121,7 @@ class AppSign extends Component {
           <Route exact path="/" render={() =>
             <div>
               <div>Hi</div>
-              <h3>{this.state.username}</h3>
+              <div>{this.state.username}</div>
             </div>
           } />
           <Route exact path="/secret" component={Secret} />
