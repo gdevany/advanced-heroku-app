@@ -15,7 +15,9 @@ address {
 .offer {
   font-size: 1.3em;
   background-color: #E6AC27;
-  color: black;
+  color: #3f362a;
+  font-family: 'Luckiest Guy',cursive;
+
   padding: 10px;
   border-radius: 10px;
   border-top: 1px solid black;
@@ -75,20 +77,25 @@ address {
 
 .zipBox {
   background-color: #FCEBB6;
-  color: inherit;
+  font-family: 'Luckiest Guy',cursive;
+
+  color: #3f362a;
   border-width:3px;
   border-style:groove;
-  padding: 1px 4px;
+  padding: 6px 6px 0px 6px;
   margin-bottom: 30px;
 }
 
 .buttonGen {
-  max-width: 170px;
+  font-family: 'Luckiest Guy',cursive;
+  color: #3f362a;
+
+  max-width: 220px;
   background-color: #E6AC27;
   border-radius: 4px;
   margin: 10px 3vw;
   color: black;
-  padding: 10px;
+  padding: 10px 15px 0px 15px;
   border: 1px solid #5f3e29;
   box-shadow: inset 1px 1px 4px 0px white;
  /*box-shadow:inset -3px -3px 7px 0px #F6F7BD;*/
@@ -96,6 +103,8 @@ address {
 
 .catButton {
   background-color: #fa9d04;
+  color: #3f362a;
+
 }
 
 .chosenCat {
