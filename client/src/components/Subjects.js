@@ -27,7 +27,7 @@ class Subjects extends React.Component {
     // IF User is NOT loggedIn, show the subjects
     // show the subjects and set subjectChosen when onClicked
     if (this.props.subjectChosen === "" && this.props.loggedIn === "") {
-      header = <div>Choose a subject</div>;
+      header = <div className="blink">Choose a subject</div>;
       subDivs = this.props.category.map( (c,i) => {
         return (
           <div key={i}>
@@ -46,7 +46,7 @@ class Subjects extends React.Component {
       //If user loggedIn, show welcome and options
       header = <div></div>;
       subDivs = <div>
-        <button className="chosenCat buttonGen margin30Bottom"
+        <button className="chosenCat buttonGen margin30Bottom blink"
           onClick={ (e) => {e.preventDefault(); this.loadCreateCoupon()} }
           >Create New Coupon
         </button>

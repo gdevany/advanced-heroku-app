@@ -22,7 +22,7 @@ function Subtopics(props) {
     // if subject IS chosen, but subtopic IS NOT chosen, show subtopics
     // and set SUBTOPIC chosen (searchCoupons) to onClicked subtopic
     if (props.searchCoupons === "") {
-      header = <div>Choose a subtopic</div>;
+      header = <div className="blink">Choose a subtopic</div>;
       subDivs = props.subjectChosen.types.map( (t,i) => {
         return (
           <div key={i}>
