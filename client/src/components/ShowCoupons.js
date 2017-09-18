@@ -3,6 +3,10 @@ import React from 'react';
 
 function ShowCoupons(props) {
 
+  const cantDelete = () => {
+    console.log('cant delete');
+  }
+
   var filterCoupons = "";
   //if loggedIn, filter coupons against username
   //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
@@ -21,9 +25,16 @@ function ShowCoupons(props) {
         className="bizLogo buttonDelete"
         onClick={ (e) => {
           e.preventDefault();
-          console.log(`coupon _id: ${coupon._id}`);
-          props.deleteCoupon(coupon._id);
-          props.loadUsersCoupons(props.loggedIn);
+          console.log(`coupon: ${coupon.notDeletable}`);
+          // props.deleteCoupon(coupon._id);
+
+          if (!coupon.notDeletable) {
+            props.deleteCoupon(coupon);
+            props.loadUsersCoupons(props.loggedIn);
+
+          } else {
+            cantDelete();
+          }
         }}>DELETE COUPON</button>
     }
   }

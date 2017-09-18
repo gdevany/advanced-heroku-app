@@ -18,6 +18,8 @@ function App() {
   return (
     <div className="App">
       <AppSign />
+      <span className="blink tightLines">Buy One</span>
+      <span className="blink2"> Get One</span>
       <div className="container text-center">
         <div className="headingLogo">BOGO</div>
         <div className="headingLogoMini">by zip</div>

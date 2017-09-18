@@ -83,14 +83,15 @@ export function createCoupon(c) {
       body: JSON.stringify(c)
     })
     // .then(() => console.log(c.username))
-    // .then(() => dispatch(loadUsersCoupons(c.username)));
+    .then(() => dispatch(loadUsersCoupons(c.username)));
   };
 }
 
-export function deleteCoupon(id) {
-  console.log(id);
+export function deleteCoupon(coupon2BDeleted) {
+  console.log(coupon2BDeleted);
+  // if (coupon2BDeleted.deletable)
   return function (dispatch) {
-    fetch("/api/coupons/" + id, {
+    fetch("/api/coupons/" + coupon2BDeleted._id, {
       method: "DELETE",
       headers: {"Content-Type": "application/json"},
     })

@@ -20,7 +20,7 @@ class CreateCoupons extends React.Component {
           streetAndNum: "",
           city: "",
           zip: "",
-          bizPhone: ""
+          bizPhone: "",
         }
     };
   }
@@ -64,7 +64,7 @@ class CreateCoupons extends React.Component {
               if (this.props.createCoupon) {
                 console.log(this.props);
                 this.props.createCoupon(this.state.coupons);
-                this.props.loadUsersCoupons(this.state.coupons.username);
+                // this.props.loadUsersCoupons(this.state.coupons.username);
               };
               this.props.toggleShow();
             }}>

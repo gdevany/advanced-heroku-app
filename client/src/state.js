@@ -236,3 +236,89 @@ export default {
     }
   ]
 }
+
+// {
+//     "_id" : ObjectId("59b5e1fa939a2d3c214a1bae"),
+//     "username" : "a@yahoo.com",
+//     "bizName" : "Chuys",
+//     "bizQR" : "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
+//     "bizLogo" : "https://upload.wikimedia.org/wikipedia/en/2/2d/Chuy%27s.png",
+//     "heading" : "Appetizer",
+//     "couponDesc" : "Buy 1 appetizer and receive 1 appetizer free!",
+//     "restrictions" : "One coupon per day",
+//     "searchWords" : "Sit Down",
+//     "streetAndNum" : "1234 Main St",
+//     "city" : "Austin",
+//     "zip" : "78701",
+//     "bizPhone" : "",
+//     "deletable" : false,
+//     "__v" : 0
+// }
+// {
+//     "_id" : ObjectId("59b5e167939a2d3c214a1bad"),
+//     "username" : "a@yahoo.com",
+//     "bizName" : "Chick-Fil-A",
+//     "bizQR" : "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
+//     "bizLogo" : "https://upload.wikimedia.org/wikipedia/en/0/02/Chick-fil-A_Logo.svg",
+//     "heading" : "Chick-Fil-A sandwich",
+//     "couponDesc" : "Buy 1 Chick-Fil-A sandwich and receive 1 Chick-Fil-A sandwich free!",
+//     "restrictions" : "One coupon per day",
+//     "searchWords" : "Fast Food",
+//     "streetAndNum" : "1234 Main St",
+//     "city" : "Austin",
+//     "zip" : "78701",
+//     "bizPhone" : "",
+//     "deletable" : false,
+//     "__v" : 0
+// }
+// {
+//     "_id" : ObjectId("59b5e0bd939a2d3c214a1bac"),
+//     "username" : "a@yahoo.com",
+//     "bizName" : "Burger King",
+//     "bizQR" : "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
+//     "bizLogo" : "https://upload.wikimedia.org/wikipedia/commons/5/55/BurgerKingLogoDileo.png",
+//     "heading" : "Whopper",
+//     "couponDesc" : "Buy 1 Whopper and receive 1 Whopper free!",
+//     "restrictions" : "One coupon per day",
+//     "searchWords" : "Fast Food",
+//     "streetAndNum" : "1234 Oak St",
+//     "city" : "Austin",
+//     "zip" : "78701",
+//     "bizPhone" : "",
+//     "deletable" : false,
+//     "__v" : 0
+// }
+// {
+//     "_id" : ObjectId("59b5e001939a2d3c214a1bab"),
+//     "username" : "a@yahoo.com",
+//     "bizName" : "Mcdonalds",
+//     "bizQR" : "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
+//     "bizLogo" : "https://upload.wikimedia.org/wikipedia/commons/3/36/McDonald%27s_Golden_Arches.svg",
+//     "heading" : "BigMac",
+//     "couponDesc" : "Buy 1 Bigmac and receive 1 BigMac free!",
+//     "restrictions" : "One coupon per day",
+//     "searchWords" : "Fast Food",
+//     "streetAndNum" : "1234 Main St",
+//     "city" : "Austin",
+//     "zip" : "78701",
+//     "bizPhone" : "",
+//     "deletable" : false,
+//     "__v" : 0
+// }
+// {
+//     "_id" : ObjectId("59b8836c4449ae5b2d687177"),
+//     "username" : "a@yahoo.com",
+//     "bizName" : "Home Slice",
+//     "bizQR" : "https://barcode1.in/wp-content/assets/sites/16/QR-Code-Standard.jpg",
+//     "bizLogo" : "http://www.homeslicepizza.com/images/logo.gif",
+//     "heading" : "slice of pizza",
+//     "couponDesc" : "Buy 1 slice of pizza and receive 1 slice of pizza free!",
+//     "restrictions" : "One coupon per day",
+//     "searchWords" : "Regional",
+//     "streetAndNum" : "1234 Main St",
+//     "city" : "Austin",
+//     "zip" : "78701",
+//     "bizPhone" : "",
+//     "deletable" : false,
+//     "__v" : 0
+// }
