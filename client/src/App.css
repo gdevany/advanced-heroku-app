@@ -32,7 +32,7 @@ address {
   font-family: 'Monoton';
   font-size: 4em;
   color: #fef596;
-  margin-top: 50px;
+  margin-top: 30px;
   letter-spacing: 0.1em;
   text-shadow: -1px 0 black, 0 1px black,
       4px 0 black, 0 -1px black;
@@ -189,9 +189,24 @@ strong {
 
 .blink2{
 	text-decoration: blink;
+  font-family: 'Luckiest Guy',cursive;
+
   animation-delay: 2s;
 	-webkit-animation-name: blinker;
   -webkit-animation-delay: 2s;
+	-webkit-animation-duration: 0.6s;
+	-webkit-animation-iteration-count:infinite;
+	-webkit-animation-timing-function:ease-in-out;
+	-webkit-animation-direction: alternate;
+}
+
+.blink3{
+	text-decoration: blink;
+  font-family: 'Luckiest Guy',cursive;
+
+  animation-delay: 4s;
+	-webkit-animation-name: blinker;
+  -webkit-animation-delay: 4s;
 	-webkit-animation-duration: 0.6s;
 	-webkit-animation-iteration-count:infinite;
 	-webkit-animation-timing-function:ease-in-out;
