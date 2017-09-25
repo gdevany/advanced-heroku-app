@@ -31,7 +31,6 @@ function Subtopics(props) {
               onClick={ (e) => {
                 e.preventDefault();
                 props.setSearchCoupons(t);
-                console.log(`t:${t}`);
                 props.loadFilteredCoupons(t);
               } }>
               <strong>{t}</strong>

@@ -71,7 +71,6 @@ class AppSign extends Component {
           return res.json();
         }
       }).then((data) => {
-        console.log(`data from signIn: ${data.username}`);
         const { token } = data;
         localStorage.setItem("token", token);
         this.setState({
@@ -115,7 +114,7 @@ class AppSign extends Component {
 
   renderApp() {
     return (
-      // If signed in, show the User Welcome (now: secret)
+      // If signed in, show the User Welcome
       <div>
         <Switch>
           <Route exact path="/" render={() =>
@@ -133,7 +132,7 @@ class AppSign extends Component {
 
   render() {
     let whatToShow = "";
-    // If signed in, show the User Welcome (now: secret)
+    // If signed in, show the User Welcome
     if (this.state.authenticated) {
       whatToShow = this.renderApp();
       // If NOT signed in, show the SignUpSignIn IF clickedSignIn

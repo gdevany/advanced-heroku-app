@@ -62,14 +62,16 @@ class CreateCoupons extends React.Component {
             <form onSubmit={(e) => {
               e.preventDefault();
               if (this.props.createCoupon) {
-                console.log(this.props);
                 this.props.createCoupon(this.state.coupons);
                 // this.props.loadUsersCoupons(this.state.coupons.username);
               };
               this.props.toggleShow();
             }}>
               <div>
-                Business Name: <br /><input onChange={(e) => {
+                Business Name: <br />
+                <input
+                placeholder="*required"
+                onChange={(e) => {
                   const coupon = {bizName: e.target.value, username: this.props.loggedIn};
                   this.setState({
                     coupons: Object.assign(this.state.coupons,coupon)
@@ -77,7 +79,10 @@ class CreateCoupons extends React.Component {
                 }} /><br />
               </div>
               <div>
-                Business QR Link: <br /><input onChange={(e) => {
+                Business QR Link: <br />
+                <input
+                placeholder="http://..."
+                onChange={(e) => {
                   const coupon = {bizQR: e.target.value};
                   this.setState({
                     coupons: Object.assign(this.state.coupons,coupon)
@@ -85,15 +90,21 @@ class CreateCoupons extends React.Component {
                 }} /><br />
               </div>
               <div>
-                Business Logo Link: <br /><input onChange={(e) => {
+                Business Logo Link: <br />
+                <input
+                placeholder="http://..."
+                onChange={(e) => {
                   const coupon = {bizLogo: e.target.value};
                   this.setState({
                     coupons: Object.assign(this.state.coupons,coupon)
                   });
                 }} /><br />
               </div>
-              <div>
-                Buy One: <br /><input onChange={(e) => {
+              <div className="margin30Bottom">
+                Buy One: <br />
+                <input
+                className="inputBottomMarginShort"
+                onChange={(e) => {
                   const coupon = {heading: e.target.value};
                   this.setState({
                     coupons: Object.assign(this.state.coupons,coupon)

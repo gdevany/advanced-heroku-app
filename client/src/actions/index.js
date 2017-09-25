@@ -27,10 +27,8 @@ export function loadFilteredCoupons(filter) {
     });
     fetch("/api/coupons/" + filter)
     .then((response) => {
-      console.log(`loadFilteredCoupons response: ${response}`);
       return response.json();
     }).then((coupons) => {
-      console.log('loadFiltercoupons complete');
       dispatch(FilteredCouponsLoaded(coupons))
     })
   }
@@ -51,10 +49,8 @@ export function loadUsersCoupons(username) {
     });
     fetch("/api/coupons/" + username)
     .then((response) => {
-      console.log(`loadUsersCoupons response: ${response}`);
       return response.json();
     }).then((coupons) => {
-      console.log('loaduserscoupons complete');
       dispatch(UsersCouponsLoaded(coupons))
     })
   }
@@ -75,21 +71,17 @@ export function loadUser(user) {
 }
 
 export function createCoupon(c) {
-  console.log('in createcoupon');
   return function (dispatch) {
     fetch("api/coupons", {
       method: "POST",
       headers: {"Content-Type": "application/json"},
       body: JSON.stringify(c)
     })
-    // .then(() => console.log(c.username))
     .then(() => dispatch(loadUsersCoupons(c.username)));
   };
 }
 
 export function deleteCoupon(coupon2BDeleted) {
-  console.log(coupon2BDeleted);
-  // if (coupon2BDeleted.deletable)
   return function (dispatch) {
     fetch("/api/coupons/" + coupon2BDeleted._id, {
       method: "DELETE",
@@ -101,24 +93,3 @@ export function deleteCoupon(coupon2BDeleted) {
     // .then(() => dispatch(loadUsersCoupons()));
   };
 }
-
-// export function loadUser(user) {
-//   return function(dispatch) {
-//     dispatch({
-//       type: "LOAD_USER"
-//     });
-//     fetch('./user')
-//     .then((response) => {
-//       return response.json();
-//     }).then((user) => {
-//       dispatch(userLoaded(user))
-//     })
-//   }
-// }
-//
-// export function userLoaded(user) {
-//   return {
-//     type: "USER_LOGGED_IN",
-//     value: user
-//   }
-// }

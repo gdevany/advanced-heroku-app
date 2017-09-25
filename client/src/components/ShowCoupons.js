@@ -4,7 +4,7 @@ import React from 'react';
 function ShowCoupons(props) {
 
   const cantDelete = () => {
-    console.log('cant delete');
+    alert('You can\'t delete this coupon because it\'s permanent. Try creating your own coupon, then delete it.');
   }
 
   var filterCoupons = "";
@@ -25,7 +25,6 @@ function ShowCoupons(props) {
         className="bizLogo buttonDelete"
         onClick={ (e) => {
           e.preventDefault();
-          console.log(`coupon: ${coupon.notDeletable}`);
           // props.deleteCoupon(coupon._id);
 
           if (!coupon.notDeletable) {

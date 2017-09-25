@@ -1,17 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import {Navbar,Nav,NavItem,} from "react-bootstrap";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 const TopNavbar = (props) => {
 
   let navItems = "";
 
   if (props.showNavItems) {
-    // If signed in (authenticated), show Welcome (now: Secret)
+    // If signed in (authenticated), show Welcome
     navItems = (
                 <Nav pullRight>
-                  <Link to="/secret"><Navbar.Text>Secret</Navbar.Text></Link>
                   <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
                 </Nav>
               );
