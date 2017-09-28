@@ -18,13 +18,18 @@ var _jwtSimple = require("jwt-simple");
 
 var _jwtSimple2 = _interopRequireDefault(_jwtSimple);
 
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function signIn(req, res) {
-
   console.log("logged in now");
-  res.json({ token: tokenForUser(req.user) });
+  // console.log(state);
+  res.json({ token: tokenForUser(req.user), username: req.user.username });
 }
+// import state from '../../client/src/state';
 function signUp(req, res, next) {
   var _req$body = req.body,
       username = _req$body.username,
@@ -33,7 +38,7 @@ function signUp(req, res, next) {
   var u = username;
   // If no username or password was supplied return an error
   if (!username || !password) {
-    return res.status(422).json({ error: "You must provide an username and password" });
+    return res.status(422).json({ error: "You must provide a username and password" });
   }
   console.log("Look for a user with the username");
   _UserModel2.default.findOne({ username: u }).exec().then(function (existingUser) {
