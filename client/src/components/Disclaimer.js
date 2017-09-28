@@ -5,7 +5,9 @@ function Disclaimer(){
 
   return (
     <div className="disclaimer smallText">
-    *This project was built on
+    *To see an example of a Business' Coupons, try:<br />
+    (username: a@yahoo.com)  (pw: a)<br /><br />
+    *This project was built on {" "}
     <a href="https://github.com/AustinCodingAcademy/advanced-heroku-app"
     target="_blank">github.com/AustinCodingAcademy/advanced-heroku-app </a>
     as a capstone project for Austin Coding Academy's advanced course by Greg Devany.
