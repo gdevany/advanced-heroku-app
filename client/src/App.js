@@ -24,10 +24,10 @@ function App() {
         <div className="headingLogo">BOGO</div>
         <div className="headingLogoMini">by zip</div>
       </div>
-      <ZipcodeSetter />
       <Subjects />
       <Subtopics />
       <ShowCoupons />
+      <ZipcodeSetter />
       <Disclaimer />
     </div>
   )
