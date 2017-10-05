@@ -72,12 +72,20 @@ input {
   margin-bottom: 5px;
 }
 
+.borderIt {
+  border: 1px solid black;
+}
+
 .inputBottomMarginShort {
   margin-bottom: 0px;
 }
 
 .disclaimer {
   margin: 30px 10px;
+}
+
+.map {
+  height: 100%;
 }
 
 .zipBox {
@@ -120,7 +128,7 @@ input {
   color: #F6F7BD;
   border-radius: 50%;
   background-color: #BF4D28;
-  font-size: 0.8em;
+  font-size: 1.0em;
   margin: 25px;
   padding: 5px;
 }
