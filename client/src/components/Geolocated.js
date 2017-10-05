@@ -34,11 +34,20 @@ class ZipcodeSetter extends React.Component {
               this.props.coords.longitude));
             var myZip = myLocation.zip;
             this.props.setZip(myZip);
+            // this.props.loadGoogleAddress(this.props.coords.latitude,this.props.coords.longitude);
             resolve(myZip);
-            // fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=30.255926,-97.929054&location_type=ROOFTOP&result_type=street_address&key=AIzaSyDJCfbffpjDLex3dBPv7coAs4SZkrMOFYs`)
-            // .then(response => {
-            //   console.log(response.json())
-            // });
+            fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=30.255926,-97.929054&location_type=ROOFTOP&result_type=street_address&key=AIzaSyDKe93_qxr2uLLUgZclCAjHO2AG2cQdAcs`)
+            .then(response => {
+              response.setHeader("Access-Control-Allow-Origin", "*");
+              response.setHeader("Access-Control-Allow-Credentials", "true");
+              response.setHeader('Access-Control-Expose-Headers', 'Authorization');
+              response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
+              response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers,
+              Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method,
+              Access-Control-Request-Headers, Authorization");
+              console.log(response);
+              return response.json();
+            });
           }
       }, 5000);
     });

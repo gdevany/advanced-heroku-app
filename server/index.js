@@ -9,6 +9,8 @@ import authenticationRoutes from "./routes/AuthenticationRoutes";
 import listRoutes from "./routes/ListRoutes";
 import articleRoutes from "./routes/blog/ArticleRoutes";
 import couponRoutes from "./routes/CouponRoutes";
+var cors = require('cors');
+
 
 mongoose.set("debug", true);
 mongoose.Promise = global.Promise;
@@ -18,20 +20,13 @@ mongoose.connect("mongodb://gdevany:gdevany@ds133964.mlab.com:33964/bogobyzip");
 
 const app = express();
 app.use(express.static("public"));
-
-// app.get("*", (req, res, next) => {
-//   res.sendFile("public/index.html");
-// });
-
-// app.get('*', function (req, res,next) {
-//   res.sendFile("index.html", { root: path.join(__dirname, 'public') })
-// })
+app.use(cors());
+app.options('*', cors());
 
 app.use(bodyParser.json());
 
 app.use(authenticationRoutes);
 app.use(couponRoutes);
-
 
 const authStrategy = passport.authenticate("authStrategy", { session: false });
 app.use(authStrategy);
