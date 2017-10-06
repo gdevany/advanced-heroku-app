@@ -51,8 +51,19 @@ class ZipcodeSetter extends React.Component {
 //               return response.json();
 //             });
               // initMap();
-              var geocoder = new google.maps.Geocoder();
-
+            if (navigator.geolocation) {
+              navigator.geolocation.getCurrentPosition(function(position) {
+                var pos = {lat: position.coords.latitude,lng: position.coords.longitude};
+                console.log(pos.lat);
+                console.log(pos.lng);
+                var geocoder = new window.google.maps.Geocoder();
+                geocoder.geocode({
+                  'location': pos
+                }, function(results, status) {
+                  console.log(results[0].address_components[7].short_name);
+                });
+              })
+            };
           }
       }, 5000);
     });
