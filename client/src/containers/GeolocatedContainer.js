@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import Geolocated from '../components/Geolocated';
-import {setZip, loadGoogleAddress} from '../actions';
+import {setZip} from '../actions';
 
 
 function mapStateToProps(state) {
@@ -14,11 +14,7 @@ function mapDispatchToProps(dispatch) {
   return {
     setZip(zip) {
       dispatch(setZip(zip))
-    },
-    loadGoogleAddress(lat,lon) {
-      dispatch(loadGoogleAddress(lat,lon))
     }
-
   }
 }
 

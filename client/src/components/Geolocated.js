@@ -1,7 +1,7 @@
 import React from 'react';
 import {geolocated} from 'react-geolocated';
 // import GoogleMap from './GoogleMap';
-const zips = require('zips');
+// const zips = require('zips');
 
 
 class ZipcodeSetter extends React.Component {
@@ -23,60 +23,43 @@ class ZipcodeSetter extends React.Component {
         loading: false
       });
     });
+    this.props.setZip(this.state.myZip);
   }
 
   // action of loading geolocation
   loadData = () => {
     var promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        if (this.props.isGeolocationAvailable && this.props.isGeolocationEnabled && this.props.coords) {
-            var myLocation = (zips.getByLocation(
-              this.props.coords.latitude,
-              this.props.coords.longitude));
-            var myZip = myLocation.zip;
-            this.props.setZip(myZip);
-            // this.props.loadGoogleAddress(this.props.coords.latitude,this.props.coords.longitude);
-            resolve(myZip);
-            // <GoogleMap />
-            // fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=30.255926,-97.929054&location_type=ROOFTOP&result_type=street_address&key=AIzaSyDKe93_qxr2uLLUgZclCAjHO2AG2cQdAcs`)
-            // fetch(`https://maps.googleapis.com/maps/api/js?key=AIzaSyDKe93_qxr2uLLUgZclCAjHO2AG2cQdAcs`)
-// fetch('https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyDKe93_qxr2uLLUgZclCAjHO2AG2cQdAcs')
-//             .then(response => {
-//               response.setHeader("Access-Control-Allow-Origin", "*");
-//               response.setHeader("Access-Control-Allow-Credentials", "true");
-//               response.setHeader('Access-Control-Expose-Headers', 'Authorization');
-//               response.setHeader("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
-//               response.setHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers, Authorization");
-//               console.log(response.json());
-//               return response.json();
-//             });
-              // initMap();
-            if (navigator.geolocation) {
-              navigator.geolocation.getCurrentPosition(function(position) {
-                var pos = {lat: position.coords.latitude,lng: position.coords.longitude};
-                console.log(pos.lat);
-                console.log(pos.lng);
-                var geocoder = new window.google.maps.Geocoder();
-                geocoder.geocode({
-                  'location': pos
-                }, function(results, status) {
-                  console.log(results[0].address_components[7].short_name);
-                });
-              })
-            };
-          }
+        var myZip = 0;
+        // if (this.props.isGeolocationAvailable && this.props.isGeolocationEnabled && this.props.coords) {
+            // var myLocation = (zips.getByLocation(
+            //   this.props.coords.latitude,
+            //   this.props.coords.longitude));
+            // myZip = myLocation.zip;
+            // this.props.setZip(myZip);
+            // resolve(myZip);
+        // }
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition((position) => {
+            var pos = {lat: position.coords.latitude,lng: position.coords.longitude};
+            console.log(pos.lat);
+            console.log(pos.lng);
+            var geocoder = new window.google.maps.Geocoder();
+
+            geocoder.geocode({'location': pos}, (results, status) => {
+              myZip = Number(results[0].address_components[7].short_name);
+              this.setState({ myZip });
+              this.props.setZip(myZip);
+              console.log(myZip);
+              console.log(results);
+            });
+          })
+        };
+
       }, 5000);
     });
     return promise;
   };
-
-  // initMap = () => {
-  //   var geocoder = new google.maps.Geocoder;
-  //   var latlng = {lat: parseFloat(latlngStr[0]), lng: parseFloat(latlngStr[1])};
-  //   geocoder.geocode({'location': latlng}, function(results, status) {
-  //     console.log(results);
-  //   });
-  // }
 
   render() {
 
@@ -103,3 +86,33 @@ export default geolocated({
   },
   userDecisionTimeout: 5000,
 })(ZipcodeSetter);
+
+// loadData = () => {
+//   var promise = new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       if (this.props.isGeolocationAvailable && this.props.isGeolocationEnabled && this.props.coords) {
+//           var myLocation = (zips.getByLocation(
+//             this.props.coords.latitude,
+//             this.props.coords.longitude));
+//           var myZip = myLocation.zip;
+//           this.props.setZip(myZip);
+//           resolve(myZip);
+//
+//           if (navigator.geolocation) {
+//             navigator.geolocation.getCurrentPosition(function(position) {
+//               var pos = {lat: position.coords.latitude,lng: position.coords.longitude};
+//               console.log(pos.lat);
+//               console.log(pos.lng);
+//               var geocoder = new window.google.maps.Geocoder();
+//               geocoder.geocode({
+//                 'location': pos
+//               }, function(results, status) {
+//                 console.log(results[0].address_components[7].short_name);
+//               });
+//             })
+//           };
+//         }
+//     }, 5000);
+//   });
+//   return promise;
+// };

@@ -19,31 +19,6 @@ export function setZip(zip) {
   }
 }
 
-export function loadGoogleAddress(lon, lat) {
-  return function(dispatch) {
-    dispatch({
-      type: "LOAD_GOOGLE_ADDRESS",
-      headers: {"Content-Type": "application/json"},
-      method: "GET"
-    });
-    fetch("/api/zipit/" + lon + "/" + lat)
-     .then((response) => {
-      return response.json();
-    }).then((address) => {
-      console.log(address);
-      dispatch(GoogleAddressLoaded(address))
-    })
-  }
-}
-
-export function GoogleAddressLoaded(address) {
-  console.log(address);
-
-  return {
-    // console.log(address);
-  }
-}
-
 export function loadFilteredCoupons(filter) {
   return function(dispatch) {
     dispatch({
