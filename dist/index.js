@@ -38,6 +38,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // find out more here https://github.com/motdotla/dotenv
 require("dotenv").config();
 
+var cors = require('cors');
 
 _mongoose2.default.set("debug", true);
 _mongoose2.default.Promise = global.Promise;
@@ -47,14 +48,8 @@ _mongoose2.default.connect("mongodb://gdevany:gdevany@ds133964.mlab.com:33964/bo
 
 var app = (0, _express2.default)();
 app.use(_express2.default.static("public"));
-
-// app.get("*", (req, res, next) => {
-//   res.sendFile("public/index.html");
-// });
-
-// app.get('*', function (req, res,next) {
-//   res.sendFile("index.html", { root: path.join(__dirname, 'public') })
-// })
+app.use(cors());
+app.options('*', cors());
 
 app.use(_bodyParser2.default.json());
 
