@@ -1,8 +1,10 @@
 import React from 'react';
 import {geolocated} from 'react-geolocated';
-// import GoogleMap from './GoogleMap';
 // const zips = require('zips');
 
+//NOTE:  the commented out parts are from the transformation from using npm
+// node_modules zip and react-geolocated to Google Maps API
+// These commented out parts should be deleted once sufficient testing completed
 
 class ZipcodeSetter extends React.Component {
   constructor() {
@@ -19,7 +21,7 @@ class ZipcodeSetter extends React.Component {
     this.loadData()
     .then((myZip) => {
       this.setState({
-        myZip: myZip,
+        // myZip: zipzip,
         loading: false
       });
     });
@@ -30,7 +32,6 @@ class ZipcodeSetter extends React.Component {
   loadData = () => {
     var promise = new Promise((resolve, reject) => {
       setTimeout(() => {
-        var myZip = 0;
         // if (this.props.isGeolocationAvailable && this.props.isGeolocationEnabled && this.props.coords) {
             // var myLocation = (zips.getByLocation(
             //   this.props.coords.latitude,
@@ -47,11 +48,18 @@ class ZipcodeSetter extends React.Component {
             var geocoder = new window.google.maps.Geocoder();
 
             geocoder.geocode({'location': pos}, (results, status) => {
-              myZip = Number(results[0].address_components[7].short_name);
-              this.setState({ myZip });
-              this.props.setZip(myZip);
-              console.log(myZip);
-              console.log(results);
+
+              var zipzip = "";
+              results[0].address_components.map(adcom => {
+                if (adcom.types.indexOf("postal_code") > -1) {
+                  zipzip = Number(adcom.short_name);
+                  return true;
+                } else return false;
+              });
+
+              console.log(zipzip);
+              this.setState({ myZip:zipzip });
+              this.props.setZip(zipzip);
             });
           })
         };
@@ -68,9 +76,9 @@ class ZipcodeSetter extends React.Component {
     : !this.props.isGeolocationEnabled
       ? <div>Geolocation is not enabled</div>
       : this.props.coords
-        ? <div className="margin30Bottom borderIt">
+        ? <div className="margin30Bottom">
             <div>
-            Your current zipcode
+            <small>Coupons will be filtered on your current zipcode</small>
             </div>
             <span className="zipBox">
               {this.props.zip}
