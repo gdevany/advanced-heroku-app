@@ -27,6 +27,10 @@ class Disclaimer extends React.Component {
         services, please hit 'RELOAD'.
         <br /><br />
 
+        * This app was designed to be utilized on mobile.  For best viewing,
+        please view in mobile view.
+        <br /><br />
+        
         *The final product will filter coupons based on the customer's zip
         code, but for production and testing purposes, it currently only
         filters on the subject and subtopic chosen by the customer.
