@@ -2,7 +2,6 @@ import React from 'react';
 import './App.css';
 import AppSign from './containers/AppSignContainer';
 import Subjects from './containers/SubjectsContainer';
-import Subtopics from './containers/SubtopicsContainer';
 import ShowCoupons from './containers/ShowCouponsContainer';
 import ZipcodeSetter from './containers/GeolocatedContainer';
 import Disclaimer from './components/Disclaimer';
@@ -24,7 +23,6 @@ function App() {
         <div className="headingLogoMini">by zip</div>
       </div>
       <Subjects />
-      <Subtopics />
       <ShowCoupons />
       <ZipcodeSetter />
       <Disclaimer />

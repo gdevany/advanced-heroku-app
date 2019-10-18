@@ -94,28 +94,57 @@ input {
   margin-bottom: 30px;
 }
 
+.buttonBox {
+  border: 1px solid;
+  max-width: 300px;
+  margin: 10px auto;
+  padding: 10px 0;
+  background-color: #3f362aba;
+}
+
+.buttonBox2 {
+  width: 18em;
+  max-width: 18em;
+  height: auto;
+  margin: 10px auto;
+  padding: 10px 0;
+  background-color: #E6AC27;
+  box-shadow:inset -2px -4px 7px 0px #4f501b;
+  border: 1px solid rgb(193, 193, 193);
+  border-radius: 10px;
+}
+
 .buttonGen {
   font-family: 'Luckiest Guy',cursive;
   color: #3f362a;
+  width: 50vw;
   max-width: 220px;
-  background-color: #E6AC27;
+  height: auto;
+  /* min-height: 55px; */
+  background-color: #f4f4f4;
   border-radius: 4px;
-  margin: 10px 3vw;
+  margin: 3px;
   color: black;
-  padding: 10px 15px 0px 15px;
+  padding: 10px 15px;
   /*border: 1px solid #5f3e29;*/
-  box-shadow: inset 1px 1px 4px 0px white;
- /*box-shadow:inset -3px -3px 7px 0px #F6F7BD;*/
+  /* box-shadow: inset 1px 1px 4px 0px white; */
+ /* box-shadow:inset -3px -3px 7px 0px #F6F7BD; */
+ box-shadow:inset -2px -4px 7px 0px #4f501b;
 }
 
 .catButton {
-  background-color: #fa9d04;
+  /* background-color: #fa9d04; */
   color: #3f362a;
+  min-height: 55px;
+  /* border: 1px solid; */
 }
 
 .chosenCat {
-  background-color: #78C0A8;
+  /* background-color: #78c0a894; */
   box-shadow: none;
+  background-color: inherit;
+  border: none;
+  padding: 0;
 }
 
 .backButton {
@@ -186,10 +215,10 @@ strong {
 
 .blink{
 	text-decoration: blink;
-  animation-delay: 6s;
+  animation-delay: 1s;
   animation-iteration-count: 6;
 	-webkit-animation-name: blinker;
-  -webkit-animation-delay: 6s;
+  -webkit-animation-delay: 1s;
 	-webkit-animation-duration: 0.3s;
 	-webkit-animation-iteration-count:6;
 	-webkit-animation-timing-function:ease-in-out;
@@ -243,6 +272,7 @@ strong {
   yellow: #fbde03;
   orange: #fa9d04;
   red: #e7450d;
+  red2: #db4e1f;
   brown: #3f362a;
 
 

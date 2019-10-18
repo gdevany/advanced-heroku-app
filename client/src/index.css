@@ -29,6 +29,7 @@ body {
 
 .navbar-inverse, navbar {
   background-color: #3f362a;
+  border-radius: 0;
   border: none;
 }
 
