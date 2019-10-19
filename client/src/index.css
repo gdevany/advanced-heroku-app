@@ -1,6 +1,6 @@
 html {
   border-left: solid #3f362a 15px;
-
+  box-sizing: border-box;
 }
 
 body {
