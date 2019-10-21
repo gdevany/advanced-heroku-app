@@ -54,31 +54,35 @@ function ShowCoupons(props) {
               <div className="row">
                 <div className="col-xs-12 couponHeadline">
                   <span className="bizLogo pull-left">
-                    <img
-                      className=""
-                      src={coupon.bizLogo}
-                      alt=""
-                    ></img>
+                    <img className="" src={coupon.bizLogo} alt="bizLogo"></img>
                   </span>
-                  <span className="distance text-center">1.2 miles</span>
-                  <span className="bizLogo pull-right">
-                    <img
-                      className=""
-                      src={coupon.bizQR}
-                      alt=""
-                    ></img>
-                  </span>
+                  {props.loggedIn === "" ? (
+                    // TODO: calculate distance with geolocation
+                    <div>
+                      <span className="distance text-center">0.4 miles</span>
+                      <span className="bizLogo pull-right">
+                        <img
+                          className=""
+                          // src={coupon.bizQR}
+                          src={
+                            "https://png2.cleanpng.com/sh/43591cc4cc9b0369f77e9c5a09d2b21d/L0KzQYm3VMI4N6NrfZH0aYP2gLBuTfdwd5hxfZ92YYD2PbL3ib1ud6ZzjNNybj35ebbATgRpbaNqRadqZUO7dLfoUcA1bWo9RqUCMUS4RomAUcUzPGk7SqYAOEC5Rom1kP5o/kisspng-google-maps-api-mountain-view-there-5ae38dfa104e98.3714568715248624580668.png"
+                          }
+                          alt=""
+                        ></img>
+                      </span>
+                    </div>
+                  ) : (
+                    <span>{deleteButton(coupon)}</span>
+                  )}
                 </div>
               </div>
               <div className="row">
                 <div className="col-xs-12 text-center offer">
                   <div className="">Buy One</div>
                   <div className="biggerText">{coupon.heading}</div>
-                  <div className="">Get One</div>
-                  <div className="bigText">Free</div>
+                  <div className="">Get One Free</div>
                 </div>
                 <br />
-                <div>{deleteButton(coupon)}</div>
               </div>
               <div className="row">
                 <div className="col-xs-12 text-center">
@@ -92,7 +96,7 @@ function ShowCoupons(props) {
                   </address>
                 </div>
               </div>
-              <div className="row text-center">
+              <div className="row text-left">
                 <div>
                   {"* "}
                   {coupon.couponDesc}
@@ -102,7 +106,7 @@ function ShowCoupons(props) {
                   {"* "}
                   {coupon.restrictions}
                 </div>
-                <div>Coupon ID: {coupon._id}</div>
+                <div className="">Coupon ID: {coupon._id}</div>
               </div>
             </div>
           </div>
@@ -111,64 +115,7 @@ function ShowCoupons(props) {
     });
   } else couponDiv = <div></div>;
 
-  // if (props.searchCoupons !== "" || props.loggedIn !== "") {
-
-  //   couponDiv = filterCoupons.map((coupon) => {
-  //     return (
-  //       <div key={coupon._id} className="col-sm-6 col-lg-4">
-  //       <div className="coupon">
-  //         <div className="container">
-  //           <div className="row">
-  //             <div className="col-xs-7 col-xs-offset-1 text-center offer">
-  //               <div className="">Buy One</div>
-  //               <div className="biggerText">{coupon.heading}</div>
-  //               <div className="">Get One</div>
-  //               <div className="bigText">Free</div>
-  //             </div>
-  //             <div className="col-xs-4 verticle">
-  //               <div>
-  //                 <img
-  //                   className="bizLogo pull-right"
-  //                   src={coupon.bizLogo}
-  //                   alt="">
-  //                 </img>
-  //               </div><br />
-  //               <div>
-  //                 <img
-  //                   className="bizLogo pull-right"
-  //                   src={coupon.bizQR}
-  //                   alt="">
-  //                 </img>
-  //               </div><br />
-  //               <div>
-  //                 {deleteButton(coupon)}
-  //               </div>
-  //             </div>
-  //           </div>
-  //           <div className="row">
-  //             <div className="col-xs-12 text-center">
-  //               <address>
-  //                 <strong>{coupon.bizName}</strong><br />
-  //                 {coupon.streetAndNum}{" "}
-  //                 {coupon.city}{" "}<br />
-  //                 <strong>{coupon.zip}</strong><br />
-  //                 <small>{coupon.bizPhone}</small>
-  //               </address>
-  //             </div>
-  //           </div>
-  //           <div className="row text-center">
-  //             <div>{"* "}{coupon.couponDesc}{" *"}</div>
-  //             <div>{"* "}{coupon.restrictions}</div>
-  //             <div>Coupon ID:{" "}{coupon._id}</div>
-  //           </div>
-  //         </div>
-  //       </div>
-  //       </div>
-  //     )
-  //   })
-  // } else couponDiv = <div></div>
-
-  return <div className="couponMargin">{couponDiv}</div>;
+  return <div className="container-fluid couponMargin">{couponDiv}</div>;
 }
 
 export default ShowCoupons;

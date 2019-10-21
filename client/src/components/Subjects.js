@@ -56,7 +56,7 @@ class Subjects extends React.Component {
       subDivs = (
         <div>
           <button
-            className="chosenCat buttonGen margin30Bottom blink"
+            className="buttonGen margin30Bottom blink"
             onClick={e => {
               e.preventDefault();
               this.loadCreateCoupon();
