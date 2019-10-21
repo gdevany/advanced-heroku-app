@@ -22,7 +22,7 @@ class Disclaimer extends React.Component {
     } else {
       discDiv = (
         <div className="disclaimer text-left">
-        *Location services are needed to filter coupons on your current
+        * Location services are needed to filter coupons on your current
         location.  After initial acceptance of the user allowing location
         services, please hit 'RELOAD'.
         <br /><br />
@@ -31,30 +31,30 @@ class Disclaimer extends React.Component {
         please view in mobile view.
         <br /><br />
         
-        *The final product will filter coupons based on the customer's zip
+        * The final product will filter coupons based on the customer's zip
         code, but for production and testing purposes, it currently only
         filters on the subject and subtopic chosen by the customer.
         <br /><br />
 
-        *There are limited coupons stored in the DataBase.  For best example
+        * There are limited coupons stored in the DataBase.  For best example
         of multiple coupons filtered, click 'Eat Now', then 'Fast Food'.
         <br /><br />
 
-        *To see an example of a Business' Coupons, try:<br />
+        * To see an example of a Business' Coupons, try:<br />
         USERNAME: a@yahoo.com  PASSWORD: a
         <br /><br />
 
-        *Coupons are only populated by a business logging in and creating a
+        * Coupons are only populated by a business logging in and creating a
         new coupon.
         <br /><br />
 
-        *This project was built on {" "}
+        * This project was built on {" "}
         <a href="https://github.com/AustinCodingAcademy/advanced-heroku-app"
           target="_blank">AustinCodingAcademy/advanced-heroku-app
         </a>{" "}as a capstone project for Austin Coding Academy's advanced
         course by Greg Devany.<br /><br />
 
-        *The repository for BogoByZip can be found at
+        * The repository for BogoByZip can be found at
         <a href="https://github.com/gdevany/advanced-heroku-app"
         target="_blank"> github.com/gdevany/advanced-heroku-app</a>
         </div>

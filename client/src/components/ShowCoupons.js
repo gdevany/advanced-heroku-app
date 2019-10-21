@@ -52,21 +52,22 @@ function ShowCoupons(props) {
           <div className="coupon">
             <div className="container">
               <div className="row">
-                <div className="col-xs-12">
-                  <div>
+                <div className="col-xs-12 couponHeadline">
+                  <span className="bizLogo pull-left">
                     <img
-                      className="bizLogo pull-left"
+                      className=""
                       src={coupon.bizLogo}
                       alt=""
                     ></img>
-                  </div>
-                  <div>
+                  </span>
+                  <span className="distance text-center">1.2 miles</span>
+                  <span className="bizLogo pull-right">
                     <img
-                      className="bizLogo pull-right"
+                      className=""
                       src={coupon.bizQR}
                       alt=""
                     ></img>
-                  </div>
+                  </span>
                 </div>
               </div>
               <div className="row">
