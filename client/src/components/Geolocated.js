@@ -83,7 +83,7 @@ class ZipcodeSetter extends React.Component {
         <GoogleMap
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
-          noShow
+          styles={"mapNoShow"}
         ></GoogleMap>
         {pos.lat !== 0 && pos.lng !== 0 && myZip !== 0 ? (
           <CurrentLocationMapped pos={pos} myZip={myZip} />
