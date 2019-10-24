@@ -1,38 +1,29 @@
 import React from "react";
 import { geolocated } from "react-geolocated";
 import GoogleMap from "./GoogleMap";
-
-//NOTE:  the commented out parts are from the transformation from using npm
-// node_modules zip and react-geolocated to Google Maps API
-// These commented out parts should be deleted once sufficient testing completed
+import CurrentLocationMapped from "./CurrentLocationMapped";
 
 class ZipcodeSetter extends React.Component {
   constructor() {
     super();
     this.state = {
       myZip: 0,
-      loading: false,
+      loading: true,
       pos: {
-        lat: 30.26,
-        lng: -97.74
+        lat: 0,
+        lng: 0
       }
     };
   }
 
   // load geolocation
   componentDidMount() {
-    this.setState({ loading: true });
-    this.loadGeolocation().then(myZip => {
-      this.setState({
-        loading: false
-      });
-    });
-    this.props.setZip(this.state.myZip);
+    this.props.setZip(this.loadGeolocation());
   }
 
   // action of loading geolocation
   loadGeolocation = () => {
-    var promise = new Promise((resolve, reject) => {
+    const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(position => {
@@ -45,26 +36,31 @@ class ZipcodeSetter extends React.Component {
             this.setState({
               pos
             });
-            let geocoder = new window.google.maps.Geocoder();
 
-            geocoder.geocode({ location: pos }, (results, status) => {
-              let zipzip = "";
-              results[0].address_components.map(adcom => {
-                if (adcom.types.indexOf("postal_code") > -1) {
-                  zipzip = Number(adcom.short_name);
-                  return true;
-                } else return false;
-              });
-
-              console.log(zipzip);
-              this.setState({ myZip: zipzip });
-              this.props.setZip(zipzip);
-            });
+            this.getGEOcode(pos);
           });
         }
       }, 5000);
     });
     return promise;
+  };
+
+  getGEOcode = pos => {
+    let geocoder = new window.google.maps.Geocoder();
+
+    geocoder.geocode({ location: pos }, (results, status) => {
+      let zipzip = "";
+      results[0].address_components.map(adcom => {
+        if (adcom.types.indexOf("postal_code") > -1) {
+          zipzip = Number(adcom.short_name);
+          return true;
+        } else return false;
+      });
+
+      console.log(zipzip);
+      this.setState({ myZip: zipzip });
+      this.props.setZip(zipzip);
+    });
   };
 
   static defaultProps = {
@@ -73,7 +69,8 @@ class ZipcodeSetter extends React.Component {
   };
 
   render() {
-    console.log(this.state.pos);
+    const { pos, myZip } = this.state;
+
     return !this.props.isGeolocationAvailable ? (
       <div>Your browser does not support Geolocation</div>
     ) : !this.props.isGeolocationEnabled ? (
@@ -86,22 +83,16 @@ class ZipcodeSetter extends React.Component {
         <GoogleMap
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
-          center={{ lat: this.state.pos.lat, lng: this.state.pos.lng }}
-        >
-          <div
-            className="mapMedium"
-            lat={this.state.pos.lat}
-            lng={this.state.pos.lng}
-          >
-            {this.state.myZip}
-          </div>
-        </GoogleMap>
-        {/* <span className="zipBox">
-              {this.props.zip}
-            </span> */}
+          noShow
+        ></GoogleMap>
+        {pos.lat !== 0 && pos.lng !== 0 && myZip !== 0 ? (
+          <CurrentLocationMapped pos={pos} myZip={myZip} />
+        ) : (
+          <div>....loading</div>
+        )}
       </div>
     ) : (
-      <div>Getting the location data&hellip; </div>
+      <div>Getting the location data</div>
     );
   }
 }

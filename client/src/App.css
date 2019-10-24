@@ -210,16 +210,16 @@ strong {
   margin-right: auto;
 }
 
-.mapMedium {
+.greyTextMarker {
   color: white;
-      background: grey;
-      padding: 15px 10px;
-      display: inline-flex;
-      text-align: center;
-      align-items: center;
-      justify-content: center;
-      border-radius: 100%;
-      transform: translate(-50%, -50%);
+  background: grey;
+  padding: 15px 10px;
+  display: inline-flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  transform: translate(-50%, -50%);
 }
 
 .coupon {

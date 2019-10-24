@@ -5,7 +5,7 @@ import Subjects from './containers/SubjectsContainer';
 import ShowCoupons from './containers/ShowCouponsContainer';
 import ZipcodeSetter from './containers/GeolocatedContainer';
 import Disclaimer from './components/Disclaimer';
-import GetTheZip from './components/GetTheZip';
+// import GetTheZip from './components/GetTheZip';
 
 // compoonentWillMount() {
 //   loadSubjects();

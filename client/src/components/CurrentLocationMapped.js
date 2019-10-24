@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import GoogleMap from "./GoogleMap";
 
-const text = "you";
-
-class GetTheZip extends Component {
+class CurrentLocationMapped extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -11,21 +9,23 @@ class GetTheZip extends Component {
 
   static defaultProps = {
     center: { lat: 30.26, lng: -97.74 },
-    zoom: 15
+    zoom: 10
   };
 
   render() {
+    const { pos, myZip } = this.props;
     return (
       <GoogleMap
         defaultCenter={this.props.center}
         defaultZoom={this.props.zoom}
+        center={{ lat: pos.lat, lng: pos.lng }}
       >
-        <div className="mapMedium" lat={30.26} lng={-97.74}>
-          {text}
+        <div className="greyTextMarker" lat={pos.lat} lng={pos.lng}>
+          {myZip}
         </div>
       </GoogleMap>
     );
   }
 }
 
-export default GetTheZip;
+export default CurrentLocationMapped;

@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import GoogleMapReact from "google-map-react";
 
 const GoogleMap = ({ children, ...props }) => (
-  <div className="genMap">
+  <div className={props.noShow ? "" : "genMap"}>
     <GoogleMapReact
       bootstrapURLKeys={{
         key: "AIzaSyDU0RdP86Lah-317lEyXzfVrHPisuCgJow"
