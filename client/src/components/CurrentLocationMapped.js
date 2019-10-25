@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 import GoogleMap from "./GoogleMap";
 
+const UserLocation = ({ myZip, lat, lng }) => (
+  <div className="greyTextMarker">{myZip}</div>
+);
+
 class CurrentLocationMapped extends Component {
   constructor(props) {
     super(props);
@@ -20,9 +24,7 @@ class CurrentLocationMapped extends Component {
         defaultZoom={this.props.zoom}
         center={{ lat: pos.lat, lng: pos.lng }}
       >
-        <div className="greyTextMarker" lat={pos.lat} lng={pos.lng}>
-          {myZip}
-        </div>
+        <UserLocation myZip={myZip} lat={pos.lat} lng={pos.lng} />
       </GoogleMap>
     );
   }
