@@ -1,4 +1,5 @@
 import React from "react";
+import GoogleMap from "./GoogleMap";
 
 function ShowCoupons(props) {
   const cantDelete = () => {
@@ -7,7 +8,7 @@ function ShowCoupons(props) {
     );
   };
 
-  var filterCoupons = "";
+  let filterCoupons = "";
   //if loggedIn, filter coupons against username
   //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
   if (props.loggedIn === "" && props.searchCoupons !== "") {
@@ -42,11 +43,54 @@ function ShowCoupons(props) {
     }
   };
 
-  var couponDiv = "";
+  // Convert address to lan and lng for google maps
+  const convertAddressToLatLng = address => {
+    let geocoder = new window.google.maps.Geocoder();
+
+    geocoder.geocode({ address: "10800 superview" }, function(results, status) {
+      if (status === "OK") {
+        let lat = results[0].geometry.location.lat();
+        let lng = results[0].geometry.location.lng();
+        console.log(lat, lng);
+        return { lat, lng };
+      } else {
+        alert("Geocode was not successful for the following reason: " + status);
+      }
+    });
+  };
+
+  const bizMapSelected = changeFromDefaultPropsToPOS => {
+    console.log(changeFromDefaultPropsToPOS);
+    <GoogleMap
+      center={{
+        lat: changeFromDefaultPropsToPOS.lat,
+        lng: changeFromDefaultPropsToPOS.lng
+      }}
+    >
+      <BusinessLocation
+        lat={changeFromDefaultPropsToPOS.lat}
+        lng={changeFromDefaultPropsToPOS.lng}
+      />
+    </GoogleMap>;
+  };
+
+  const defaultProps = {
+    lat: 30.263,
+    lng: -97.744
+  };
+
+  const BusinessLocation = ({ address }) => (
+    <div className="greyTextMarker">{address}</div>
+  );
+
+  let couponDiv = "";
   // if loggenIn, filter on username and show
   // if NOT logged in && if subtopic chosen (searchCoupons), map them (filtered)
   if (props.searchCoupons !== "" || props.loggedIn !== "") {
     couponDiv = filterCoupons.map(coupon => {
+      console.log(coupon);
+      const pos = convertAddressToLatLng(coupon.streetAndNum);
+      console.log(pos);
       return (
         <div key={coupon._id} className="col-sm-6 col-lg-4">
           <div className="coupon">
@@ -60,7 +104,10 @@ function ShowCoupons(props) {
                     // TODO: calculate distance with geolocation
                     <div>
                       <span className="distance text-center">0.4 miles</span>
-                      <span className="bizLogo pull-right">
+                      <span
+                        className="bizLogo pull-right"
+                        // onClick={() => bizMapSelected(defaultProps)}
+                      >
                         <img
                           className=""
                           // src={coupon.bizQR}
@@ -69,6 +116,20 @@ function ShowCoupons(props) {
                           }
                           alt=""
                         ></img>
+                        <GoogleMap
+                          center={{
+                            lat: defaultProps.lat,
+                            lng: defaultProps.lng
+                          }}
+                          size={"mapSize6em mapSizeNoShow"}
+                          zoom={15}
+                        >
+                          <BusinessLocation
+                            lat={defaultProps.lat}
+                            lng={defaultProps.lng}
+                            address={coupon.streetAndNum}
+                          />
+                        </GoogleMap>
                       </span>
                     </div>
                   ) : (

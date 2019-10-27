@@ -18,7 +18,7 @@ class ZipcodeSetter extends React.Component {
 
   // load geolocation
   componentDidMount() {
-    this.props.setZip(this.loadGeolocation());
+    this.loadGeolocation();
   }
 
   // action of loading geolocation
@@ -37,7 +37,7 @@ class ZipcodeSetter extends React.Component {
               pos
             });
 
-            this.getGEOcode(pos);
+            this.convertGeolocationToZip(pos);
           });
         }
       }, 5000);
@@ -45,27 +45,22 @@ class ZipcodeSetter extends React.Component {
     return promise;
   };
 
-  getGEOcode = pos => {
+  convertGeolocationToZip = pos => {
     let geocoder = new window.google.maps.Geocoder();
 
     geocoder.geocode({ location: pos }, (results, status) => {
-      let zipzip = "";
+      let myZip = "";
       results[0].address_components.map(adcom => {
         if (adcom.types.indexOf("postal_code") > -1) {
-          zipzip = Number(adcom.short_name);
+          myZip = Number(adcom.short_name);
           return true;
         } else return false;
       });
 
-      console.log(zipzip);
-      this.setState({ myZip: zipzip });
-      this.props.setZip(zipzip);
+      console.log(myZip);
+      this.setState({ myZip });
+      this.props.setZip(myZip);
     });
-  };
-
-  static defaultProps = {
-    center: { lat: 30.26, lng: -97.74 },
-    zoom: 15
   };
 
   render() {
@@ -80,11 +75,7 @@ class ZipcodeSetter extends React.Component {
         <div>
           <small>Offers will be filtered on your current zipcode</small>
         </div>
-        <GoogleMap
-          defaultCenter={this.props.center}
-          defaultZoom={this.props.zoom}
-          styles={"mapNoShow"}
-        ></GoogleMap>
+        <GoogleMap size={"mapSizeNone"}></GoogleMap>
         {pos.lat !== 0 && pos.lng !== 0 && myZip !== 0 ? (
           <CurrentLocationMapped pos={pos} myZip={myZip} />
         ) : (

@@ -169,14 +169,14 @@ input {
   background-color: white;
   border-radius: 10px;
   box-shadow: inset -2px -4px 7px 0px #4f501b;
-  padding: 10px;
+  /* padding: 10px; */
   position: relative;
 }
 
 .bizLogo img {
   position: absolute;
-  width: 5em;
-  max-width: 5em;
+  width: 5.9em;
+  max-width: 5.9em;
   height: auto;
   right: 0;
   left: 0;
@@ -203,15 +203,25 @@ strong {
   margin-bottom: 30px;
 }
 
-.mapGenSize {
+.mapSize200 {
   width: 200px;
   height: 200px;
   margin-left: auto;
   margin-right: auto;
 }
 
-.mapNoShow {
-  display: none;
+.mapSize6em {
+  width: 6em;
+  height: 6em;
+}
+
+.mapSizeNoShow {
+  opacity: 0;
+}
+
+.mapSizeNone {
+  height: 0;
+  width: 0;
 }
 
 .greyTextMarker {
