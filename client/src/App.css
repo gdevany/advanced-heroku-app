@@ -84,17 +84,12 @@ input {
 
 .distance {
   color: #78c0a8;
-  font-size: 1em;
+  font-size: 1.5em;
   vertical-align: sub;
 }
 
 .zipBox {
-  /*background-color: #FCEBB6;*/
   font-family: "Luckiest Guy", cursive;
-  /*color: #3f362a;
-  border-width:3px;
-  border-style:groove;
-  padding: 6px 6px 0px 6px;*/
   margin-bottom: 30px;
 }
 
