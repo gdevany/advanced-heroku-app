@@ -8,7 +8,10 @@ const BizDistance = ({ distance, lat, lng }) => (
 class BusinessLocationMapped extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      lat: 0,
+      lng: 0
+    };
   }
 
   static defaultProps = {
@@ -16,38 +19,74 @@ class BusinessLocationMapped extends Component {
     zoom: 10
   };
 
-  convertAddressToLatLng = address => {
-    let geocoder = new window.google.maps.Geocoder();
+  componentDidMount() {
+    this.createMap(this.props.address);
+  }
 
-    let answer = geocoder.geocode(
-      { address: "701 Brazos Austin" },
-      (results, status) => {
+  // convertAddressToLatLng = address => {
+  //   let geocoder = new window.google.maps.Geocoder();
+
+  //   let answer = geocoder.geocode(
+  //     { address: address },
+  //     (results, status) => {
+  //       if (status === "OK") {
+  //         let lat = results[0].geometry.location.lat();
+  //         let lng = results[0].geometry.location.lng();
+  //         console.log(lat, lng);
+  //         return { lat, lng };
+  //       } else {
+  //         alert(
+  //           "Geocode was not successful for the following reason: " + status
+  //         );
+  //       }
+  //     }
+  //   );
+  //   console.log(answer);
+  // };
+
+  getAddress = address => {
+    return new Promise((resolve, reject) => {
+      const geocoder = new window.google.maps.Geocoder();
+      geocoder.geocode({ address: address }, (results, status) => {
         if (status === "OK") {
-          let lat = results[0].geometry.location.lat();
-          let lng = results[0].geometry.location.lng();
-          console.log(lat, lng);
-          return { lat, lng };
+          resolve(results[0].geometry.location);
         } else {
-          alert(
-            "Geocode was not successful for the following reason: " + status
-          );
+          reject(status);
         }
-      }
-    );
-    console.log(answer);
+      });
+    });
+  };
+
+  createMap = async address => {
+    console.log(address);
+    try {
+      let location = await this.getAddress(address);
+      this.setState({ lat: location.lat(), lng: location.lng() });
+    } catch (err) {
+      console.warn(err);
+    }
   };
 
   render() {
+    console.log(this.state.lat, this.state.lng);
     const { address } = this.props;
+    const { lat, lng } = this.state;
     return (
-      <GoogleMap
-        defaultCenter={address.center}
-        defaultZoom={12}
-        center={{ lat: address.lat, lng: address.lng }}
-        styles={"mapSize200"}
-      >
-        <BizDistance distance={'0.3 miles'} lat={address.lat} lng={address.lng} />
-      </GoogleMap>
+      <div>
+        <GoogleMap size={"mapSizeNone"}></GoogleMap>
+        {lat !== 0 && lng !== 0 ? (
+          <GoogleMap
+            defaultCenter={address.center}
+            defaultZoom={15}
+            center={{ lat: lat, lng: lng }}
+            size={"mapSizeWideShort"}
+          >
+            <BizDistance distance={"0.3 miles"} lat={lat} lng={lng} />
+          </GoogleMap>
+        ) : (
+          <div></div>
+        )}
+      </div>
     );
   }
 }

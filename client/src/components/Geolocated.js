@@ -31,8 +31,6 @@ class ZipcodeSetter extends React.Component {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            console.log(pos.lat);
-            console.log(pos.lng);
             this.setState({
               pos
             });

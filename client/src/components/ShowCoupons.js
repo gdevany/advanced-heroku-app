@@ -13,7 +13,6 @@ class ShowCoupons extends React.Component {
   }
 
   componentDidMount = () => {
-    console.log(this.props);
   };
 
   componentDidUpdate(prevProps) {
@@ -65,15 +64,13 @@ class ShowCoupons extends React.Component {
   };
 
   displayCoupons = () => {
-    // if loggedIn, filter on username and show
-    // if NOT logged in && if subtopic chosen (searchCoupons), map them (filtered)
+    //if loggedIn, filter on username and show
+    //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
     let filterCoupons =
       this.props.loggedIn === "" && this.props.searchCoupons !== ""
         ? this.props.filteredCoupons
         : this.props.usersCoupons;
 
-    //if loggedIn, filter coupons against username
-    //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
     if (filterCoupons.length > 0) {
       let couponDiv = filterCoupons.map(coupon => {
         return (

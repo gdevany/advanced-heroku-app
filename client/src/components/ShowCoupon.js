@@ -1,11 +1,6 @@
 import React, { Component } from "react";
 import BusinessLocationMapped from "./BusinessLocationMapped";
 
-const defaultProps = {
-  lat: 30.263,
-  lng: -97.744
-};
-
 class ShowCoupon extends Component {
   constructor(props) {
     super();
@@ -23,11 +18,10 @@ class ShowCoupon extends Component {
   };
 
   calculateDistance = () => {
-    return '0.3 miles'
-  }
+    return "0.3 miles";
+  };
 
   renderCoupon = coupon => {
-    console.log(coupon);
     return (
       <div className="col-sm-6 col-lg-4">
         <div className="coupon">
@@ -35,15 +29,22 @@ class ShowCoupon extends Component {
             <div className="row">
               <div className="col-xs-12 couponHeadline">
                 {this.state.showBizMap === true ? (
-                  <BusinessLocationMapped address={defaultProps} distance={this.calculateDistance()}/>
-                ) : <div></div>}
+                  <BusinessLocationMapped
+                    address={coupon.streetAndNum + coupon.zip}
+                    distance={this.calculateDistance()}
+                  />
+                ) : (
+                  <div></div>
+                )}
                 <span className="bizLogo pull-left">
                   <img className="" src={coupon.bizLogo} alt="bizLogo"></img>
                 </span>
                 {this.props.loggedIn === "" ? (
                   // TODO: calculate distance with geolocation
                   <div>
-                    <span className="distance text-center">{this.calculateDistance()}</span>
+                    <span className="distance text-center">
+                      {this.calculateDistance()}
+                    </span>
                     <span
                       className="bizLogo pull-right"
                       onClick={() => this.toggleBizMap()}
