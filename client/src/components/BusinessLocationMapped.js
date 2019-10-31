@@ -75,6 +75,7 @@ class BusinessLocationMapped extends Component {
       <div>
         <GoogleMap size={"mapSizeNone"}></GoogleMap>
         {lat !== 0 && lng !== 0 ? (
+          <div className="buttonBox">
           <GoogleMap
             defaultCenter={address.center}
             defaultZoom={15}
@@ -83,6 +84,7 @@ class BusinessLocationMapped extends Component {
           >
             <BizDistance distance={"0.3 miles"} lat={lat} lng={lng} />
           </GoogleMap>
+          </div>
         ) : (
           <div></div>
         )}

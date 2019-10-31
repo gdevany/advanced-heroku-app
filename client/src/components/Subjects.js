@@ -1,5 +1,5 @@
 import React from "react";
-import Subtopics from '../containers/SubtopicsContainer';
+import Subtopics from "../containers/SubtopicsContainer";
 import CreateCoupons from "../containers/CreateCouponsContainer";
 
 class Subjects extends React.Component {
@@ -71,7 +71,11 @@ class Subjects extends React.Component {
     return (
       <div className="container text-center">
         <div>{header}</div>
-        <div className="buttonBox2 blink">
+        <div
+          className={
+            this.props.subjectChosen === "" ? "buttonBox2 blink" : "buttonBox"
+          }
+        >
           <div className="">{subDivs}</div>
           <Subtopics />
         </div>

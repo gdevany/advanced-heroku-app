@@ -14,12 +14,14 @@ class CurrentLocationMapped extends Component {
   render() {
     const { pos, myZip } = this.props;
     return (
+      <div className="buttonBox">
       <GoogleMap
         center={{ lat: pos.lat, lng: pos.lng }}
-        size={"mapSize200"}
+        size={"mapSizeWideShort"}
       >
         <UserLocation myZip={myZip} lat={pos.lat} lng={pos.lng} />
       </GoogleMap>
+      </div>
     );
   }
 }
