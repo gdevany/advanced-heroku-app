@@ -73,7 +73,7 @@ class Subjects extends React.Component {
         <div>{header}</div>
         <div
           className={
-            this.props.subjectChosen === "" ? "buttonBox2 blink" : "buttonBox"
+            this.props.subjectChosen === "" ? "" : ""
           }
         >
           <div className="">{subDivs}</div>

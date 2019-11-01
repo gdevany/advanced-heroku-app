@@ -27,8 +27,7 @@ class ShowCoupon extends Component {
         <div className="coupon">
           <div className="container">
             <div className="row">
-              <div className="col-xs-12 couponHeadline">
-                {this.state.showBizMap === true ? (
+            {this.state.showBizMap === true ? (
                   <BusinessLocationMapped
                     address={coupon.streetAndNum + coupon.zip}
                     distance={this.calculateDistance()}
@@ -36,35 +35,35 @@ class ShowCoupon extends Component {
                 ) : (
                   <div></div>
                 )}
-                <span className="bizLogo pull-left">
+              <div className="col-xs-12 couponHeadline">
+               
+                <span className="bizLogo">
                   <img className="" src={coupon.bizLogo} alt="bizLogo"></img>
                 </span>
                 {this.props.loggedIn === "" ? (
                   // TODO: calculate distance with geolocation
-                  <div>
-                    <span className="distance text-center">
-                      {this.calculateDistance()}
-                    </span>
-                    <span
-                      className="bizLogo pull-right"
-                      onClick={() => this.toggleBizMap()}
-                    >
-                      {this.state.showBizMap === false ? (
-                        <img
-                          className=""
-                          src={
-                            "https://png2.cleanpng.com/sh/43591cc4cc9b0369f77e9c5a09d2b21d/L0KzQYm3VMI4N6NrfZH0aYP2gLBuTfdwd5hxfZ92YYD2PbL3ib1ud6ZzjNNybj35ebbATgRpbaNqRadqZUO7dLfoUcA1bWo9RqUCMUS4RomAUcUzPGk7SqYAOEC5Rom1kP5o/kisspng-google-maps-api-mountain-view-there-5ae38dfa104e98.3714568715248624580668.png"
-                          }
-                          alt="genMapIcon"
-                        ></img>
-                      ) : (
-                        <div>Close Map</div>
-                      )}
-                    </span>
-                  </div>
+                  <span className="distance text-center">
+                    {this.calculateDistance()}
+                  </span>
                 ) : (
                   <span>{this.props.deleteButton(coupon)}</span>
                 )}
+                <span
+                  className="bizLogo"
+                  onClick={() => this.toggleBizMap()}
+                >
+                  {this.state.showBizMap === false ? (
+                    <img
+                      className=""
+                      src={
+                        "https://png2.cleanpng.com/sh/43591cc4cc9b0369f77e9c5a09d2b21d/L0KzQYm3VMI4N6NrfZH0aYP2gLBuTfdwd5hxfZ92YYD2PbL3ib1ud6ZzjNNybj35ebbATgRpbaNqRadqZUO7dLfoUcA1bWo9RqUCMUS4RomAUcUzPGk7SqYAOEC5Rom1kP5o/kisspng-google-maps-api-mountain-view-there-5ae38dfa104e98.3714568715248624580668.png"
+                      }
+                      alt="genMapIcon"
+                    ></img>
+                  ) : (
+                    <div>Close Map</div>
+                  )}
+                </span>
               </div>
             </div>
             <div className="row">

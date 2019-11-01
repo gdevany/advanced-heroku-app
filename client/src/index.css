@@ -1,5 +1,5 @@
 html {
-  border-left: solid #3f362a 15px;
+  /* border-left: solid #3f362a 15px; */
   box-sizing: border-box;
 }
 
@@ -10,19 +10,10 @@ body {
 
   font-family: 'Risque';
   font-size: 1.6em;
-
-  /*font-family: 'Luckiest Guy',cursive;
-  font-size: 1.4em;
-  color: #3f362a;*/
-
-  /*background-color: #5f3e29;*/
   background-color: rgba(94, 65, 47, 0.2);
-  /*border-top: solid #5f3e29 15px;*/
-  /*border-right: solid #BF4D28 5px;*/
-  /*border-left: solid #3f362a 15px;*/
   min-height: 800px;
-  background-image: url("../img/Color1970s.png");
-  background-size: 12% 100%;
+  background-image: url("../img/Color1970scopy.png");
+  background-size: 4em 100%;
   background-repeat: no-repeat;
   background-position: right;
 }
