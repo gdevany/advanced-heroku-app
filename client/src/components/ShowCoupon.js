@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import BusinessLocationMapped from "./BusinessLocationMapped";
+import googlemapicon from '../../img/googlemapicon.png';
 
 class ShowCoupon extends Component {
   constructor(props) {
@@ -55,9 +56,7 @@ class ShowCoupon extends Component {
                   {this.state.showBizMap === false ? (
                     <img
                       className=""
-                      src={
-                        "https://png2.cleanpng.com/sh/43591cc4cc9b0369f77e9c5a09d2b21d/L0KzQYm3VMI4N6NrfZH0aYP2gLBuTfdwd5hxfZ92YYD2PbL3ib1ud6ZzjNNybj35ebbATgRpbaNqRadqZUO7dLfoUcA1bWo9RqUCMUS4RomAUcUzPGk7SqYAOEC5Rom1kP5o/kisspng-google-maps-api-mountain-view-there-5ae38dfa104e98.3714568715248624580668.png"
-                      }
+                      src={ googlemapicon }
                       alt="genMapIcon"
                     ></img>
                   ) : (

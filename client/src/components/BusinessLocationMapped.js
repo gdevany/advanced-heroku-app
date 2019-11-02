@@ -20,29 +20,18 @@ class BusinessLocationMapped extends Component {
   };
 
   componentDidMount() {
-    this.createMap(this.props.address);
+    this.getLatLng(this.props.address);
   }
 
-  // convertAddressToLatLng = address => {
-  //   let geocoder = new window.google.maps.Geocoder();
-
-  //   let answer = geocoder.geocode(
-  //     { address: address },
-  //     (results, status) => {
-  //       if (status === "OK") {
-  //         let lat = results[0].geometry.location.lat();
-  //         let lng = results[0].geometry.location.lng();
-  //         console.log(lat, lng);
-  //         return { lat, lng };
-  //       } else {
-  //         alert(
-  //           "Geocode was not successful for the following reason: " + status
-  //         );
-  //       }
-  //     }
-  //   );
-  //   console.log(answer);
-  // };
+  getLatLng = async address => {
+    console.log(address);
+    try {
+      let location = await this.getAddress(address);
+      this.setState({ lat: location.lat(), lng: location.lng() });
+    } catch (err) {
+      console.warn(err);
+    }
+  };
 
   getAddress = address => {
     return new Promise((resolve, reject) => {
@@ -55,16 +44,6 @@ class BusinessLocationMapped extends Component {
         }
       });
     });
-  };
-
-  createMap = async address => {
-    console.log(address);
-    try {
-      let location = await this.getAddress(address);
-      this.setState({ lat: location.lat(), lng: location.lng() });
-    } catch (err) {
-      console.warn(err);
-    }
   };
 
   render() {
