@@ -20,11 +20,11 @@ input {
   font-family: "Luckiest Guy", cursive;
   text-decoration: blink;
   padding: 10px;
-  margin-bottom: 10px;
+  /* margin-bottom: 10px; */
   border-radius: 10px;
   border-top: 1px solid #00000042;
   border-left: 1px solid #00000042;
-  box-shadow: inset -5px -5px 3px 0px #4f501b;
+  box-shadow: inset -2px -3px 3px 0px #4f501b;
   background: linear-gradient(to bottom right, #f6f7bd 2%, #e6ac27 7%);
 }
 
@@ -55,6 +55,7 @@ input {
 
 .biggerText {
   font-size: 2em;
+  line-height: 1;
 }
 
 .smallerText {
@@ -83,7 +84,7 @@ input {
 }
 
 .distance {
-  color: #78c0a8;
+  color: #548776;
   font-size: 1.5em;
   margin-left: auto;
   margin-right: auto;
@@ -159,9 +160,9 @@ input {
 }
 
 .bizLogo {
-  width: 6em;
-  max-width: 6em;
-  height: 6em;
+  width: 7em;
+  max-width: 7em;
+  height: 7em;
   background-color: white;
   border-radius: 10px;
   box-shadow: inset -2px -4px 7px 0px #4f501b;
@@ -260,7 +261,7 @@ strong {
 }
 
 .couponHeadline {
-  padding-bottom: 10px;
+  padding: 0;
   display: inline-flex;
   align-items: center;
 }
@@ -337,3 +338,18 @@ strong {
 
 
 }*/
+.couponShort {
+  /* margin-left: auto;
+  margin-right: auto; */
+  margin: 5px auto;
+  max-width: 500px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #5f3e29;
+  background-color: #f6f7bd;
+  color: black;
+  font-size: 0.7em;
+  width: 100%;
+  padding: 1em 1em;
+  background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%);
+}
