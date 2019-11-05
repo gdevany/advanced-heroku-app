@@ -17,7 +17,7 @@ const couponSchema = new Schema({
     type: String,
     required: true
   },
-  bizQR: {
+  image: {
     type: String,
     required: false
   },

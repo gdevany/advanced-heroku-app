@@ -9,7 +9,7 @@ class CreateCoupons extends React.Component {
       coupons: {
           username: "",
           bizName: "",
-          bizQR: "",
+          image: "",
           bizLogo: "",
           heading: "",
           couponDesc: "",
@@ -72,20 +72,20 @@ class CreateCoupons extends React.Component {
                 <input
                 placeholder="*required"
                 onChange={(e) => {
-                  const coupon = {bizName: e.target.value, username: this.props.loggedIn};
+                  const bizName = {bizName: e.target.value, username: this.props.loggedIn};
                   this.setState({
-                    coupons: Object.assign(this.state.coupons,coupon)
+                    coupons: Object.assign(this.state.coupons,bizName)
                   });
                 }} /><br />
               </div>
               <div>
-                Business QR Link: <br />
+                Product Image Link: <br />
                 <input
                 placeholder="http://..."
                 onChange={(e) => {
-                  const coupon = {bizQR: e.target.value};
+                  const image = {image: e.target.value};
                   this.setState({
-                    coupons: Object.assign(this.state.coupons,coupon)
+                    coupons: Object.assign(this.state.coupons,image)
                   });
                 }} /><br />
               </div>
@@ -94,9 +94,9 @@ class CreateCoupons extends React.Component {
                 <input
                 placeholder="http://..."
                 onChange={(e) => {
-                  const coupon = {bizLogo: e.target.value};
+                  const logo = {bizLogo: e.target.value};
                   this.setState({
-                    coupons: Object.assign(this.state.coupons,coupon)
+                    coupons: Object.assign(this.state.coupons,logo)
                   });
                 }} /><br />
               </div>
@@ -105,68 +105,68 @@ class CreateCoupons extends React.Component {
                 <input
                 className="inputBottomMarginShort"
                 onChange={(e) => {
-                  const coupon = {heading: e.target.value};
+                  const item = {heading: e.target.value};
                   this.setState({
-                    coupons: Object.assign(this.state.coupons,coupon)
+                    coupons: Object.assign(this.state.coupons,item)
                   });
                 }} /><br /><small>Get One Free</small>
               </div>
               <div>
                 Coupon Description: <br /><input onChange={(e) => {
-                  const coupon = {couponDesc: e.target.value};
+                  const desc = {couponDesc: e.target.value};
                   this.setState({
-                    coupons: Object.assign(this.state.coupons,coupon)
+                    coupons: Object.assign(this.state.coupons,desc)
                   });
                 }} /><br />
               </div>
               <div>
                 Restrictions: <br /><input onChange={(e) => {
-                  const coupon = {restrictions: e.target.value};
+                  const restrict = {restrictions: e.target.value};
                   this.setState({
-                    coupons: Object.assign(this.state.coupons,coupon)
+                    coupons: Object.assign(this.state.coupons,restrict)
                   });
                 }} /><br />
               </div>
               <div>Business Address:<br />
                 <div>
                   Number and Street Name:<br /><input onChange={(e) => {
-                    const coupon = {streetAndNum: e.target.value};
+                    const address = {streetAndNum: e.target.value};
                     this.setState({
-                      coupons: Object.assign(this.state.coupons,coupon)
+                      coupons: Object.assign(this.state.coupons,address)
                     });
                   }} /><br />
                 </div>
                 <div>
                   City:<br /><input onChange={(e) => {
-                    const coupon = {city: e.target.value};
+                    const city = {city: e.target.value};
                     this.setState({
-                      coupons: Object.assign(this.state.coupons,coupon)
+                      coupons: Object.assign(this.state.coupons,city)
                     });
                   }} /><br />
                 </div>
                 <div>
                   Zipcode:<br /><input onChange={(e) => {
-                    const coupon = {zip: e.target.value};
+                    const zip = {zip: e.target.value};
                     this.setState({
-                      coupons: Object.assign(this.state.coupons,coupon)
+                      coupons: Object.assign(this.state.coupons,zip)
                     });
                   }} /><br />
                 </div>
               </div>
               <div>
                 Phone#: <br /><input onChange={(e) => {
-                  const coupon = {phone: e.target.value};
+                  const phone = {phone: e.target.value};
                   this.setState({
-                    coupons: Object.assign(this.state.coupons,coupon)
+                    coupons: Object.assign(this.state.coupons,phone)
                   });
                 }} /><br /><br />
               </div>
               <div>
                 Subject: <br />
                 <select onChange={(e) => {
-                  const coupon = {subject: e.target.value};
+                  const subject = {subject: e.target.value};
                   this.setState({
-                    coupons: Object.assign(this.state.coupons,coupon)
+                    coupons: Object.assign(this.state.coupons,subject)
                   });
                 }}>{showSubjectList}
                 </select>
@@ -175,9 +175,9 @@ class CreateCoupons extends React.Component {
               <div>
                 Subtopic: <br />
                 <select onChange={(e) => {
-                  const coupon = {searchWords: e.target.value};
+                  const subs = {searchWords: e.target.value};
                   this.setState({
-                    coupons: Object.assign(this.state.coupons,coupon)
+                    coupons: Object.assign(this.state.coupons,subs)
                   });
                 }}>{showSubtopics}
                 </select>
