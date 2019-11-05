@@ -8,7 +8,7 @@ function category(state = [], action){
   return state;
 }
 
-function zip(state = 0, action){
+function userPosition(state = {}, action){
   if(action.type === "SET_ZIP"){
     return action.value;
   }
@@ -60,6 +60,6 @@ function loggedIn(state="", action) {
 
 const rootReducer = combineReducers({
   category, subjectChosen,coupons,searchCoupons,usersCoupons,loggedIn,
-  filteredCoupons,zip
+  filteredCoupons,userPosition
 });
 export default rootReducer;

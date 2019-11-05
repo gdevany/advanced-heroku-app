@@ -4,7 +4,14 @@ export default {
   loggedIn: "",
   usersCoupons: [],
   filteredCoupons: [],
-  zip: 0,
+  // zip: 0,
+  userPosition: {
+    zip: 0,
+    pos: {
+      lat: 0,
+      lng: 0
+    }
+  },
 
   //---vvvvv----- below this -----vvvvv-----   move to server
   // Remember to change mapStateToProps to server, not state.

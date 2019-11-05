@@ -12,10 +12,10 @@ export function setSearchCoupons(txt) {
   }
 }
 
-export function setZip(zip) {
+export function setZip(userPosition) {
   return {
     type: "SET_ZIP",
-    value: zip
+    value: userPosition
   }
 }
 

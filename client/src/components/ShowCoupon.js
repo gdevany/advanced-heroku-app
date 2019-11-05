@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import BusinessLocationMapped from "./BusinessLocationMapped";
-import googlemapicon from "../../img/googlemapicon.png";
+// import googlemapicon from "../../img/googlemapicon.png";
 
 class ShowCoupon extends Component {
   constructor(props) {
@@ -34,6 +34,7 @@ class ShowCoupon extends Component {
           <BusinessLocationMapped
             address={coupon.streetAndNum + coupon.zip}
             distance={this.calculateDistance()}
+            userPosition={this.props.userPosition}
           />
         )}
       </div>

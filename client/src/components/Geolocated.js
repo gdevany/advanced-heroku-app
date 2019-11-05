@@ -7,7 +7,11 @@ class ZipcodeSetter extends React.Component {
   constructor() {
     super();
     this.state = {
-      myZip: 0,
+      userPosition: {
+        zip: 0,
+        lat: 0,
+        lng: 0
+      },
       loading: true,
       pos: {
         lat: 0,
@@ -38,7 +42,7 @@ class ZipcodeSetter extends React.Component {
             this.convertGeolocationToZip(pos);
           });
         }
-      }, 1000);
+      }, 3000);
     });
     return promise;
   };
@@ -47,22 +51,24 @@ class ZipcodeSetter extends React.Component {
     let geocoder = new window.google.maps.Geocoder();
 
     geocoder.geocode({ location: pos }, (results, status) => {
-      let myZip = "";
+      let userPosition = {};
       results[0].address_components.map(adcom => {
         if (adcom.types.indexOf("postal_code") > -1) {
-          myZip = Number(adcom.short_name);
+          userPosition.zip = Number(adcom.short_name);
+          userPosition.lat = pos.lat;
+          userPosition.lng = pos.lng;
           return true;
         } else return false;
       });
 
-      console.log(myZip);
-      this.setState({ myZip });
-      this.props.setZip(myZip);
+      console.log(userPosition);
+      this.setState({ userPosition });
+      this.props.setZip(userPosition);
     });
   };
 
   render() {
-    const { pos, myZip } = this.state;
+    const { pos, userPosition } = this.state;
 
     return !this.props.isGeolocationAvailable ? (
       <div>Your browser does not support Geolocation</div>
@@ -74,8 +80,8 @@ class ZipcodeSetter extends React.Component {
           <small>Offers will be filtered on your current zipcode</small>
         </div>
         <GoogleMap size={"mapSizeNone"}></GoogleMap>
-        {pos.lat !== 0 && pos.lng !== 0 && myZip !== 0 ? (
-          <CurrentLocationMapped pos={pos} myZip={myZip} />
+        {pos.lat !== 0 && pos.lng !== 0 && userPosition.zip !== 0 ? (
+          <CurrentLocationMapped pos={pos} myZip={userPosition.zip} />
         ) : (
           <div>....loading</div>
         )}

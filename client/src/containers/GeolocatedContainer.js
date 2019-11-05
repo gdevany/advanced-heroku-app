@@ -5,15 +5,15 @@ import {setZip} from '../actions';
 
 function mapStateToProps(state) {
   return {
-    zip: state.zip
+    userPosition: state.userPosition
   }
 }
 
 
 function mapDispatchToProps(dispatch) {
   return {
-    setZip(zip) {
-      dispatch(setZip(zip))
+    setZip(userPosition) {
+      dispatch(setZip(userPosition))
     }
   }
 }

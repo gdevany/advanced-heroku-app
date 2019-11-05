@@ -5,6 +5,7 @@ import {deleteCoupon,loadFilteredCoupons,loadUsersCoupons} from '../actions';
 
 function mapStateToProps(state) {
   return {
+    userPosition: state.userPosition,
     coupons: state.coupons,
     searchCoupons: state.searchCoupons,
     loggedIn: state.loggedIn,

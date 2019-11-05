@@ -79,6 +79,7 @@ class ShowCoupons extends React.Component {
             key={coupon._id}
             deleteButton={this.deleteButton}
             loggedIn={this.props.loggedIn}
+            userPosition={this.props.userPosition}
           />
         );
       });
