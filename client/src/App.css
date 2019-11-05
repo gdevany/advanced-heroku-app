@@ -134,14 +134,11 @@ input {
 }
 
 .catButton {
-  /* background-color: #fa9d04; */
   color: #3f362a;
   min-height: 55px;
-  /* border: 1px solid; */
 }
 
 .chosenCat {
-  /* background-color: #78c0a894; */
   box-shadow: none;
   background-color: inherit;
   border: none;
@@ -159,27 +156,42 @@ input {
   border-width: 3px;
 }
 
-.bizLogo {
+.bizLogoContainer {
   width: 7em;
   max-width: 7em;
   height: 7em;
   background-color: white;
   border-radius: 10px;
   box-shadow: inset -2px -4px 7px 0px #4f501b;
-  /* padding: 10px; */
   position: relative;
 }
 
-.bizLogo img {
-  position: absolute;
+.bizLogoContainer .imageInContainer {
   width: 5.9em;
   max-width: 5.9em;
+}
+
+.imageInContainer {
+  position: absolute;
   height: auto;
   right: 0;
   left: 0;
   top: 0;
   bottom: 0;
   margin: auto auto;
+}
+
+.itemImageContainer {
+  width: 7em;
+  max-width: 7em;
+  height: 7em;
+  margin: auto auto;
+  position: relative;
+}
+
+.itemImageContainer .imageInContainer {
+  width: 6.8em;
+  max-width: 6.8em;
 }
 
 .buttonDelete {

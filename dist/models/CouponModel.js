@@ -27,7 +27,7 @@ var couponSchema = new _mongoose.Schema({
     type: String,
     required: true
   },
-  bizQR: {
+  image: {
     type: String,
     required: false
   },

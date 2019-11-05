@@ -79,15 +79,25 @@ class ShowCoupon extends Component {
           {/* {this.state.expandHeader === true && this.renderMap(coupon)} */}
           <div className="row offer" onClick={() => this.expandIt()}>
             <div className="col-xs-6 couponHeadline">
-              <span className="bizLogo">
-                <img className="" src={coupon.bizLogo} alt="bizLogo"></img>
+              <span className="bizLogoContainer">
+                <img
+                  className="imageInContainer"
+                  src={coupon.bizLogo}
+                  alt="bizLogo"
+                ></img>
               </span>
               {this.props.loggedIn === "" ? (
-                // TODO: calculate distance with geolocation
-                <span className="distance text-center">
-                  {this.calculateDistance()}
+                <span className="itemImageContainer">
+                  <img
+                    className="imageInContainer"
+                    src={coupon.image}
+                    alt="itemImage"
+                  ></img>
                 </span>
               ) : (
+                // <span className="distance text-center">
+                //   {this.calculateDistance()}
+                // </span>
                 <span>{this.props.deleteButton(coupon)}</span>
               )}
             </div>
@@ -184,6 +194,7 @@ class ShowCoupon extends Component {
   // };
 
   render() {
+    console.log(this.props.coupon);
     return <div>{this.renderExpandableOffer(this.props.coupon)}</div>;
   }
 }
