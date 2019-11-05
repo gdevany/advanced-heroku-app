@@ -361,7 +361,11 @@ strong {
   background-color: #f6f7bd;
   color: black;
   font-size: 0.7em;
-  width: 100%;
+  width: 95%;
   padding: 1em 1em;
-  background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%);
+  /* background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%); */
+}
+
+.couponFade {
+  opacity: 0.3;
 }

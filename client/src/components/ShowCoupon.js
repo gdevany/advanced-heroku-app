@@ -6,8 +6,8 @@ class ShowCoupon extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      showBizMap: false,
-      expandHeader: false
+      expandHeader: false,
+      couponID: ""
     };
   }
 
@@ -15,16 +15,16 @@ class ShowCoupon extends Component {
     // TODO: calculate distance from user to address and set to state
   }
 
-  toggleBizMap = () => {
-    this.setState({ showBizMap: !this.state.showBizMap });
-  };
-
   calculateDistance = () => {
     return "0.3 miles";
   };
 
-  expandIt = () => {
+  expandIt = couponID => {
     this.setState({ expandHeader: !this.state.expandHeader });
+    this.props.expandThisCoupon(couponID);
+    this.state.couponID === ""
+      ? this.setState({ couponID })
+      : this.setState({ couponID: "" });
   };
 
   renderMap = coupon => {
@@ -74,10 +74,17 @@ class ShowCoupon extends Component {
 
   renderExpandableOffer = coupon => {
     return (
-      <div className="couponShort">
+      <div
+        className={
+          this.state.couponID === coupon._id ||
+          this.props.couponsExpanded.length < 1
+            ? "couponShort"
+            : "couponShort couponFade"
+        }
+      >
         <div className="container">
           {/* {this.state.expandHeader === true && this.renderMap(coupon)} */}
-          <div className="row offer" onClick={() => this.expandIt()}>
+          <div className="row offer" onClick={() => this.expandIt(coupon._id)}>
             <div className="col-xs-6 couponHeadline">
               <span className="bizLogoContainer">
                 <img
@@ -194,7 +201,6 @@ class ShowCoupon extends Component {
   // };
 
   render() {
-    console.log(this.props.coupon);
     return <div>{this.renderExpandableOffer(this.props.coupon)}</div>;
   }
 }

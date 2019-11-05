@@ -1,19 +1,17 @@
 import React from "react";
 import ShowCoupon from "./ShowCoupon";
 
-
 class ShowCoupons extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      showBizMap: false,
       filteredCoupons: [],
-      usersCoupons: []
+      usersCoupons: [],
+      couponsExpanded: []
     };
   }
 
-  componentDidMount = () => {
-  };
+  componentDidMount = () => {};
 
   componentDidUpdate(prevProps) {
     if (this.props.filteredCoupons !== prevProps.filteredCoupons) {
@@ -63,6 +61,17 @@ class ShowCoupons extends React.Component {
     }
   };
 
+  expandThisCoupon = couponID => {
+    let list = this.state.couponsExpanded;
+    let index = list.indexOf(couponID);
+    if (index === -1) {
+      list.push(couponID);
+    } else {
+      list.splice(index, 1);
+    }
+    this.setState({ couponsExpanded: [...this.state.couponsExpanded], list });
+  };
+
   displayCoupons = () => {
     //if loggedIn, filter on username and show
     //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
@@ -80,6 +89,8 @@ class ShowCoupons extends React.Component {
             deleteButton={this.deleteButton}
             loggedIn={this.props.loggedIn}
             userPosition={this.props.userPosition}
+            expandThisCoupon={this.expandThisCoupon}
+            couponsExpanded={this.state.couponsExpanded}
           />
         );
       });
