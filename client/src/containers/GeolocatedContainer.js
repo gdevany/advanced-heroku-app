@@ -5,7 +5,11 @@ import {setZip} from '../actions';
 
 function mapStateToProps(state) {
   return {
-    userPosition: state.userPosition
+    userPosition: state.userPosition,
+    searchCoupons: state.searchCoupons,
+    filteredCoupons: state.filteredCoupons,
+    usersCoupons: state.usersCoupons,
+    loggedIn: state.loggedIn
   }
 }
 

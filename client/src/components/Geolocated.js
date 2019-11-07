@@ -13,10 +13,6 @@ class ZipcodeSetter extends React.Component {
         lng: 0
       },
       loading: true,
-      pos: {
-        lat: 0,
-        lng: 0
-      }
     };
   }
 
@@ -35,14 +31,10 @@ class ZipcodeSetter extends React.Component {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
-            this.setState({
-              pos
-            });
-
             this.convertGeolocationToZip(pos);
           });
         }
-      }, 3000);
+      }, 5000);
     });
     return promise;
   };
@@ -68,7 +60,7 @@ class ZipcodeSetter extends React.Component {
   };
 
   render() {
-    const { pos, userPosition } = this.state;
+    const { userPosition } = this.state;
 
     return !this.props.isGeolocationAvailable ? (
       <div>Your browser does not support Geolocation</div>
@@ -80,8 +72,17 @@ class ZipcodeSetter extends React.Component {
           <small>Offers will be filtered on your current zipcode</small>
         </div>
         <GoogleMap size={"mapSizeNone"}></GoogleMap>
-        {pos.lat !== 0 && pos.lng !== 0 && userPosition.zip !== 0 ? (
-          <CurrentLocationMapped pos={pos} myZip={userPosition.zip} />
+        {userPosition.lat !== 0 &&
+        userPosition.lng !== 0 &&
+        userPosition.zip !== 0 ? (
+          <CurrentLocationMapped
+            pos={userPosition}
+            myZip={userPosition.zip}
+            loggedIn={this.props.loggedIn}
+            searchCoupons={this.props.searchCoupons}
+            filteredCoupons={this.props.filteredCoupons}
+            usersCoupons={this.props.usersCoupons}
+          />
         ) : (
           <div>....loading</div>
         )}
