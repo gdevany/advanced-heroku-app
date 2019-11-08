@@ -11,7 +11,9 @@ class ShowCoupons extends React.Component {
     };
   }
 
-  componentDidMount = () => {};
+  componentDidMount = () => {
+    this.setState({ couponsExpanded: [] });
+  };
 
   componentDidUpdate(prevProps) {
     if (this.props.filteredCoupons !== prevProps.filteredCoupons) {
@@ -19,7 +21,8 @@ class ShowCoupons extends React.Component {
         filteredCoupons: [
           ...this.state.filteredCoupons,
           this.props.filteredCoupons
-        ]
+        ],
+        couponsExpanded: []
       });
     }
     if (this.props.usersCoupons !== prevProps.usersCoupons) {

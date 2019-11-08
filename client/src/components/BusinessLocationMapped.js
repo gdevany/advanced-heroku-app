@@ -26,7 +26,6 @@ class BusinessLocationMapped extends Component {
   }
 
   getBizLatLng = async address => {
-    console.log(address);
     try {
       let location = await convertAddressToLatLng(address);
       this.setState({ bizLat: location.lat(), bizLng: location.lng() });
@@ -75,8 +74,7 @@ class BusinessLocationMapped extends Component {
         // markers for each step.
         if (status === "OK") {
           directionsRenderer.setDirections(response);
-          // let distance = response.routes[0].legs[0].distance.text
-          console.log(response.routes[0].legs[0].distance);
+          // console.log(response.routes[0].legs[0].distance);
           this.setDistanceUserToBiz(response.routes[0].legs[0].distance.value);
           directionsRenderer.setDirections(response);
           const routePolyline = new maps.Polyline({

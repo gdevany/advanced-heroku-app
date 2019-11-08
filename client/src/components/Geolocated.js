@@ -84,11 +84,8 @@ class ZipcodeSetter extends React.Component {
             filteredCoupons={this.props.filteredCoupons}
             usersCoupons={this.props.usersCoupons}
           />
-        ) : (
-          <div>
-            <div>...Loading</div>
-            {this.state.loadingWarning && <div>Hit Refresh</div>}
-          </div>
+        ) : (            
+            this.state.loadingWarning ? <div>Hit Refresh</div> : <div>...Loading</div>
         )}
       </div>
     ) : (

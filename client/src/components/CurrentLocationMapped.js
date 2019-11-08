@@ -53,7 +53,6 @@ class CurrentLocationMapped extends Component {
   };
 
   convertAdd = async (fullAddress, bizLogo) => {
-    console.log(fullAddress)
     let pos = {};
     await convertAddressToLatLng(fullAddress).then(async res => {
       pos.lat = await res.lat();

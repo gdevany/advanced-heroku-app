@@ -12,7 +12,6 @@ class ShowCoupon extends Component {
   }
 
   componentDidMount() {
-    // TODO: calculate distance from user to address and set to state
   }
 
   calculateDistance = () => {
@@ -73,6 +72,11 @@ class ShowCoupon extends Component {
   };
 
   renderExpandableOffer = coupon => {
+    console.log(
+      this.props.couponsExpanded.length,
+      coupon._id,
+      this.state.couponID
+    );
     return (
       <div
         className={
