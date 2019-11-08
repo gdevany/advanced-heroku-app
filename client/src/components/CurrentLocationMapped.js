@@ -3,7 +3,9 @@ import GoogleMap from "./GoogleMap";
 import convertAddressToLatLng from "./ConvertAddressToLatLng";
 
 const UserLocation = ({ myZip }) => (
-  <div className="greyTextMarker">{myZip}</div>
+  <div className="userLocMarkerContainer">
+    <div className="innerUserLocationMarker">{myZip}</div>
+  </div>
 );
 
 const BizMarkers = ({ logo }) => (
@@ -11,6 +13,41 @@ const BizMarkers = ({ logo }) => (
     <img className="imageInContainer" src={logo} alt="bizLogo"></img>
   </div>
 );
+
+// Return map bounds based on list of places
+const getMapBounds = (map, maps, places) => {
+  console.log(places);
+  const bounds = new maps.LatLngBounds();
+
+  places.forEach(place => {
+    console.log(place);
+    bounds.extend(
+      // new maps.LatLng(place.geometry.location.lat, place.geometry.location.lng)
+      new maps.LatLng(place.pos.lat, place.pos.lng)
+    );
+  });
+  return bounds;
+};
+
+// Re-center map when resizing the window
+const bindResizeListener = (map, maps, bounds) => {
+  maps.event.addDomListenerOnce(map, "idle", () => {
+    maps.event.addDomListener(window, "resize", () => {
+      map.fitBounds(bounds);
+    });
+  });
+};
+
+// Fit map to its bounds after the api is loaded
+const apiIsLoaded = (map, maps, places) => {
+  console.log(places);
+  // Get bounds by our places
+  const bounds = getMapBounds(map, maps, places);
+  // Fit map to bounds
+  map.fitBounds(bounds);
+  // Bind the resize listener
+  bindResizeListener(map, maps, bounds);
+};
 
 class CurrentLocationMapped extends Component {
   constructor(props) {
@@ -44,7 +81,9 @@ class CurrentLocationMapped extends Component {
   setMarkers = () => {
     let addressList = Promise.all(
       (this.props.filteredCoupons || []).map(async coupon => {
-        let fullAddress = `${coupon.streetAndNum}${" "}${coupon.city}${" "}${coupon.zip}`;
+        let fullAddress = `${coupon.streetAndNum}${" "}${coupon.city}${" "}${
+          coupon.zip
+        }`;
         let searchArray = await this.convertAdd(fullAddress, coupon.bizLogo);
         return searchArray;
       })
@@ -64,27 +103,35 @@ class CurrentLocationMapped extends Component {
 
   render() {
     const { pos, myZip } = this.props;
+    const { bizLocations } = this.state;
+    console.log(bizLocations);
 
     return (
-      <div className="buttonBox">
-        <GoogleMap
-          center={{ lat: pos.lat, lng: pos.lng }}
-          size={"mapSizeWideShort"}
-        >
-          {this.state.bizLocations.length > 0 &&
-            this.state.bizLocations[0].map((address, i) => {
-              return (
-                <BizMarkers
-                  logo={address.bizLogo}
-                  lat={address.pos.lat}
-                  lng={address.pos.lng}
-                  key={i}
-                />
-              );
-            })}
-          <UserLocation myZip={myZip} lat={pos.lat} lng={pos.lng} />
-        </GoogleMap>
-      </div>
+      bizLocations.length > 0 && (
+        <div className="buttonBox">
+          <GoogleMap
+            center={{ lat: pos.lat, lng: pos.lng }}
+            size={"mapSizeWideShort"}
+            yesIWantToUseGoogleMapApiInternals
+            onGoogleApiLoaded={({ map, maps }) =>
+              apiIsLoaded(map, maps, bizLocations.length > 0 && bizLocations[0])
+            }
+          >
+            {bizLocations.length > 0 &&
+              bizLocations[0].map((address, i) => {
+                return (
+                  <BizMarkers
+                    logo={address.bizLogo}
+                    lat={address.pos.lat}
+                    lng={address.pos.lng}
+                    key={i}
+                  />
+                );
+              })}
+            <UserLocation myZip={myZip} lat={pos.lat} lng={pos.lng} />
+          </GoogleMap>
+        </div>
+      )
     );
   }
 }

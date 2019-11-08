@@ -72,11 +72,6 @@ class ShowCoupon extends Component {
   };
 
   renderExpandableOffer = coupon => {
-    console.log(
-      this.props.couponsExpanded.length,
-      coupon._id,
-      this.state.couponID
-    );
     return (
       <div
         className={

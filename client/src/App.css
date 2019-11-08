@@ -251,9 +251,12 @@ strong {
   width: 0;
 }
 
-.greyTextMarker {
+.userLocMarkerContainer {
+  position: relative;
+  height: 2em;
+  width: 5em;
   color: white;
-  background: grey;
+  background: red;
   padding: 15px 10px;
   display: inline-flex;
   text-align: center;
@@ -261,6 +264,10 @@ strong {
   justify-content: center;
   border-radius: 100%;
   transform: translate(-50%, -50%);
+}
+
+.innerUserLocationMarker {
+  position: absolute;
 }
 
 .coupon {
