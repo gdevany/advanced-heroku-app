@@ -12,7 +12,7 @@ class ZipcodeSetter extends React.Component {
         lat: 0,
         lng: 0
       },
-      loading: true
+      loadingWarning: false
     };
   }
 
@@ -31,6 +31,7 @@ class ZipcodeSetter extends React.Component {
               lat: position.coords.latitude,
               lng: position.coords.longitude
             };
+            this.setState({ loadingWarning: true });
             this.convertGeolocationToZip(pos);
           });
         }
@@ -84,7 +85,10 @@ class ZipcodeSetter extends React.Component {
             usersCoupons={this.props.usersCoupons}
           />
         ) : (
-          <div>....loading</div>
+          <div>
+            <div>...Loading</div>
+            {this.state.loadingWarning && <div>Hit Refresh</div>}
+          </div>
         )}
       </div>
     ) : (
