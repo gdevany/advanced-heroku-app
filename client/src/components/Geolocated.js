@@ -12,7 +12,7 @@ class ZipcodeSetter extends React.Component {
         lat: 0,
         lng: 0
       },
-      loading: true,
+      loading: true
     };
   }
 

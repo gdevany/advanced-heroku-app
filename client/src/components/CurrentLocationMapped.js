@@ -6,7 +6,11 @@ const UserLocation = ({ myZip }) => (
   <div className="greyTextMarker">{myZip}</div>
 );
 
-const BizMarkers = ({ text }) => <div className="greyTextMarker">{text}</div>;
+const BizMarkers = ({ logo }) => (
+  <div className="mapLogoMarkerContainer">
+    <img className="imageInContainer" src={logo} alt="bizLogo"></img>
+  </div>
+);
 
 class CurrentLocationMapped extends Component {
   constructor(props) {
@@ -18,17 +22,18 @@ class CurrentLocationMapped extends Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
+  async componentDidUpdate(prevProps) {
     if (this.props.filteredCoupons !== prevProps.filteredCoupons) {
+      let newMarkers = await this.setMarkers();
+      console.log(newMarkers);
       this.setState({
         filteredCoupons: [
           this.props.filteredCoupons,
           ...this.state.filteredCoupons
         ],
-        usersCoupons: []
+        usersCoupons: [],
+        bizLocations: [newMarkers, ...this.state.bizLocations]
       });
-      console.log(this.state.filteredCoupons)
-      this.setMarkers();
     }
     if (this.props.usersCoupons !== prevProps.usersCoupons) {
       this.setState({
@@ -37,57 +42,34 @@ class CurrentLocationMapped extends Component {
     }
   }
 
-  // mapIt = () => {
-  //    //if loggedIn, filter on username and show
-  //   //if NOT logged in, filter coupons against subtopic chosen (searchCoupons)
-  //   let filterCoupons =
-  //     this.props.loggedIn === "" && this.props.searchCoupons !== ""
-  //       ? this.props.filteredCoupons
-  //       : this.props.usersCoupons;
-  //       console.log(filterCoupons, this.props.loggedIn, this.props.searchCoupons)
-
-  //       if (filterCoupons.length > 0) {
-  //         filterCoupons.map(coupon => {
-  //           console.log(coupon)
-  //         })
-  //         // }
-  //       }
-  // }
-
   setMarkers = () => {
-    console.log(this.state.filteredCoupons)
-    let addressList = (this.props.filteredCoupons || []).map(coupon => {
-      let fullAddress = coupon.streetAndNum + coupon.city + coupon.zip;
-      this.convertAdd(fullAddress);
-    });
-console.log(addressList)
-    // return addressList.map( (address,i) => {
-    //   console.log(address)
-    //   return (
-    //     <BizMarkers text={'bizAddress'} lat={address.lat} lng={address.lng} key={i}/>
-    //   )
-    // })
+    console.log(this.state.filteredCoupons);
+    let addressList = Promise.all(
+      (this.props.filteredCoupons || []).map(async coupon => {
+        let fullAddress = coupon.streetAndNum + coupon.city + coupon.zip;
+        let searchArray = await this.convertAdd(fullAddress, coupon.bizLogo);
+        console.log(searchArray);
+        return searchArray;
+      })
+    );
+    return addressList;
   };
 
-  convertAdd = async fullAddress => {
+  convertAdd = async (fullAddress, bizLogo) => {
     console.log(fullAddress);
     let pos = {};
-    let location = await convertAddressToLatLng(fullAddress);
-    pos.lat = location.lat();
-    pos.lng = location.lng();
-    console.log(pos);
-    this.setState({
-      bizLocations: [pos, ...this.state.bizLocations]
+    await convertAddressToLatLng(fullAddress).then(async res => {
+      pos.lat = await res.lat();
+      pos.lng = await res.lng();
     });
+    let newLocation = { pos, bizLogo };
+    return newLocation;
   };
 
   render() {
-    console.log(this.state.filteredCoupons)
-    console.log(this.state.bizLocations)
-    // this.mapIt()
+    console.log(this.state.bizLocations);
 
     const { pos, myZip } = this.props;
-    // const { filteredCoupons, usersCoupons } = this.state;
 
     return (
       <div className="buttonBox">
@@ -95,16 +77,17 @@ console.log(addressList)
           center={{ lat: pos.lat, lng: pos.lng }}
           size={"mapSizeWideShort"}
         >
-          {this.state.bizLocations.map((address, i) => {
-            return (
-              <BizMarkers
-                text={"bizAddress"}
-                lat={address.lat}
-                lng={address.lng}
-                key={i}
-              />
-            );
-          })}
+          {this.state.bizLocations.length > 0 &&
+            this.state.bizLocations[0].map((address, i) => {
+              return (
+                <BizMarkers
+                  logo={address.bizLogo}
+                  lat={address.pos.lat}
+                  lng={address.pos.lng}
+                  key={i}
+                />
+              );
+            })}
           <UserLocation myZip={myZip} lat={pos.lat} lng={pos.lng} />
         </GoogleMap>
       </div>
