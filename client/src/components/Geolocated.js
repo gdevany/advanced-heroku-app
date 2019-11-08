@@ -35,7 +35,7 @@ class ZipcodeSetter extends React.Component {
             this.convertGeolocationToZip(pos);
           });
         }
-      }, 5000);
+      }, 1000);
     });
     return promise;
   };

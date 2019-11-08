@@ -25,7 +25,6 @@ class CurrentLocationMapped extends Component {
   async componentDidUpdate(prevProps) {
     if (this.props.filteredCoupons !== prevProps.filteredCoupons) {
       let newMarkers = await this.setMarkers();
-      console.log(newMarkers);
       this.setState({
         filteredCoupons: [
           this.props.filteredCoupons,
@@ -43,12 +42,10 @@ class CurrentLocationMapped extends Component {
   }
 
   setMarkers = () => {
-    console.log(this.state.filteredCoupons);
     let addressList = Promise.all(
       (this.props.filteredCoupons || []).map(async coupon => {
-        let fullAddress = coupon.streetAndNum + coupon.city + coupon.zip;
+        let fullAddress = `${coupon.streetAndNum}${" "}${coupon.city}${" "}${coupon.zip}`;
         let searchArray = await this.convertAdd(fullAddress, coupon.bizLogo);
-        console.log(searchArray);
         return searchArray;
       })
     );
@@ -56,7 +53,7 @@ class CurrentLocationMapped extends Component {
   };
 
   convertAdd = async (fullAddress, bizLogo) => {
-    console.log(fullAddress);
+    console.log(fullAddress)
     let pos = {};
     await convertAddressToLatLng(fullAddress).then(async res => {
       pos.lat = await res.lat();
@@ -67,8 +64,6 @@ class CurrentLocationMapped extends Component {
   };
 
   render() {
-    console.log(this.state.bizLocations);
-
     const { pos, myZip } = this.props;
 
     return (
