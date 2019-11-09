@@ -15,8 +15,8 @@ const BizMarkers = ({ logo }) => (
 );
 
 // Return map bounds based on list of places
-const getMapBounds = (map, maps, places) => {
-  console.log(places);
+const getMapBounds = (map, maps, places, myLocation) => {
+  console.log(places, myLocation);
   const bounds = new maps.LatLngBounds();
 
   places.forEach(place => {
@@ -26,6 +26,7 @@ const getMapBounds = (map, maps, places) => {
       new maps.LatLng(place.pos.lat, place.pos.lng)
     );
   });
+  myLocation && bounds.extend(new maps.LatLng(myLocation.lat, myLocation.lng))
   return bounds;
 };
 
@@ -39,10 +40,10 @@ const bindResizeListener = (map, maps, bounds) => {
 };
 
 // Fit map to its bounds after the api is loaded
-const apiIsLoaded = (map, maps, places) => {
+const apiIsLoaded = (map, maps, places, myLocation) => {
   console.log(places);
   // Get bounds by our places
-  const bounds = getMapBounds(map, maps, places);
+  const bounds = getMapBounds(map, maps, places, myLocation);
   // Fit map to bounds
   map.fitBounds(bounds);
   // Bind the resize listener
@@ -59,6 +60,8 @@ class CurrentLocationMapped extends Component {
     };
   }
 
+  // If filteredCoupons(props) changes, change state
+  // TODO: If userCoupons changes, change state
   async componentDidUpdate(prevProps) {
     if (this.props.filteredCoupons !== prevProps.filteredCoupons) {
       let newMarkers = await this.setMarkers();
@@ -78,19 +81,21 @@ class CurrentLocationMapped extends Component {
     }
   }
 
+  // Return ( { pos: {lat, lng}, bizLogoLink} )
   setMarkers = () => {
     let addressList = Promise.all(
       (this.props.filteredCoupons || []).map(async coupon => {
         let fullAddress = `${coupon.streetAndNum}${" "}${coupon.city}${" "}${
           coupon.zip
         }`;
-        let searchArray = await this.convertAdd(fullAddress, coupon.bizLogo);
-        return searchArray;
+        let newEntry = await this.convertAdd(fullAddress, coupon.bizLogo);
+        return newEntry;
       })
     );
     return addressList;
   };
 
+  // Convert address (as you would type in google maps) to { { pos: {lat, lng} } }
   convertAdd = async (fullAddress, bizLogo) => {
     let pos = {};
     await convertAddressToLatLng(fullAddress).then(async res => {
@@ -105,6 +110,7 @@ class CurrentLocationMapped extends Component {
     const { pos, myZip } = this.props;
     const { bizLocations } = this.state;
     console.log(bizLocations);
+    console.log(pos)
 
     return (
       bizLocations.length > 0 && (
@@ -114,7 +120,7 @@ class CurrentLocationMapped extends Component {
             size={"mapSizeWideShort"}
             yesIWantToUseGoogleMapApiInternals
             onGoogleApiLoaded={({ map, maps }) =>
-              apiIsLoaded(map, maps, bizLocations.length > 0 && bizLocations[0])
+              apiIsLoaded(map, maps, bizLocations[0], pos && pos)
             }
           >
             {bizLocations.length > 0 &&
