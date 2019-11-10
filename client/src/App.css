@@ -263,10 +263,13 @@ strong {
   align-items: center;
   justify-content: center;
   border-radius: 100%;
+}
+
+.userLocMCTransform {
   transform: translate(-50%, -50%);
 }
 
-.innerUserLocationMarker {
+.userLocMarker {
   position: absolute;
 }
 

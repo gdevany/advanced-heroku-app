@@ -3,8 +3,8 @@ import GoogleMap from "./GoogleMap";
 import convertAddressToLatLng from "./ConvertAddressToLatLng";
 
 const UserLocation = ({ myZip }) => (
-  <div className="userLocMarkerContainer">
-    <div className="innerUserLocationMarker">{myZip}</div>
+  <div className="userLocMarkerContainer userLocMCTransform">
+    <div className="userLocMarker">{myZip}</div>
   </div>
 );
 
@@ -26,7 +26,7 @@ const getMapBounds = (map, maps, places, myLocation) => {
       new maps.LatLng(place.pos.lat, place.pos.lng)
     );
   });
-  myLocation && bounds.extend(new maps.LatLng(myLocation.lat, myLocation.lng))
+  myLocation && bounds.extend(new maps.LatLng(myLocation.lat, myLocation.lng));
   return bounds;
 };
 
@@ -110,21 +110,26 @@ class CurrentLocationMapped extends Component {
     const { pos, myZip } = this.props;
     const { bizLocations } = this.state;
     console.log(bizLocations);
-    console.log(pos)
+    console.log(pos);
 
     return (
-      bizLocations.length > 0 && (
-        <div className="buttonBox">
-          <GoogleMap
-            center={{ lat: pos.lat, lng: pos.lng }}
-            size={"mapSizeWideShort"}
-            yesIWantToUseGoogleMapApiInternals
-            onGoogleApiLoaded={({ map, maps }) =>
-              apiIsLoaded(map, maps, bizLocations[0], pos && pos)
-            }
-          >
-            {bizLocations.length > 0 &&
-              bizLocations[0].map((address, i) => {
+      <div>
+        {myZip && bizLocations.length < 1 && (
+          <div className="userLocMarkerContainer">
+            <div className="userLocMarker">{myZip}</div>
+          </div>
+        )}
+        {bizLocations.length > 0 && (
+          <div className="buttonBox">
+            <GoogleMap
+              center={{ lat: pos.lat, lng: pos.lng }}
+              size={"mapSizeWideShort"}
+              yesIWantToUseGoogleMapApiInternals
+              onGoogleApiLoaded={({ map, maps }) =>
+                apiIsLoaded(map, maps, bizLocations[0], pos && pos)
+              }
+            >
+              {bizLocations[0].map((address, i) => {
                 return (
                   <BizMarkers
                     logo={address.bizLogo}
@@ -134,10 +139,11 @@ class CurrentLocationMapped extends Component {
                   />
                 );
               })}
-            <UserLocation myZip={myZip} lat={pos.lat} lng={pos.lng} />
-          </GoogleMap>
-        </div>
-      )
+              <UserLocation myZip={myZip} lat={pos.lat} lng={pos.lng} />
+            </GoogleMap>
+          </div>
+        )}
+      </div>
     );
   }
 }
