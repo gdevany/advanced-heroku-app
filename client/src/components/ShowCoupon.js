@@ -11,8 +11,7 @@ class ShowCoupon extends Component {
     };
   }
 
-  componentDidMount() {
-  }
+  componentDidMount() {}
 
   calculateDistance = () => {
     return "0.3 miles";
@@ -34,6 +33,7 @@ class ShowCoupon extends Component {
             address={coupon.streetAndNum + coupon.zip}
             distance={this.calculateDistance()}
             userPosition={this.props.userPosition}
+            coupon={coupon}
           />
         )}
       </div>

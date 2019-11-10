@@ -14,18 +14,17 @@ const BizMarkers = ({ logo }) => (
   </div>
 );
 
-// Return map bounds based on list of places
+// Return map bounds based on list of biz's and myLocation
 const getMapBounds = (map, maps, places, myLocation) => {
-  console.log(places, myLocation);
   const bounds = new maps.LatLngBounds();
-
+  // Add each bizLocation to bounds list
   places.forEach(place => {
-    console.log(place);
     bounds.extend(
       // new maps.LatLng(place.geometry.location.lat, place.geometry.location.lng)
       new maps.LatLng(place.pos.lat, place.pos.lng)
     );
   });
+  // Add myLocation to bounds list
   myLocation && bounds.extend(new maps.LatLng(myLocation.lat, myLocation.lng));
   return bounds;
 };
@@ -41,7 +40,6 @@ const bindResizeListener = (map, maps, bounds) => {
 
 // Fit map to its bounds after the api is loaded
 const apiIsLoaded = (map, maps, places, myLocation) => {
-  console.log(places);
   // Get bounds by our places
   const bounds = getMapBounds(map, maps, places, myLocation);
   // Fit map to bounds
@@ -109,8 +107,6 @@ class CurrentLocationMapped extends Component {
   render() {
     const { pos, myZip } = this.props;
     const { bizLocations } = this.state;
-    console.log(bizLocations);
-    console.log(pos);
 
     return (
       <div>

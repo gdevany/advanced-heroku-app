@@ -2,8 +2,15 @@ import React, { Component } from "react";
 import GoogleMap from "./GoogleMap";
 import convertAddressToLatLng from "./ConvertAddressToLatLng";
 
-const BizDistance = ({ distance }) => (
-  <div className="greyTextMarker">{distance} mi</div>
+const BizDistance = ({ distance, logo }) => (
+  <div>
+    <div className="mapLogoMarkerContainer userLocMCTransform">
+      <img className="imageInContainer" src={logo} alt="bizLogo"></img>
+    </div>
+    <div className="userLocMarkerContainer userLocMCTransform">
+      <div className="userLocMarker">{distance} mi</div>
+    </div>
+  </div>
 );
 
 class BusinessLocationMapped extends Component {
@@ -34,8 +41,36 @@ class BusinessLocationMapped extends Component {
     }
   };
 
-  handleApiLoaded = (map, maps) => {
+  getMapBounds = (map, maps, bizLat, bizLng) => {
+    const bounds = new maps.LatLngBounds();
+    bounds.extend(new maps.LatLng(bizLat, bizLng));
+    bounds.extend(
+      new maps.LatLng(this.props.userPosition.lat, this.props.userPosition.lng)
+    );
+    return bounds;
+  };
+
+  // Re-center map when resizing the window
+  bindResizeListener = (map, maps, bounds) => {
+    maps.event.addDomListenerOnce(map, "idle", () => {
+      maps.event.addDomListener(window, "resize", () => {
+        map.fitBounds(bounds);
+      });
+    });
+  };
+
+  // Set bounds and display polyline directions from user to biz
+  handleApiLoaded = (map, maps, bizLat, bizLng) => {
     if (map) {
+      // Add bizLocation and myLocation to bounds list
+      const bounds = this.getMapBounds(map, maps, bizLat, bizLng);
+
+      // Fit map to bounds
+      map.fitBounds(bounds);
+
+      // Bind the resize listener
+      this.bindResizeListener(map, maps, bounds);
+
       // Instantiate a directions service.
       var directionsService = new maps.DirectionsService();
 
@@ -58,8 +93,7 @@ class BusinessLocationMapped extends Component {
     map,
     maps
   ) => {
-    // Retrieve the start and end locations and create a DirectionsRequest using
-    // DRIVING directions.
+    // Retrieve the start and end locations and create a DirectionsRequest
     directionsService.route(
       {
         origin: {
@@ -70,11 +104,9 @@ class BusinessLocationMapped extends Component {
         travelMode: "DRIVING"
       },
       (response, status) => {
-        // Route the directions and pass the response to a function to create
-        // markers for each step.
+        // Route the polylines to the map
         if (status === "OK") {
           directionsRenderer.setDirections(response);
-          // console.log(response.routes[0].legs[0].distance);
           this.setDistanceUserToBiz(response.routes[0].legs[0].distance.value);
           directionsRenderer.setDirections(response);
           const routePolyline = new maps.Polyline({
@@ -98,6 +130,7 @@ class BusinessLocationMapped extends Component {
 
   render() {
     const { bizLat, bizLng, distanceUserToBiz } = this.state;
+    const { coupon } = this.props;
     return (
       <div>
         {bizLat !== 0 && bizLng !== 0 ? (
@@ -109,11 +142,12 @@ class BusinessLocationMapped extends Component {
               size={"mapSizeWideShort"}
               yesIWantToUseGoogleMapApiInternals
               onGoogleApiLoaded={({ map, maps }) =>
-                this.handleApiLoaded(map, maps)
+                this.handleApiLoaded(map, maps, bizLat, bizLng)
               }
             >
               <BizDistance
                 distance={distanceUserToBiz}
+                logo={coupon.bizLogo}
                 lat={bizLat}
                 lng={bizLng}
               />
