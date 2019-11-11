@@ -15,17 +15,16 @@ input {
 
 .offer {
   font-size: 1em;
-  background-color: #e6ac27;
+  background-color: #f4f4f4;
   color: #3f362a;
   font-family: "Luckiest Guy", cursive;
   text-decoration: blink;
   padding: 10px;
-  /* margin-bottom: 10px; */
   border-radius: 10px;
   border-top: 1px solid #00000042;
   border-left: 1px solid #00000042;
   box-shadow: inset -2px -3px 3px 0px #4f501b;
-  background: linear-gradient(to bottom right, #f6f7bd 2%, #e6ac27 7%);
+  /* background: linear-gradient(to bottom right, #f6f7bd 2%, #e6ac27 7%); */
 }
 
 .headingLogo {
@@ -360,6 +359,7 @@ strong {
   yellow: #ffe950;
   yellowCouponFadeLight: #F6F7BD;
   yellowCouponFadeDark: #ffcd38;
+  offer: #e6ac27;
   ---------
   aqua: #78C0A8;
   orange: #F07818;
@@ -385,7 +385,7 @@ strong {
   border-style: solid;
   border-width: 1px;
   border-color: #5f3e29;
-  background-color: #f6f7bd;
+  background-color: #e6ac27;
   color: black;
   font-size: 0.7em;
   width: 95%;

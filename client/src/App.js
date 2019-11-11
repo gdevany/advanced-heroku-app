@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <AppSign />
-      <span className="blink2">Buy One</span>
-      <span className="blink3"> Get One</span>
+      {/* <span className="">Buy One</span>
+      <span className=""> Get One</span> */}
       <div className="container text-center">
         <div className="headingLogo">BOGO</div>
         <div className="headingLogoMini">by zip</div>

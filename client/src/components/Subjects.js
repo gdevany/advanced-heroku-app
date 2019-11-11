@@ -17,6 +17,7 @@ class Subjects extends React.Component {
   };
 
   render() {
+    const { subjectChosen, loggedIn, category, userPosition } = this.props;
     var header = "";
     //header- if loggedIn, show Welcome
     //header- if NOT loggedIn, and NOT subjectChosen, show 'Choose Subject'
@@ -25,57 +26,58 @@ class Subjects extends React.Component {
     var subDivs = "";
     // IF User is NOT loggedIn, show the subjects
     // show the subjects and set subjectChosen when onClicked
-    if (this.props.subjectChosen === "" && this.props.loggedIn === "") {
-      header = <div className="blink">Choose a subject</div>;
-      subDivs = this.props.category.map((c, i) => {
-        return (
-          <div key={i}>
+
+    if (userPosition.zip !== 0) {
+      if (loggedIn === "") {
+        if (subjectChosen === "") {
+          header = <div className="blink">Choose a subject</div>;
+          subDivs = category.map((c, i) => {
+            return (
+              <div key={i}>
+                <button
+                  className="catButton buttonGen"
+                  onClick={e => {
+                    e.preventDefault();
+                    this.props.setSubjectChosen(c);
+                  }}
+                >
+                  <strong>{c.subject}</strong>
+                </button>
+              </div>
+            );
+          });
+        } else {
+          // show just subjectChosen when chosen
+          header = <div></div>;
+          subDivs = (
+            <button className="chosenCat buttonGen">
+              {subjectChosen.subject}
+            </button>
+          );
+        }
+      } else {
+        //If user loggedIn, show welcome and options
+        header = <div></div>;
+        subDivs = (
+          <div>
             <button
-              className="catButton buttonGen"
+              className="buttonGen margin30Bottom blink"
               onClick={e => {
                 e.preventDefault();
-                this.props.set(c);
+                this.loadCreateCoupon();
               }}
             >
-              <strong>{c.subject}</strong>
+              Create New Coupon
             </button>
           </div>
         );
-      });
-    } else if (this.props.subjectChosen !== "" && this.props.loggedIn === "") {
-      // show just subjectChosen when chosen
-      header = <div></div>;
-      subDivs = (
-        <button className="chosenCat buttonGen">
-          {this.props.subjectChosen.subject}
-        </button>
-      );
-    } else {
-      //If user loggedIn, show welcome and options
-      header = <div></div>;
-      subDivs = (
-        <div>
-          <button
-            className="buttonGen margin30Bottom blink"
-            onClick={e => {
-              e.preventDefault();
-              this.loadCreateCoupon();
-            }}
-          >
-            Create New Coupon
-          </button>
-        </div>
-      );
+      }
     }
 
     return (
       <div className="container text-center">
         <div>{header}</div>
-        <div
-          className={
-            this.props.subjectChosen === "" ? "" : ""
-          }
-        >
+        <div className={this.props.subjectChosen === "" ? "" : ""}>
           <div className="">{subDivs}</div>
           <Subtopics />
         </div>

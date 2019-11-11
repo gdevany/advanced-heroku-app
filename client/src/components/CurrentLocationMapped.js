@@ -9,8 +9,8 @@ const UserLocation = ({ myZip }) => (
 );
 
 const BizMarkers = ({ logo }) => (
-  <div className="mapLogoMarkerContainer">
-    <img className="imageInContainer" src={logo} alt="bizLogo"></img>
+  <div className="mapLogoMarkerContainer userLocMCTransform">
+    <img className="imageInContainer blink2" src={logo} alt="bizLogo"></img>
   </div>
 );
 

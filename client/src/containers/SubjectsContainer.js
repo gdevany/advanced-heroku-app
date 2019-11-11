@@ -5,6 +5,7 @@ import {setSubjectChosen} from '../actions';
 
 function mapStateToProps(state) {
   return {
+    userPosition: state.userPosition,
     category: state.category,
     subjectChosen: state.subjectChosen,
     loggedIn: state.loggedIn
@@ -13,7 +14,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    set: function(subj) {
+    setSubjectChosen: function(subj) {
       dispatch(setSubjectChosen(subj));
     }
   }

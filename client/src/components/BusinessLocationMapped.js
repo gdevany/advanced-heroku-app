@@ -4,7 +4,7 @@ import convertAddressToLatLng from "./ConvertAddressToLatLng";
 
 const BizDistance = ({ distance, logo }) => (
   <div>
-    <div className="mapLogoMarkerContainer userLocMCTransform">
+    <div className="blink2 mapLogoMarkerContainer userLocMCTransform">
       <img className="imageInContainer" src={logo} alt="bizLogo"></img>
     </div>
     <div className="userLocMarkerContainer userLocMCTransform">
