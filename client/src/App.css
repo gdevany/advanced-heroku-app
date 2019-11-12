@@ -11,9 +11,15 @@ input {
 .inputZip {
   width: 175px;
   margin: auto;
-  font-size: 1.5em;
+  font-size: 1.2em;
   border: 5px solid #78c0a8;
   border-style: double;
+  text-align: center;
+}
+
+::placeholder {
+  font-size: 1em;
+  opacity: 0.5;
 }
 
 .offer {

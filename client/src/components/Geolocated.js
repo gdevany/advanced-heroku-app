@@ -120,7 +120,8 @@ class ZipcodeSetter extends React.Component {
       ? "Geolocation is not enabled"
       : "Try refreshing your browser";
 
-    return this.props.coords || userDidEnterZip ? (
+    return (
+      // return this.props.coords || userDidEnterZip ? (
       <div className="margin30Bottom">
         <div className="borderIt smallText marginBottom1">
           Offers will be filtered on your current zipcode
@@ -142,9 +143,10 @@ class ZipcodeSetter extends React.Component {
           <div>...Loading</div>
         )}
       </div>
-    ) : (
-      <div>Getting the location data</div>
     );
+    // ) : (
+    //   <div>Getting the location data</div>
+    // );
   }
 }
 
