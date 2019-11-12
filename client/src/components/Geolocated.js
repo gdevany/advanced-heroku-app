@@ -38,7 +38,7 @@ class ZipcodeSetter extends React.Component {
             this.convertGeolocationToZip(pos);
           });
         }
-      }, 100);
+      }, 2000);
     });
     return promise;
   };
@@ -95,12 +95,10 @@ class ZipcodeSetter extends React.Component {
         </button>
       </div>
     );
-    // this.props.setZip();
     return choice;
   };
 
   render() {
-    console.log(this.state.userDidEnterZip, this.state.userEnteredZip);
     const {
       userPosition,
       userEnteredZip,
@@ -121,7 +119,6 @@ class ZipcodeSetter extends React.Component {
       : "Try refreshing your browser";
 
     return (
-      // return this.props.coords || userDidEnterZip ? (
       <div className="margin30Bottom">
         <div className="borderIt smallText marginBottom1">
           Offers will be filtered on your current zipcode
@@ -141,13 +138,9 @@ class ZipcodeSetter extends React.Component {
           this.showInputZip(message)
         ) : (
           this.showInputZip(message)
-          // <div>...Loading</div>
         )}
       </div>
     );
-    // ) : (
-    //   <div>Getting the location data</div>
-    // );
   }
 }
 
