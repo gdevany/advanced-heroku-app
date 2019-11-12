@@ -4,7 +4,7 @@ import AppSign from "./containers/AppSignContainer";
 import Subjects from "./containers/SubjectsContainer";
 import ShowCoupons from "./containers/ShowCouponsContainer";
 import ZipcodeSetter from "./containers/GeolocatedContainer";
-import Disclaimer from "./components/Disclaimer";
+// import Disclaimer from "./components/Disclaimer";
 
 function App() {
   return (
@@ -19,7 +19,7 @@ function App() {
       <ZipcodeSetter />
       <Subjects />
       <ShowCoupons />
-      <Disclaimer />
+      {/* <Disclaimer /> */}
     </div>
   );
 }

@@ -12,8 +12,10 @@ class ZipcodeSetter extends React.Component {
         lat: 0,
         lng: 0
       },
+      geolocateSuccessful: false,
       loadingWarning: false,
-      userEnteredZip: 0
+      userEnteredZip: 0,
+      userDidEnterZip: false
     };
   }
 
@@ -56,8 +58,20 @@ class ZipcodeSetter extends React.Component {
       });
 
       console.log(userPosition);
-      this.setState({ userPosition });
+      this.setState({ userPosition, geolocateSuccessful: true });
       this.props.setZip(userPosition);
+    });
+  };
+
+  handleZipEntered = e => {
+    this.setState({
+      userEnteredZip: e.target.value
+    });
+  };
+
+  zipSubmitted = () => {
+    this.setState({
+      userDidEnterZip: true
     });
   };
 
@@ -65,46 +79,45 @@ class ZipcodeSetter extends React.Component {
     let choice = (
       <div>
         <div>{message}</div>
-        <div>or</div>
-        <input
-          type="text"
-          placeholder="5-digit zip..."
-          className="inputZip zipBox"
-          onChange={e => {
-            let userEnteredZip = e.target.value;
-            this.setState({
-              userEnteredZip
-            });
-          }}
-        />
+        <div>enter zip here:</div>
+        <div>
+          <input
+            type="text"
+            placeholder="5-digit zip..."
+            className="inputZip zipBox"
+            onChange={e => {
+              this.handleZipEntered(e);
+            }}
+          />
+        </div>
+        <button type="submit" onClick={() => this.zipSubmitted()}>
+          submit
+        </button>
       </div>
     );
-    // this.props.setZip();
     return choice;
   };
 
-  render() {
-    // console.log(this.state.userEnteredZip.length)
-    const { userPosition, userEnteredZip } = this.state;
+  renderMap = () => {
+    const {
+      userPosition,
+      userEnteredZip,
+      userDidEnterZip,
+      geolocateSuccessful
+    } = this.state;
     const {
       loggedIn,
       searchCoupons,
       filteredCoupons,
       usersCoupons
     } = this.props;
-
-    return !this.props.isGeolocationAvailable ? (
-      this.showInputZip("Your browser does not support Geolocation")
-    ) : !this.props.isGeolocationEnabled ? (
-      this.showInputZip("Geolocation is not enabled")
-    ) : this.props.coords ? (
+    return (
       <div className="margin30Bottom">
         <div className="borderIt smallText marginBottom1">
           Offers will be filtered on your current zipcode
         </div>
         <GoogleMap size={"mapSizeNone"}></GoogleMap>
-        {(userPosition.lat !== 0 && userPosition.lng !== 0) ||
-        userEnteredZip.length >= 5 ? (
+        {geolocateSuccessful || userDidEnterZip ? (
           <CurrentLocationMapped
             pos={userPosition}
             myZip={userPosition.zip !== 0 ? userPosition.zip : userEnteredZip}
@@ -115,11 +128,23 @@ class ZipcodeSetter extends React.Component {
             setZip={this.props.setZip}
           />
         ) : this.state.loadingWarning ? (
-          this.showInputZip("Hit Refresh")
+          this.showInputZip("Hit REFRESH or")
         ) : (
           <div>...Loading</div>
         )}
       </div>
+    );
+  };
+
+  render() {
+    const { userDidEnterZip } = this.state;
+
+    return !this.props.isGeolocationAvailable ? (
+      this.showInputZip("Your browser does not support Geolocation")
+    ) : !this.props.isGeolocationEnabled ? (
+      this.showInputZip("Geolocation is not enabled")
+    ) : this.props.coords || userDidEnterZip ? (
+      this.renderMap()
     ) : (
       <div>Getting the location data</div>
     );
