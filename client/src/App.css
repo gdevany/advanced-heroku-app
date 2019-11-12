@@ -1,8 +1,3 @@
-.App {
-  /*margin-top: 20px;*/
-  /* margin-right: 13%; */
-}
-
 .container {
   width: 100%;
 }
@@ -11,6 +6,14 @@ input {
   margin-bottom: 20px;
   line-height: 1.3em;
   width: 60%;
+}
+
+.inputZip {
+  width: 175px;
+  margin: auto;
+  font-size: 1.5em;
+  border: 5px solid #78c0a8;
+  border-style: double;
 }
 
 .offer {
@@ -72,6 +75,10 @@ input {
 
 .borderIt {
   border: 1px solid black;
+}
+
+.marginBottom1 {
+  margin-bottom: 1em;
 }
 
 .inputBottomMarginShort {

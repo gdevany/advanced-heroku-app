@@ -12,7 +12,8 @@ class ZipcodeSetter extends React.Component {
         lat: 0,
         lng: 0
       },
-      loadingWarning: false
+      loadingWarning: false,
+      userEnteredZip: 0
     };
   }
 
@@ -60,32 +61,63 @@ class ZipcodeSetter extends React.Component {
     });
   };
 
+  showInputZip = message => {
+    let choice = (
+      <div>
+        <div>{message}</div>
+        <div>or</div>
+        <input
+          type="text"
+          placeholder="5-digit zip..."
+          className="inputZip zipBox"
+          onChange={e => {
+            let userEnteredZip = e.target.value;
+            this.setState({
+              userEnteredZip
+            });
+          }}
+        />
+      </div>
+    );
+    // this.props.setZip();
+    return choice;
+  };
+
   render() {
-    const { userPosition } = this.state;
+    // console.log(this.state.userEnteredZip.length)
+    const { userPosition, userEnteredZip } = this.state;
+    const {
+      loggedIn,
+      searchCoupons,
+      filteredCoupons,
+      usersCoupons
+    } = this.props;
 
     return !this.props.isGeolocationAvailable ? (
-      <div>Your browser does not support Geolocation</div>
+      this.showInputZip("Your browser does not support Geolocation")
     ) : !this.props.isGeolocationEnabled ? (
-      <div>Geolocation is not enabled</div>
+      this.showInputZip("Geolocation is not enabled")
     ) : this.props.coords ? (
       <div className="margin30Bottom">
-        <div>
-          <small>Offers will be filtered on your current zipcode</small>
+        <div className="borderIt smallText marginBottom1">
+          Offers will be filtered on your current zipcode
         </div>
         <GoogleMap size={"mapSizeNone"}></GoogleMap>
-        {userPosition.lat !== 0 &&
-        userPosition.lng !== 0 &&
-        userPosition.zip !== 0 ? (
+        {(userPosition.lat !== 0 && userPosition.lng !== 0) ||
+        userEnteredZip.length >= 5 ? (
           <CurrentLocationMapped
             pos={userPosition}
-            myZip={userPosition.zip}
-            loggedIn={this.props.loggedIn}
-            searchCoupons={this.props.searchCoupons}
-            filteredCoupons={this.props.filteredCoupons}
-            usersCoupons={this.props.usersCoupons}
+            myZip={userPosition.zip !== 0 ? userPosition.zip : userEnteredZip}
+            loggedIn={loggedIn}
+            searchCoupons={searchCoupons}
+            filteredCoupons={filteredCoupons}
+            usersCoupons={usersCoupons}
+            setZip={this.props.setZip}
           />
-        ) : (            
-            this.state.loadingWarning ? <div>Hit Refresh</div> : <div>...Loading</div>
+        ) : this.state.loadingWarning ? (
+          this.showInputZip("Hit Refresh")
+        ) : (
+          <div>...Loading</div>
         )}
       </div>
     ) : (

@@ -26,6 +26,7 @@ class ShowCoupon extends Component {
   };
 
   renderMap = coupon => {
+    console.log(this.props.userPosition);
     return (
       <div className="row">
         {this.state.expandHeader === true && (

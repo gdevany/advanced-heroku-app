@@ -40,6 +40,7 @@ const bindResizeListener = (map, maps, bounds) => {
 
 // Fit map to its bounds after the api is loaded
 const apiIsLoaded = (map, maps, places, myLocation) => {
+  console.log(places, myLocation);
   // Get bounds by our places
   const bounds = getMapBounds(map, maps, places, myLocation);
   // Fit map to bounds
@@ -54,9 +55,27 @@ class CurrentLocationMapped extends Component {
     this.state = {
       bizLocations: [],
       filteredCoupons: [],
-      usersCoupons: []
+      usersCoupons: [],
+      center: {}
     };
   }
+
+  // If userEnteredZip, convertAdd (returns {lat,lng}), set to state center and Redux
+  componentDidMount = async () => {
+    if (
+      this.props.pos.lat === 0 &&
+      this.props.pos.lng === 0 &&
+      this.props.myZip.length >= 5
+    ) {
+      let centerForUserEnteredZip = await this.convertAdd(this.props.myZip);
+      this.setState({ center: centerForUserEnteredZip });
+      this.props.setZip(centerForUserEnteredZip);
+    } else {
+      let lat = this.props.pos.lat;
+      let lng = this.props.pos.lng;
+      this.setState({ center: { lat, lng } });
+    }
+  };
 
   // If filteredCoupons(props) changes, change state
   // TODO: If userCoupons changes, change state
@@ -86,27 +105,27 @@ class CurrentLocationMapped extends Component {
         let fullAddress = `${coupon.streetAndNum}${" "}${coupon.city}${" "}${
           coupon.zip
         }`;
-        let newEntry = await this.convertAdd(fullAddress, coupon.bizLogo);
-        return newEntry;
+        let newEntry = await this.convertAdd(fullAddress);
+        let logo = coupon.bizLogo;
+        return { pos: newEntry, bizLogo: logo };
       })
     );
     return addressList;
   };
 
   // Convert address (as you would type in google maps) to { { pos: {lat, lng} } }
-  convertAdd = async (fullAddress, bizLogo) => {
+  convertAdd = async fullAddress => {
     let pos = {};
     await convertAddressToLatLng(fullAddress).then(async res => {
       pos.lat = await res.lat();
       pos.lng = await res.lng();
     });
-    let newLocation = { pos, bizLogo };
-    return newLocation;
+    return pos;
   };
 
   render() {
-    const { pos, myZip } = this.props;
-    const { bizLocations } = this.state;
+    const { myZip } = this.props;
+    const { bizLocations, center } = this.state;
 
     return (
       <div>
@@ -118,11 +137,12 @@ class CurrentLocationMapped extends Component {
         {bizLocations.length > 0 && (
           <div className="buttonBox">
             <GoogleMap
-              center={{ lat: pos.lat, lng: pos.lng }}
+              center={center}
+              // center={{ lat: pos.lat, lng: pos.lng }}
               size={"mapSizeWideShort"}
               yesIWantToUseGoogleMapApiInternals
               onGoogleApiLoaded={({ map, maps }) =>
-                apiIsLoaded(map, maps, bizLocations[0], pos && pos)
+                apiIsLoaded(map, maps, bizLocations[0], center)
               }
             >
               {bizLocations[0].map((address, i) => {
@@ -135,7 +155,7 @@ class CurrentLocationMapped extends Component {
                   />
                 );
               })}
-              <UserLocation myZip={myZip} lat={pos.lat} lng={pos.lng} />
+              <UserLocation myZip={myZip} lat={center.lat} lng={center.lng} />
             </GoogleMap>
           </div>
         )}

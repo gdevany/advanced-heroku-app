@@ -42,6 +42,7 @@ class BusinessLocationMapped extends Component {
   };
 
   getMapBounds = (map, maps, bizLat, bizLng) => {
+    // console.log(this.props.userPosition.pos.lat)
     const bounds = new maps.LatLngBounds();
     bounds.extend(new maps.LatLng(bizLat, bizLng));
     bounds.extend(
@@ -129,6 +130,7 @@ class BusinessLocationMapped extends Component {
   };
 
   render() {
+    console.log(this.props.userPosition);
     const { bizLat, bizLng, distanceUserToBiz } = this.state;
     const { coupon } = this.props;
     return (
