@@ -126,6 +126,7 @@ class CurrentLocationMapped extends Component {
   render() {
     const { myZip } = this.props;
     const { bizLocations, center } = this.state;
+    console.log(this.props.pos, myZip, center)
 
     return (
       <div>

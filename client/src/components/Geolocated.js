@@ -72,14 +72,14 @@ class ZipcodeSetter extends React.Component {
   zipSubmitted = () => {
     this.setState({
       userDidEnterZip: true
-    });
-  };
+    })
+  }
 
   showInputZip = message => {
     let choice = (
       <div>
         <div>{message}</div>
-        <div>enter zip here:</div>
+        <div>or</div>
         <div>
           <input
             type="text"
@@ -90,37 +90,39 @@ class ZipcodeSetter extends React.Component {
             }}
           />
         </div>
-        <button type="submit" onClick={() => this.zipSubmitted()}>
-          submit
-        </button>
+        <button type="submit" onClick={() => this.zipSubmitted()}>submit</button>
       </div>
     );
+    // this.props.setZip();
     return choice;
   };
 
-  renderMap = () => {
-    const {
-      userPosition,
-      userEnteredZip,
-      userDidEnterZip,
-      geolocateSuccessful
-    } = this.state;
+  render() {
+    console.log(this.state.userDidEnterZip, this.state.userEnteredZip);
+    const { userPosition, userEnteredZip, userDidEnterZip, geolocateSuccessful } = this.state;
     const {
       loggedIn,
       searchCoupons,
       filteredCoupons,
       usersCoupons
     } = this.props;
-    return (
+
+    let temp = !this.props.isGeolocationAvailable ? (
+      this.showInputZip("Your browser does not support Geolocation")
+    ) : !this.props.isGeolocationEnabled ? (
+      this.showInputZip("Geolocation is not enabled")
+    ) : null
+
+    return (this.props.coords || userDidEnterZip) ? (
       <div className="margin30Bottom">
         <div className="borderIt smallText marginBottom1">
           Offers will be filtered on your current zipcode
         </div>
         <GoogleMap size={"mapSizeNone"}></GoogleMap>
-        {geolocateSuccessful || userDidEnterZip ? (
+        {(geolocateSuccessful || userDidEnterZip) ? (
           <CurrentLocationMapped
             pos={userPosition}
-            myZip={userPosition.zip !== 0 ? userPosition.zip : userEnteredZip}
+            myZip={geolocateSuccessful ? userPosition.zip : userEnteredZip}
             loggedIn={loggedIn}
             searchCoupons={searchCoupons}
             filteredCoupons={filteredCoupons}
@@ -128,23 +130,11 @@ class ZipcodeSetter extends React.Component {
             setZip={this.props.setZip}
           />
         ) : this.state.loadingWarning ? (
-          this.showInputZip("Hit REFRESH or")
+          this.showInputZip("Hit Refresh")
         ) : (
           <div>...Loading</div>
         )}
       </div>
-    );
-  };
-
-  render() {
-    const { userDidEnterZip } = this.state;
-
-    return !this.props.isGeolocationAvailable ? (
-      this.showInputZip("Your browser does not support Geolocation")
-    ) : !this.props.isGeolocationEnabled ? (
-      this.showInputZip("Geolocation is not enabled")
-    ) : this.props.coords || userDidEnterZip ? (
-      this.renderMap()
     ) : (
       <div>Getting the location data</div>
     );
