@@ -140,7 +140,8 @@ class ZipcodeSetter extends React.Component {
         ) : this.state.loadingWarning ? (
           this.showInputZip(message)
         ) : (
-          <div>...Loading</div>
+          this.showInputZip(message)
+          // <div>...Loading</div>
         )}
       </div>
     );
