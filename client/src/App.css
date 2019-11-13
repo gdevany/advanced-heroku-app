@@ -23,6 +23,8 @@ input {
 }
 
 .offer {
+  display: flex;
+  align-items: center;
   font-size: 1em;
   background-color: #f4f4f4;
   color: #3f362a;
@@ -112,7 +114,8 @@ input {
   max-width: 340px;
   margin: 10px auto;
   padding: 3px 3px;
-  background-color: #3f362aba;
+  background-color: #3f362a;
+  color: #fef596;
 }
 
 .buttonBox2 {

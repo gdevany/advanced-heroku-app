@@ -49,8 +49,9 @@ function Subtopics(props) {
     } else {
 
       // if subject IS chosen, and subtopic IS chosen (searchCoupons), show coupons
-      subDivs =
-        <button className="chosenCat buttonGen text-center">{props.searchCoupons}</button>
+      subDivs = <div></div>
+      // subDivs =
+      //   <button className="chosenCat buttonGen text-center">{props.searchCoupons}</button>
       // and set backButton to change SUBTOPIC chosen (searchCoupons) to blank
       backer = (
         <button

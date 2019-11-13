@@ -120,7 +120,7 @@ class ZipcodeSetter extends React.Component {
 
     return (
       <div className="margin30Bottom">
-        <div className="borderIt smallText marginBottom1">
+        <div className="smallText marginBottom1">
           Offers will be filtered on your current zipcode
         </div>
         <GoogleMap size={"mapSizeNone"}></GoogleMap>
@@ -133,6 +133,7 @@ class ZipcodeSetter extends React.Component {
             filteredCoupons={filteredCoupons}
             usersCoupons={usersCoupons}
             setZip={this.props.setZip}
+            zipEnabledBy={geolocateSuccessful ? "geo" : "user"}
           />
         ) : this.state.loadingWarning ? (
           this.showInputZip(message)

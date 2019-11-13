@@ -60,12 +60,10 @@ class CurrentLocationMapped extends Component {
     };
   }
 
-  // If userEnteredZip, convertAdd (returns {lat,lng}), set to state center and Redux
+  // If zipEnabledBy user, convertAdd (returns {lat,lng}), set to state center and Redux
   componentDidMount = async () => {
     if (
-      this.props.pos.lat === 0 &&
-      this.props.pos.lng === 0 &&
-      this.props.myZip.length >= 5
+     this.props.zipEnabledBy === "user"
     ) {
       let centerForUserEnteredZip = await this.convertAdd(this.props.myZip);
       this.setState({ center: centerForUserEnteredZip });
@@ -124,9 +122,9 @@ class CurrentLocationMapped extends Component {
   };
 
   render() {
-    const { myZip } = this.props;
+    const { myZip, searchCoupons } = this.props;
     const { bizLocations, center } = this.state;
-    console.log(this.props.pos, myZip, center)
+    console.log('pos:',this.props.pos, 'myzip:',myZip, 'center:',center)
 
     return (
       <div>
@@ -137,6 +135,7 @@ class CurrentLocationMapped extends Component {
         )}
         {bizLocations.length > 0 && (
           <div className="buttonBox">
+            {searchCoupons && <div>{searchCoupons}</div>}
             <GoogleMap
               center={center}
               // center={{ lat: pos.lat, lng: pos.lng }}

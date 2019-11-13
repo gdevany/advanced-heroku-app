@@ -49,11 +49,11 @@ class Subjects extends React.Component {
         } else {
           // show just subjectChosen when chosen
           header = <div></div>;
-          subDivs = (
-            <button className="chosenCat buttonGen">
-              {subjectChosen.subject}
-            </button>
-          );
+          // subDivs = (
+          //   <button className="chosenCat buttonGen">
+          //     {subjectChosen.subject}
+          //   </button>
+          // );
         }
       } else {
         //If user loggedIn, show welcome and options
