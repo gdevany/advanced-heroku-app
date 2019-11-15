@@ -36,6 +36,7 @@ input {
   border-left: 1px solid #00000042;
   box-shadow: inset -2px -3px 3px 0px #4f501b;
   /* background: linear-gradient(to bottom right, #f6f7bd 2%, #e6ac27 7%); */
+  background: linear-gradient(to bottom right, #3f362a -31%, #f4f4f4 37%);
 }
 
 .headingLogo {
@@ -110,11 +111,11 @@ input {
 }
 
 .buttonBox {
-  border: 1px solid;
-  width: 95%;
+  border: 1px solid black;
+  width: 100%;
   max-width: 500px;
   margin: 10px auto;
-  padding: 3px 3px;
+  /* padding: 3px 3px; */
   background-color: #3f362a;
   color: #fef596;
 }
@@ -163,7 +164,7 @@ input {
 }
 
 .backButton {
-  color: #f6f7bd;
+  color: #fef596;
   border-radius: 50%;
   background-color: #bf4d28;
   font-size: 1em;
@@ -368,6 +369,23 @@ strong {
   animation-direction: alternate;
 }
 
+.backArrowContainer {
+  height: 100%;
+  width: 50px;
+  border-left: 1px solid #e3e3e3;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+   .backArrow {
+    border: solid #959595;
+    border-width: 0 2px 2px 0;
+    display: inline-block;
+    padding: 7px;
+    transform: rotate(135deg);
+  }
+
+
 /*colors {
   green: #6a863b;
   green: #637c1b;
@@ -391,7 +409,55 @@ strong {
   red: #e7450d;
   red2: #db4e1f;
   brown: #3f362a;
+  ---------
+  -v1 colors:
 
+  body background: #ded9d5
+  brown: #3f362a
+  orange: #e6ac27
+  yellow: #fef596
+  teal: #78c0a8
+
+
+  .body {
+    background-color: rgba(94, 65, 47, 0.2);
+  }
+
+  .catButton {
+    color: #3f362a;
+  }
+
+  .buttonGen {
+    box-shadow: inset -2px -3px 3px 0px #4f501b;
+  }
+
+  .headingLogo {
+    line-height: 0.2em;
+    font-family: "Monoton";
+    font-size: 4em;
+    color: #fef596;
+    margin-top: 30px;
+    letter-spacing: 0.1em;
+    text-shadow: -1px 0 black, 0 1px black, 4px 0 black, 0 -1px black;
+  }
+
+  .headingLogoMini {
+    color: #78c0a8;
+  }
+
+  .couponShort {
+    border-color: #5f3e29;
+    background-color: #e6ac27;
+  }
+
+  .buttonBox {
+    background-color: #3f362a;
+    color: #fef596;
+  }
+
+  .backButton {
+    background-color: #bf4d28;
+  }
 
 }*/
 .couponShort {

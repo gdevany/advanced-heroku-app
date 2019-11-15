@@ -10,7 +10,9 @@ body {
 
   /* font-family: 'Risque'; */
   font-size: 1.6em;
-  background-color: rgba(94, 65, 47, 0.2);
+  /* background-color: rgba(94, 65, 47, 0.2); */
+  /* background-color: #5e412f33; */
+  background-color: #ded9d5;
   min-height: 800px;
   background-image: url("../img/Color1970scopy.png");
   background-size: 4em 100%;
@@ -19,13 +21,20 @@ body {
 }
 
 .navbar-inverse, navbar {
-  background-color: #3f362a;
-  border-radius: 0;
+  /* background-color: #3f362a; */
+  background-color: inherit;
+  /* border-radius: 0; */
   border: none;
 }
 
 .navbar-inverse .navbar-nav>li>a {
-    color: #fef596;
+    color: #3f362a;
+    /* border: 1px solid #3f362a; */
+}
+
+.nav-tabs>li>a {
+  border: 1px solid #fef596;
+
 }
 
 a {
@@ -33,5 +42,7 @@ a {
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
-    background-color: #fef596;
+    /* background-color: #fef596; */
+    background-color: red;
+
 }
