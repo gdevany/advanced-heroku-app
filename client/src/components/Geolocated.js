@@ -133,7 +133,7 @@ class ZipcodeSetter extends React.Component {
             filteredCoupons={filteredCoupons}
             usersCoupons={usersCoupons}
             setZip={this.props.setZip}
-            zipEnabledBy={geolocateSuccessful ? "geo" : "user"}
+            zipEnabledBy={geolocateSuccessful ? "geolocateSuccessful" : "userDidEnterZip"}
           />
         ) : this.state.loadingWarning ? (
           this.showInputZip(message)

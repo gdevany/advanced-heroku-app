@@ -111,7 +111,8 @@ input {
 
 .buttonBox {
   border: 1px solid;
-  max-width: 340px;
+  width: 95%;
+  max-width: 500px;
   margin: 10px auto;
   padding: 3px 3px;
   background-color: #3f362a;
@@ -396,7 +397,7 @@ strong {
 .couponShort {
   /* margin-left: auto;
   margin-right: auto; */
-  margin: 5px auto;
+  margin: 7px auto;
   max-width: 500px;
   border-style: solid;
   border-width: 1px;
@@ -405,7 +406,7 @@ strong {
   color: black;
   font-size: 0.7em;
   width: 95%;
-  padding: 1em 1em;
+  padding: 0.5em 0.5em;
   /* background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%); */
 }
 

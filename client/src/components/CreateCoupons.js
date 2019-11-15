@@ -14,7 +14,7 @@ class CreateCoupons extends React.Component {
           heading: "",
           couponDesc: "",
           restrictions: "",
-          subject: "Eat Now",
+          subject: "Food",
           subtopics: "",
           searchWords: "Fast Food",
           streetAndNum: "",

@@ -63,7 +63,7 @@ class CurrentLocationMapped extends Component {
   // If zipEnabledBy user, convertAdd (returns {lat,lng}), set to state center and Redux
   componentDidMount = async () => {
     if (
-     this.props.zipEnabledBy === "user"
+     this.props.zipEnabledBy === "userDidEnterZip"
     ) {
       let centerForUserEnteredZip = await this.convertAdd(this.props.myZip);
       this.setState({ center: centerForUserEnteredZip });
@@ -133,7 +133,7 @@ class CurrentLocationMapped extends Component {
             <div className="userLocMarker">{myZip}</div>
           </div>
         )}
-        {bizLocations.length > 0 && (
+        {bizLocations.length > 0 && searchCoupons && (
           <div className="buttonBox">
             {searchCoupons && <div>{searchCoupons}</div>}
             <GoogleMap
