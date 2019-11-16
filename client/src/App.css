@@ -112,7 +112,7 @@ input {
 
 .buttonBox {
   border: 1px solid black;
-  width: 100%;
+  width: 95%;
   max-width: 500px;
   margin: 10px auto;
   /* padding: 3px 3px; */
@@ -370,6 +370,7 @@ strong {
 }
 
 .backArrowContainer {
+  margin-bottom: 10px;
   height: 100%;
   width: 50px;
   border-left: 1px solid #e3e3e3;
