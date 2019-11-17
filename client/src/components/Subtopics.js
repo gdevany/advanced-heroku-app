@@ -6,7 +6,7 @@ function Subtopics(props) {
   // header- if subjectChosen, but subtopic NOT chosen, show 'Choose a subtopic'
 
   var subDivs = "";
-  var backer = "";
+  var backButton = "";
 
   // if subject IS NOT chosen, show blank
   if (props.subjectChosen === "" || props.loggedIn !== "") {
@@ -38,21 +38,18 @@ function Subtopics(props) {
         );
       });
       // and set backButton to change SUBJECT Chosen to blank
-      backer = (
+      backButton = (
         <div>
-          <span className="backArrowContainer">
+          <span className="arrowContainer pull-left">
             <i
-              className="backArrow"
+              className="arrow backArrow"
               onClick={e => {
                 e.preventDefault();
                 props.setSubjectChosen("");
               }}
-            />back
+            />
+            back
           </span>
-          {/* <button
-          className="backButton"
-          onClick={ (e) => {e.preventDefault(); props.setSubjectChosen("")}}
-        >back</button> */}
         </div>
       );
     } else {
@@ -61,26 +58,18 @@ function Subtopics(props) {
       // subDivs =
       //   <button className="chosenCat buttonGen text-center">{props.searchCoupons}</button>
       // and set backButton to change SUBTOPIC chosen (searchCoupons) to blank
-      backer = (
+      backButton = (
         <div>
-          <div className="backArrowContainer">
+          <div className="arrowContainer pull-left">
             <i
-              className="backArrow"
+              className="arrow backArrow"
               onClick={e => {
                 e.preventDefault();
                 props.setSearchCoupons("");
               }}
-            />back
-          </div>
-          {/* <button
-            className="backButton"
-            onClick={e => {
-              e.preventDefault();
-              props.setSearchCoupons("");
-            }}
-          >
+            />
             back
-          </button> */}
+          </div>
         </div>
       );
     }
@@ -90,7 +79,7 @@ function Subtopics(props) {
     <div className="container text-center">
       <div className="">{header}</div>
       <div className="">{subDivs}</div>
-      <div className="text-center">{backer}</div>
+      <div className="containerShort">{backButton}</div>
     </div>
   );
 }

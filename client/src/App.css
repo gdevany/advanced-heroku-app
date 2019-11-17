@@ -2,6 +2,12 @@
   width: 100%;
 }
 
+.containerShort {
+  width: 95%;
+  max-width: 500px;
+  margin: auto;
+}
+
 input {
   margin-bottom: 20px;
   line-height: 1.3em;
@@ -111,11 +117,13 @@ input {
 }
 
 .buttonBox {
-  border: 1px solid black;
-  width: 95%;
-  max-width: 500px;
-  margin: 10px auto;
-  /* padding: 3px 3px; */
+  /* border: 5px solid #3f362a; */
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  /* width: 95%; */
+  /* max-width: 500px; */
+  /* margin: 10px auto; */
+  padding: 3px 3px;
   background-color: #3f362a;
   color: #fef596;
 }
@@ -147,7 +155,7 @@ input {
   /*border: 1px solid #5f3e29;*/
   /* box-shadow: inset 1px 1px 4px 0px white; */
   /* box-shadow:inset -3px -3px 7px 0px #F6F7BD; */
-  box-shadow: inset -2px -3px 3px 0px #4f501b;
+  /* box-shadow: inset -2px -3px 3px 0px #4f501b; */
 }
 
 .catButton {
@@ -242,7 +250,7 @@ strong {
 }
 
 .margin30Bottom {
-  margin-bottom: 30px;
+  margin-bottom: 30px !important;
 }
 
 .mapSize200 {
@@ -369,23 +377,31 @@ strong {
   animation-direction: alternate;
 }
 
-.backArrowContainer {
-  margin-bottom: 10px;
+.arrowContainer {
+  /* float: left; */
+  cursor: pointer;
+  margin: 10px;
   height: 100%;
-  width: 50px;
-  border-left: 1px solid #e3e3e3;
+  width: 100px;
+  /* border-left: 1px solid #e3e3e3; */
   align-items: center;
   justify-content: center;
-  display: flex;
+  display: inline-flex;
 }
-   .backArrow {
-    border: solid #959595;
-    border-width: 0 2px 2px 0;
-    display: inline-block;
-    padding: 7px;
-    transform: rotate(135deg);
-  }
+.arrow {
+  border: solid #959595;
+  border-width: 0 2px 2px 0;
+  display: inline-block;
+  padding: 7px;
+}
 
+.backArrow {
+  transform: rotate(135deg);
+}
+
+.forwardArrow {
+  transform: rotate(315deg);
+}
 
 /*colors {
   green: #6a863b;

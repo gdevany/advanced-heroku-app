@@ -75,7 +75,7 @@ class Subjects extends React.Component {
     }
 
     return (
-      <div className="container text-center">
+      <div className="containerShort text-center">
         <div>{header}</div>
         <div className={this.props.subjectChosen === "" ? "" : ""}>
           <div className="">{subDivs}</div>

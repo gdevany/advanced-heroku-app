@@ -16,10 +16,6 @@ class SignUpSignIn extends Component {
   render() {
     return (
       <div>
-        <button
-          onClick={this.props.backClicked}
-          className="backButton"
-          >back</button>
         <Row>
           <Col xs={8} xsOffset={2}>
             {this.props.error && this.renderError()}
@@ -33,8 +29,12 @@ class SignUpSignIn extends Component {
             </Tabs>
           </Col>
         </Row>
+        <span className="arrowContainer margin30Bottom" onClick={this.props.backClicked}>
+          <i className="arrow backArrow" />
+          back
+        </span>
       </div>
-    )
+    );
   }
 }
 
