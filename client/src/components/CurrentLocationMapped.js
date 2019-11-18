@@ -38,17 +38,6 @@ const bindResizeListener = (map, maps, bounds) => {
   });
 };
 
-// Fit map to its bounds after the api is loaded
-const apiIsLoaded = (map, maps, places, myLocation) => {
-  console.log(places, myLocation);
-  // Get bounds by our places
-  const bounds = getMapBounds(map, maps, places, myLocation);
-  // Fit map to bounds
-  map.fitBounds(bounds);
-  // Bind the resize listener
-  bindResizeListener(map, maps, bounds);
-};
-
 class CurrentLocationMapped extends Component {
   constructor(props) {
     super(props);
@@ -62,9 +51,7 @@ class CurrentLocationMapped extends Component {
 
   // If zipEnabledBy user, convertAdd (returns {lat,lng}), set to state center and Redux
   componentDidMount = async () => {
-    if (
-     this.props.zipEnabledBy === "userDidEnterZip"
-    ) {
+    if (this.props.zipEnabledBy === "userDidEnterZip") {
       let centerForUserEnteredZip = await this.convertAdd(this.props.myZip);
       this.setState({ center: centerForUserEnteredZip });
       this.props.setZip(centerForUserEnteredZip);
@@ -121,10 +108,25 @@ class CurrentLocationMapped extends Component {
     return pos;
   };
 
+  // Fit map to its bounds after the api is loaded
+  apiIsLoaded = (map, maps) => {
+    // Get bounds by our places
+    const bounds = getMapBounds(
+      map,
+      maps,
+      this.state.bizLocations[0],
+      this.state.center
+    );
+    // Fit map to bounds
+    map.fitBounds(bounds);
+    // Bind the resize listener
+    bindResizeListener(map, maps, bounds);
+  };
+
   render() {
     const { myZip, searchCoupons } = this.props;
     const { bizLocations, center } = this.state;
-    console.log('pos:',this.props.pos, 'myzip:',myZip, 'center:',center)
+    // console.log('pos:',this.props.pos, 'myzip:',myZip, 'center:',center)
 
     return (
       <div>
@@ -133,32 +135,36 @@ class CurrentLocationMapped extends Component {
             <div className="userLocMarker">{myZip}</div>
           </div>
         )}
-        {bizLocations.length > 0 && searchCoupons && (
-          <div className="buttonBox">
-            {searchCoupons && <div>{searchCoupons}</div>}
-            <GoogleMap
-              center={center}
-              // center={{ lat: pos.lat, lng: pos.lng }}
-              size={"mapSizeWideShort"}
-              yesIWantToUseGoogleMapApiInternals
-              onGoogleApiLoaded={({ map, maps }) =>
-                apiIsLoaded(map, maps, bizLocations[0], center)
-              }
-            >
-              {bizLocations[0].map((address, i) => {
-                return (
-                  <BizMarkers
-                    logo={address.bizLogo}
-                    lat={address.pos.lat}
-                    lng={address.pos.lng}
-                    key={i}
-                  />
-                );
-              })}
-              <UserLocation myZip={myZip} lat={center.lat} lng={center.lng} />
-            </GoogleMap>
-          </div>
-        )}
+        {bizLocations.length > 0 &&
+          searchCoupons &&
+          (bizLocations[0].length > 0 ? (
+            <div className="buttonBox">
+              {searchCoupons && <div>{searchCoupons}</div>}
+              <GoogleMap
+                center={center}
+                // center={{ lat: pos.lat, lng: pos.lng }}
+                size={"mapSizeWideShort"}
+                yesIWantToUseGoogleMapApiInternals
+                onGoogleApiLoaded={({ map, maps }) =>
+                  this.apiIsLoaded(map, maps)
+                }
+              >
+                {bizLocations[0].map((address, i) => {
+                  return (
+                    <BizMarkers
+                      logo={address.bizLogo}
+                      lat={address.pos.lat}
+                      lng={address.pos.lng}
+                      key={i}
+                    />
+                  );
+                })}
+                <UserLocation myZip={myZip} lat={center.lat} lng={center.lng} />
+              </GoogleMap>
+            </div>
+          ) : (
+            <div>Sorry, there are no results</div>
+          ))}
       </div>
     );
   }

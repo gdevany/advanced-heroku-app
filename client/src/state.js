@@ -4,7 +4,6 @@ export default {
   loggedIn: "",
   usersCoupons: [],
   filteredCoupons: [],
-  // zip: 0,
   userPosition: {
     zip: 0,
     pos: {
@@ -18,39 +17,28 @@ export default {
   //
   category: [
     {
-      "subject": "Food",
-      "types": [
-        "Fast Food",
-        "Sit Down",
-        "Regional",
-        "Fine Dining"]
+      subject: "Food",
+      types: ["Fast Food", "Sit Down", "Regional", "Fine Dining"]
     },
     {
-      "subject": "Merchandise",
-      "types": [
-        "Clothing",
-        "Auto",
-        "Grocery"]
+      subject: "Merchandise",
+      types: ["Clothing", "Auto", "Grocery"]
     },
     {
-      "subject": "Hotels",
-      "types": [
-        "Cheap",
-        "Fancy",
-        "Other"]
+      subject: "Health & Wellness",
+      types: ["Spa Treatments", "Hair & Face", "Products", "Other"]
     },
     {
-      "subject": "Sports & Outdoors",
-      "types": [
-        "Golf",
-        "Bowling",
-        "Other"]
+      subject: "Hotels",
+      types: ["Cheap", "Fancy", "Other"]
     },
     {
-      "subject": "Other",
-      "types": [
-        "Other"
-      ]
+      subject: "Sports & Outdoors",
+      types: ["Golf", "Bowling", "Other"]
+    },
+    {
+      subject: "Other",
+      types: ["Other"]
     }
-  ],
-}
+  ]
+};

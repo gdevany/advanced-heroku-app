@@ -46,6 +46,8 @@ class ShowCoupon extends Component {
       <div>
         <div className="row">
           <div className="col-xs-12 text-center">
+            {coupon.notDeletable && 
+          <div className="sampler">sample</div>}
             <address>
               <strong>{coupon.bizName}</strong>
               <br />

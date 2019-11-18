@@ -480,6 +480,7 @@ strong {
 .couponShort {
   /* margin-left: auto;
   margin-right: auto; */
+  position: relative;
   margin: 7px auto;
   max-width: 500px;
   border-style: solid;
@@ -491,6 +492,20 @@ strong {
   width: 95%;
   padding: 0.5em 0.5em;
   background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%);
+}
+
+.sampler {
+  position: absolute;
+  height: auto;
+  /* right: 0; */
+  left: 0;
+  /* top: 0; */
+  bottom: 0;
+  margin: auto auto;
+  color: red;
+  font-size: 100px;
+  opacity: 0.2;
+  transform: rotate(320deg);
 }
 
 .couponFade {
