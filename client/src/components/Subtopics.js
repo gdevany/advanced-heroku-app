@@ -40,14 +40,14 @@ function Subtopics(props) {
       // and set backButton to change SUBJECT Chosen to blank
       backButton = (
         <div>
-          <span className="arrowContainer pull-left">
-            <i
-              className="arrow backArrow"
-              onClick={e => {
-                e.preventDefault();
-                props.setSubjectChosen("");
-              }}
-            />
+          <span
+            className="arrowContainer pull-left"
+            onClick={e => {
+              e.preventDefault();
+              props.setSubjectChosen("");
+            }}
+          >
+            <i className="arrow backArrow" />
             back
           </span>
         </div>
@@ -60,14 +60,14 @@ function Subtopics(props) {
       // and set backButton to change SUBTOPIC chosen (searchCoupons) to blank
       backButton = (
         <div>
-          <div className="arrowContainer pull-left">
-            <i
-              className="arrow backArrow"
-              onClick={e => {
-                e.preventDefault();
-                props.setSearchCoupons("");
-              }}
-            />
+          <div
+            className="arrowContainer pull-left"
+            onClick={e => {
+              e.preventDefault();
+              props.setSearchCoupons("");
+            }}
+          >
+            <i className="arrow backArrow" />
             back
           </div>
         </div>

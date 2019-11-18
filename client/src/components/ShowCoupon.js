@@ -56,7 +56,7 @@ class ShowCoupon extends Component {
             </address>
           </div>
         </div>
-        <div className="row text-left">
+        <div className="row text-center">
           <div>
             {"* "}
             {coupon.couponDesc}

@@ -490,7 +490,7 @@ strong {
   font-size: 0.7em;
   width: 95%;
   padding: 0.5em 0.5em;
-  /* background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%); */
+  background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%);
 }
 
 .couponFade {

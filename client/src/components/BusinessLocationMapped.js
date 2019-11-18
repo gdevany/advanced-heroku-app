@@ -2,16 +2,17 @@ import React, { Component } from "react";
 import GoogleMap from "./GoogleMap";
 import convertAddressToLatLng from "./ConvertAddressToLatLng";
 
-const BizDistance = ({ distance, logo }) => (
-  <div>
-    <div className="blink2 mapLogoMarkerContainer userLocMCTransform">
-      <img className="imageInContainer" src={logo} alt="bizLogo"></img>
-    </div>
-    <div className="userLocMarkerContainer userLocMCTransform">
-      <div className="userLocMarker">{distance} mi</div>
-    </div>
+const BizDistance = ({ logo }) => (
+  <div className="blink2 mapLogoMarkerContainer userLocMCTransform">
+    <img className="imageInContainer" src={logo} alt="bizLogo"></img>
   </div>
 );
+
+const UserLocation = ({ distance }) => (
+  <div className="userLocMarkerContainer userLocMCTransform">
+    <div className="userLocMarker">{distance} mi</div>
+  </div>
+)
 
 class BusinessLocationMapped extends Component {
   constructor(props) {
@@ -130,7 +131,7 @@ class BusinessLocationMapped extends Component {
 
   render() {
     const { bizLat, bizLng, distanceUserToBiz } = this.state;
-    const { coupon } = this.props;
+    const { coupon, userPosition } = this.props;
     return (
       <div>
         {bizLat !== 0 && bizLng !== 0 ? (
@@ -146,10 +147,14 @@ class BusinessLocationMapped extends Component {
               }
             >
               <BizDistance
-                distance={distanceUserToBiz}
                 logo={coupon.bizLogo}
                 lat={bizLat}
                 lng={bizLng}
+              />
+              <UserLocation 
+                distance={distanceUserToBiz}
+                lat={userPosition.lat}
+                lng={userPosition.lng}
               />
             </GoogleMap>
           </div>
