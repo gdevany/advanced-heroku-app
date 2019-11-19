@@ -151,8 +151,8 @@ input {
   border-radius: 4px;
   margin: 3px;
   color: black;
-  padding: 10px 15px;
-  /*border: 1px solid #5f3e29;*/
+  padding: 10px 15px 0;
+  border: 1px solid #5f3e29;
   /* box-shadow: inset 1px 1px 4px 0px white; */
   /* box-shadow:inset -3px -3px 7px 0px #F6F7BD; */
   /* box-shadow: inset -2px -3px 3px 0px #4f501b; */
@@ -287,7 +287,7 @@ strong {
   text-align: center;
   align-items: center;
   justify-content: center;
-  border-radius: 100%;
+  border-radius: 50px;
   border: 1px solid black;
 }
 
