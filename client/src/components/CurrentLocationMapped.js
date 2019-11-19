@@ -130,10 +130,9 @@ class CurrentLocationMapped extends Component {
   };
 
   render() {
-    const { myZip, searchCoupons } = this.props;
+    const { myZip, searchCoupons, loggedIn } = this.props;
     const { bizLocations, center } = this.state;
     // console.log('pos:',this.props.pos, 'myzip:',myZip, 'center:',center)
-
     return (
       <div>
         {myZip && bizLocations.length < 1 && (
@@ -142,7 +141,7 @@ class CurrentLocationMapped extends Component {
           </div>
         )}
         {bizLocations.length > 0 &&
-          searchCoupons &&
+          searchCoupons && !loggedIn &&
           (bizLocations[0].length > 0 ? (
             <div className="buttonBox">
               {searchCoupons && <div>{searchCoupons}</div>}

@@ -81,12 +81,13 @@ class Subjects extends React.Component {
           <div className="">{subDivs}</div>
           <Subtopics />
         </div>
+        {this.props.loggedIn && 
         <div>
           <CreateCoupons
             toggleShow={this.loadCreateCoupon}
             showCreateCoupon={this.state.showCreateCoupon}
           />
-        </div>
+        </div>}
       </div>
     );
   }
