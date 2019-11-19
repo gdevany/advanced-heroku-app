@@ -3,7 +3,7 @@ import { geolocated } from "react-geolocated";
 import GoogleMap from "./GoogleMap";
 import CurrentLocationMapped from "./CurrentLocationMapped";
 
-class ZipcodeSetter extends React.Component {
+class Geolocated extends React.Component {
   constructor() {
     super();
     this.state = {
@@ -152,4 +152,4 @@ export default geolocated({
     enableHighAccuracy: false
   },
   userDecisionTimeout: 5000
-})(ZipcodeSetter);
+})(Geolocated);

@@ -3,7 +3,7 @@ import "./App.css";
 import AppSign from "./containers/AppSignContainer";
 import Subjects from "./containers/SubjectsContainer";
 import ShowCoupons from "./containers/ShowCouponsContainer";
-import ZipcodeSetter from "./containers/GeolocatedContainer";
+import Geolocated from "./containers/GeolocatedContainer";
 import Header from "./containers/HeaderContainer";
 // import Disclaimer from "./components/Disclaimer";
 
@@ -12,7 +12,7 @@ function App() {
     <div className="App">
       <AppSign />
       <Header />
-      <ZipcodeSetter />
+      <Geolocated />
       <Subjects />
       <ShowCoupons />
       {/* <Disclaimer /> */}

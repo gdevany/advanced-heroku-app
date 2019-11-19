@@ -75,6 +75,7 @@ class CurrentLocationMapped extends Component {
         usersCoupons: [],
         bizLocations: [newMarkers, ...this.state.bizLocations]
       });
+      console.log(this.state.bizLocations[0])
     }
     if (this.props.usersCoupons !== prevProps.usersCoupons) {
       this.setState({
@@ -109,7 +110,10 @@ class CurrentLocationMapped extends Component {
   };
 
   // Fit map to its bounds after the api is loaded
+  // Wrap in timeout due to state variable conversion delay
   apiIsLoaded = (map, maps) => {
+    setTimeout(() => {
+    console.log(this.state.bizLocations[0])
     // Get bounds by our places
     const bounds = getMapBounds(
       map,
@@ -117,10 +121,12 @@ class CurrentLocationMapped extends Component {
       this.state.bizLocations[0],
       this.state.center
     );
+    console.log(bounds)
     // Fit map to bounds
     map.fitBounds(bounds);
     // Bind the resize listener
     bindResizeListener(map, maps, bounds);
+  }, 1000)
   };
 
   render() {
