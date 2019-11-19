@@ -1,5 +1,7 @@
 import React from "react";
 import ShowCoupon from "./ShowCoupon";
+import {Animated} from "react-animated-css";
+
 
 class ShowCoupons extends React.Component {
   constructor(props) {
@@ -106,7 +108,15 @@ class ShowCoupons extends React.Component {
     return (
       <div className="container-fluid couponMargin">
         {this.props.searchCoupons !== "" || this.props.loggedIn !== "" ? (
-          <div>{this.displayCoupons()}</div>
+          <Animated
+            animationIn="fadeInUp"
+            animationOut="fadeOut"
+            isVisible={true}
+            animationInDuration={2000}
+            animationOutDuration={1000}
+          >
+            <div>{this.displayCoupons()}</div>
+          </Animated>
         ) : (
           <div></div>
         )}

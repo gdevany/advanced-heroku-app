@@ -1,7 +1,6 @@
 import React from "react";
 import Subtopics from "../containers/SubtopicsContainer";
 import CreateCoupons from "../containers/CreateCouponsContainer";
-import { Animated } from "react-animated-css";
 
 class Subjects extends React.Component {
   constructor() {
@@ -79,14 +78,8 @@ class Subjects extends React.Component {
       <div className="containerShort text-center">
         <div>{header}</div>
         <div className={this.props.subjectChosen === "" ? "" : ""}>
-          <Animated
-            animationIn="bounceInLeft"
-            animationOut="fadeOut"
-            isVisible={true}
-          >
-            <div className="">{subDivs}</div>
-            <Subtopics />
-          </Animated>
+          <div className="">{subDivs}</div>
+          <Subtopics />
         </div>
         <div>
           <CreateCoupons
