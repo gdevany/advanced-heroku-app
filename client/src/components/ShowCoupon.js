@@ -26,58 +26,58 @@ class ShowCoupon extends Component {
   };
 
   renderMap = coupon => {
-    console.log(this.props.userPosition);
-    return (
-      <div className="row">
-        {this.state.expandHeader === true && (
-          <BusinessLocationMapped
-            address={coupon.streetAndNum + coupon.zip}
-            distance={this.calculateDistance()}
-            userPosition={this.props.userPosition}
-            coupon={coupon}
-          />
-        )}
-      </div>
-    );
-  };
-
-  renderOfferInfo = coupon => {
     return (
       <Animated
         animationIn="fadeInDown"
         animationOut="fadeOutUp"
         isVisible={true}
-        animationInDuration={1000}
+        animationInDuration={2000}
         animationOutDuration={1000}
       >
-        <div>
-          <div className="row">
-            <div className="col-xs-12 text-center">
-              {coupon.notDeletable && <div className="sampler">sample</div>}
-              <address>
-                <strong>{coupon.bizName}</strong>
-                <br />
-                {coupon.streetAndNum} {coupon.city} <br />
-                <strong>{coupon.zip}</strong>
-                <br />
-                <small>{coupon.bizPhone}</small>
-              </address>
-            </div>
-          </div>
-          <div className="row text-center">
-            <div>
-              {"* "}
-              {coupon.couponDesc}
-              {" *"}
-            </div>
-            <div>
-              {"* "}
-              {coupon.restrictions}
-            </div>
-            <div className="">Offer ID: {coupon._id}</div>
+        <div className="row">
+          {this.state.expandHeader === true && (
+            <BusinessLocationMapped
+              address={coupon.streetAndNum + coupon.zip}
+              distance={this.calculateDistance()}
+              userPosition={this.props.userPosition}
+              coupon={coupon}
+            />
+          )}
+        </div>
+        {this.renderOfferInfo(coupon)}
+      </Animated>
+    );
+  };
+
+  renderOfferInfo = coupon => {
+    return (
+      <div>
+        <div className="row">
+          <div className="col-xs-12 text-center">
+            {coupon.notDeletable && <div className="sampler">sample</div>}
+            <address>
+              <strong>{coupon.bizName}</strong>
+              <br />
+              {coupon.streetAndNum} {coupon.city} <br />
+              <strong>{coupon.zip}</strong>
+              <br />
+              <small>{coupon.bizPhone}</small>
+            </address>
           </div>
         </div>
-      </Animated>
+        <div className="row text-center">
+          <div>
+            {"* "}
+            {coupon.couponDesc}
+            {" *"}
+          </div>
+          <div>
+            {"* "}
+            {coupon.restrictions}
+          </div>
+          <div className="">Offer ID: {coupon._id}</div>
+        </div>
+      </div>
     );
   };
 
@@ -125,8 +125,6 @@ class ShowCoupon extends Component {
             <br />
           </div>
           {this.state.expandHeader === true && this.renderMap(coupon)}
-
-          {this.state.expandHeader === true && this.renderOfferInfo(coupon)}
         </div>
       </div>
     );

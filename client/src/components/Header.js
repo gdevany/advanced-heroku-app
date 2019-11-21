@@ -7,7 +7,7 @@ class Header extends Component {
     return (
       !this.props.searchCoupons && (
         <Animated
-          animationIn="bounceInLeft"
+          animationIn="zoomIn"
           animationOut="fadeOut"
           isVisible={true}
           animationInDuration={1000}
