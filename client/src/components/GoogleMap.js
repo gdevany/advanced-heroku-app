@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import GoogleMapReact from "google-map-react";
+import { Animated } from "react-animated-css";
+
 
 const defaultProps = {
   center : { lat: 30.26, lng: -97.74 },
@@ -8,6 +10,13 @@ const defaultProps = {
 }
 
 const GoogleMap = ({ children, ...props }) => (
+  <Animated
+    animationIn="fadeIn"
+    animationOut="fadeOutDown"
+    isVisible={true}
+    animationInDuration={1000}
+    animationOutDuration={1000}
+  >
   <div className={props.size ? props.size : "mapSize200"}>
     <GoogleMapReact
       bootstrapURLKeys={{
@@ -20,6 +29,7 @@ const GoogleMap = ({ children, ...props }) => (
       {children}
     </GoogleMapReact>
   </div>
+  </Animated>
 );
 
 GoogleMap.propTypes = {

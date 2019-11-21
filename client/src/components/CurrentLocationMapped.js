@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import GoogleMap from "./GoogleMap";
 import convertAddressToLatLng from "./ConvertAddressToLatLng";
+import { Animated } from "react-animated-css";
 
 const UserLocation = ({ myZip }) => (
   <div className="userLocMarkerContainer userLocMCTransform">
@@ -9,9 +10,17 @@ const UserLocation = ({ myZip }) => (
 );
 
 const BizMarkers = ({ logo }) => (
-  <div className="mapLogoMarkerContainer userLocMCTransform">
-    <img className="imageInContainer blink2" src={logo} alt="bizLogo"></img>
-  </div>
+  <Animated
+    animationIn="bounceInLeft"
+    animationOut="fadeOutDown"
+    isVisible={true}
+    animationInDuration={1000}
+    animationOutDuration={1000}
+  >
+    <div className="mapLogoMarkerContainer userLocMCTransform">
+      <img className="imageInContainer blink2" src={logo} alt="bizLogo"></img>
+    </div>
+  </Animated>
 );
 
 // Return map bounds based on list of biz's and myLocation
@@ -75,7 +84,7 @@ class CurrentLocationMapped extends Component {
         usersCoupons: [],
         bizLocations: [newMarkers, ...this.state.bizLocations]
       });
-      console.log(this.state.bizLocations[0])
+      console.log(this.state.bizLocations[0]);
     }
     if (this.props.usersCoupons !== prevProps.usersCoupons) {
       this.setState({
@@ -113,35 +122,43 @@ class CurrentLocationMapped extends Component {
   // Wrap in timeout due to state variable conversion delay
   apiIsLoaded = (map, maps) => {
     setTimeout(() => {
-    console.log(this.state.bizLocations[0])
-    // Get bounds by our places
-    const bounds = getMapBounds(
-      map,
-      maps,
-      this.state.bizLocations[0],
-      this.state.center
-    );
-    console.log(bounds)
-    // Fit map to bounds
-    map.fitBounds(bounds);
-    // Bind the resize listener
-    bindResizeListener(map, maps, bounds);
-  }, 1000)
+      console.log(this.state.bizLocations[0]);
+      // Get bounds by our places
+      const bounds = getMapBounds(
+        map,
+        maps,
+        this.state.bizLocations[0],
+        this.state.center
+      );
+      console.log(bounds);
+      // Fit map to bounds
+      map.fitBounds(bounds);
+      // Bind the resize listener
+      bindResizeListener(map, maps, bounds);
+    }, 1000);
   };
 
   render() {
     const { myZip, searchCoupons, loggedIn } = this.props;
     const { bizLocations, center } = this.state;
+    console.log(searchCoupons);
     // console.log('pos:',this.props.pos, 'myzip:',myZip, 'center:',center)
     return (
       <div>
-        {myZip && bizLocations.length < 1 && (
+        <Animated
+          animationIn="bounceInLeft"
+          animationOut="fadeOutDown"
+          isVisible={myZip && !searchCoupons ? true : false}
+          animationInDuration={1000}
+          animationOutDuration={1000}
+        >
           <div className="userLocMarkerContainer">
             <div className="userLocMarker">{myZip}</div>
           </div>
-        )}
+        </Animated>
         {bizLocations.length > 0 &&
-          searchCoupons && !loggedIn &&
+          searchCoupons &&
+          !loggedIn &&
           (bizLocations[0].length > 0 ? (
             <div className="buttonBox">
               {searchCoupons && <div>{searchCoupons}</div>}
