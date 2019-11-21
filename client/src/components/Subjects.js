@@ -10,84 +10,78 @@ class Subjects extends React.Component {
     };
   }
 
-  loadCreateCoupon = () => {
+  toggleCreateCoupon = () => {
     this.setState(prevState => ({
       showCreateCoupon: !prevState.showCreateCoupon
     }));
   };
 
+  toggleCreateCouponButton = () => {
+    return (
+      <div>
+        <button
+          className="buttonGen margin30Bottom blink"
+          onClick={e => {
+            e.preventDefault();
+            this.toggleCreateCoupon();
+          }}
+        >
+          Create New Coupon
+        </button>
+      </div>
+    );
+  };
+
+  mapSubjects = category => {
+    return category.map((c, i) => {
+      return (
+        <div key={i}>
+          <button
+            className="catButton buttonGen"
+            onClick={e => {
+              e.preventDefault();
+              this.props.setSubjectChosen(c);
+            }}
+          >
+            <strong>{c.subject}</strong>
+          </button>
+        </div>
+      );
+    });
+  };
+
   render() {
     const { subjectChosen, loggedIn, category, userPosition } = this.props;
-    var header = "";
-    //header- if loggedIn, show Welcome
-    //header- if NOT loggedIn, and NOT subjectChosen, show 'Choose Subject'
-    //header- if NOT loggedIn, and subjectChosen, show nothing
-
-    var subDivs = "";
-    // IF User is NOT loggedIn, show the subjects
-    // show the subjects and set subjectChosen when onClicked
+    var header = <div></div>;
+    var subDivs = <div></div>;
 
     if (userPosition.zip !== 0) {
-      if (loggedIn === "") {
-        if (subjectChosen === "") {
-          header = <div className="blink">Choose a subject</div>;
-          subDivs = category.map((c, i) => {
-            return (
-              <div key={i}>
-                <button
-                  className="catButton buttonGen"
-                  onClick={e => {
-                    e.preventDefault();
-                    this.props.setSubjectChosen(c);
-                  }}
-                >
-                  <strong>{c.subject}</strong>
-                </button>
-              </div>
-            );
-          });
-        } else {
-          // show just subjectChosen when chosen
-          header = <div></div>;
-          // subDivs = (
-          //   <button className="chosenCat buttonGen">
-          //     {subjectChosen.subject}
-          //   </button>
-          // );
-        }
-      } else {
-        //If user loggedIn, show welcome and options
+      if (loggedIn) {
         header = <div></div>;
-        subDivs = (
-          <div>
-            <button
-              className="buttonGen margin30Bottom blink"
-              onClick={e => {
-                e.preventDefault();
-                this.loadCreateCoupon();
-              }}
-            >
-              Create New Coupon
-            </button>
-          </div>
-        );
+        subDivs = this.toggleCreateCouponButton();
+      } else {
+        if (!subjectChosen) {
+          header = <div className="blink">Choose a subject</div>;
+          subDivs = this.mapSubjects(category);
+        }
       }
     }
 
     return (
       <div className="containerShort text-center">
         <div>{header}</div>
-        <div className={this.props.subjectChosen === "" ? "" : ""}>
+        <div>
           <div className="">{subDivs}</div>
           <Subtopics />
         </div>
-        {this.props.loggedIn && 
-        <div>
-          <CreateCoupons
-            toggleShow={this.loadCreateCoupon}
-            showCreateCoupon={this.state.showCreateCoupon}
-          />
-        </div>}
+        {this.props.loggedIn && (
+          <div>
+            <CreateCoupons
+              toggleShow={this.toggleCreateCoupon}
+              showCreateCoupon={this.state.showCreateCoupon}
+            />
+          </div>
+        )}
       </div>
     );
   }
