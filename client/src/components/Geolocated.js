@@ -21,7 +21,7 @@ class Geolocated extends React.Component {
 
   // load geolocation
   componentDidMount() {
-    this.loadGeolocation();
+    this.loadGeolocation().then(() => this.setState({ loadingWarning: true }));
   }
 
   // action of loading geolocation
@@ -77,9 +77,8 @@ class Geolocated extends React.Component {
 
   showInputZip = message => {
     let choice = (
-      <div>
-        <div>{message}</div>
-        <div>or</div>
+      <div className="customBox">
+        <div className="margin30Bottom">{message}</div>
         <div>
           <input
             type="text"
@@ -90,6 +89,7 @@ class Geolocated extends React.Component {
             }}
           />
         </div>
+        <div className="margin30Bottom"><small>Enter your zip</small></div>
         <button type="submit" onClick={() => this.zipSubmitted()}>
           submit
         </button>
@@ -99,6 +99,7 @@ class Geolocated extends React.Component {
   };
 
   render() {
+    console.log(this.state.loadingWarning);
     const {
       userPosition,
       userEnteredZip,
@@ -109,12 +110,14 @@ class Geolocated extends React.Component {
       loggedIn,
       searchCoupons,
       filteredCoupons,
-      usersCoupons
+      usersCoupons,
+      isGeolocationAvailable,
+      isGeolocationEnabled
     } = this.props;
 
-    let message = !this.props.isGeolocationAvailable
+    let message = !isGeolocationAvailable
       ? "Your browser does not support Geolocation"
-      : !this.props.isGeolocationEnabled
+      : !isGeolocationEnabled
       ? "Geolocation is not enabled"
       : "Try refreshing your browser";
 
@@ -137,10 +140,10 @@ class Geolocated extends React.Component {
               geolocateSuccessful ? "geolocateSuccessful" : "userDidEnterZip"
             }
           />
-        ) : this.state.loadingWarning ? (
+        ) : !isGeolocationAvailable || !isGeolocationEnabled ? (
           this.showInputZip(message)
         ) : (
-          this.showInputZip(message)
+          <div>...loading</div>
         )}
       </div>
     );

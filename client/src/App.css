@@ -113,7 +113,7 @@ input {
 
 .zipBox {
   font-family: "Luckiest Guy", cursive;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
 }
 
 .buttonBox {
@@ -510,4 +510,12 @@ strong {
 
 .couponFade {
   opacity: 0.3;
+}
+
+.customBox {
+  border: 1px solid black;
+  border-radius: 5px;
+  background-color: #e6ac27;
+  color: #3f362a;
+  padding: 20px;
 }
