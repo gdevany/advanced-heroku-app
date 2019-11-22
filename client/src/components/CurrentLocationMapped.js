@@ -130,7 +130,6 @@ class CurrentLocationMapped extends Component {
         this.state.bizLocations[0],
         this.state.center
       );
-      console.log(bounds);
       // Fit map to bounds
       map.fitBounds(bounds);
       // Bind the resize listener
@@ -141,8 +140,7 @@ class CurrentLocationMapped extends Component {
   render() {
     const { myZip, searchCoupons, loggedIn } = this.props;
     const { bizLocations, center } = this.state;
-    console.log(searchCoupons);
-    // console.log('pos:',this.props.pos, 'myzip:',myZip, 'center:',center)
+    
     return (
       <div>
         <Animated
@@ -161,7 +159,7 @@ class CurrentLocationMapped extends Component {
           !loggedIn &&
           (bizLocations[0].length > 0 ? (
             <div className="buttonBox">
-              {searchCoupons && <div>{searchCoupons}</div>}
+              {searchCoupons && <div className="floatLeftWithPadding">{searchCoupons}</div>}
               <GoogleMap
                 center={center}
                 // center={{ lat: pos.lat, lng: pos.lng }}

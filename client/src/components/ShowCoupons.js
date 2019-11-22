@@ -112,7 +112,7 @@ class ShowCoupons extends React.Component {
             animationIn="fadeInUp"
             animationOut="fadeOut"
             isVisible={true}
-            animationInDuration={2000}
+            animationInDuration={3000}
             animationOutDuration={1000}
           >
             <div>{this.displayCoupons()}</div>

@@ -53,7 +53,7 @@ class ShowCoupon extends Component {
     return (
       <div>
         <div className="row">
-          <div className="col-xs-12 text-center">
+          <div className="text-center">
             {coupon.notDeletable && <div className="sampler">sample</div>}
             <address>
               <strong>{coupon.bizName}</strong>
@@ -65,7 +65,7 @@ class ShowCoupon extends Component {
             </address>
           </div>
         </div>
-        <div className="row text-center">
+        <div className="row bizInfoBlock text-center">
           <div>
             {"* "}
             {coupon.couponDesc}

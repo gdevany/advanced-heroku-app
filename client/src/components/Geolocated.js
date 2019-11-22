@@ -99,7 +99,6 @@ class Geolocated extends React.Component {
   };
 
   render() {
-    console.log(this.state.loadingWarning);
     const {
       userPosition,
       userEnteredZip,

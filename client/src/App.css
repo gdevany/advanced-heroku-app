@@ -23,6 +23,17 @@ input {
   text-align: center;
 }
 
+address {
+  /* margin: 5px auto; */
+  margin: 0 50px 20px;
+  border-radius: 5px;
+  background-color: #f4f4f4;
+  border-top: 1px solid;
+  border-right: 1px solid;
+  border-bottom: 1px solid;
+  border-left: 1px solid;
+}
+
 ::placeholder {
   font-size: 1em;
   opacity: 0.5;
@@ -37,12 +48,12 @@ input {
   font-family: "Luckiest Guy", cursive;
   text-decoration: blink;
   padding: 10px;
-  border-radius: 10px;
-  border-top: 1px solid #00000042;
-  border-left: 1px solid #00000042;
+  /* border-radius: 0 0 40px; */
+  border-radius: 5px;
+  border-top: 1px solid #00000000;
+  border-left: 1px solid #00000000;
   box-shadow: inset -2px -3px 3px 0px #4f501b;
-  /* background: linear-gradient(to bottom right, #f6f7bd 2%, #e6ac27 7%); */
-  background: linear-gradient(to bottom right, #3f362a -31%, #f4f4f4 37%);
+  background: linear-gradient(to bottom right, #3f362a -100%, #f4f4f4 37%);
 }
 
 .headingLogo {
@@ -92,6 +103,11 @@ input {
   border: 1px solid black;
 }
 
+.floatLeftWithPadding {
+  text-align: left;
+  padding-left: 10px;
+}
+
 .marginBottom1 {
   margin-bottom: 1em;
 }
@@ -116,16 +132,20 @@ input {
   /* margin-bottom: 30px; */
 }
 
+.bizInfoBlock {
+  color: #f4f4f4;
+}
+
 .buttonBox {
   /* border: 5px solid #3f362a; */
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
   /* width: 95%; */
   /* max-width: 500px; */
-  /* margin: 10px auto; */
+  margin: 10px auto;
   padding: 3px 3px;
-  background-color: #3f362a;
-  color: #f4f4f4;;
+  background-color: #62625a;
+  color: #f4f4f4;
 }
 
 .buttonBox2 {
@@ -484,23 +504,24 @@ strong {
   margin: 7px auto;
   max-width: 500px;
   border-style: solid;
-  border-width: 1px;
+  border-width: 2px;
   border-color: #5f3e29;
-  background-color: #e6ac27;
+  /* background-color: #e6ac27; */
+  background-color: #62625a;
   color: black;
   font-size: 0.7em;
   width: 95%;
-  padding: 0.5em 0.5em;
-  background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%);
+  padding: 0.1em 0.1em;
+  /* background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%); */
 }
 
 .sampler {
   position: absolute;
   height: auto;
-  /* right: 0; */
+  right: 0;
   left: 0;
   /* top: 0; */
-  bottom: 0;
+  bottom: 50px;
   margin: auto auto;
   color: red;
   font-size: 100px;
