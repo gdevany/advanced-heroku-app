@@ -140,10 +140,10 @@ class CurrentLocationMapped extends Component {
   render() {
     const { myZip, searchCoupons, loggedIn } = this.props;
     const { bizLocations, center } = this.state;
-    
+
     return (
       <div>
-        <Animated
+        {/* <Animated
           animationIn="bounceInLeft"
           animationOut="fadeOutDown"
           isVisible={myZip && !searchCoupons ? true : false}
@@ -153,13 +153,31 @@ class CurrentLocationMapped extends Component {
           <div className="userLocMarkerContainer">
             <div className="userLocMarker">{myZip}</div>
           </div>
-        </Animated>
+        </Animated> */}
+        {!searchCoupons && (
+          <Animated
+            animationIn="bounceInLeft"
+            animationOut="fadeOutDown"
+            isVisible={myZip && !searchCoupons ? true : false}
+            animationInDuration={1000}
+            animationOutDuration={1000}
+          >
+            <div className="buttonBox">
+              <div className="floatLeftWithPadding">Your location</div>
+              <GoogleMap center={center} size={"mapSizeWideShort"}>
+                <UserLocation myZip={myZip} lat={center.lat} lng={center.lng} />
+              </GoogleMap>
+            </div>
+          </Animated>
+        )}
         {bizLocations.length > 0 &&
           searchCoupons &&
           !loggedIn &&
           (bizLocations[0].length > 0 ? (
             <div className="buttonBox">
-              {searchCoupons && <div className="floatLeftWithPadding">{searchCoupons}</div>}
+              {searchCoupons && (
+                <div className="floatLeftWithPadding">{searchCoupons}</div>
+              )}
               <GoogleMap
                 center={center}
                 // center={{ lat: pos.lat, lng: pos.lng }}

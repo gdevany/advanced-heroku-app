@@ -5,7 +5,7 @@ import {Animated} from "react-animated-css";
 class Header extends Component {
   render() {
     return (
-      !this.props.searchCoupons && (
+      this.props.myZip !== 0 && (
         <Animated
           animationIn="zoomIn"
           animationOut="fadeOut"

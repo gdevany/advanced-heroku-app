@@ -9,7 +9,7 @@ import Header from "./containers/HeaderContainer";
 
 function App() {
   return (
-    <div className="App">
+    <div className="app">
       <AppSign />
       <Header />
       <Geolocated />

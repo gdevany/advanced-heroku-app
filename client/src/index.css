@@ -13,11 +13,11 @@ body {
   /* background-color: rgba(94, 65, 47, 0.2); */
   /* background-color: #5e412f33; */
   background-color: #ded9d5;
-  min-height: 800px;
+  /* min-height: 800px;
   background-image: url("../img/Color1970scopy.png");
   background-size: 4em 100%;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: right; */
 }
 
 .navbar-inverse, navbar {

@@ -1,9 +1,23 @@
+.app {
+  min-height: 800px;
+  background-image: url("../img/Color1970scopy.png");
+  background-size: 4em 100%;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
 .container {
   width: 100%;
 }
 
 .containerShort {
   width: 95%;
+  max-width: 500px;
+  margin: auto;
+}
+
+.containerFullWide {
+  width: 100%;
   max-width: 500px;
   margin: auto;
 }
@@ -60,10 +74,12 @@ address {
   line-height: 0.2em;
   font-family: "Monoton";
   font-size: 4em;
-  color: #fef596;
-  margin-top: 30px;
+  /* color: #fef596; */
+  /* margin-top: 30px; */
+  color: black;
   letter-spacing: 0.1em;
-  text-shadow: -1px 0 black, 0 1px black, 4px 0 black, 0 -1px black;
+  text-shadow: -1px 0 #fef596, 0 1px #fef596, 4px 0 #fef596, 0 -1px #fef596;
+  /* text-shadow: -1px 0 black, 0 1px black, 4px 0 black, 0 -1px black; */
 }
 
 .headingLogoMini {
