@@ -10,12 +10,16 @@ import Header from "./containers/HeaderContainer";
 function App() {
   return (
     <div className="app">
-      <AppSign />
-      <Header />
-      <Geolocated />
-      <Subjects />
-      <ShowCoupons />
-      {/* <Disclaimer /> */}
+      <div className="headingContainer">
+        <Header />
+        <AppSign />
+      </div>
+      <div className="contentContainer">
+        <Geolocated />
+        <Subjects />
+        <ShowCoupons />
+        {/* <Disclaimer /> */}
+      </div>
     </div>
   );
 }

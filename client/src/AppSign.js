@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import "./AppSign.css";
 import SignUpSignIn from "./SignUpSignIn";
 import TopNavbar from "./TopNavbar";
 import Secret from "./Secret";
@@ -142,7 +141,7 @@ class AppSign extends Component {
 
     return (
       <BrowserRouter>
-        <div className="AppSign">
+        <div className="appSign">
           <TopNavbar
             showNavItems={this.state.authenticated}
             onSignOut={this.handleSignOut}

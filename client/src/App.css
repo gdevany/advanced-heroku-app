@@ -1,9 +1,15 @@
 .app {
   min-height: 800px;
-  background-image: url("../img/Color1970scopy.png");
-  background-size: 4em 100%;
+  /* background-image: url("../img/Color1970scopy.png"); */
+  background-size: 3em 100%;
   background-repeat: no-repeat;
   background-position: right;
+  color: #f4f4f4;
+}
+
+.appSign {
+  justify-content: center;
+  background-color: #f4f4f4;
 }
 
 .container {
@@ -53,25 +59,50 @@ address {
   opacity: 0.5;
 }
 
+.navbar {
+  margin-bottom: 0;
+}
+
+.navbar-toggle {
+  padding: 4px 4px;
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  border-color: #ff0000 !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-toggle {
+    display: none;
+  }
+}
+
 .offer {
   display: flex;
   align-items: center;
   font-size: 1em;
-  background-color: #f4f4f4;
   color: #3f362a;
   font-family: "Luckiest Guy", cursive;
   text-decoration: blink;
   padding: 10px;
   border-radius: 5px;
-  /* border-radius: 0 0 40px; */
-  /* border-radius: 5px 50px 50px 0; */
-  border: 1px solid #00000000;
+  border: 1px solid #f4f4f4;
+  background-color: #f4f4f4;
   box-shadow: inset -2px -3px 3px 0px #4f501b;
-  background: linear-gradient(to bottom right, #3f362a -100%, #f4f4f4 37%);
+  /* background: linear-gradient(to bottom right, #3f362a -100%, #f4f4f4 37%); */
+}
+
+.headingContainer {
+  background-color: #f4f4f4;
+}
+
+.contentContainer {
+  border: 2px solid #ff0000;
 }
 
 .headingLogo {
-  line-height: 0.2em;
+  /* line-height: 0.2em; */
   font-family: "Monoton";
   font-size: 4em;
   /* color: #fef596; */
@@ -86,9 +117,10 @@ address {
   font-family: "Chicle", cursive;
   font-size: 2em;
   /*color: #7b8859;*/
+  background-color: #f4f4f4;
   color: #78c0a8;
-
-  margin-bottom: 30px;
+  margin-top: -43px;
+  /* margin-bottom: 30px; */
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 -1px black;
 }
@@ -155,13 +187,12 @@ address {
 
 .buttonBox {
   /* border: 5px solid #3f362a; */
+  border: 1px solid #ff0000;
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
-  /* width: 95%; */
-  /* max-width: 500px; */
   margin: 3px auto 10px;
   padding: 3px 3px;
-  background-color: #62625a;
+  background-color: #383838;
   color: #f4f4f4;
 }
 
@@ -189,10 +220,10 @@ address {
   margin: 3px;
   color: black;
   padding: 10px 15px 0;
-  border: 1px solid #5f3e29;
+  /* border: 1px solid #5f3e29; */
   /* box-shadow: inset 1px 1px 4px 0px white; */
   /* box-shadow:inset -3px -3px 7px 0px #F6F7BD; */
-  /* box-shadow: inset -2px -3px 3px 0px #4f501b; */
+  box-shadow: inset -2px -3px 3px 0px #4f501b;
 }
 
 .catButton {
@@ -224,7 +255,7 @@ address {
   height: 7em;
   background-color: white;
   border-right: 1px solid;
-    border-bottom: 1px solid;
+  border-bottom: 1px solid;
   border-radius: 10px;
   box-shadow: inset -2px -4px 7px 0px #4f501b;
   position: relative;
@@ -286,6 +317,10 @@ address {
 
 strong {
   font-size: 1.3em;
+}
+
+.margin30top {
+  margin-top: 30px !important;
 }
 
 .margin30Bottom {
@@ -417,21 +452,23 @@ strong {
 }
 
 .arrowContainer {
-  /* float: left; */
+  /* border: 1px solid #f4f4f4; */
+  color: #ff0000;
+  padding: 3px 0;
   cursor: pointer;
   margin: 10px;
   height: 100%;
-  width: 100px;
-  /* border-left: 1px solid #e3e3e3; */
+  width: 80px;
   align-items: center;
   justify-content: center;
   display: inline-flex;
 }
 .arrow {
-  border: solid #959595;
+  /* border: solid #959595; */
+  border: solid #ff0000;
   border-width: 0 2px 2px 0;
   display: inline-block;
-  padding: 7px;
+  padding: 4px;
 }
 
 .backArrow {

@@ -29,7 +29,7 @@ function Subtopics(props) {
     return (
       <div>
         <span
-          className="arrowContainer pull-left"
+          className="arrowContainer"
           onClick={e => {
             e.preventDefault();
             props.setSubjectChosen("");
@@ -46,14 +46,14 @@ function Subtopics(props) {
     return (
       <div>
         <div
-          className="arrowContainer pull-left"
+          className="arrowContainer"
           onClick={e => {
             e.preventDefault();
             props.setSearchCoupons("");
           }}
         >
           <i className="arrow backArrow" />
-          back
+          {" "}back
         </div>
       </div>
     );

@@ -121,7 +121,7 @@ class Geolocated extends React.Component {
       : "Try refreshing your browser";
 
     return (
-      <div className="containerShort margin30Bottom text-center">
+      <div className="containerShort margin30top text-center">
         <div className="smallText marginBottom1">
           Offers will be filtered on your current zipcode
         </div>

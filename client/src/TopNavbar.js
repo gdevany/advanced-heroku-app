@@ -10,14 +10,14 @@ const TopNavbar = (props) => {
   if (props.showNavItems) {
     // If signed in (authenticated), show Welcome
     navItems = (
-                <Nav pullRight>
+                <Nav>
                   <NavItem onClick={props.onSignOut}>Sign Out</NavItem>
                 </Nav>
               );
   } else {
     // If NOT signed in (authenticated), show Sign In
     navItems = (
-        <Nav pullRight>
+        <Nav>
           <NavItem onClick={props.signInClicked}>Sign Up / Sign In</NavItem>
         </Nav>
     )
