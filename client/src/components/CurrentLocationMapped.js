@@ -164,7 +164,7 @@ class CurrentLocationMapped extends Component {
           >
             <div className="buttonBox">
               <div className="floatLeftWithPadding">Your location</div>
-              <GoogleMap center={center} size={"mapSizeWideShort"}>
+              <GoogleMap center={center} size={searchCoupons ? "mapGen mapSizeWideShort" : "mapGen mapSize100"}>
                 <UserLocation myZip={myZip} lat={center.lat} lng={center.lng} />
               </GoogleMap>
             </div>
@@ -181,7 +181,7 @@ class CurrentLocationMapped extends Component {
               <GoogleMap
                 center={center}
                 // center={{ lat: pos.lat, lng: pos.lng }}
-                size={"mapSizeWideShort"}
+                size={"mapGen mapSizeWideShort"}
                 yesIWantToUseGoogleMapApiInternals
                 onGoogleApiLoaded={({ map, maps }) =>
                   this.apiIsLoaded(map, maps)

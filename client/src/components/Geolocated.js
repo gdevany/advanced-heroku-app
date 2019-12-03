@@ -122,7 +122,7 @@ class Geolocated extends React.Component {
 
     return (
       <div className="containerShort margin30top text-center">
-        <div className="smallText marginBottom1">
+        <div className="smallText margin30Bottom">
           Offers will be filtered on your current zipcode
         </div>
         <GoogleMap size={"mapSizeNone"}></GoogleMap>

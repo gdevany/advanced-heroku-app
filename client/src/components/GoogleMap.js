@@ -17,7 +17,7 @@ const GoogleMap = ({ children, ...props }) => (
     animationInDuration={1000}
     animationOutDuration={1000}
   >
-  <div className={props.size ? props.size : "mapSize200"}>
+  <div className={props.size ? props.size : "mapGen mapSizeWideShort"}>
     <GoogleMapReact
       bootstrapURLKeys={{
         key: "AIzaSyDU0RdP86Lah-317lEyXzfVrHPisuCgJow"

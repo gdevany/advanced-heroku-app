@@ -140,7 +140,7 @@ class BusinessLocationMapped extends Component {
               defaultCenter={this.props.center}
               defaultZoom={11}
               center={{ lat: bizLat, lng: bizLng }}
-              size={"mapSizeWideShort"}
+              size={"mapGen mapSizeWideShort"}
               yesIWantToUseGoogleMapApiInternals
               onGoogleApiLoaded={({ map, maps }) =>
                 this.handleApiLoaded(map, maps, bizLat, bizLng)

@@ -33,6 +33,10 @@ body {
   /* border: 1px solid #3f362a; */
 }
 
+.nav-tabs {
+  margin-top: 30px;
+}
+
 .nav-tabs > li > a {
   border: 1px solid #fef596;
 }
