@@ -12,7 +12,7 @@ const UserLocation = ({ distance }) => (
   <div className="userLocMarkerContainer userLocMCTransform">
     <div className="userLocMarker">{distance} mi</div>
   </div>
-)
+);
 
 class BusinessLocationMapped extends Component {
   constructor(props) {
@@ -146,12 +146,8 @@ class BusinessLocationMapped extends Component {
                 this.handleApiLoaded(map, maps, bizLat, bizLng)
               }
             >
-              <BizDistance
-                logo={coupon.bizLogo}
-                lat={bizLat}
-                lng={bizLng}
-              />
-              <UserLocation 
+              <BizDistance logo={coupon.bizLogo} lat={bizLat} lng={bizLng} />
+              <UserLocation
                 distance={distanceUserToBiz}
                 lat={userPosition.lat}
                 lng={userPosition.lng}

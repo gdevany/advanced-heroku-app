@@ -40,11 +40,10 @@ class Subjects extends React.Component {
             className="catButton buttonGen"
             onClick={e => {
               e.preventDefault();
-              console.log(c)
-              if(c.subject !== "Food") {
-                alert('For development reasons, only Food has samples')
-              } else
-              this.props.setSubjectChosen(c);
+              console.log(c);
+              if (c.subject !== "Food") {
+                alert("For development reasons, only Food has samples");
+              } else this.props.setSubjectChosen(c);
             }}
           >
             <strong>{c.subject}</strong>

@@ -4,14 +4,10 @@ html {
 }
 
 body {
+  font-family: 'Jura', sans-serif;
   margin: 0 auto 50px;
   padding: 0;
-  /*font-family: 'Chicle', cursive;*/
-  /* font-family: 'Risque'; */
   font-size: 1.6em;
-  /* background-color: rgba(94, 65, 47, 0.2); */
-  /* background-color: #5e412f33; */
-  /* background-color: #ded9d5; */
   background-color: #383838;
   min-height: 800px;
   background-image: url("../img/Color1970sReverse.png");

@@ -1,7 +1,6 @@
 import React from "react";
 import ShowCoupon from "./ShowCoupon";
-import {Animated} from "react-animated-css";
-
+import { Animated } from "react-animated-css";
 
 class ShowCoupons extends React.Component {
   constructor(props) {

@@ -52,8 +52,7 @@ function Subtopics(props) {
             props.setSearchCoupons("");
           }}
         >
-          <i className="arrow backArrow" />
-          {" "}back
+          <i className="arrow backArrow" /> back
         </div>
       </div>
     );

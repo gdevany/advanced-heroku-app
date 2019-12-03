@@ -89,7 +89,9 @@ class Geolocated extends React.Component {
             }}
           />
         </div>
-        <div className="margin30Bottom"><small>Enter your zip</small></div>
+        <div className="margin30Bottom">
+          <small>Enter your zip</small>
+        </div>
         <button type="submit" onClick={() => this.zipSubmitted()}>
           submit
         </button>
@@ -122,9 +124,12 @@ class Geolocated extends React.Component {
 
     return (
       <div className="containerShort margin30top text-center">
-        <div className="smallText margin30Bottom">
-          Offers will be filtered on your current zipcode
-        </div>
+        {!searchCoupons && (
+          <div className="smallText margin30Bottom">
+            Offers will be filtered on your current zipcode
+          </div>
+        )}
+
         <GoogleMap size={"mapSizeNone"}></GoogleMap>
         {geolocateSuccessful || userDidEnterZip ? (
           <CurrentLocationMapped

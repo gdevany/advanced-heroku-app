@@ -15,74 +15,76 @@ class AppSign extends Component {
     };
   }
 
-  handleSignUp = (credentials) => {
+  handleSignUp = credentials => {
     const { username, password, confirmPassword } = credentials;
-    if (!username.trim() || !password.trim() ) {
+    if (!username.trim() || !password.trim()) {
       this.setState({
         signUpSignInError: "Must Provide All Fields"
       });
-    } else if (password !== confirmPassword ) {
+    } else if (password !== confirmPassword) {
       this.setState({
         signUpSignInError: "Passwords do not match"
       });
     } else {
-
       fetch("/api/signup", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials)
-      }).then((res) => {
-        return res.json();
-      }).then((data) => {
-        if(data.error){
+      })
+        .then(res => {
+          return res.json();
+        })
+        .then(data => {
+          if (data.error) {
+            this.setState({
+              signUpSignInError: data.error
+            });
+            return;
+          }
+          const { token } = data;
+          localStorage.setItem("token", token);
           this.setState({
-            signUpSignInError: data.error
+            signUpSignInError: "",
+            authenticated: token
           });
-          return;
-        }
-        const { token } = data;
-        localStorage.setItem("token", token);
-        this.setState({
-          signUpSignInError: "",
-          authenticated: token
         });
-      });
     }
-  }
+  };
 
-  handleSignIn = (credentials) => {
+  handleSignIn = credentials => {
     const { username, password } = credentials;
-    if (!username.trim() || !password.trim() ) {
+    if (!username.trim() || !password.trim()) {
       this.setState({
         signUpSignInError: "Must Provide All Fields"
       });
     } else {
       fetch("/api/signin", {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(credentials)
-      }).then((res) => {
-        if (res.status === 401) {
+      })
+        .then(res => {
+          if (res.status === 401) {
+            this.setState({
+              signUpSignInError: "Invalid Login"
+            });
+          } else {
+            return res.json();
+          }
+        })
+        .then(data => {
+          const { token } = data;
+          localStorage.setItem("token", token);
           this.setState({
-            signUpSignInError: "Invalid Login"
+            signUpSignInError: "",
+            authenticated: token,
+            username: data.username
           });
-        } else {
-          return res.json();
-        }
-      }).then((data) => {
-        const { token } = data;
-        localStorage.setItem("token", token);
-        this.setState({
-          signUpSignInError: "",
-          authenticated: token,
-          username: data.username
+          this.props.loadUser(this.state.username);
+          this.props.loadUsersCoupons(this.state.username);
         });
-        this.props.loadUser(this.state.username);
-        this.props.loadUsersCoupons(this.state.username);
-
-      });
     }
-  }
+  };
 
   handleSignOut = () => {
     localStorage.removeItem("token");
@@ -92,7 +94,7 @@ class AppSign extends Component {
       username: ""
     });
     this.props.loadUser("");
-  }
+  };
 
   renderSignUpSignIn = () => {
     return (
@@ -103,25 +105,29 @@ class AppSign extends Component {
         backClicked={this.signInClicked}
       />
     );
-  }
+  };
 
   signInClicked = () => {
-   this.setState(prevState => ({
-     clickedSignIn: !prevState.clickedSignIn
-   }));
-  }
+    this.setState(prevState => ({
+      clickedSignIn: !prevState.clickedSignIn
+    }));
+  };
 
   renderApp() {
     return (
       // If signed in, show the User Welcome
       <div>
         <Switch>
-          <Route exact path="/" render={() =>
-            <div className="text-center welcomeText">
-              <div>Hi</div>
-              <div>{this.state.username}</div>
-            </div>
-          } />
+          <Route
+            exact
+            path="/"
+            render={() => (
+              <div className="text-center welcomeText">
+                <div>Hi</div>
+                <div>{this.state.username}</div>
+              </div>
+            )}
+          />
           <Route exact path="/secret" component={Secret} />
           <Route render={() => <h1>NOT FOUND!</h1>} />
         </Switch>
@@ -145,7 +151,8 @@ class AppSign extends Component {
           <TopNavbar
             showNavItems={this.state.authenticated}
             onSignOut={this.handleSignOut}
-            signInClicked={this.signInClicked} />
+            signInClicked={this.signInClicked}
+          />
           {whatToShow}
         </div>
       </BrowserRouter>
