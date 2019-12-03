@@ -25,6 +25,10 @@ const TopNavbar = (props) => {
 
   return (
     <Navbar inverse collapseOnSelect>
+      {/* <div className="row">
+        <span className="headingLogoMainSmall">BOGO</span>
+        <span className="headingLogoSubSmall">by zip</span>
+      </div> */}
       <Navbar.Header>
         <Navbar.Toggle />
       </Navbar.Header>
@@ -32,6 +36,14 @@ const TopNavbar = (props) => {
         {navItems}
       </Navbar.Collapse>
     </Navbar>
+    // <Navbar inverse collapseOnSelect>
+    //   <Navbar.Header>
+    //     <Navbar.Toggle />
+    //   </Navbar.Header>
+    //   <Navbar.Collapse>
+    //     {navItems}
+    //   </Navbar.Collapse>
+    // </Navbar>
   );
 };
 

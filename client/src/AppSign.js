@@ -117,7 +117,7 @@ class AppSign extends Component {
       <div>
         <Switch>
           <Route exact path="/" render={() =>
-            <div>
+            <div className="text-center welcomeText">
               <div>Hi</div>
               <div>{this.state.username}</div>
             </div>

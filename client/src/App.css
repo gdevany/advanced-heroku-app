@@ -92,11 +92,10 @@ address {
   border: 1px solid #f4f4f4;
   background-color: #f4f4f4;
   box-shadow: inset -2px -3px 3px 0px #4f501b;
-  /* background: linear-gradient(to bottom right, #3f362a -100%, #f4f4f4 37%); */
+  background: linear-gradient(to bottom right, #3f362a -26%, #f4f4f4 24%);
 }
 
 .headingContainer {
-  /* background-color: #f4f4f4; */
   background-color: white;
 
 }
@@ -105,26 +104,38 @@ address {
   border-top: 2px solid #ff0000;
 }
 
-.headingLogo {
-  /* line-height: 0.2em; */
+.headingLogoMain {
   font-family: "Monoton";
   font-size: 4em;
-  /* color: #fef596; */
-  /* margin-top: 30px; */
   color: black;
   letter-spacing: 0.05em;
   text-shadow: -1px 0 #fef596, 0 1px #fef596, 4px 0 #fef596, 0 -1px #fef596;
   /* text-shadow: -1px 0 black, 0 1px black, 4px 0 black, 0 -1px black; */
 }
 
-.headingLogoMini {
+.headingLogoMainSmall {
+  /* font-family: "Monoton"; */
+  font-weight: bold;
+  font-size: 2em;
+  color: black;
+  letter-spacing: 0.05em;
+  /* text-shadow: -1px 0 #fef596, 0 1px #fef596, 4px 0 #fef596, 0 -1px #fef596; */
+}
+
+.headingLogoSub {
   font-family: "Chicle", cursive;
   font-size: 2em;
-  /*color: #7b8859;*/
-  /* background-color: #f4f4f4; */
   color: #78c0a8;
   margin-top: -25px;
-  /* margin-bottom: 30px; */
+  font-weight: bold;
+  text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 -1px black;
+}
+
+.headingLogoSubSmall {
+  margin-left: 6px;
+  font-family: "Chicle", cursive;
+  font-size: 1.5em;
+  color: #78c0a8;
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 -1px black;
 }
@@ -321,6 +332,11 @@ address {
 
 strong {
   font-size: 1.3em;
+}
+
+.welcomeText {
+  text-align: center;
+  color: #383838;
 }
 
 .margin30top {
@@ -574,7 +590,8 @@ strong {
   max-width: 500px;
   border-style: solid;
   border-width: 2px;
-  border-color: #5f3e29;
+  border-color: #fcfcfc;
+  /* border-color: #5f3e29; */
   /* background-color: #e6ac27; */
   background-color: #62625a;
   color: black;

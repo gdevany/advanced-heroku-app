@@ -84,7 +84,6 @@ class CurrentLocationMapped extends Component {
         usersCoupons: [],
         bizLocations: [newMarkers, ...this.state.bizLocations]
       });
-      console.log(this.state.bizLocations[0]);
     }
     if (this.props.usersCoupons !== prevProps.usersCoupons) {
       this.setState({
@@ -122,7 +121,6 @@ class CurrentLocationMapped extends Component {
   // Wrap in timeout due to state variable conversion delay
   apiIsLoaded = (map, maps) => {
     setTimeout(() => {
-      console.log(this.state.bizLocations[0]);
       // Get bounds by our places
       const bounds = getMapBounds(
         map,
@@ -143,17 +141,6 @@ class CurrentLocationMapped extends Component {
 
     return (
       <div>
-        {/* <Animated
-          animationIn="bounceInLeft"
-          animationOut="fadeOutDown"
-          isVisible={myZip && !searchCoupons ? true : false}
-          animationInDuration={1000}
-          animationOutDuration={1000}
-        >
-          <div className="userLocMarkerContainer">
-            <div className="userLocMarker">{myZip}</div>
-          </div>
-        </Animated> */}
         {!searchCoupons && (
           <Animated
             animationIn="bounceInLeft"
@@ -164,7 +151,14 @@ class CurrentLocationMapped extends Component {
           >
             <div className="buttonBox">
               <div className="floatLeftWithPadding">Your location</div>
-              <GoogleMap center={center} size={searchCoupons ? "mapGen mapSizeWideShort" : "mapGen mapSize100"}>
+              <GoogleMap
+                center={center}
+                size={
+                  searchCoupons
+                    ? "mapGen mapSizeWideShort"
+                    : "mapGen mapSize100"
+                }
+              >
                 <UserLocation myZip={myZip} lat={center.lat} lng={center.lng} />
               </GoogleMap>
             </div>
