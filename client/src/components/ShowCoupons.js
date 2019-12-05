@@ -105,10 +105,10 @@ class ShowCoupons extends React.Component {
 
   render() {
     return (
-      <div className="container-fluid couponMargin">
+      <div className="containerShort">
         {this.props.searchCoupons !== "" || this.props.loggedIn !== "" ? (
           <Animated
-            animationIn="fadeInUp"
+            animationIn="fadeInDown"
             animationOut="fadeOut"
             isVisible={true}
             animationInDuration={3000}

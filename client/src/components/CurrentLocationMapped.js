@@ -18,7 +18,7 @@ const BizMarkers = ({ logo }) => (
     animationOutDuration={1000}
   >
     <div className="mapLogoMarkerContainer userLocMCTransform">
-      <img className="imageInContainer blink2" src={logo} alt="bizLogo"></img>
+      <img className="imageInContainer" src={logo} alt="bizLogo"></img>
     </div>
   </Animated>
 );
@@ -54,7 +54,8 @@ class CurrentLocationMapped extends Component {
       bizLocations: [],
       filteredCoupons: [],
       usersCoupons: [],
-      center: {}
+      center: {},
+      showMap: true
     };
   }
 
@@ -91,6 +92,12 @@ class CurrentLocationMapped extends Component {
       });
     }
   }
+
+  toggleShowMap = () => {
+    this.setState(prevState => ({
+      showMap: !prevState.showMap
+    }));
+  };
 
   // Return ( { pos: {lat, lng}, bizLogoLink} )
   setMarkers = () => {
@@ -137,7 +144,7 @@ class CurrentLocationMapped extends Component {
 
   render() {
     const { myZip, searchCoupons, loggedIn } = this.props;
-    const { bizLocations, center } = this.state;
+    const { bizLocations, center, showMap } = this.state;
 
     return (
       <div>
@@ -150,17 +157,36 @@ class CurrentLocationMapped extends Component {
             animationOutDuration={1000}
           >
             <div className="buttonBox">
-              <div className="floatLeftWithPadding">Your location</div>
-              <GoogleMap
-                center={center}
-                size={
-                  searchCoupons
-                    ? "mapGen mapSizeWideShort"
-                    : "mapGen mapSize100"
-                }
+              <div
+                className="floatLeftWithPadding"
+                onClick={() => this.toggleShowMap()}
               >
-                <UserLocation myZip={myZip} lat={center.lat} lng={center.lng} />
-              </GoogleMap>
+                Your location
+                <span
+                  className="arrowContainer mapArrow"
+                  // onClick={() => this.toggleShowMap()}
+                >
+                  <i
+                    className={showMap ? "arrow upArrow" : "arrow downArrow"}
+                  />
+                </span>
+              </div>
+              {showMap && (
+                <GoogleMap
+                  center={center}
+                  size={
+                    searchCoupons
+                      ? "mapGen mapSizeWideShort"
+                      : "mapGen mapSize100"
+                  }
+                >
+                  <UserLocation
+                    myZip={myZip}
+                    lat={center.lat}
+                    lng={center.lng}
+                  />
+                </GoogleMap>
+              )}
             </div>
           </Animated>
         )}
@@ -170,29 +196,48 @@ class CurrentLocationMapped extends Component {
           (bizLocations[0].length > 0 ? (
             <div className="buttonBox">
               {searchCoupons && (
-                <div className="floatLeftWithPadding">{searchCoupons}</div>
-              )}
-              <GoogleMap
-                center={center}
-                // center={{ lat: pos.lat, lng: pos.lng }}
-                size={"mapGen mapSizeWideShort"}
-                yesIWantToUseGoogleMapApiInternals
-                onGoogleApiLoaded={({ map, maps }) =>
-                  this.apiIsLoaded(map, maps)
-                }
-              >
-                {bizLocations[0].map((address, i) => {
-                  return (
-                    <BizMarkers
-                      logo={address.bizLogo}
-                      lat={address.pos.lat}
-                      lng={address.pos.lng}
-                      key={i}
+                <div
+                  className="floatLeftWithPadding"
+                  onClick={() => this.toggleShowMap()}
+                >
+                  {searchCoupons}
+                  <span
+                    className="arrowContainer mapArrow"
+                    // onClick={() => this.toggleShowMap()}
+                  >
+                    <i
+                      className={showMap ? "arrow upArrow" : "arrow downArrow"}
                     />
-                  );
-                })}
-                <UserLocation myZip={myZip} lat={center.lat} lng={center.lng} />
-              </GoogleMap>
+                  </span>
+                </div>
+              )}
+              {showMap && (
+                <GoogleMap
+                  center={center}
+                  // center={{ lat: pos.lat, lng: pos.lng }}
+                  size={"mapGen mapSizeWideShort"}
+                  yesIWantToUseGoogleMapApiInternals
+                  onGoogleApiLoaded={({ map, maps }) =>
+                    this.apiIsLoaded(map, maps)
+                  }
+                >
+                  {bizLocations[0].map((address, i) => {
+                    return (
+                      <BizMarkers
+                        logo={address.bizLogo}
+                        lat={address.pos.lat}
+                        lng={address.pos.lng}
+                        key={i}
+                      />
+                    );
+                  })}
+                  <UserLocation
+                    myZip={myZip}
+                    lat={center.lat}
+                    lng={center.lng}
+                  />
+                </GoogleMap>
+              )}
             </div>
           ) : (
             <div>Sorry, there are no results</div>

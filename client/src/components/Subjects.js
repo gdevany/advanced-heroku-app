@@ -17,7 +17,7 @@ class Subjects extends React.Component {
   };
 
   toggleCreateCouponButton = () => {
-    return (
+    return !this.state.showCreateCoupon && (
       <div>
         <button
           className="buttonGen margin30Bottom blink"
@@ -73,10 +73,6 @@ class Subjects extends React.Component {
     return (
       <div className="containerShort text-center">
         <div>{header}</div>
-        <div>
-          <div className="">{subDivs}</div>
-          <Subtopics />
-        </div>
         {this.props.loggedIn && (
           <div>
             <CreateCoupons
@@ -85,6 +81,10 @@ class Subjects extends React.Component {
             />
           </div>
         )}
+        <div>
+          <div className="">{subDivs}</div>
+          <Subtopics />
+        </div>
       </div>
     );
   }

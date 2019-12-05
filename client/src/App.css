@@ -91,9 +91,9 @@ address {
   text-decoration: blink;
   padding: 10px;
   border-radius: 5px;
-  border: 1px solid #f4f4f4;
+  border: 1px solid #ff0000;
   background-color: #f4f4f4;
-  box-shadow: inset -2px -3px 3px 0px #4f501b;
+  box-shadow: inset -2px -2px 3px 0px #4f501b;
   background: linear-gradient(to bottom right, #383838 -75%, #f4f4f4 24%);
 }
 
@@ -204,8 +204,9 @@ address {
 .buttonBox {
   border-top-left-radius: 5px;
   border-top-right-radius: 5px;
+  border: 1px solid #f4f4f4;
   margin: 3px auto 10px;
-  padding: 3px 3px;
+  /* padding: 1px; */
   background-color: #383838;
   letter-spacing: 0.1em;
 }
@@ -331,8 +332,8 @@ strong {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  border: 4px solid #ff0000;
-  border-style: inset;
+  border: 3px solid #ff0000;
+  /* border-style: inset; */
 }
 
 .mapSize200 {
@@ -366,7 +367,7 @@ strong {
   width: 5em;
   color: white;
   background: #ff0000;
-  padding: 15px 10px;
+  /* padding: 15px 10px; */
   display: inline-flex;
   text-align: center;
   align-items: center;
@@ -489,6 +490,20 @@ strong {
   transform: rotate(315deg);
 }
 
+.upArrow {
+  transform: rotate(225deg);
+}
+
+.downArrow {
+  transform: rotate(45deg);
+  margin: -3px;
+}
+
+.mapArrow {
+  float: right;
+  margin: 5px;
+}
+
 /*colors {
   green: #6a863b;
   green: #637c1b;
@@ -571,7 +586,7 @@ strong {
   background-color: #62625a;
   color: black;
   font-size: 0.7em;
-  width: 95%;
+  /* width: 95%; */
   padding: 0.2em 0.2em;
   /* background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%); */
 }
