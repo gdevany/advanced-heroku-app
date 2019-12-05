@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
-import SignUpSignIn from "./SignUpSignIn";
-import TopNavbar from "./TopNavbar";
-import Secret from "./Secret";
+import SignUpSignIn from "../SignUpSignIn";
+import TopNavbar from "../TopNavbar";
+import Secret from "../Secret";
 
 class AppSign extends Component {
   constructor() {
@@ -10,7 +10,6 @@ class AppSign extends Component {
     this.state = {
       signUpSignInError: "",
       authenticated: localStorage.getItem("token") || false,
-      clickedSignIn: false,
       username: ""
     };
   }
@@ -90,9 +89,9 @@ class AppSign extends Component {
     localStorage.removeItem("token");
     this.setState({
       authenticated: false,
-      clickedSignIn: false,
       username: ""
     });
+    this.props.resetClickedSignIn();
     this.props.loadUser("");
   };
 
@@ -102,15 +101,9 @@ class AppSign extends Component {
         error={this.state.signUpSignInError}
         onSignUp={this.handleSignUp}
         onSignIn={this.handleSignIn}
-        backClicked={this.signInClicked}
+        backClicked={this.props.signInClicked}
       />
     );
-  };
-
-  signInClicked = () => {
-    this.setState(prevState => ({
-      clickedSignIn: !prevState.clickedSignIn
-    }));
   };
 
   renderApp() {
@@ -141,7 +134,7 @@ class AppSign extends Component {
     if (this.state.authenticated) {
       whatToShow = this.renderApp();
       // If NOT signed in, show the SignUpSignIn IF clickedSignIn
-    } else if (this.state.clickedSignIn) {
+    } else if (this.props.clickedSignIn) {
       whatToShow = this.renderSignUpSignIn();
     }
 
@@ -151,7 +144,7 @@ class AppSign extends Component {
           <TopNavbar
             showNavItems={this.state.authenticated}
             onSignOut={this.handleSignOut}
-            signInClicked={this.signInClicked}
+            signInClicked={this.props.signInClicked}
           />
           {whatToShow}
         </div>

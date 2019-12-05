@@ -1,6 +1,5 @@
 import React from "react";
 import "./App.css";
-import AppSign from "./containers/AppSignContainer";
 import Subjects from "./containers/SubjectsContainer";
 import ShowCoupons from "./containers/ShowCouponsContainer";
 import Geolocated from "./containers/GeolocatedContainer";
@@ -10,10 +9,7 @@ import Header from "./containers/HeaderContainer";
 function App() {
   return (
     <div className="app">
-      <div className="headingContainer">
-        <Header />
-        <AppSign />
-      </div>
+      <Header />
       <div className="contentContainer">
         <Geolocated />
         <Subjects />

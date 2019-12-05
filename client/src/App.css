@@ -11,8 +11,7 @@
 }
 
 .appSign {
-  justify-content: center;
-  /* background-color: #f4f4f4; */
+  align-self: center;
 }
 
 .container {
@@ -99,6 +98,12 @@ address {
 
 .headingContainer {
   background-color: white;
+}
+
+.headingContainerInline {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
 }
 
 .contentContainer {
@@ -202,8 +207,8 @@ address {
 }
 
 .buttonBox {
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
+  /* border-top-left-radius: 5px; */
+  /* border-top-right-radius: 5px; */
   border: 1px solid #f4f4f4;
   margin: 3px auto 10px;
   /* padding: 1px; */

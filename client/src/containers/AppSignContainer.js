@@ -1,4 +1,4 @@
-import AppSign from '../AppSign';
+import AppSign from '../components/AppSign';
 import {connect} from 'react-redux';
 import {loadUser, loadUsersCoupons} from '../actions';
 

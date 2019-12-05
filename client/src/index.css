@@ -25,8 +25,12 @@ body {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #3f362a;
+  color: #3f362a !important;
   /* border: 1px solid #3f362a; */
+}
+
+.navbar-inverse .navbar-nav>li>a:hover {
+  color: red;
 }
 
 .nav-tabs {
