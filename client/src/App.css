@@ -212,7 +212,11 @@ address {
 }
 
 .buttonGen {
-  font-family: "Luckiest Guy", cursive;
+  /* font-family: "Luckiest Guy", cursive; */
+  /* font-family: "Jura", sans-serif; */
+  font-weight: bold;
+  font-size: 1.2em;
+  padding: 10px;
   color: #383838;
   width: 50vw;
   max-width: 220px;
@@ -221,7 +225,6 @@ address {
   border-radius: 2px;
   margin: 3px;
   color: black;
-  padding: 10px 15px 0;
   /* border: 1px solid #5f3e29; */
   /* box-shadow: inset 1px 1px 4px 0px white; */
   /* box-shadow:inset -3px -3px 7px 0px #F6F7BD; */

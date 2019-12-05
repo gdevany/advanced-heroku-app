@@ -18,7 +18,7 @@ function Subtopics(props) {
               props.loadFilteredCoupons(t);
             }}
           >
-            <strong>{t}</strong>
+            <span>{t}</span>
           </button>
         </div>
       );

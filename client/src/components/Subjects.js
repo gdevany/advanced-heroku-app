@@ -46,7 +46,7 @@ class Subjects extends React.Component {
               } else this.props.setSubjectChosen(c);
             }}
           >
-            <strong>{c.subject}</strong>
+            <span>{c.subject}</span>
           </button>
         </div>
       );
