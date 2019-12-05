@@ -11,7 +11,7 @@ class Header extends Component {
         animationInDuration={1000}
         animationOutDuration={1000}
       >
-        <div className="container text-center">
+        <div className="text-center">
           <div className="headingLogoMain">BOGO</div>
           <div className="headingLogoSub">by zip</div>
         </div>
@@ -24,7 +24,7 @@ class Header extends Component {
         animationInDuration={1000}
         animationOutDuration={1000}
       >
-        <div className="row text-center">
+        <div className="text-center">
           <span className="headingLogoMainSmall">BOGO</span>
           <span className="headingLogoSubSmall">by zip</span>
         </div>
