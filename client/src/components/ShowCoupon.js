@@ -83,16 +83,15 @@ class ShowCoupon extends Component {
 
   renderExpandableOffer = coupon => {
     return (
-      <div
-        className={
-          this.state.couponID === coupon._id ||
-          this.props.couponsExpanded.length < 1
-            ? "couponShort"
-            : "couponShort couponFade"
-        }
-      >
-        <div className="container">
-          {/* {this.state.expandHeader === true && this.renderMap(coupon)} */}
+      <div className="couponShort">
+        <div
+          className={
+            this.state.couponID === coupon._id ||
+            this.props.couponsExpanded.length < 1
+              ? "container"
+              : "container couponFade"
+          }
+        >
           <div className="row offer" onClick={() => this.expandIt(coupon._id)}>
             <div className="col-xs-6 couponHeadline">
               <span className="bizLogoContainer">

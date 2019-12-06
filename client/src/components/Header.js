@@ -32,14 +32,12 @@ class Header extends Component {
         animationInDuration={1000}
         animationOutDuration={1000}
       >
-        {/* <div className="text-center headingContainer headingContainerInline"> */}
         <div
           className={
-            "text-center " + "headingContainer " +
+            "text-center headingContainer " +
             (!clickedSignIn ? "headingContainerInline" : "")
           }
         >
-          <div>
             {!this.props.searchCoupons ? (
               <div>
                 <div className="headingLogoMain">BOGO</div>
@@ -51,7 +49,6 @@ class Header extends Component {
                 <span className="headingLogoSubSmall">by zip</span>
               </div>
             )}
-          </div>
           <AppSign
             signInClicked={this.signInClicked}
             clickedSignIn={this.state.clickedSignIn}
@@ -61,48 +58,6 @@ class Header extends Component {
       </Animated>
     );
   }
-  //   return !this.props.searchCoupons ? (
-  //     <Animated
-  //       animationIn="zoomIn"
-  //       animationOut="fadeOut"
-  //       isVisible={true}
-  //       animationInDuration={1000}
-  //       animationOutDuration={1000}
-  //     >
-  //       <div className="text-center headingContainer headingContainerInline">
-  //         <div>
-  //           <div className="headingLogoMain">BOGO</div>
-  //           <div className="headingLogoSub">by zip</div>
-  //         </div>
-  //         <AppSign
-  //           signInClicked={this.signInClicked}
-  //           clickedSignIn={this.state.clickedSignIn}
-  //           resetClickedSignIn={this.resetClickedSignIn}
-  //         />
-  //       </div>
-  //     </Animated>
-  //   ) : (
-  //     <Animated
-  //       animationIn="zoomIn"
-  //       animationOut="fadeOut"
-  //       isVisible={true}
-  //       animationInDuration={1000}
-  //       animationOutDuration={1000}
-  //     >
-  //       <div className="text-center headingContainer headingContainerInline">
-  //         <div>
-  //           <span className="headingLogoMainSmall">BOGO</span>
-  //           <span className="headingLogoSubSmall">by zip</span>
-  //         </div>
-  //         <AppSign
-  //           signInClicked={this.signInClicked}
-  //           clickedSignIn={this.state.clickedSignIn}
-  //           resetClickedSignIn={this.resetClickedSignIn}
-  //         />
-  //       </div>
-  //     </Animated>
-  //   );
-  // }
 }
 
 export default Header;
