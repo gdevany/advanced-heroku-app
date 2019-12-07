@@ -82,7 +82,7 @@ address {
 }
 
 .offer {
-  display: flex;
+  /* display: flex; */
   align-items: center;
   font-size: 1em;
   color: #383838;
@@ -341,7 +341,12 @@ strong {
   margin-left: auto;
   margin-right: auto;
   border: 3px solid #ff0000;
+  /* border-radius: 50px; */
   /* border-style: inset; */
+}
+
+.mapGen > div > div {
+  /* border-radius: 50px; */
 }
 
 .mapSize200 {
@@ -511,6 +516,16 @@ strong {
 .mapArrow {
   float: right;
   margin: 5px;
+}
+
+.offerExpArrow {
+  margin-bottom: -26px;
+  margin-top: -19px;
+}
+
+.offerShrinkArrow {
+  margin-bottom: -26px;
+  margin-top: -13px;
 }
 
 /*colors {

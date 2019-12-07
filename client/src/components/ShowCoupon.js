@@ -93,6 +93,13 @@ class ShowCoupon extends Component {
           }
         >
           <div className="row offer" onClick={() => this.expandIt(coupon._id)}>
+            {this.state.couponID === coupon._id && (
+              <div className="col-xs-12 offerShrinkArrow text-center">
+                <span className="arrowContainer">
+                  <i className="arrow upArrow" />
+                </span>
+              </div>
+            )}
             <div className="col-xs-6 couponHeadline">
               <span className="bizLogoContainer">
                 <img
@@ -110,9 +117,6 @@ class ShowCoupon extends Component {
                   ></img>
                 </span>
               ) : (
-                // <span className="distance text-center">
-                //   {this.calculateDistance()}
-                // </span>
                 <span>{this.props.deleteButton(coupon)}</span>
               )}
             </div>
@@ -121,7 +125,13 @@ class ShowCoupon extends Component {
               <div className="biggerText">{coupon.heading}</div>
               <div className="">Get One Free</div>
             </div>
-            <br />
+            {this.state.couponID !== coupon._id && (
+              <div className="col-xs-12 offerExpArrow text-center">
+                <span className="arrowContainer">
+                  <i className={"arrow downArrow"} />
+                </span>
+              </div>
+            )}
           </div>
           {this.state.expandHeader === true && this.renderMap(coupon)}
         </div>
