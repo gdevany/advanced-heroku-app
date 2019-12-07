@@ -96,7 +96,7 @@ class ShowCoupon extends Component {
             {this.state.couponID === coupon._id && (
               <div className="col-xs-12 offerShrinkArrow text-center">
                 <span className="arrowContainer">
-                  <i className="arrow upArrow" />
+                  <i className="arrow offerArrowSize upArrow" />
                 </span>
               </div>
             )}
@@ -128,7 +128,7 @@ class ShowCoupon extends Component {
             {this.state.couponID !== coupon._id && (
               <div className="col-xs-12 offerExpArrow text-center">
                 <span className="arrowContainer">
-                  <i className={"arrow downArrow"} />
+                  <i className={"arrow offerArrowSize downArrow"} />
                 </span>
               </div>
             )}

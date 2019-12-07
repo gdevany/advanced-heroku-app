@@ -46,7 +46,8 @@ input {
 }
 
 address {
-  margin: 0 50px 20px;
+  font-weight: bold;
+  margin: 0 50px 10px;
   padding: 5px;
   border-radius: 5px;
   background-color: #f4f4f4;
@@ -203,7 +204,7 @@ address {
 
 .bizInfoBlock {
   color: #f4f4f4;
-  padding-bottom: 10px;
+  padding: 10px;
 }
 
 .buttonBox {
@@ -483,7 +484,7 @@ strong {
   cursor: pointer;
   margin: 10px;
   height: 100%;
-  width: 80px;
+  min-width: 10px;
   align-items: center;
   justify-content: center;
   display: inline-flex;
@@ -515,7 +516,7 @@ strong {
 
 .mapArrow {
   float: right;
-  margin: 5px;
+  margin: 5px 20px;
 }
 
 .offerExpArrow {
@@ -526,6 +527,10 @@ strong {
 .offerShrinkArrow {
   margin-bottom: -26px;
   margin-top: -13px;
+}
+
+.offerArrowSize {
+  padding: 2px;
 }
 
 /*colors {
