@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="app">
       <Header />
+      <Geolocated />
       <div className="contentContainer">
-        <Geolocated />
         <Subjects />
         <ShowCoupons />
         {/* <Disclaimer /> */}

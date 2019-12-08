@@ -3,7 +3,7 @@ import GoogleMap from "./GoogleMap";
 import convertAddressToLatLng from "./ConvertAddressToLatLng";
 
 const BizDistance = ({ logo }) => (
-  <div className="blink2 mapLogoMarkerContainer userLocMCTransform">
+  <div className="mapLogoMarkerContainer userLocMCTransform">
     <img className="imageInContainer" src={logo} alt="bizLogo"></img>
   </div>
 );

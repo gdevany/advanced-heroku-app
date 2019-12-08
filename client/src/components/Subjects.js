@@ -17,18 +17,20 @@ class Subjects extends React.Component {
   };
 
   toggleCreateCouponButton = () => {
-    return !this.state.showCreateCoupon && (
-      <div>
-        <button
-          className="buttonGen margin30Bottom blink"
-          onClick={e => {
-            e.preventDefault();
-            this.toggleCreateCoupon();
-          }}
-        >
-          Create New Coupon
-        </button>
-      </div>
+    return (
+      !this.state.showCreateCoupon && (
+        <div>
+          <button
+            className="buttonGen margin30Bottom blink"
+            onClick={e => {
+              e.preventDefault();
+              this.toggleCreateCoupon();
+            }}
+          >
+            Create New Coupon
+          </button>
+        </div>
+      )
     );
   };
 
@@ -72,7 +74,7 @@ class Subjects extends React.Component {
 
     return (
       <div className="containerShort text-center">
-        <div>{header}</div>
+        <div className="margin30top">{header}</div>
         {this.props.loggedIn && (
           <div>
             <CreateCoupons
@@ -81,10 +83,8 @@ class Subjects extends React.Component {
             />
           </div>
         )}
-        <div>
-          <div className="">{subDivs}</div>
-          <Subtopics />
-        </div>
+        <div className="">{subDivs}</div>
+        <Subtopics />
       </div>
     );
   }
