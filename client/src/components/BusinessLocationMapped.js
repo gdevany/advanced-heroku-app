@@ -124,6 +124,7 @@ class BusinessLocationMapped extends Component {
   setDistanceUserToBiz = metersTotal => {
     // Convert meters to miles
     let miles = Math.round((metersTotal / 1609.34 + 0.00001) * 10) / 10;
+    if(miles > 9) miles = Math.floor(miles)
     this.setState({
       distanceUserToBiz: miles
     });

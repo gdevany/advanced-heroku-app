@@ -8,7 +8,8 @@ body {
   margin: 0 auto 50px;
   padding: 0;
   font-size: 1.6em;
-  background-color: #383838;
+  /* background-color: #383838; */
+  background-color: #5c5b5b;
   min-height: 800px;
   /* background-image: url("../img/Color1970sReverse.png");
   background-size: 2em 100%;

@@ -107,8 +107,7 @@ class CurrentLocationMapped extends Component {
           coupon.zip
         }`;
         let newEntry = await this.convertAdd(fullAddress);
-        let logo = coupon.bizLogo;
-        return { pos: newEntry, bizLogo: logo };
+        return { pos: newEntry, coupon: coupon };
       })
     );
     return addressList;
@@ -224,7 +223,7 @@ class CurrentLocationMapped extends Component {
                   {bizLocations[0].map((address, i) => {
                     return (
                       <BizMarkers
-                        logo={address.bizLogo}
+                        logo={address.coupon.bizLogo}
                         lat={address.pos.lat}
                         lng={address.pos.lng}
                         key={i}

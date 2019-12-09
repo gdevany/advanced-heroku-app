@@ -213,9 +213,7 @@ address {
 }
 
 .buttonBox {
-  /* border-top-left-radius: 5px; */
-  /* border-top-right-radius: 5px; */
-  /* border: 1px solid #f4f4f4; */
+  border: 1px solid #ff0000;
   margin: 3px auto 10px;
   /* padding: 1px; */
   background-color: #383838;
@@ -347,8 +345,10 @@ strong {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  border: 3px solid #ff0000;
-  /* border-radius: 50px; */
+  /* border-top: 1px solid #ff0000; */
+  /* border-right: 1px solid #ff0000; */
+  /* border-bottom: 1px solid #ff0000; */
+  /* border-left: 1px solid #ff0000; */
   /* border-style: inset; */
 }
 
