@@ -66,16 +66,17 @@ class ShowCoupon extends Component {
           </div>
         </div>
         <div className="row bizInfoBlock text-left">
-          <div>
-            {"* "}
+          <ul>
+            <li>
             {coupon.couponDesc}
-            {" *"}
-          </div>
-          <div>
-            {"* "}
-            {coupon.restrictions}
-          </div>
-          <div className="">Offer ID: {coupon._id}</div>
+            </li>
+          </ul>
+          <ul>
+            <li>
+              {coupon.restrictions}
+            </li>
+          </ul>
+          <div className="offerID text-center margin30top">Offer ID: {coupon._id}</div>
         </div>
       </div>
     );
