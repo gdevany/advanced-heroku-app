@@ -15,7 +15,8 @@ class Geolocated extends React.Component {
       geolocateSuccessful: false,
       loadingWarning: false,
       userEnteredZip: 0,
-      userDidEnterZip: false
+      userDidEnterZip: false,
+      userWantsToEnterZip: false
     };
   }
 
@@ -71,7 +72,8 @@ class Geolocated extends React.Component {
 
   zipSubmitted = () => {
     this.setState({
-      userDidEnterZip: true
+      userDidEnterZip: true,
+      userWantsToEnterZip: false
     });
   };
 
@@ -100,12 +102,17 @@ class Geolocated extends React.Component {
     return choice;
   };
 
+  userToEnterZip = () => {
+    this.setState({ userWantsToEnterZip: !this.state.userWantsToEnterZip });
+  };
+
   render() {
     const {
       userPosition,
       userEnteredZip,
       userDidEnterZip,
-      geolocateSuccessful
+      geolocateSuccessful,
+      userWantsToEnterZip
     } = this.state;
     const {
       loggedIn,
@@ -124,24 +131,33 @@ class Geolocated extends React.Component {
 
     return (
       <div className="containerShort margin30top text-center">
-        {!searchCoupons && (
-          <div className="smallText margin30Bottom">
-            Offers will be filtered on your current zipcode
+        {!searchCoupons && geolocateSuccessful && (
+          <div>
+            {this.state.userWantsToEnterZip ? (
+              this.showInputZip()
+            ) : (
+              <div
+                className="smallText margin30Bottom"
+                onClick={() => this.userToEnterZip()}
+              >
+                Click here to enter zip
+              </div>
+            )}
           </div>
         )}
 
         <GoogleMap size={"mapSizeNone"}></GoogleMap>
-        {geolocateSuccessful || userDidEnterZip ? (
+        {(geolocateSuccessful || userDidEnterZip) && !userWantsToEnterZip ? (
           <CurrentLocationMapped
             pos={userPosition}
-            myZip={geolocateSuccessful ? userPosition.zip : userEnteredZip}
+            myZip={userDidEnterZip ? userEnteredZip : userPosition.zip}
             loggedIn={loggedIn}
             searchCoupons={searchCoupons}
             filteredCoupons={filteredCoupons}
             usersCoupons={usersCoupons}
             setZip={this.props.setZip}
             zipEnabledBy={
-              geolocateSuccessful ? "geolocateSuccessful" : "userDidEnterZip"
+              userDidEnterZip ? "userDidEnterZip" : "geolocateSuccessful"
             }
           />
         ) : !isGeolocationAvailable || !isGeolocationEnabled ? (

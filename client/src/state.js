@@ -18,7 +18,7 @@ export default {
   category: [
     {
       subject: "Food",
-      types: ["Fast Food", "Sit Down", "Regional", "Fine Dining"]
+      types: ["Fast Food", "Sit Down", "Local", "Ethnic", "Fine Dining"]
     },
     {
       subject: "Merchandise",
