@@ -57,7 +57,6 @@ class Geolocated extends React.Component {
           return true;
         } else return false;
       });
-
       console.log(userPosition);
       this.setState({ userPosition, geolocateSuccessful: true });
       this.props.setZip(userPosition);
@@ -163,7 +162,7 @@ class Geolocated extends React.Component {
         ) : !isGeolocationAvailable || !isGeolocationEnabled ? (
           this.showInputZip(message)
         ) : (
-          <div>...loading</div>
+          !userWantsToEnterZip && <div>...loading</div>
         )}
       </div>
     );

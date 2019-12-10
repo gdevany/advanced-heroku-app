@@ -4,7 +4,6 @@ import Subjects from "./containers/SubjectsContainer";
 import ShowCoupons from "./containers/ShowCouponsContainer";
 import Geolocated from "./containers/GeolocatedContainer";
 import Header from "./containers/HeaderContainer";
-// import Disclaimer from "./components/Disclaimer";
 
 function App() {
   return (
@@ -14,7 +13,6 @@ function App() {
       <div className="contentContainer">
         <Subjects />
         <ShowCoupons />
-        {/* <Disclaimer /> */}
       </div>
     </div>
   );

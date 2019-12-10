@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Animated } from "react-animated-css";
-import AppSign from "../containers/AppSignContainer";
+import SignUpIn from "../containers/SignUpInContainer";
 
 class Header extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class Header extends Component {
                 <span className="headingLogoSubSmall">by zip</span>
               </div>
             )}
-          <AppSign
+          <SignUpIn
             signInClicked={this.signInClicked}
             clickedSignIn={this.state.clickedSignIn}
             resetClickedSignIn={this.resetClickedSignIn}

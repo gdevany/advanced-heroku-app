@@ -10,7 +10,7 @@
   color: #fcfcfc;
 }
 
-.appSign {
+.signUpIn {
   align-self: center;
 }
 
@@ -28,6 +28,10 @@
   width: 100%;
   max-width: 500px;
   margin: auto;
+}
+
+a {
+  color: #78c0a8;
 }
 
 input {
@@ -74,6 +78,28 @@ address {
   margin-right: auto;
   display: block;
   border-color: #ff0000 !important;
+}
+
+.navbar-inverse,
+.navbar {
+  background-color: inherit;
+  border: none;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+  color: #3f362a !important;
+}
+
+.nav-tabs {
+  margin-top: 30px;
+}
+
+.nav-tabs > li > a {
+  border: 1px solid #fef596;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar {
+  background-color: #ff0000;
 }
 
 @media (min-width: 768px) {
@@ -352,10 +378,6 @@ strong {
   /* border-style: inset; */
 }
 
-.mapGen > div > div {
-  /* border-radius: 50px; */
-}
-
 .mapSize200 {
   width: 200px;
   height: 200px;
@@ -538,6 +560,47 @@ strong {
   padding: 2px;
 }
 
+.couponShort {
+  position: relative;
+  margin: 7px auto;
+  max-width: 500px;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #fcfcfc;
+  background-color: #62625a;
+  color: black;
+  font-size: 0.7em;
+  padding: 0.2em 0.2em;
+  /* background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%); */
+}
+
+.sampler {
+  position: absolute;
+  height: auto;
+  right: 0;
+  left: 0;
+  /* top: 0; */
+  bottom: 50px;
+  margin: auto auto;
+  color: #ff0000;
+  font-size: 100px;
+  opacity: 0.2;
+  transform: rotate(320deg);
+}
+
+.couponFade {
+  opacity: 0.5;
+}
+
+.customBox {
+  border: 4px solid #ff0000;
+  border-style: inset;
+  border-radius: 5px;
+  background-color: #fcfcfc;
+  color: #383838;
+  padding: 20px;
+}
+
 /*colors {
   green: #6a863b;
   green: #637c1b;
@@ -606,48 +669,3 @@ strong {
   -v2 colors:
 
 }*/
-.couponShort {
-  /* margin-left: auto;
-  margin-right: auto; */
-  position: relative;
-  margin: 7px auto;
-  max-width: 500px;
-  border-style: solid;
-  border-width: 2px;
-  border-color: #fcfcfc;
-  /* border-color: #5f3e29; */
-  /* background-color: #e6ac27; */
-  background-color: #62625a;
-  color: black;
-  font-size: 0.7em;
-  /* width: 95%; */
-  padding: 0.2em 0.2em;
-  /* background: linear-gradient(to bottom, #f6f7bd 60%, #ffcd38 100%); */
-}
-
-.sampler {
-  position: absolute;
-  height: auto;
-  right: 0;
-  left: 0;
-  /* top: 0; */
-  bottom: 50px;
-  margin: auto auto;
-  color: #ff0000;
-  font-size: 100px;
-  opacity: 0.2;
-  transform: rotate(320deg);
-}
-
-.couponFade {
-  opacity: 0.5;
-}
-
-.customBox {
-  border: 4px solid #ff0000;
-  border-style: inset;
-  border-radius: 5px;
-  background-color: #fcfcfc;
-  color: #383838;
-  padding: 20px;
-}

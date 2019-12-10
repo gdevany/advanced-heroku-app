@@ -66,7 +66,9 @@ class CurrentLocationMapped extends Component {
 
   // If zipEnabledBy user, convertAdd (returns {lat,lng}), set to state center and Redux
   componentDidMount = async () => {
-    this.calculateCenter();
+    let currentCenter = await this.calculateCenter();
+    this.setState({ center: currentCenter });
+    this.props.setZip(currentCenter);
   };
 
   // If filteredCoupons(props) changes, change state
@@ -96,12 +98,14 @@ class CurrentLocationMapped extends Component {
 calculateCenter = async () => {
   if (this.props.zipEnabledBy === "userDidEnterZip") {
     let centerForUserEnteredZip = await this.convertAdd(this.props.myZip);
-    this.setState({ center: centerForUserEnteredZip });
-    this.props.setZip(centerForUserEnteredZip);
+    return centerForUserEnteredZip;
+    // this.setState({ center: centerForUserEnteredZip });
+    // this.props.setZip(centerForUserEnteredZip);
   } else {
     let lat = this.props.pos.lat;
     let lng = this.props.pos.lng;
-    this.setState({ center: { lat, lng } });
+    return ({lat, lng})
+    // this.setState({ center: { lat, lng } });
   }
 }
 
@@ -156,8 +160,6 @@ calculateCenter = async () => {
   render() {
     const { myZip, searchCoupons, loggedIn } = this.props;
     const { bizLocations, center, showMap } = this.state;
-
-    console.log(center)
 
     return (
       <div>

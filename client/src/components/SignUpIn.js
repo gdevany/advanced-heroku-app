@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import SignUpSignIn from "../SignUpSignIn";
-import TopNavbar from "../TopNavbar";
+import TopNavbar from "./TopNavbar";
 import Secret from "../Secret";
 
-class AppSign extends Component {
+class SignUpIn extends Component {
   constructor() {
     super();
     this.state = {
@@ -140,7 +140,7 @@ class AppSign extends Component {
 
     return (
       <BrowserRouter>
-        <div className="appSign">
+        <div className="signUpIn">
           <TopNavbar
             showNavItems={this.state.authenticated}
             onSignOut={this.handleSignOut}
@@ -153,4 +153,4 @@ class AppSign extends Component {
   }
 }
 
-export default AppSign;
+export default SignUpIn;

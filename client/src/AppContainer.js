@@ -2,8 +2,8 @@
 
 import {connect} from 'react-redux';
 import {handleSignIn, handleSignOut, handleSignUp, handleSubmit} from './actions';
-import AppSign from './AppSign';
-import App from './App';
+// import SignUpIn from './SignUpIn';
+// import App from './App';
 
 function mapStateToProps(state) {
   return {

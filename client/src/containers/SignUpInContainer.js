@@ -1,4 +1,4 @@
-import AppSign from '../components/AppSign';
+import SignUpIn from '../components/SignUpIn';
 import {connect} from 'react-redux';
 import {loadUser, loadUsersCoupons} from '../actions';
 
@@ -14,4 +14,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AppSign);
+export default connect(null, mapDispatchToProps)(SignUpIn);

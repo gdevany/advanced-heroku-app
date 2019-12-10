@@ -49,8 +49,6 @@ class ShowCoupons extends React.Component {
           className="bizLogo buttonDelete"
           onClick={e => {
             e.preventDefault();
-            // props.deleteCoupon(coupon._id);
-
             if (!coupon.notDeletable) {
               this.props.deleteCoupon(coupon);
               this.props.loadUsersCoupons(this.props.loggedIn);
@@ -98,7 +96,6 @@ class ShowCoupons extends React.Component {
           />
         );
       });
-
       return couponDiv;
     }
   };
