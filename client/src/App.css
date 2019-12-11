@@ -145,6 +145,8 @@ address {
   background-repeat: no-repeat;
   background-position: left;
   padding-bottom: 50px;
+  max-width: 500px;
+  margin: inherit;
 }
 
 .headingLogoMain {
@@ -182,6 +184,15 @@ address {
   color: #78c0a8;
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 -1px black;
+}
+
+.formTextShadow {
+  text-shadow: 1px 1px 1px black;
+}
+
+.formHeader h1 {
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 .bigText {

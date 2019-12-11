@@ -62,19 +62,13 @@ class CreateCoupons extends React.Component {
     } else {
       return (
         <div>
-          <div>
-            {/* <div className="arrowContainer">
-              <i
-                className="arrow backArrow"
-                onClick={e => {
-                  e.preventDefault();
-                  this.props.toggleShow();
-                }}
-              />
-              back
-            </div> */}
-            <h1>Create New Coupon</h1>
+          <div className="formTextShadow text-center">
+            <div className="formHeader">
+              <h1>Create</h1>
+              <h1>New Coupon</h1>
+            </div>
             <form
+              className="margin30top"
               onSubmit={e => {
                 e.preventDefault();
                 if (this.props.createCoupon) {
