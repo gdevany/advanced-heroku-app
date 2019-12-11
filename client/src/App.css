@@ -382,6 +382,14 @@ strong {
   margin-bottom: 30px !important;
 }
 
+.margin0top {
+  margin-top: 0 !important;
+}
+
+.padding30top {
+  padding-top: 30px;
+}
+
 .mapGen {
   width: 100%;
   margin-left: auto;

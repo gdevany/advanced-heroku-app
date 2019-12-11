@@ -74,8 +74,8 @@ class Subjects extends React.Component {
     return (
       <div className="containerShort text-center">
         <div className="divideLine margin30top"></div>
-        <div className="margin30top">{header}</div>
-        {this.props.loggedIn && (
+        {!subjectChosen && <div className="margin30top">{header}</div>}
+        {loggedIn && (
           <div>
             <CreateCoupons
               toggleShow={this.toggleCreateCoupon}
@@ -83,7 +83,7 @@ class Subjects extends React.Component {
             />
           </div>
         )}
-        <div className="">{subDivs}</div>
+        {(!subjectChosen || loggedIn) && <div className="">{subDivs}</div>}
         <Subtopics />
       </div>
     );
