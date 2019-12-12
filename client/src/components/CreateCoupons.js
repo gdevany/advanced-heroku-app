@@ -25,42 +25,47 @@ class CreateCoupons extends React.Component {
     };
   }
 
-  render() {
-    // Dropdown list of Subjects
-    var showSubjectList = "";
-    // map subjects to show in dropdown
-    showSubjectList = this.props.category.map((c, i) => {
+  // Dropdown list of Subjects
+  showSubjectList = () => {
+    return this.props.category.map((c, i) => {
       return (
         <option key={i} value={c.subject}>
           {c.subject}
         </option>
       );
     });
+  };
 
-    // Dropdown list of Subtopics
-    var showSubtopics = "generic";
-    // map category to find matching subject
-    showSubtopics = this.props.category.map((c, i) => {
-      var st = "";
-      if (c.subject === this.state.coupons.subject) {
-        // map types to show in dropdown
-        st = c.types.map((t, i) => {
-          return (
-            <option key={i} value={t}>
-              {t}
-            </option>
-          );
-        });
-      }
-      return st;
-    });
+  // Dropdown list of Subtopics
+  showSubtopics = () => {
+    return (
+      this.props.category.map((c, i) => {
+        let st = "";
+        if (c.subject === this.state.coupons.subject) {
+          // map types to show in dropdown
+          st = c.types.map((t, i) => {
+            return (
+              <option key={i} value={t}>
+                {t}
+              </option>
+            );
+          });
+        }
+        return st;
+      })
+    )
+  }
+
+  render() {
+    const { coupons } = this.state;
+    const { showCreateCoupon, createCoupon, toggleShow, loggedIn } = this.props;
 
     //if 'Create New Coupon' NOT clicked, show nothing
-    if (this.props.showCreateCoupon === false) {
+    if (showCreateCoupon === false) {
       return <div></div>;
       //if 'Create New Coupon' clicked, show form
     } else {
-      return (
+      return showCreateCoupon && (
         <div>
           <div className="formTextShadow text-center">
             <div className="formHeader">
@@ -68,14 +73,14 @@ class CreateCoupons extends React.Component {
               <h1>New Coupon</h1>
             </div>
             <form
-              className="margin30top"
+              className="formInputText margin30top"
               onSubmit={e => {
                 e.preventDefault();
-                if (this.props.createCoupon) {
-                  this.props.createCoupon(this.state.coupons);
-                  // this.props.loadUsersCoupons(this.state.coupons.username);
+                if (createCoupon) {
+                  createCoupon(coupons);
+                  alert("coupon created");
                 }
-                this.props.toggleShow();
+                toggleShow();
               }}
             >
               <div>
@@ -85,10 +90,10 @@ class CreateCoupons extends React.Component {
                   onChange={e => {
                     const bizName = {
                       bizName: e.target.value,
-                      username: this.props.loggedIn
+                      username: loggedIn
                     };
                     this.setState({
-                      coupons: Object.assign(this.state.coupons, bizName)
+                      coupons: Object.assign(coupons, bizName)
                     });
                   }}
                 />
@@ -101,7 +106,7 @@ class CreateCoupons extends React.Component {
                   onChange={e => {
                     const image = { image: e.target.value };
                     this.setState({
-                      coupons: Object.assign(this.state.coupons, image)
+                      coupons: Object.assign(coupons, image)
                     });
                   }}
                 />
@@ -114,7 +119,7 @@ class CreateCoupons extends React.Component {
                   onChange={e => {
                     const logo = { bizLogo: e.target.value };
                     this.setState({
-                      coupons: Object.assign(this.state.coupons, logo)
+                      coupons: Object.assign(coupons, logo)
                     });
                   }}
                 />
@@ -127,7 +132,7 @@ class CreateCoupons extends React.Component {
                   onChange={e => {
                     const item = { heading: e.target.value };
                     this.setState({
-                      coupons: Object.assign(this.state.coupons, item)
+                      coupons: Object.assign(coupons, item)
                     });
                   }}
                 />
@@ -140,7 +145,7 @@ class CreateCoupons extends React.Component {
                   onChange={e => {
                     const desc = { couponDesc: e.target.value };
                     this.setState({
-                      coupons: Object.assign(this.state.coupons, desc)
+                      coupons: Object.assign(coupons, desc)
                     });
                   }}
                 />
@@ -152,7 +157,7 @@ class CreateCoupons extends React.Component {
                   onChange={e => {
                     const restrict = { restrictions: e.target.value };
                     this.setState({
-                      coupons: Object.assign(this.state.coupons, restrict)
+                      coupons: Object.assign(coupons, restrict)
                     });
                   }}
                 />
@@ -168,7 +173,7 @@ class CreateCoupons extends React.Component {
                     onChange={e => {
                       const address = { streetAndNum: e.target.value };
                       this.setState({
-                        coupons: Object.assign(this.state.coupons, address)
+                        coupons: Object.assign(coupons, address)
                       });
                     }}
                   />
@@ -181,7 +186,7 @@ class CreateCoupons extends React.Component {
                     onChange={e => {
                       const city = { city: e.target.value };
                       this.setState({
-                        coupons: Object.assign(this.state.coupons, city)
+                        coupons: Object.assign(coupons, city)
                       });
                     }}
                   />
@@ -194,7 +199,7 @@ class CreateCoupons extends React.Component {
                     onChange={e => {
                       const zip = { zip: e.target.value };
                       this.setState({
-                        coupons: Object.assign(this.state.coupons, zip)
+                        coupons: Object.assign(coupons, zip)
                       });
                     }}
                   />
@@ -207,7 +212,7 @@ class CreateCoupons extends React.Component {
                   onChange={e => {
                     const phone = { phone: e.target.value };
                     this.setState({
-                      coupons: Object.assign(this.state.coupons, phone)
+                      coupons: Object.assign(coupons, phone)
                     });
                   }}
                 />
@@ -220,11 +225,11 @@ class CreateCoupons extends React.Component {
                   onChange={e => {
                     const subject = { subject: e.target.value };
                     this.setState({
-                      coupons: Object.assign(this.state.coupons, subject)
+                      coupons: Object.assign(coupons, subject)
                     });
                   }}
                 >
-                  {showSubjectList}
+                  {this.showSubjectList()}
                 </select>
                 <br />
                 <br />
@@ -235,30 +240,30 @@ class CreateCoupons extends React.Component {
                   onChange={e => {
                     const subs = { searchWords: e.target.value };
                     this.setState({
-                      coupons: Object.assign(this.state.coupons, subs)
+                      coupons: Object.assign(coupons, subs)
                     });
                   }}
                 >
-                  {showSubtopics}
+                  {this.showSubtopics()}
                 </select>
                 <br />
                 <br />
               </div>
               <div className="containerShort">
-                <span
-                  className="arrowContainer"
-                  onClick={this.props.toggleShow}
+                <button
+                  className="arrowContainer formButtonContainer"
+                  onClick={toggleShow}
                 >
                   <i className="arrow backArrow" />
                   back
-                </span>
-                <span
-                  className="arrowContainer"
-                  onClick={this.props.toggleShow}
+                </button>
+                <button
+                  className="arrowContainer formButtonContainer"
+                  type="submit"
                 >
                   create
                   <i className="arrow forwardArrow" />
-                </span>
+                </button>
               </div>
             </form>
           </div>

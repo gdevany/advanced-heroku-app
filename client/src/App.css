@@ -38,6 +38,13 @@ input {
   margin-bottom: 20px;
   line-height: 1.3em;
   width: 60%;
+  color: #383838;
+  background: #fcfcfc;
+}
+
+select {
+  color: #383838;
+  background: #fcfcfc;
 }
 
 .inputZip {
@@ -186,6 +193,10 @@ address {
   text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 -1px black;
 }
 
+.formInputText input {
+  color: black;
+}
+
 .formTextShadow {
   text-shadow: 1px 1px 1px black;
 }
@@ -193,6 +204,12 @@ address {
 .formHeader h1 {
   margin-top: 0;
   margin-bottom: 0;
+}
+
+.formButtonContainer {
+  background: inherit;
+  border: none;
+  display: inline-block !important;
 }
 
 .bigText {
