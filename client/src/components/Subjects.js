@@ -21,7 +21,7 @@ class Subjects extends React.Component {
       !this.state.showCreateCoupon && (
         <div>
           <button
-            className="buttonGen margin30Bottom blink"
+            className="buttonGen margin30bottom blink"
             onClick={e => {
               e.preventDefault();
               this.toggleCreateCoupon();

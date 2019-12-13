@@ -79,7 +79,7 @@ class Geolocated extends React.Component {
   showInputZip = message => {
     let choice = (
       <div className="customBox">
-        <div className="margin30Bottom">{message}</div>
+        <div className="margin30bottom">{message}</div>
         <div>
           <input
             type="text"
@@ -90,7 +90,7 @@ class Geolocated extends React.Component {
             }}
           />
         </div>
-        <div className="margin30Bottom">
+        <div className="margin30bottom">
           <small>Enter your zip</small>
         </div>
         <button type="submit" onClick={() => this.zipSubmitted()}>
@@ -136,7 +136,7 @@ class Geolocated extends React.Component {
               this.showInputZip()
             ) : (
               <div
-                className="smallText margin30Bottom"
+                className="smallText margin30bottom"
                 onClick={() => this.userToEnterZip()}
               >
                 Click here to enter zip

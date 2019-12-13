@@ -173,7 +173,7 @@ calculateCenter = async () => {
           >
             <div className="buttonBox">
               <div
-                className="floatLeftWithPadding"
+                className="alignLeftWithPadding"
                 onClick={() => this.toggleShowMap()}
               >
                 Your location

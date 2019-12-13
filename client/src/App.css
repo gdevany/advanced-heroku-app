@@ -35,9 +35,12 @@ a {
 }
 
 input {
-  margin-bottom: 20px;
+  padding: 5px 10px;
   line-height: 1.3em;
-  width: 60%;
+  height: 50px;
+  width: 100%;
+  max-width: 600px;
+  border-radius: 5px;
   color: #383838;
   background: #fcfcfc;
 }
@@ -54,6 +57,12 @@ select {
   border: 5px solid #78c0a8;
   border-style: double;
   text-align: center;
+}
+
+label {
+  font-size: 0.8em;
+  color: #383838;
+  margin-bottom: 0;
 }
 
 address {
@@ -108,7 +117,15 @@ address {
 }
 
 .nav-tabs > li > a {
-  border: 1px solid #fef596;
+  /* border: 1px solid #fef596; */
+  color: #383838;
+}
+
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+  /* border: 1px solid #fef596; */
+  color: #ff0000;
 }
 
 .navbar-inverse .navbar-toggle .icon-bar {
@@ -212,6 +229,10 @@ address {
   display: inline-block !important;
 }
 
+.form-group {
+  margin-top: 15px;
+}
+
 .bigText {
   font-size: 1.2em;
 }
@@ -238,9 +259,15 @@ address {
   border: 1px solid black;
 }
 
-.floatLeftWithPadding {
+.alignLeftWithPadding {
   text-align: left;
   padding-left: 10px;
+}
+
+.floatRightWithPaddingAndPull {
+  float: right;
+  padding-right: 10px;
+  margin-left: -50px;
 }
 
 .marginBottom1 {
@@ -406,8 +433,12 @@ strong {
   margin-top: 30px !important;
 }
 
-.margin30Bottom {
+.margin30bottom {
   margin-bottom: 30px !important;
+}
+
+.margin20bottom {
+  margin-bottom: 20px !important;
 }
 
 .margin0top {

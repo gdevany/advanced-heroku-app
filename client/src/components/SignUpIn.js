@@ -14,6 +14,10 @@ class SignUpIn extends Component {
     };
   }
 
+  componentDidMount = () => {
+    this.handleSignOut();
+  }
+
   handleSignUp = credentials => {
     const { username, password, confirmPassword } = credentials;
     if (!username.trim() || !password.trim()) {

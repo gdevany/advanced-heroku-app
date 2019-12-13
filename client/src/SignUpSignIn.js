@@ -29,7 +29,7 @@ class SignUpSignIn extends Component {
             </Tabs>
           </Col>
         </Row>
-        <span className="arrowContainer margin30Bottom" onClick={this.props.backClicked}>
+        <span className="arrowContainer margin30bottom margin30top" onClick={this.props.backClicked}>
           <i className="arrow backArrow" />
           back
         </span>
