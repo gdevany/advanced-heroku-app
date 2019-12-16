@@ -157,11 +157,12 @@ class CurrentLocationMapped extends Component {
   showMapHeader = heading => {
     return (
       <div className="mapHeader" onClick={() => this.toggleShowMap()}>
-        <span className="alignLeftWithPadding">{heading}</span>
+        <span className="">{heading}</span>
+        <span className="marginAutos mapHeaderZip">{this.props.myZip}</span>
         <span className="arrowContainer mapArrow">
-          <small className="rightSpace">
+          <span className="mapHeaderToggler">
             {this.state.showMap ? "hide map" : "show map"}
-          </small>
+          </span>
           <i
             className={this.state.showMap ? "arrow upArrow" : "arrow downArrow"}
           />
