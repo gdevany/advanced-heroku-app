@@ -5,7 +5,8 @@ import { Animated } from "react-animated-css";
 
 const UserLocation = ({ myZip }) => (
   <div className="userLocMarkerContainer userLocMCTransform">
-    <div className="userLocMarker">{myZip}</div>
+    {/* <div className="userLocMarker">{myZip}</div> */}
+    <div className="userLocMarker">You</div>
   </div>
 );
 
@@ -158,7 +159,7 @@ class CurrentLocationMapped extends Component {
     return (
       <div className="mapHeader" onClick={() => this.toggleShowMap()}>
         <span className="">{heading}</span>
-        <span className="marginAutos mapHeaderZip">{this.props.myZip}</span>
+        <span className="marginAutos mapHeaderZip" onClick={() => this.props._onClick()}>{this.props.myZip}</span>
         <span className="arrowContainer mapArrow">
           <span className="mapHeaderToggler">
             {this.state.showMap ? "hide map" : "show map"}

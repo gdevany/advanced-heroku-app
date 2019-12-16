@@ -137,10 +137,9 @@ class Geolocated extends React.Component {
               this.showInputZip()
             ) : (
               <div
-                className="smallText margin30bottom"
-                onClick={() => this.userToEnterZip()}
+                className="smallText margin10bottom"
               >
-                Click here to enter zip
+                Click zip to change
               </div>
             )}
           </div>
@@ -149,6 +148,7 @@ class Geolocated extends React.Component {
         <GoogleMap size={"mapSizeNone"}></GoogleMap>
         {(geolocateSuccessful || userDidEnterZip) && !userWantsToEnterZip ? (
           <CurrentLocationMapped
+            _onClick={() => this.userToEnterZip()}
             pos={userPosition}
             myZip={userDidEnterZip ? userEnteredZip : userPosition.zip}
             loggedIn={loggedIn}
