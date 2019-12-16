@@ -6,7 +6,8 @@ import {connect} from 'react-redux';
 function mapStateToProps(state) {
   return {
     searchCoupons: state.searchCoupons,
-    myZip: state.userPosition.zip
+    myZip: state.userPosition.zip,
+    loggedIn: state.loggedIn
   }
 }
 

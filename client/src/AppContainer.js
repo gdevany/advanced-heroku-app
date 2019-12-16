@@ -7,7 +7,8 @@ import {handleSignIn, handleSignOut, handleSignUp, handleSubmit} from './actions
 
 function mapStateToProps(state) {
   return {
-    searchCoupons: state.searchCoupons
+    searchCoupons: state.searchCoupons,
+    loggedIn: state.loggedIn
   }
 }
 

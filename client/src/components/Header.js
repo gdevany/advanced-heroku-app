@@ -24,6 +24,8 @@ class Header extends Component {
 
   render() {
     const { clickedSignIn } = this.state;
+    const { searchCoupons } = this.props;
+
     return (
       <Animated
         animationIn="zoomIn"
@@ -35,10 +37,10 @@ class Header extends Component {
         <div
           className={
             "text-center headingContainer " +
-            (!clickedSignIn ? "headingContainerInline" : "")
+            ((!clickedSignIn) && "headingContainerInline")
           }
         >
-            {!this.props.searchCoupons ? (
+            {!searchCoupons ? (
               <div>
                 <div className="headingLogoMain">BOGO</div>
                 <div className="headingLogoSub">by zip</div>

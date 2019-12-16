@@ -129,6 +129,7 @@ class Geolocated extends React.Component {
       : "Try refreshing your browser";
 
     return (
+      !loggedIn && 
       <div className="containerShort margin30top text-center">
         {!searchCoupons && geolocateSuccessful && (
           <div>

@@ -60,7 +60,7 @@ class CurrentLocationMapped extends Component {
       filteredCoupons: [],
       usersCoupons: [],
       center: {},
-      showMap: true
+      showMap: false
     };
   }
 
@@ -91,23 +91,20 @@ class CurrentLocationMapped extends Component {
       });
     }
     if (this.props.myZip !== prevProps.myZip) {
-       await this.calculateCenter()
+      await this.calculateCenter();
     }
   }
 
-calculateCenter = async () => {
-  if (this.props.zipEnabledBy === "userDidEnterZip") {
-    let centerForUserEnteredZip = await this.convertAdd(this.props.myZip);
-    return centerForUserEnteredZip;
-    // this.setState({ center: centerForUserEnteredZip });
-    // this.props.setZip(centerForUserEnteredZip);
-  } else {
-    let lat = this.props.pos.lat;
-    let lng = this.props.pos.lng;
-    return ({lat, lng})
-    // this.setState({ center: { lat, lng } });
-  }
-}
+  calculateCenter = async () => {
+    if (this.props.zipEnabledBy === "userDidEnterZip") {
+      let centerForUserEnteredZip = await this.convertAdd(this.props.myZip);
+      return centerForUserEnteredZip;
+    } else {
+      let lat = this.props.pos.lat;
+      let lng = this.props.pos.lng;
+      return { lat, lng };
+    }
+  };
 
   toggleShowMap = () => {
     this.setState(prevState => ({
@@ -157,6 +154,22 @@ calculateCenter = async () => {
     }, 1000);
   };
 
+  showMapHeader = heading => {
+    return (
+      <div className="mapHeader" onClick={() => this.toggleShowMap()}>
+        <span className="alignLeftWithPadding">{heading}</span>
+        <span className="arrowContainer mapArrow">
+          <small className="rightSpace">
+            {this.state.showMap ? "hide map" : "show map"}
+          </small>
+          <i
+            className={this.state.showMap ? "arrow upArrow" : "arrow downArrow"}
+          />
+        </span>
+      </div>
+    );
+  };
+
   render() {
     const { myZip, searchCoupons, loggedIn } = this.props;
     const { bizLocations, center, showMap } = this.state;
@@ -172,19 +185,7 @@ calculateCenter = async () => {
             animationOutDuration={1000}
           >
             <div className="buttonBox">
-              <div
-                className="alignLeftWithPadding"
-                onClick={() => this.toggleShowMap()}
-              >
-                Your location
-                <span
-                  className="arrowContainer mapArrow"
-                >
-                  <i
-                    className={showMap ? "arrow upArrow" : "arrow downArrow"}
-                  />
-                </span>
-              </div>
+              {this.showMapHeader("Your location")}
               {showMap && (
                 <GoogleMap
                   center={center ? center : defaultProps.center}
@@ -209,25 +210,10 @@ calculateCenter = async () => {
           !loggedIn &&
           (bizLocations[0].length > 0 ? (
             <div className="buttonBox">
-              {searchCoupons && (
-                <div
-                  className="floatLeftWithPadding"
-                  onClick={() => this.toggleShowMap()}
-                >
-                  {searchCoupons}
-                  <span
-                    className="arrowContainer mapArrow"
-                  >
-                    <i
-                      className={showMap ? "arrow upArrow" : "arrow downArrow"}
-                    />
-                  </span>
-                </div>
-              )}
+              {searchCoupons && this.showMapHeader(searchCoupons)}
               {showMap && (
                 <GoogleMap
                   center={center}
-                  // center={{ lat: pos.lat, lng: pos.lng }}
                   size={"mapGen mapSizeWideShort"}
                   yesIWantToUseGoogleMapApiInternals
                   onGoogleApiLoaded={({ map, maps }) =>

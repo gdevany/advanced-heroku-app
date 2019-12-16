@@ -233,6 +233,10 @@ address {
   margin-top: 15px;
 }
 
+.rightSpace {
+  margin-right: 10px;
+}
+
 .bigText {
   font-size: 1.2em;
 }
@@ -484,6 +488,11 @@ strong {
   width: 0;
 }
 
+.mapHeader {
+  display: flex;
+  justify-content: space-between;
+}
+
 .userLocMarkerContainer {
   font-weight: bold;
   position: relative;
@@ -601,13 +610,14 @@ strong {
 .arrow {
   /* border: solid #959595; */
   border: solid #ff0000;
-  border-width: 0 2px 2px 0;
+  border-width: 0 1px 1px 0;
   display: inline-block;
-  padding: 4px;
+  padding: 3px;
 }
 
 .backArrow {
   transform: rotate(135deg);
+  margin-right: 10px;
 }
 
 .forwardArrow {
@@ -625,7 +635,7 @@ strong {
 
 .mapArrow {
   float: right;
-  margin: 5px 20px;
+  margin: -2px 20px;
 }
 
 .offerExpArrow {
