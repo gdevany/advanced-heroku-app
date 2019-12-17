@@ -72,8 +72,8 @@ class Subjects extends React.Component {
     }
 
     return (
-      <div className="containerShort text-center">
-        <div className="divideLine margin30top"></div>
+      <div className="borderRightTheme text-center">
+        <div className="divideLine"></div>
         {!subjectChosen && <div className="margin30top">{header}</div>}
         {loggedIn && (
           <div>

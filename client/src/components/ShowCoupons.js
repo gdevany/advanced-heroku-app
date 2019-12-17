@@ -102,7 +102,7 @@ class ShowCoupons extends React.Component {
 
   render() {
     return (
-      <div className="containerShort">
+      <div className="">
         {this.props.searchCoupons !== "" || this.props.loggedIn !== "" ? (
           <Animated
             animationIn="fadeInDown"
@@ -111,7 +111,7 @@ class ShowCoupons extends React.Component {
             animationInDuration={3000}
             animationOutDuration={1000}
           >
-            <div>{this.displayCoupons()}</div>
+            <div className="borderRightTheme">{this.displayCoupons()}</div>
           </Animated>
         ) : (
           <div></div>

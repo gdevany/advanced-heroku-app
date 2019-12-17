@@ -188,7 +188,7 @@ class CurrentLocationMapped extends Component {
     const { bizLocations, center, showMap } = this.state;
 
     return (
-      <div>
+      <div className="locationMapContainer">
         {!searchCoupons && (
           <Animated
             animationIn="bounceInLeft"

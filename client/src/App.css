@@ -162,16 +162,22 @@ address {
   padding: 10px 45px;
 }
 
-.contentContainer {
-  /* background-image: url("../img/Color1970sReverse.png"); */
+.locationMapContainer {
+  margin-bottom: -1px;
+  padding-bottom: 20px;
+}
+
+.borderRightTheme {
   background-image: url("../img/Color1970scopy.png");
   background-size: 2em 100%;
   background-repeat: no-repeat;
-  /* background-position: left; */
   background-position: right;
+}
+
+.contentContainer {
   padding-bottom: 50px;
-  max-width: 500px;
-  margin: inherit;
+  /* max-width: 500px;
+  margin: inherit; */
 }
 
 .headingLogoMain {

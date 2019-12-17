@@ -82,7 +82,7 @@ function Subtopics(props) {
     <div className="container text-center">
       {!searchCoupons && <div className="margin30top">{header}</div>}
       <div className="">{subDivs}</div>
-      <div className="containerShort">{backButton}</div>
+      <div className="">{backButton}</div>
     </div>
   );
 }

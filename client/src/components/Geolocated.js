@@ -140,11 +140,9 @@ class Geolocated extends React.Component {
       ? "Geolocation is not enabled"
       : "Try refreshing your browser";
 
-    console.log(searchCoupons);
-
     return (
       !loggedIn && (
-        <div className="containerShort margin30top text-center">
+        <div className="borderRightTheme containerShort padding30top text-center">
           {!searchCoupons && geolocateSuccessful && (
             <div>
               {this.state.userWantsToEnterZip ? (
