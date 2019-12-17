@@ -96,9 +96,21 @@ class Geolocated extends React.Component {
         <button type="submit" onClick={() => this.zipSubmitted()}>
           submit
         </button>
+        {this.resetUserWantsToEnterZip()}
       </div>
     );
     return choice;
+  };
+
+  resetUserWantsToEnterZip = () => {
+    return (
+      <div onClick={() => this.userToEnterZip()}>
+        <span className="arrowContainer">
+          <i className="arrow backArrow" />
+          back
+        </span>
+      </div>
+    );
   };
 
   userToEnterZip = () => {
@@ -128,44 +140,45 @@ class Geolocated extends React.Component {
       ? "Geolocation is not enabled"
       : "Try refreshing your browser";
 
-    return (
-      !loggedIn && 
-      <div className="containerShort margin30top text-center">
-        {!searchCoupons && geolocateSuccessful && (
-          <div>
-            {this.state.userWantsToEnterZip ? (
-              this.showInputZip()
-            ) : (
-              <div
-                className="smallText margin10bottom"
-              >
-                Click zip to change
-              </div>
-            )}
-          </div>
-        )}
+    console.log(searchCoupons);
 
-        <GoogleMap size={"mapSizeNone"}></GoogleMap>
-        {(geolocateSuccessful || userDidEnterZip) && !userWantsToEnterZip ? (
-          <CurrentLocationMapped
-            _onClick={() => this.userToEnterZip()}
-            pos={userPosition}
-            myZip={userDidEnterZip ? userEnteredZip : userPosition.zip}
-            loggedIn={loggedIn}
-            searchCoupons={searchCoupons}
-            filteredCoupons={filteredCoupons}
-            usersCoupons={usersCoupons}
-            setZip={this.props.setZip}
-            zipEnabledBy={
-              userDidEnterZip ? "userDidEnterZip" : "geolocateSuccessful"
-            }
-          />
-        ) : !isGeolocationAvailable || !isGeolocationEnabled ? (
-          this.showInputZip(message)
-        ) : (
-          !userWantsToEnterZip && <div>...loading</div>
-        )}
-      </div>
+    return (
+      !loggedIn && (
+        <div className="containerShort margin30top text-center">
+          {!searchCoupons && geolocateSuccessful && (
+            <div>
+              {this.state.userWantsToEnterZip ? (
+                this.showInputZip()
+              ) : (
+                <div className="smallText margin10bottom">
+                  Click zip to change
+                </div>
+              )}
+            </div>
+          )}
+
+          <GoogleMap size={"mapSizeNone"}></GoogleMap>
+          {(geolocateSuccessful || userDidEnterZip) && !userWantsToEnterZip ? (
+            <CurrentLocationMapped
+              _onClick={() => this.userToEnterZip()}
+              pos={userPosition}
+              myZip={userDidEnterZip ? userEnteredZip : userPosition.zip}
+              loggedIn={loggedIn}
+              searchCoupons={searchCoupons}
+              filteredCoupons={filteredCoupons}
+              usersCoupons={usersCoupons}
+              setZip={this.props.setZip}
+              zipEnabledBy={
+                userDidEnterZip ? "userDidEnterZip" : "geolocateSuccessful"
+              }
+            />
+          ) : !isGeolocationAvailable || !isGeolocationEnabled ? (
+            this.showInputZip(message)
+          ) : (
+            !userWantsToEnterZip && <div>...loading</div>
+          )}
+        </div>
+      )
     );
   }
 }

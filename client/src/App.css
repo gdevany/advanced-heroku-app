@@ -499,7 +499,7 @@ strong {
 }
 
 .mapHeader {
-  padding: 2px 10px 2px 2px;
+  padding: 2px 10px 2px 5px;
   font-size: 0.8em;
   display: flex;
 }
