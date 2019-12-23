@@ -44,7 +44,7 @@ var couponSchema = new _mongoose.Schema({
     required: false
   },
   restrictions: {
-    type: String,
+    type: [{}],
     required: false
   },
   searchWords: {
