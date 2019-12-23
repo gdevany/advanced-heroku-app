@@ -67,16 +67,16 @@ class ShowCoupon extends Component {
         </div>
         <div className="row bizInfoBlock text-left">
           <ul>
-            <li>
-            {coupon.couponDesc}
-            </li>
+            <li>{coupon.couponDesc}</li>
           </ul>
           <ul>
-            <li>
-              {coupon.restrictions}
-            </li>
+            {coupon.restrictions.map(rest => {
+              return <li key={rest.key}>{rest.restriction}</li>;
+            })}
           </ul>
-          <div className="offerID text-center margin30top">Offer ID: {coupon._id}</div>
+          <div className="offerID text-center margin30top">
+            Offer ID: {coupon._id}
+          </div>
         </div>
       </div>
     );

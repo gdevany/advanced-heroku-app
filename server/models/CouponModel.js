@@ -34,7 +34,7 @@ const couponSchema = new Schema({
     required: false
   },
   restrictions: {
-    type: String,
+    type: [{}],
     required: false
   },
   searchWords: {

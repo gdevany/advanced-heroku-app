@@ -71,7 +71,6 @@ export function loadUser(user) {
 }
 
 export function createCoupon(c) {
-  console.log('here')
   return function (dispatch) {
     fetch("api/coupons", {
       method: "POST",
