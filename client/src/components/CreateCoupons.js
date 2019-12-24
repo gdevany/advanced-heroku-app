@@ -111,7 +111,8 @@ class CreateCoupons extends React.Component {
       streetAndNum,
       city,
       zip,
-      bizPhone
+      bizPhone,
+      restrictionsTotal
     } = this.state;
     const { showCreateCoupon, createCoupon, toggleShow, loggedIn } = this.props;
 
@@ -199,7 +200,7 @@ class CreateCoupons extends React.Component {
                     maxLength="25"
                   />
                   <br />
-                  <small className="floatLeftWithPaddingAndPull">
+                  <small className="floatLeftAndPull50">
                     {heading.length}/25
                   </small>
                   <small>Get One Free</small>
@@ -219,15 +220,18 @@ class CreateCoupons extends React.Component {
                 <div className="margin20bottom">
                   Restrictions: <br />
                   {this.handleRestrictions()}
-                  <button
-                    className=""
+                  <small className="floatLeftAndPull20">
+                    {restrictionsTotal}/5
+                  </small>
+                  {restrictionsTotal < 5 && <button
+                    className="buttonBox"
                     onClick={e => {
                       e.preventDefault();
                       this.handleRestrictionAdded();
                     }}
                   >
                     add a restriction
-                  </button>
+                  </button>}
                   <br />
                 </div>
                 <div className="margin20bottom">

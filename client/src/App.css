@@ -280,10 +280,16 @@ address {
   padding-left: 10px;
 }
 
-.floatLeftWithPaddingAndPull {
+.floatLeftAndPull50 {
   float: left;
   padding-left: 10px;
   margin-right: -50px;
+}
+
+.floatLeftAndPull20 {
+  float: left;
+  padding-left: 10px;
+  margin-right: -20px;
 }
 
 .marginBottom1 {
