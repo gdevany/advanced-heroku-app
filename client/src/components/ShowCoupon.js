@@ -18,11 +18,13 @@ class ShowCoupon extends Component {
   };
 
   expandIt = couponID => {
-    this.setState({ expandHeader: !this.state.expandHeader });
-    this.props.expandThisCoupon(couponID);
-    this.state.couponID === ""
-      ? this.setState({ couponID })
-      : this.setState({ couponID: "" });
+    if (!this.props.loggedIn) {
+      this.setState({ expandHeader: !this.state.expandHeader });
+      this.props.expandThisCoupon(couponID);
+      this.state.couponID === ""
+        ? this.setState({ couponID })
+        : this.setState({ couponID: "" });
+    }
   };
 
   renderMap = coupon => {
