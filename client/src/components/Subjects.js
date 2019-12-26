@@ -18,19 +18,17 @@ class Subjects extends React.Component {
 
   toggleCreateCouponButton = () => {
     return (
-      !this.state.showCreateCoupon && (
-        <div>
-          <button
-            className="buttonGen margin30bottom blink"
-            onClick={e => {
-              e.preventDefault();
-              this.toggleCreateCoupon();
-            }}
-          >
-            Create New Coupon
-          </button>
-        </div>
-      )
+      <div>
+        <button
+          className="buttonGen margin30bottom blink"
+          onClick={e => {
+            e.preventDefault();
+            this.toggleCreateCoupon();
+          }}
+        >
+          Create New Coupon
+        </button>
+      </div>
     );
   };
 
@@ -56,36 +54,34 @@ class Subjects extends React.Component {
 
   render() {
     const { subjectChosen, loggedIn, category, userPosition } = this.props;
-    var header = <div></div>;
-    var subDivs = <div></div>;
+    const { showCreateCoupon } = this.state;
 
-    if (userPosition.zip !== 0) {
-      if (loggedIn) {
-        header = <div></div>;
-        subDivs = this.toggleCreateCouponButton();
-      } else {
-        if (!subjectChosen) {
-          header = <div className="blink">Choose a subject</div>;
-          subDivs = this.mapSubjects(category);
-        }
-      }
-    }
-
-    return (
+    return userPosition.zip !== 0 ? (
       <div className="borderRightTheme text-center">
         <div className="divideLine"></div>
-        {!subjectChosen && <div className="margin30top">{header}</div>}
-        {loggedIn && (
-          <div>
+        {!subjectChosen && (
+          <div className="margin30top blink">Choose a subject</div>
+        )}
+        {loggedIn ? (
+          showCreateCoupon ? (
             <CreateCoupons
               toggleShow={this.toggleCreateCoupon}
-              showCreateCoupon={this.state.showCreateCoupon}
+              showCreateCoupon={showCreateCoupon}
             />
+          ) : (
+            <div>{this.toggleCreateCouponButton()}</div>
+          )
+        ) : (
+          <div>
+            {!subjectChosen && (
+              <div className="">{this.mapSubjects(category)}</div>
+            )}
+            <Subtopics />
           </div>
         )}
-        {(!subjectChosen || loggedIn) && <div className="">{subDivs}</div>}
-        <Subtopics />
       </div>
+    ) : (
+      <div></div>
     );
   }
 }
