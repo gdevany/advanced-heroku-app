@@ -2,6 +2,7 @@ import React from "react";
 import { geolocated } from "react-geolocated";
 import GoogleMap from "./GoogleMap";
 import CurrentLocationMapped from "./CurrentLocationMapped";
+import { Animated } from "react-animated-css";
 
 class Geolocated extends React.Component {
   constructor() {
@@ -78,26 +79,38 @@ class Geolocated extends React.Component {
 
   showInputZip = message => {
     let choice = (
-      <div className="customBox">
-        <div className="margin30bottom">{message}</div>
-        <div>
-          <input
-            type="text"
-            placeholder="5-digit zip..."
-            className="inputZip zipBox"
-            onChange={e => {
-              this.handleZipEntered(e);
-            }}
-          />
+      <Animated
+        animationIn="fadeIn"
+        animationOut="fadeOut"
+        isVisible={true}
+        animationInDuration={2000}
+        animationOutDuration={1000}
+      >
+        <div className="customBox">
+          <div className="margin30bottom">{message}</div>
+          <div>
+            <input
+              type="text"
+              placeholder="5-digit zip..."
+              className="inputZip zipBox"
+              onChange={e => {
+                this.handleZipEntered(e);
+              }}
+            />
+          </div>
+          <div className="margin30bottom">
+            <small>Enter your zip</small>
+          </div>
+          <button
+            className="buttonBox white"
+            type="submit"
+            onClick={() => this.zipSubmitted()}
+          >
+            submit
+          </button>
+          {this.resetUserWantsToEnterZip()}
         </div>
-        <div className="margin30bottom">
-          <small>Enter your zip</small>
-        </div>
-        <button type="submit" onClick={() => this.zipSubmitted()}>
-          submit
-        </button>
-        {this.resetUserWantsToEnterZip()}
-      </div>
+      </Animated>
     );
     return choice;
   };

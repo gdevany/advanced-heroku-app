@@ -30,8 +30,9 @@ class ShowCoupon extends Component {
   renderMap = coupon => {
     return (
       <Animated
-        animationIn="fadeInDown"
-        animationOut="fadeOutUp"
+        animationInDelay="1000"
+        animationIn="fadeIn"
+        animationOut="fadeOut"
         isVisible={true}
         animationInDuration={2000}
         animationOutDuration={1000}

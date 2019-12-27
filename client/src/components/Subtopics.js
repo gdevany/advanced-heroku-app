@@ -1,4 +1,5 @@
 import React from "react";
+import { Animated } from "react-animated-css";
 
 function Subtopics(props) {
   const { subjectChosen, loggedIn, searchCoupons } = props;
@@ -73,7 +74,18 @@ function Subtopics(props) {
   }
 
   if (subjectChosen && !searchCoupons) {
-    header = <div className="blink">Choose a subtopic</div>;
+    header = (
+      <Animated
+        animationInDelay="3000"
+        animationIn="flash"
+        animationOut="fadeOut"
+        isVisible={true}
+        animationInDuration={1000}
+        animationOutDuration={1000}
+      >
+        <div className="">Choose a subtopic</div>
+      </Animated>
+    );
     subDivs = getMappedSubtopics();
     backButton = getBBResetSubjectChosen();
   }

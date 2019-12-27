@@ -1,6 +1,7 @@
 import React from "react";
 import Subtopics from "../containers/SubtopicsContainer";
 import CreateCoupons from "../containers/CreateCouponsContainer";
+import { Animated } from "react-animated-css";
 
 class Subjects extends React.Component {
   constructor() {
@@ -18,9 +19,16 @@ class Subjects extends React.Component {
 
   toggleCreateCouponButton = () => {
     return (
-      <div>
+      <Animated
+        animationInDelay="3000"
+        animationIn="flash"
+        animationOut="fadeOut"
+        isVisible={true}
+        animationInDuration={1000}
+        animationOutDuration={1000}
+      >
         <button
-          className="buttonGen margin30bottom blink"
+          className="buttonGen margin30bottom tightLines"
           onClick={e => {
             e.preventDefault();
             this.toggleCreateCoupon();
@@ -28,7 +36,7 @@ class Subjects extends React.Component {
         >
           Create New Coupon
         </button>
-      </div>
+      </Animated>
     );
   };
 
@@ -60,7 +68,16 @@ class Subjects extends React.Component {
       <div className="borderRightTheme text-center">
         <div className="divideLine"></div>
         {!subjectChosen && !loggedIn && (
-          <div className="margin30top blink">Choose a subject</div>
+          <Animated
+            animationInDelay="3000"
+            animationIn="flash"
+            animationOut="fadeOut"
+            isVisible={true}
+            animationInDuration={1000}
+            animationOutDuration={1000}
+          >
+            <div className="margin30top">Choose a subject</div>
+          </Animated>
         )}
         {loggedIn ? (
           showCreateCoupon ? (

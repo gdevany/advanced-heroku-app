@@ -1,6 +1,5 @@
-//TODO - createCoupon, show success
-
 import React from "react";
+import { Animated } from "react-animated-css";
 
 class CreateCoupons extends React.Component {
   constructor() {
@@ -123,7 +122,14 @@ class CreateCoupons extends React.Component {
     } else {
       return (
         showCreateCoupon && (
-          <div>
+          <Animated
+            animationInDelay="0"
+            animationIn="fadeIn"
+            animationOut="fadeOut"
+            isVisible={true}
+            animationInDuration={1000}
+            animationOutDuration={1000}
+          >
             <div className="formTextShadow text-center">
               <div className="formHeader">
                 <h1>Create</h1>
@@ -223,15 +229,17 @@ class CreateCoupons extends React.Component {
                   <small className="floatLeftAndPull20">
                     {restrictionsTotal}/5
                   </small>
-                  {restrictionsTotal < 5 && <button
-                    className="buttonBox"
-                    onClick={e => {
-                      e.preventDefault();
-                      this.handleRestrictionAdded();
-                    }}
-                  >
-                    add a restriction
-                  </button>}
+                  {restrictionsTotal < 5 && (
+                    <button
+                      className="buttonBox"
+                      onClick={e => {
+                        e.preventDefault();
+                        this.handleRestrictionAdded();
+                      }}
+                    >
+                      add a restriction
+                    </button>
+                  )}
                   <br />
                 </div>
                 <div className="margin20bottom">
@@ -327,7 +335,7 @@ class CreateCoupons extends React.Component {
                 </div>
               </form>
             </div>
-          </div>
+          </Animated>
         )
       );
     }
