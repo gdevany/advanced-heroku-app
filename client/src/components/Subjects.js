@@ -59,17 +59,19 @@ class Subjects extends React.Component {
     return userPosition.zip !== 0 ? (
       <div className="borderRightTheme text-center">
         <div className="divideLine"></div>
-        {!subjectChosen && (
+        {!subjectChosen && !loggedIn && (
           <div className="margin30top blink">Choose a subject</div>
         )}
         {loggedIn ? (
           showCreateCoupon ? (
-            <CreateCoupons
-              toggleShow={this.toggleCreateCoupon}
-              showCreateCoupon={showCreateCoupon}
-            />
+            <div className="margin30top">
+              <CreateCoupons
+                toggleShow={this.toggleCreateCoupon}
+                showCreateCoupon={showCreateCoupon}
+              />
+            </div>
           ) : (
-            <div>{this.toggleCreateCouponButton()}</div>
+            <div className="margin30top">{this.toggleCreateCouponButton()}</div>
           )
         ) : (
           <div>
