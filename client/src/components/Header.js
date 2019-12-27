@@ -41,7 +41,7 @@ class Header extends Component {
           }
         >
             {!searchCoupons ? (
-              <div>
+              <div className="logoSpinner">
                 <div className="headingLogoMain">BOGO</div>
                 <div className="headingLogoSub">by zip</div>
               </div>
