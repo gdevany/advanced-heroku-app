@@ -15,7 +15,7 @@ class SignUpSignIn extends Component {
 
   render() {
     return (
-      <div>
+      <div className="signUpInContainer">
         <Row>
           <Col xs={8} xsOffset={2}>
             {this.props.error && this.renderError()}
