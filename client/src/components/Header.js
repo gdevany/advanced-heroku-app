@@ -24,7 +24,7 @@ class Header extends Component {
 
   render() {
     const { clickedSignIn } = this.state;
-    const { searchCoupons } = this.props;
+    // const { searchCoupons } = this.props;
 
     return (
       <Animated
@@ -37,10 +37,14 @@ class Header extends Component {
         <div
           className={
             "text-center headingContainer " +
-            ((!clickedSignIn) && "headingContainerInline")
+            (!clickedSignIn && "headingContainerInline")
           }
         >
-            {!searchCoupons ? (
+          <div className="logoSpinner">
+            <span className="headingLogoMainSmall">BOGO</span>
+            <span className="headingLogoSubSmall">board</span>
+          </div>
+          {/* {!searchCoupons ? (
               <div className="logoSpinner">
                 <div className="headingLogoMain">BOGO</div>
                 <div className="headingLogoSub">by zip</div>
@@ -50,7 +54,7 @@ class Header extends Component {
                 <span className="headingLogoMainSmall">BOGO</span>
                 <span className="headingLogoSubSmall">by zip</span>
               </div>
-            )}
+            )} */}
           <SignUpIn
             signInClicked={this.signInClicked}
             clickedSignIn={this.state.clickedSignIn}

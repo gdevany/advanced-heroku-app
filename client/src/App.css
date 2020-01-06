@@ -356,11 +356,14 @@ address {
 }
 
 .buttonBox {
-  color: white;
+  /* color: white;
+  background-color: #383838; */
+  color: #383838;
+  background-color: #f4f4f4;
   border: 1px solid #ff0000;
   margin: 3px auto 10px;
-  background-color: #383838;
   letter-spacing: 0.1em;
+  font-weight: bold;
 }
 
 .buttonGen {
