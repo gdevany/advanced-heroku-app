@@ -151,7 +151,7 @@ address {
   font-family: "Luckiest Guy", cursive;
   padding: 10px;
   border-radius: 2px;
-  border: 1px solid #ff0000;
+  /* border: 1px solid #ff0000; */
   background-color: #f4f4f4;
   /* box-shadow: inset -2px -2px 3px 0px #4f501b; */
   /* background: linear-gradient(to bottom right, #383838 -75%, #f4f4f4 24%); */
@@ -515,7 +515,7 @@ strong {
 }
 
 .mapHeader {
-  padding: 2px 10px 2px 5px;
+  padding: 5px 10px 5px 5px;
   font-size: 0.8em;
   display: flex;
 }
