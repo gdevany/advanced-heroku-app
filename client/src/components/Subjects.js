@@ -20,7 +20,7 @@ class Subjects extends React.Component {
   toggleCreateCouponButton = () => {
     return (
       <Animated
-        animationInDelay="3000"
+        animationInDelay={3000}
         animationIn="flash"
         animationOut="fadeOut"
         isVisible={true}
@@ -69,7 +69,7 @@ class Subjects extends React.Component {
         <div className="divideLine"></div>
         {!subjectChosen && !loggedIn && (
           <Animated
-            animationInDelay="3000"
+            animationInDelay={3000}
             animationIn="flash"
             animationOut="fadeOut"
             isVisible={true}

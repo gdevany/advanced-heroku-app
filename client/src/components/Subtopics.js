@@ -76,7 +76,7 @@ function Subtopics(props) {
   if (subjectChosen && !searchCoupons) {
     header = (
       <Animated
-        animationInDelay="3000"
+        animationInDelay={3000}
         animationIn="flash"
         animationOut="fadeOut"
         isVisible={true}

@@ -157,19 +157,19 @@ class CurrentLocationMapped extends Component {
   showMapHeader = heading => {
     return (
       <div className="mapHeader">
-        <span className="">{heading}</span>
+        <span className="thirdWidth">{heading}</span>
         {this.props.searchCoupons ? (
-          <span className="marginAutos mapHeaderZip">{this.props.myZip}</span>
+          <span className="thirdWidth marginAutos mapHeaderZip">{this.props.myZip}</span>
         ) : (
           <span
-            className="marginAutos mapHeaderZip"
+            className="thirdWidth marginAutos mapHeaderZip"
             onClick={() => this.props._onClick()}
           >
             {this.props.myZip}
           </span>
         )}
         <span
-          className="arrowContainer mapArrow"
+          className="thirdWidth arrowContainer mapArrow"
           onClick={() => this.toggleShowMap()}
         >
           <span className="mapHeaderToggler">

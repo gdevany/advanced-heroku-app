@@ -105,7 +105,7 @@ class ShowCoupons extends React.Component {
       <div className="">
         {this.props.searchCoupons !== "" || this.props.loggedIn !== "" ? (
           <Animated
-            animationInDelay="1500"
+            animationInDelay={1500}
             animationIn="fadeInDown"
             animationOut="fadeOut"
             isVisible={true}

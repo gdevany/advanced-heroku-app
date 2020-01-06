@@ -123,7 +123,7 @@ class CreateCoupons extends React.Component {
       return (
         showCreateCoupon && (
           <Animated
-            animationInDelay="0"
+            animationInDelay={0}
             animationIn="fadeIn"
             animationOut="fadeOut"
             isVisible={true}
