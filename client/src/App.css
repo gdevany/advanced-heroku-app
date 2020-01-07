@@ -172,8 +172,8 @@ address {
 }
 
 .locationMapContainer {
-  margin-bottom: -1px;
-  padding-bottom: 20px;
+  /* margin-bottom: -1px;
+  padding-bottom: 20px; */
 }
 
 .borderRightTheme {
@@ -487,6 +487,18 @@ strong {
   padding-top: 30px;
 }
 
+.padding10bottom {
+  padding-bottom: 10px !important;
+}
+
+.padding20bottom {
+  padding-bottom: 10px !important;
+}
+
+.noShow {
+  visibility: hidden;
+}
+
 .mapGen {
   width: 100%;
   margin-left: auto;
@@ -653,6 +665,11 @@ strong {
   font-size: 100px;
   opacity: 0.2;
   transform: rotate(320deg);
+}
+
+.zipChangeMsg {
+  margin-top: -6px;
+  /* padding-bottom: 10px; */
 }
 
 .couponFade {

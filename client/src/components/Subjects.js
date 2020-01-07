@@ -65,8 +65,8 @@ class Subjects extends React.Component {
     const { showCreateCoupon } = this.state;
 
     return userPosition.zip !== 0 ? (
-      <div className="borderRightTheme text-center">
-        <div className="divideLine"></div>
+      <div className="text-center">
+        <div className="divideLine borderRightTheme"></div>
         {!subjectChosen && !loggedIn && (
           <Animated
             animationInDelay={3000}

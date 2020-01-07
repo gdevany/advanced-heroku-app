@@ -155,18 +155,10 @@ class Geolocated extends React.Component {
 
     return (
       !loggedIn && (
-        <div className="borderRightTheme containerShort padding30top text-center">
-          {!searchCoupons && geolocateSuccessful && (
-            <div>
-              {this.state.userWantsToEnterZip ? (
-                this.showInputZip()
-              ) : (
-                <div className="smallText margin10bottom">
-                  Click zip to change
-                </div>
-              )}
-            </div>
-          )}
+        <div className="containerShort padding30top text-center">
+          {!searchCoupons &&
+            geolocateSuccessful &&
+            this.state.userWantsToEnterZip && <div>{this.showInputZip()}</div>}
 
           <GoogleMap size={"mapSizeNone"}></GoogleMap>
           {(geolocateSuccessful || userDidEnterZip) && !userWantsToEnterZip ? (
@@ -188,6 +180,17 @@ class Geolocated extends React.Component {
           ) : (
             !userWantsToEnterZip && <div>...loading</div>
           )}
+          <div
+            className={
+              "smallText padding20bottom zipChangeMsg " +
+              ((searchCoupons ||
+                !geolocateSuccessful ||
+                this.state.userWantsToEnterZip) &&
+                "noShow")
+            }
+          >
+            Click zip to change
+          </div>
         </div>
       )
     );
