@@ -68,7 +68,8 @@ select {
 
 label {
   font-size: 0.8em;
-  color: #383838;
+  /* color: #383838; */
+  color: #f4f4f4;
   margin-bottom: 0;
 }
 
@@ -116,7 +117,7 @@ address {
 }
 
 .navbar-inverse .navbar-nav > li > a {
-  color: #3f362a !important;
+  /* color: #3f362a !important; */
 }
 
 .nav-tabs {
@@ -124,8 +125,7 @@ address {
 }
 
 .nav-tabs > li > a {
-  /* border: 1px solid #fef596; */
-  color: #383838;
+  color: #f4f4f4;
 }
 
 .nav-tabs > li.active > a,
@@ -158,8 +158,8 @@ address {
 }
 
 .headingContainer {
-  background-color: white;
-  border-bottom: 2px solid #ff0000;
+  /* background-color: white; */
+  /* border-bottom: 2px solid #ff0000; */
   max-width: 500px;
   margin-right: auto;
   margin-left: auto;
@@ -177,10 +177,10 @@ address {
 }
 
 .borderRightTheme {
-  background-image: url("../img/Color1970scopy.png");
+  background-image: url("../img/Color1970scopy.png"), url("../img/Color1970scopy.png");
   background-size: 2em 100%;
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: right, left;
 }
 
 .contentContainer {
@@ -222,7 +222,7 @@ address {
   font-size: 2em;
   color: black;
   letter-spacing: 0.05em;
-  /* text-shadow: -1px 0 #fef596, 0 1px #fef596, 4px 0 #fef596, 0 -1px #fef596; */
+  text-shadow: -1px 0 #fef596, 0 1px #fef596, 4px 0 #fef596, 0 -1px #fef596;
 }
 
 .headingLogoSub {

@@ -10,7 +10,7 @@ function App() {
     <div className="app">
       <Header />
       <Geolocated />
-      <div className="borderRightTheme contentContainer containerShort">
+      <div className="contentContainer containerShort borderRightTheme">
         <Subjects />
         <ShowCoupons />
       </div>

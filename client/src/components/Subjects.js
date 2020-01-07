@@ -66,7 +66,7 @@ class Subjects extends React.Component {
 
     return userPosition.zip !== 0 ? (
       <div className="text-center">
-        <div className="divideLine borderRightTheme"></div>
+        <div className="divideLine"></div>
         {!subjectChosen && !loggedIn && (
           <Animated
             animationInDelay={3000}

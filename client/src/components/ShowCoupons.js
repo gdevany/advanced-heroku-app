@@ -112,7 +112,7 @@ class ShowCoupons extends React.Component {
             animationInDuration={2000}
             animationOutDuration={1000}
           >
-            <div className="borderRightTheme">{this.displayCoupons()}</div>
+            <div className="">{this.displayCoupons()}</div>
           </Animated>
         ) : (
           <div></div>
