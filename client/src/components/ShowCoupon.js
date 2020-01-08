@@ -60,7 +60,7 @@ class ShowCoupon extends Component {
         <CopyToClipboard
           text={`${coupon.streetAndNum} ${coupon.city} ${coupon.zip}`}
         >
-          <div className="row" onClick={()=>alert('copied')}>
+          <div className="row" onClick={()=>alert('address saved to clipboard')}>
             <div className="text-center">
               {coupon.notDeletable && <div className="sampler">sample</div>}
 

@@ -382,6 +382,7 @@ address {
   margin: 3px auto 10px;
   letter-spacing: 0.1em;
   font-weight: bold;
+  border-radius: 3px;
 }
 
 .buttonGen {
@@ -390,8 +391,8 @@ address {
   border-radius: 50px !important;
   padding: 10px;
   color: #383838;
-  width: 50vw;
-  max-width: 220px;
+  width: 80vw;
+  max-width: 250px;
   height: auto;
   background-color: #f4f4f4;
   margin: 3px;
