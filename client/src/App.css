@@ -187,6 +187,20 @@ address {
   padding-bottom: 50px;
 }
 
+@keyframes shadow-pulse
+{
+     0% {
+          box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.2);
+     }
+     100% {
+          box-shadow: 0 0 0 35px rgba(0, 0, 0, 0);
+     }
+}
+
+.shadowPulse {
+  animation: shadow-pulse 1s infinite;
+}
+
 @keyframes spinner {
   from {
     transform: rotateY(0deg);
@@ -241,6 +255,10 @@ address {
   color: #78c0a8;
   font-weight: bold;
   text-shadow: -1px 0 black, 0 1px black, 3px 0 black, 0 -1px black;
+}
+
+.addressBoxNote {
+  color: #f4f4f4;
 }
 
 .formInputText input {
@@ -376,9 +394,8 @@ address {
   max-width: 220px;
   height: auto;
   background-color: #f4f4f4;
-  border-radius: 2px;
   margin: 3px;
-  border: 1px solid #383838;
+  border: 1px solid #ff0000;
 }
 
 .catButton {
@@ -463,6 +480,10 @@ strong {
   color: #383838;
 }
 
+.margin10top {
+  margin-top: 10px !important;
+}
+
 .margin30top {
   margin-top: 30px !important;
 }
@@ -481,6 +502,10 @@ strong {
 
 .margin0top {
   margin-top: 0 !important;
+}
+
+.padding20top {
+  padding-top: 20px;
 }
 
 .padding30top {

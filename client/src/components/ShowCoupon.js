@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import BusinessLocationMapped from "./BusinessLocationMapped";
 import { Animated } from "react-animated-css";
+import { CopyToClipboard } from "react-copy-to-clipboard";
 
 class ShowCoupon extends Component {
   constructor(props) {
@@ -54,20 +55,27 @@ class ShowCoupon extends Component {
 
   renderOfferInfo = coupon => {
     return (
-      <div>
-        <div className="row">
-          <div className="text-center">
-            {coupon.notDeletable && <div className="sampler">sample</div>}
-            <address>
-              <strong>{coupon.bizName}</strong>
-              <br />
-              {coupon.streetAndNum} {coupon.city} <br />
-              <strong>{coupon.zip}</strong>
-              <br />
-              <small>{coupon.bizPhone}</small>
-            </address>
+      <div className="margin10top text-center">
+        <small className="addressBoxNote">click address to save to clipboard</small>
+        <CopyToClipboard
+          text={`${coupon.streetAndNum} ${coupon.city} ${coupon.zip}`}
+        >
+          <div className="row" onClick={()=>alert('copied')}>
+            <div className="text-center">
+              {coupon.notDeletable && <div className="sampler">sample</div>}
+
+              <address className="shadowPulse">
+                <strong>{coupon.bizName}</strong>
+                <br />
+                {coupon.streetAndNum} {coupon.city} <br />
+                <strong>{coupon.zip}</strong>
+                <br />
+                <small>{coupon.bizPhone}</small>
+              </address>
+            </div>
           </div>
-        </div>
+        </CopyToClipboard>
+
         <div className="row bizInfoBlock text-left">
           <ul>
             <li>{coupon.couponDesc}</li>
@@ -137,7 +145,8 @@ class ShowCoupon extends Component {
               </div>
             )}
           </div>
-          {this.state.expandHeader === true && this.renderMap(coupon)}
+          {this.state.expandHeader === true && this.renderOfferInfo(coupon)}
+          {/* {this.state.expandHeader === true && this.renderMap(coupon)} */}
         </div>
       </div>
     );

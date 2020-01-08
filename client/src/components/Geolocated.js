@@ -155,7 +155,7 @@ class Geolocated extends React.Component {
 
     return (
       !loggedIn && (
-        <div className="containerShort padding30top text-center">
+        <div className="containerShort padding20top text-center">
           {!searchCoupons &&
             geolocateSuccessful &&
             this.state.userWantsToEnterZip && <div>{this.showInputZip()}</div>}
