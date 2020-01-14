@@ -56,11 +56,16 @@ class ShowCoupon extends Component {
   renderOfferInfo = coupon => {
     return (
       <div className="margin10top text-center">
-        <small className="addressBoxNote">click address to save to clipboard</small>
+        <small className="addressBoxNote">
+          click address to save to clipboard
+        </small>
         <CopyToClipboard
           text={`${coupon.streetAndNum} ${coupon.city} ${coupon.zip}`}
         >
-          <div className="row" onClick={()=>alert('address saved to clipboard')}>
+          <div
+            className="row"
+            onClick={() => alert("address saved to clipboard")}
+          >
             <div className="text-center">
               {coupon.notDeletable && <div className="sampler">sample</div>}
 
@@ -112,7 +117,7 @@ class ShowCoupon extends Component {
                 </span>
               </div>
             )}
-            <div className="col-xs-6 couponHeadline">
+            <div className="col-xs-3 couponHeadline">
               <span className="bizLogoContainer">
                 <img
                   className="imageInContainer"
@@ -120,6 +125,13 @@ class ShowCoupon extends Component {
                   alt="bizLogo"
                 ></img>
               </span>
+            </div>
+            <div className="col-xs-6 text-center">
+              <div className="buyOne">Buy One</div>
+              <div className="biggerText">{coupon.heading}</div>
+              <div className="buyOne">Get One Free</div>
+            </div>
+            <div className="col-xs-3 couponHeadline">
               {this.props.loggedIn === "" ? (
                 <span className="itemImageContainer">
                   <img
@@ -131,11 +143,6 @@ class ShowCoupon extends Component {
               ) : (
                 <span>{this.props.deleteButton(coupon)}</span>
               )}
-            </div>
-            <div className="col-xs-6 text-center">
-              <div className="">Buy One</div>
-              <div className="biggerText">{coupon.heading}</div>
-              <div className="">Get One Free</div>
             </div>
             {this.state.couponID !== coupon._id && (
               <div className="col-xs-12 offerExpArrow text-center">
