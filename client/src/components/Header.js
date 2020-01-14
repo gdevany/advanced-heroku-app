@@ -10,7 +10,7 @@ class Header extends Component {
     };
   }
 
-  signInClicked = () => {
+  toggleSignIn = () => {
     this.setState(prevState => ({
       clickedSignIn: !prevState.clickedSignIn
     }));
@@ -56,7 +56,7 @@ class Header extends Component {
               </div>
             )} */}
           <SignUpIn
-            signInClicked={this.signInClicked}
+            toggleSignIn={this.toggleSignIn}
             clickedSignIn={this.state.clickedSignIn}
             resetClickedSignIn={this.resetClickedSignIn}
           />

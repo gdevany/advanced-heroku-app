@@ -17,7 +17,7 @@ const TopNavbar = props => {
     // If NOT signed in (authenticated), show Sign In
     navItems = (
       <Nav>
-        <NavItem onClick={props.signInClicked}>Sign Up / Sign In</NavItem>
+        <NavItem onClick={props.toggleSignIn}>Sign Up / Sign In</NavItem>
       </Nav>
     );
   }
@@ -35,7 +35,7 @@ const TopNavbar = props => {
 TopNavbar.propTypes = {
   onSignOut: PropTypes.func.isRequired,
   // showNavItems: PropTypes.bool.isRequired,
-  signInClicked: PropTypes.func.isRequired
+  toggleSignIn: PropTypes.func.isRequired
 };
 
 export default TopNavbar;

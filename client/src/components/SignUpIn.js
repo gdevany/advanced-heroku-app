@@ -105,7 +105,7 @@ class SignUpIn extends Component {
         error={this.state.signUpSignInError}
         onSignUp={this.handleSignUp}
         onSignIn={this.handleSignIn}
-        backClicked={this.props.signInClicked}
+        backClicked={this.props.toggleSignIn}
       />
     );
   };
@@ -148,7 +148,7 @@ class SignUpIn extends Component {
           <TopNavbar
             showNavItems={this.state.authenticated}
             onSignOut={this.handleSignOut}
-            signInClicked={this.props.signInClicked}
+            toggleSignIn={this.props.toggleSignIn}
           />
           {whatToShow}
         </div>
