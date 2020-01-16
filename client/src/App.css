@@ -149,7 +149,7 @@ address {
   font-size: 1em;
   color: #383838;
   font-family: "Luckiest Guy", cursive;
-  padding: 10px;
+  padding: 5px;
   border-radius: 2px;
   /* border: 1px solid #ff0000; */
   background-color: #f4f4f4;
@@ -417,14 +417,16 @@ address {
   background-color: white;
   border: 1px solid #bebebe;
   border-radius: 50px;
-  box-shadow: inset 0 0 2px 0px #4f501b;
+  /* box-shadow: inset 0 0 2px 0px #4f501b; */
   position: relative;
+  box-shadow: inset -2px -2px 3px 0px #4f501b;
+
 }
 
 .bizLogoContainer .imageInContainer {
-  width: 100%;
+  width: 70%;
   /* max-width: 5.9em; */
-  border-radius: 50px;
+  /* border-radius: 50px; */
 }
 
 .imageInContainer {
