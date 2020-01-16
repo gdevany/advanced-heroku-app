@@ -33,7 +33,7 @@
     "babel-preset-es2015": "^6.22.0",
     "babel-preset-stage-0": "^6.22.0",
     "babel-resolver": "^1.1.0",
-    "eslint": "^3.16.1",
+    "eslint": "^4.18.2",
     "eslint-plugin-babel": "^4.1.0",
     "eslint-plugin-react": "^6.10.0",
     "foreman": "^2.0.0",
