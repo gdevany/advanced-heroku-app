@@ -420,7 +420,6 @@ address {
   /* box-shadow: inset 0 0 2px 0px #4f501b; */
   position: relative;
   box-shadow: inset -2px -2px 3px 0px #4f501b;
-
 }
 
 .bizLogoContainer .imageInContainer {
@@ -574,6 +573,11 @@ strong {
 .mapHeader .mapHeaderToggler {
   margin-right: 10px;
   letter-spacing: normal;
+  border: 1px solid white;
+  padding: 0 5px;
+  border-radius: 3px;
+  background-color: #ff0000;
+  color: #f4f4f4;
 }
 
 .mapHeader .mapHeaderZip {
